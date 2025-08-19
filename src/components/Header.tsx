@@ -7,9 +7,11 @@ const Header = () => {
     <header className="w-full px-6 py-4 flex items-center justify-between relative z-10">
       {/* Logo Area */}
       <div className="flex items-center">
-        <div className="text-2xl font-bold hero-gradient bg-clip-text text-transparent">
-          YourLogo
-        </div>
+        <img 
+          src="/lovable-uploads/4ebce7aa-c438-4114-8c2a-b420e2c6453b.png" 
+          alt="Business Logo" 
+          className="h-10 w-auto"
+        />
       </div>
 
       {/* Navigation Links */}
