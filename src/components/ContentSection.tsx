@@ -45,31 +45,43 @@ const ContentSection = () => {
           </div>
         </div>
 
-        {/* Feature Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {[1, 2, 3].map((item) => (
-            <div
-              key={item}
-              className="card-gradient rounded-2xl p-8 stroke-border animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300"
-              style={{ animationDelay: `${item * 0.1}s` }}
-            >
-              {/* Card gradient overlay */}
-              <div className="absolute inset-0 opacity-50 bg-gradient-to-br from-primary/10 to-transparent group-hover:opacity-70 transition-opacity duration-300"></div>
-              
-              <div className="relative z-10">
-                <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center mb-6">
-                  <div className="w-6 h-6 rounded bg-primary"></div>
+        {/* Feature Cards with Image */}
+        <div className="grid lg:grid-cols-4 gap-8">
+          {/* Text Columns */}
+          <div className="lg:col-span-3 grid md:grid-cols-3 gap-6">
+            {[1, 2, 3].map((item) => (
+              <div
+                key={item}
+                className="bg-emerald-950/30 border border-emerald-900/20 rounded-2xl p-6 animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300"
+                style={{ animationDelay: `${item * 0.1}s` }}
+              >
+                {/* Card gradient overlay */}
+                <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-emerald-600/10 to-transparent group-hover:opacity-50 transition-opacity duration-300"></div>
+                
+                <div className="relative z-10">
+                  <div className="w-10 h-10 rounded-lg bg-emerald-700/30 flex items-center justify-center mb-4">
+                    <div className="w-5 h-5 rounded bg-emerald-600"></div>
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-3">
+                    Feature {item}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Discover powerful features that help you achieve more with less effort. 
+                    Our solutions are designed for modern workflows.
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-4">
-                  Feature {item}
-                </h3>
-                <p className="text-muted-foreground">
-                  Discover powerful features that help you achieve more with less effort. 
-                  Our solutions are designed for modern workflows.
-                </p>
+              </div>
+            ))}
+          </div>
+          
+          {/* Image Column */}
+          <div className="animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <div className="bg-emerald-950/30 border border-emerald-900/20 rounded-2xl p-6 h-full flex items-center justify-center">
+              <div className="w-full aspect-square bg-emerald-800/20 rounded-xl flex items-center justify-center">
+                <div className="text-emerald-400/60 text-sm">Image Placeholder</div>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

@@ -18,7 +18,7 @@ const HeroBanner = () => {
   }, [backgroundImages.length]);
 
   return (
-    <section className="relative w-full h-96 overflow-hidden rounded-2xl mx-6 animate-fade-in-banner">
+    <section className="relative w-full h-96 overflow-hidden rounded-2xl animate-fade-in-banner">
       {/* Background images with transition */}
       {backgroundImages.map((image, index) => (
         <div
