@@ -12,19 +12,23 @@ const HeroBanner = () => {
       setCurrentImageIndex((prevIndex) => 
         prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
       );
-    }, 4000); // Change image every 4 seconds
+    }, 5000); // Change image every 5 seconds
 
     return () => clearInterval(interval);
   }, [backgroundImages.length]);
 
   return (
-    <section className="relative w-full h-96 overflow-hidden rounded-2xl animate-fade-in-banner">
-      {/* Background images with transition */}
+    <section className="relative w-full h-96 overflow-hidden animate-fade-in-banner">
+      {/* Background images with slide transition */}
       {backgroundImages.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${
-            index === currentImageIndex ? 'opacity-50' : 'opacity-0'
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ${
+            index === currentImageIndex 
+              ? 'opacity-50 translate-x-0' 
+              : index === (currentImageIndex - 1 + backgroundImages.length) % backgroundImages.length
+                ? 'opacity-0 -translate-x-full'
+                : 'opacity-0 translate-x-full'
           }`}
           style={{ backgroundImage: `url(${image})` }}
         />
