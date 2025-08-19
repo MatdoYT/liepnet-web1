@@ -1,6 +1,14 @@
+import heroBg from "@/assets/hero-bg.jpg";
+
 const HeroBanner = () => {
   return (
     <section className="relative w-full h-96 overflow-hidden rounded-2xl mx-6 animate-fade-in-banner">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      ></div>
+      
       {/* Banner with fade effect */}
       <div className="absolute inset-0 banner-fade"></div>
       
