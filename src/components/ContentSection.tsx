@@ -40,7 +40,7 @@ const ContentSection = () => {
         }}>
             <div 
               ref={imageRef}
-              className="relative rounded-2xl overflow-hidden stroke-border cursor-pointer"
+              className="relative rounded-2xl overflow-hidden cursor-pointer"
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}
               style={{
@@ -51,7 +51,7 @@ const ContentSection = () => {
               <img 
                 src="/lovable-uploads/e98631d3-970c-4648-98fd-9425dd2e5140.png" 
                 alt="Modern digital workspace" 
-                className="w-full h-96 object-cover" 
+                className="w-full h-96 object-contain" 
               />
               <div className="absolute inset-0 card-gradient opacity-10"></div>
             </div>
