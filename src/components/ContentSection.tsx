@@ -7,12 +7,7 @@ const ContentSection = () => {
           {/* Text Column */}
           <div className="space-y-6 animate-fade-in">
             <h2 className="text-4xl font-bold text-foreground">WHAT IS LIEPNET™?</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">LIEPNET™ provides a range of services, including logo development, hosting, business WI-FI and network planning, meteorological information, and tech tips for everyone.
-
-
-LIEPNET™ is proudly founded in Latvia, all of our services are hosted on out
-
-          </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">LIEPNET™ provides a range of services, including logo development, hosting, business WI-FI and network planning, meteorological information, and tech tips for everyone.</p>
             
           </div>
 
