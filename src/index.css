@@ -41,6 +41,8 @@ All colors MUST be HSL.
     --card-gradient: linear-gradient(135deg, 240 5% 8%, 240 3% 12%);
     --banner-gradient: linear-gradient(180deg, 263 70% 50%, transparent);
     --stroke: 240 6% 25%;
+    --light-blue: 200 80% 60%;
+    --light-blue-gradient: linear-gradient(135deg, 200 80% 15%, 200 70% 20%);
     
     --radius: 1rem;
 
@@ -126,6 +128,10 @@ All colors MUST be HSL.
   
   .stroke-border {
     border: 1px solid hsl(var(--stroke));
+  }
+  
+  .light-blue-gradient {
+    background: var(--light-blue-gradient);
   }
 }
 
