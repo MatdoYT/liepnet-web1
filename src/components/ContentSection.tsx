@@ -1,6 +1,28 @@
-import heroImage from "@/assets/hero-content.jpg";
 import { Button } from "@/components/ui/button";
+import { useRef, useState } from "react";
 const ContentSection = () => {
+  const imageRef = useRef<HTMLDivElement>(null);
+  const [transform, setTransform] = useState("perspective(1000px) rotateX(0deg) rotateY(0deg)");
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!imageRef.current) return;
+    
+    const rect = imageRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = (y - centerY) / centerY * -10; // Max 10 degrees
+    const rotateY = (x - centerX) / centerX * 10;   // Max 10 degrees
+    
+    setTransform(`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`);
+  };
+
+  const handleMouseLeave = () => {
+    setTransform("perspective(1000px) rotateX(0deg) rotateY(0deg)");
+  };
   return <section className="px-6 py-16">
       <div className="max-w-7xl mx-auto">
         {/* Main content columns */}
@@ -16,8 +38,21 @@ const ContentSection = () => {
           <div className="animate-fade-in" style={{
           animationDelay: '0.2s'
         }}>
-            <div className="relative rounded-2xl overflow-hidden stroke-border">
-              <img src={heroImage} alt="Modern digital workspace" className="w-full h-96 object-cover" />
+            <div 
+              ref={imageRef}
+              className="relative rounded-2xl overflow-hidden stroke-border cursor-pointer"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              style={{
+                transform: transform,
+                transition: 'transform 0.1s ease-out'
+              }}
+            >
+              <img 
+                src="/lovable-uploads/e98631d3-970c-4648-98fd-9425dd2e5140.png" 
+                alt="Modern digital workspace" 
+                className="w-full h-96 object-cover" 
+              />
               <div className="absolute inset-0 card-gradient opacity-10"></div>
             </div>
           </div>
