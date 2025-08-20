@@ -27,27 +27,31 @@ const ContentSection = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {[1, 2, 3].map(item => {
             const isFirst = item === 1;
+            const isSecond = item === 2;
             return (
-              <div key={item} className={`${isFirst ? 'light-blue-gradient' : 'card-gradient'} rounded-2xl p-8 stroke-border animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300`} style={{
+              <div key={item} className={`${isFirst ? 'light-blue-gradient' : isSecond ? 'bright-green-gradient' : 'card-gradient'} rounded-2xl p-8 stroke-border animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300`} style={{
                 animationDelay: `${item * 0.1}s`
               }}>
                 {/* Card gradient overlay */}
-                <div className={`absolute inset-0 opacity-50 bg-gradient-to-br ${isFirst ? 'from-blue-400/10' : 'from-primary/10'} to-transparent group-hover:opacity-70 transition-opacity duration-300`}></div>
+                <div className={`absolute inset-0 opacity-50 bg-gradient-to-br ${isFirst ? 'from-blue-400/10' : isSecond ? 'from-green-400/10' : 'from-primary/10'} to-transparent group-hover:opacity-70 transition-opacity duration-300`}></div>
                 
                 <div className="relative z-10">
-                  <div className={`w-12 h-12 rounded-lg ${isFirst ? 'bg-blue-400/20' : 'bg-primary/20'} flex items-center justify-center mb-6`}>
-                    <div className={`w-6 h-6 rounded ${isFirst ? 'bg-blue-400' : 'bg-primary'}`}></div>
+                  <div className={`w-12 h-12 rounded-lg ${isFirst ? 'bg-blue-400/20' : isSecond ? 'bg-green-400/20' : 'bg-primary/20'} flex items-center justify-center mb-6`}>
+                    <div className={`w-6 h-6 rounded ${isFirst ? 'bg-blue-400' : isSecond ? 'bg-green-400' : 'bg-primary'}`}></div>
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-4">
-                    {isFirst ? 'Meteorological network' : `Feature ${item}`}
+                    {isFirst ? 'Meteorological network' : isSecond ? 'Logo development' : `Feature ${item}`}
                   </h3>
                   <p className="text-muted-foreground mb-6">
                     {isFirst 
                       ? 'The LIEPNET™ meteorological network in Latvia.' 
+                      : isSecond 
+                      ? 'Does your business need a new refreshed look?'
                       : 'Discover powerful features that help you achieve more with less effort. Our solutions are designed for modern workflows.'
                     }
                   </p>
                   {isFirst && <Button variant="outline" className="mt-2">Explore</Button>}
+                  {isSecond && <Button variant="outline" className="mt-2">Order</Button>}
                 </div>
               </div>
             );

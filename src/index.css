@@ -43,6 +43,8 @@ All colors MUST be HSL.
     --stroke: 240 6% 25%;
     --light-blue: 200 80% 60%;
     --light-blue-gradient: linear-gradient(135deg, 200 80% 15%, 200 70% 20%);
+    --bright-green: 120 80% 50%;
+    --bright-green-gradient: linear-gradient(135deg, 120 80% 15%, 120 70% 20%);
     
     --radius: 1rem;
 
@@ -132,6 +134,10 @@ All colors MUST be HSL.
   
   .light-blue-gradient {
     background: var(--light-blue-gradient);
+  }
+  
+  .bright-green-gradient {
+    background: var(--bright-green-gradient);
   }
 }
 
