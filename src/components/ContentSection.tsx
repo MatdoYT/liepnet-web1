@@ -68,34 +68,41 @@ const ContentSection = () => {
             const isFifth = item === 5;
             const isSixth = item === 6;
             return (
-              <div key={item} className={`${isFirst ? 'light-blue-gradient' : isFourth ? 'dark-green-gradient' : isSecond || isFifth ? 'bright-green-gradient' : isThird || isSixth ? 'bright-red-gradient' : 'card-gradient'} rounded-2xl p-8 stroke-border animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300`} style={{
+              <div key={item} className={`${isFirst ? 'light-blue-gradient' : isFourth ? 'dark-green-gradient' : isSecond ? 'bright-green-gradient' : isFifth ? 'bright-purple-gradient' : isThird ? 'bright-red-gradient' : isSixth ? 'bright-yellow-gradient' : 'card-gradient'} rounded-2xl p-8 stroke-border animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300`} style={{
                 animationDelay: `${item * 0.1}s`
               }}>
                 {/* Card gradient overlay */}
-                <div className={`absolute inset-0 opacity-50 bg-gradient-to-br ${isFirst ? 'from-blue-400/10' : isFourth ? 'from-green-700/10' : isSecond || isFifth ? 'from-green-400/10' : isThird || isSixth ? 'from-red-400/10' : 'from-primary/10'} to-transparent group-hover:opacity-70 transition-opacity duration-300`}></div>
+                <div className={`absolute inset-0 opacity-50 bg-gradient-to-br ${isFirst ? 'from-blue-400/10' : isFourth ? 'from-green-700/10' : isSecond ? 'from-green-400/10' : isFifth ? 'from-purple-400/10' : isThird ? 'from-red-400/10' : isSixth ? 'from-yellow-400/10' : 'from-primary/10'} to-transparent group-hover:opacity-70 transition-opacity duration-300`}></div>
                 
                 <div className="relative z-10">
-                  <div className={`w-12 h-12 rounded-lg ${isFirst ? 'bg-blue-400/20' : isFourth ? 'bg-green-700/20' : isSecond || isFifth ? 'bg-green-400/20' : isThird || isSixth ? 'bg-red-400/20' : 'bg-primary/20'} flex items-center justify-center mb-6`}>
-                    <div className={`w-6 h-6 rounded ${isFirst ? 'bg-blue-400' : isFourth ? 'bg-green-700' : isSecond || isFifth ? 'bg-green-400' : isThird || isSixth ? 'bg-red-400' : 'bg-primary'}`}></div>
+                  <div className={`w-12 h-12 rounded-lg ${isFirst ? 'bg-blue-400/20' : isFourth ? 'bg-green-700/20' : isSecond ? 'bg-green-400/20' : isFifth ? 'bg-purple-400/20' : isThird ? 'bg-red-400/20' : isSixth ? 'bg-yellow-400/20' : 'bg-primary/20'} flex items-center justify-center mb-6`}>
+                    <div className={`w-6 h-6 rounded ${isFirst ? 'bg-blue-400' : isFourth ? 'bg-green-700' : isSecond ? 'bg-green-400' : isFifth ? 'bg-purple-400' : isThird ? 'bg-red-400' : isSixth ? 'bg-yellow-400' : 'bg-primary'}`}></div>
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-4">
-                    {isFirst ? 'Meteorological network' : isFourth ? 'Hosting' : isSecond || isFifth ? 'Logo development' : isThird || isSixth ? 'WI-FI & network planning' : `Feature ${item}`}
+                    {isFirst ? 'Meteorological network' : isFourth ? 'Hosting' : isSecond ? 'Logo development' : isFifth ? 'Gaming' : isThird ? 'WI-FI & network planning' : isSixth ? 'Forums & tech tips' : `Feature ${item}`}
                   </h3>
                   <p className="text-muted-foreground mb-6">
                     {isFirst
                       ? 'The LIEPNET™ meteorological network in Latvia.' 
                       : isFourth
                       ? 'LIEPNET™ hosting services'
-                      : isSecond || isFifth
+                      : isSecond
                       ? 'Does your business need a new refreshed look?'
-                      : isThird || isSixth
+                      : isFifth
+                      ? 'Bored? Then check out our games!'
+                      : isThird
                       ? 'Does your business have WI-FI or connectivity issues? Is your tech outdated?'
+                      : isSixth
+                      ? 'Explore the LIEPNET™ forums and tech tips!'
                       : 'Discover powerful features that help you achieve more with less effort. Our solutions are designed for modern workflows.'
                     }
                   </p>
-                  {(isFirst || isFourth) && <Button variant="outline" className="mt-2">Explore</Button>}
-                  {(isSecond || isFifth) && <Button variant="outline" className="mt-2">Order</Button>}
-                  {(isThird || isSixth) && <Button variant="outline" className="mt-2">Request</Button>}
+                  {isFirst && <Button variant="outline" className="mt-2">Explore</Button>}
+                  {isFourth && <Button variant="outline" className="mt-2">Start</Button>}
+                  {isSecond && <Button variant="outline" className="mt-2">Order</Button>}
+                  {isFifth && <Button variant="outline" className="mt-2">Play</Button>}
+                  {isThird && <Button variant="outline" className="mt-2">Request</Button>}
+                  {isSixth && <Button variant="outline" className="mt-2">Explore</Button>}
                 </div>
               </div>
             );

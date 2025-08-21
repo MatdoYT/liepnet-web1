@@ -49,6 +49,10 @@ All colors MUST be HSL.
     --bright-red-gradient: linear-gradient(135deg, 0 80% 15%, 0 70% 20%);
     --dark-green: 120 50% 30%;
     --dark-green-gradient: linear-gradient(135deg, 120 50% 10%, 120 40% 15%);
+    --bright-purple: 280 80% 50%;
+    --bright-purple-gradient: linear-gradient(135deg, 280 80% 15%, 280 70% 20%);
+    --bright-yellow: 60 80% 50%;
+    --bright-yellow-gradient: linear-gradient(135deg, 60 80% 15%, 60 70% 20%);
     
     --radius: 1rem;
 
@@ -150,6 +154,14 @@ All colors MUST be HSL.
   
   .dark-green-gradient {
     background: var(--dark-green-gradient);
+  }
+  
+  .bright-purple-gradient {
+    background: var(--bright-purple-gradient);
+  }
+  
+  .bright-yellow-gradient {
+    background: var(--bright-yellow-gradient);
   }
 }
 
