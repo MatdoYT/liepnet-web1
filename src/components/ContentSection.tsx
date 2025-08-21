@@ -68,22 +68,24 @@ const ContentSection = () => {
             const isFifth = item === 5;
             const isSixth = item === 6;
             return (
-              <div key={item} className={`${isFirst || isFourth ? 'light-blue-gradient' : isSecond || isFifth ? 'bright-green-gradient' : isThird || isSixth ? 'bright-red-gradient' : 'card-gradient'} rounded-2xl p-8 stroke-border animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300`} style={{
+              <div key={item} className={`${isFirst ? 'light-blue-gradient' : isFourth ? 'dark-green-gradient' : isSecond || isFifth ? 'bright-green-gradient' : isThird || isSixth ? 'bright-red-gradient' : 'card-gradient'} rounded-2xl p-8 stroke-border animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300`} style={{
                 animationDelay: `${item * 0.1}s`
               }}>
                 {/* Card gradient overlay */}
-                <div className={`absolute inset-0 opacity-50 bg-gradient-to-br ${isFirst || isFourth ? 'from-blue-400/10' : isSecond || isFifth ? 'from-green-400/10' : isThird || isSixth ? 'from-red-400/10' : 'from-primary/10'} to-transparent group-hover:opacity-70 transition-opacity duration-300`}></div>
+                <div className={`absolute inset-0 opacity-50 bg-gradient-to-br ${isFirst ? 'from-blue-400/10' : isFourth ? 'from-green-700/10' : isSecond || isFifth ? 'from-green-400/10' : isThird || isSixth ? 'from-red-400/10' : 'from-primary/10'} to-transparent group-hover:opacity-70 transition-opacity duration-300`}></div>
                 
                 <div className="relative z-10">
-                  <div className={`w-12 h-12 rounded-lg ${isFirst || isFourth ? 'bg-blue-400/20' : isSecond || isFifth ? 'bg-green-400/20' : isThird || isSixth ? 'bg-red-400/20' : 'bg-primary/20'} flex items-center justify-center mb-6`}>
-                    <div className={`w-6 h-6 rounded ${isFirst || isFourth ? 'bg-blue-400' : isSecond || isFifth ? 'bg-green-400' : isThird || isSixth ? 'bg-red-400' : 'bg-primary'}`}></div>
+                  <div className={`w-12 h-12 rounded-lg ${isFirst ? 'bg-blue-400/20' : isFourth ? 'bg-green-700/20' : isSecond || isFifth ? 'bg-green-400/20' : isThird || isSixth ? 'bg-red-400/20' : 'bg-primary/20'} flex items-center justify-center mb-6`}>
+                    <div className={`w-6 h-6 rounded ${isFirst ? 'bg-blue-400' : isFourth ? 'bg-green-700' : isSecond || isFifth ? 'bg-green-400' : isThird || isSixth ? 'bg-red-400' : 'bg-primary'}`}></div>
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-4">
-                    {isFirst || isFourth ? 'Meteorological network' : isSecond || isFifth ? 'Logo development' : isThird || isSixth ? 'WI-FI & network planning' : `Feature ${item}`}
+                    {isFirst ? 'Meteorological network' : isFourth ? 'Hosting' : isSecond || isFifth ? 'Logo development' : isThird || isSixth ? 'WI-FI & network planning' : `Feature ${item}`}
                   </h3>
                   <p className="text-muted-foreground mb-6">
-                    {isFirst || isFourth
+                    {isFirst
                       ? 'The LIEPNET™ meteorological network in Latvia.' 
+                      : isFourth
+                      ? 'LIEPNET™ hosting services'
                       : isSecond || isFifth
                       ? 'Does your business need a new refreshed look?'
                       : isThird || isSixth

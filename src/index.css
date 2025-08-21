@@ -47,6 +47,8 @@ All colors MUST be HSL.
     --bright-green-gradient: linear-gradient(135deg, 120 80% 15%, 120 70% 20%);
     --bright-red: 0 80% 50%;
     --bright-red-gradient: linear-gradient(135deg, 0 80% 15%, 0 70% 20%);
+    --dark-green: 120 50% 30%;
+    --dark-green-gradient: linear-gradient(135deg, 120 50% 10%, 120 40% 15%);
     
     --radius: 1rem;
 
@@ -144,6 +146,10 @@ All colors MUST be HSL.
   
   .bright-red-gradient {
     background: var(--bright-red-gradient);
+  }
+  
+  .dark-green-gradient {
+    background: var(--dark-green-gradient);
   }
 }
 
