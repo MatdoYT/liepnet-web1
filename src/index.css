@@ -169,23 +169,23 @@ All colors MUST be HSL.
   }
   
   .yellow-gradient {
-    @apply bg-gradient-to-br from-yellow via-yellow/90 to-yellow/80;
+    background: linear-gradient(135deg, hsl(var(--yellow)) 0%, hsl(var(--yellow) / 0.9) 50%, hsl(var(--yellow) / 0.8) 100%);
   }
 
   .purple-gradient {
-    @apply bg-gradient-to-br from-bright-purple via-bright-purple/90 to-bright-purple/80;
+    background: linear-gradient(135deg, hsl(var(--bright-purple)) 0%, hsl(var(--bright-purple) / 0.9) 50%, hsl(var(--bright-purple) / 0.8) 100%);
   }
 
   .orange-gradient {
-    @apply bg-gradient-to-br from-orange via-orange/90 to-orange/80;
+    background: linear-gradient(135deg, hsl(var(--orange)) 0%, hsl(var(--orange) / 0.9) 50%, hsl(var(--orange) / 0.8) 100%);
   }
 
   .blue-gradient {
-    @apply bg-gradient-to-br from-blue via-blue/90 to-blue/80;
+    background: linear-gradient(135deg, hsl(var(--blue)) 0%, hsl(var(--blue) / 0.9) 50%, hsl(var(--blue) / 0.8) 100%);
   }
 
   .gray-gradient {
-    @apply bg-gradient-to-br from-gray via-gray/90 to-gray/80;
+    background: linear-gradient(135deg, hsl(var(--gray)) 0%, hsl(var(--gray) / 0.9) 50%, hsl(var(--gray) / 0.8) 100%);
   }
 }
 
