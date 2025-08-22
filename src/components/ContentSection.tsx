@@ -60,26 +60,82 @@ const ContentSection = () => {
 
         {/* Feature Cards */}
         <div className="grid md:grid-cols-3 gap-8">
-          {[1, 2, 3, 4, 5, 6].map(item => {
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(item => {
             const isFirst = item === 1;
             const isSecond = item === 2;
             const isThird = item === 3;
             const isFourth = item === 4;
             const isFifth = item === 5;
             const isSixth = item === 6;
+            const isSeventh = item === 7;
+            const isEighth = item === 8;
+            const isNinth = item === 9;
             return (
-              <div key={item} className={`${isFirst ? 'light-blue-gradient' : isFourth ? 'dark-green-gradient' : isSecond ? 'bright-green-gradient' : isFifth ? 'bright-purple-gradient' : isThird ? 'bright-red-gradient' : isSixth ? 'bright-yellow-gradient' : 'card-gradient'} rounded-2xl p-8 stroke-border animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300`} style={{
+              <div key={item} className={`${
+                isFirst ? 'light-blue-gradient' : 
+                isFourth ? 'dark-green-gradient' : 
+                isSecond ? 'bright-green-gradient' : 
+                isFifth ? 'purple-gradient' : 
+                isThird ? 'bright-red-gradient' : 
+                isSixth ? 'yellow-gradient' : 
+                isSeventh ? 'orange-gradient' : 
+                isEighth ? 'blue-gradient' : 
+                isNinth ? 'gray-gradient' : 
+                'card-gradient'
+              } rounded-2xl p-8 stroke-border animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300`} style={{
                 animationDelay: `${item * 0.1}s`
               }}>
                 {/* Card gradient overlay */}
-                <div className={`absolute inset-0 opacity-50 bg-gradient-to-br ${isFirst ? 'from-blue-400/10' : isFourth ? 'from-green-700/10' : isSecond ? 'from-green-400/10' : isFifth ? 'from-purple-400/10' : isThird ? 'from-red-400/10' : isSixth ? 'from-yellow-400/10' : 'from-primary/10'} to-transparent group-hover:opacity-70 transition-opacity duration-300`}></div>
+                <div className={`absolute inset-0 opacity-50 bg-gradient-to-br ${
+                  isFirst ? 'from-blue-400/10' : 
+                  isFourth ? 'from-green-700/10' : 
+                  isSecond ? 'from-green-400/10' : 
+                  isFifth ? 'from-purple-400/10' : 
+                  isThird ? 'from-red-400/10' : 
+                  isSixth ? 'from-yellow-400/10' : 
+                  isSeventh ? 'from-orange-400/10' : 
+                  isEighth ? 'from-blue-500/10' : 
+                  isNinth ? 'from-gray-400/10' : 
+                  'from-primary/10'
+                } to-transparent group-hover:opacity-70 transition-opacity duration-300`}></div>
                 
                 <div className="relative z-10">
-                  <div className={`w-12 h-12 rounded-lg ${isFirst ? 'bg-blue-400/20' : isFourth ? 'bg-green-700/20' : isSecond ? 'bg-green-400/20' : isFifth ? 'bg-purple-400/20' : isThird ? 'bg-red-400/20' : isSixth ? 'bg-yellow-400/20' : 'bg-primary/20'} flex items-center justify-center mb-6`}>
-                    <div className={`w-6 h-6 rounded ${isFirst ? 'bg-blue-400' : isFourth ? 'bg-green-700' : isSecond ? 'bg-green-400' : isFifth ? 'bg-purple-400' : isThird ? 'bg-red-400' : isSixth ? 'bg-yellow-400' : 'bg-primary'}`}></div>
+                  <div className={`w-12 h-12 rounded-lg ${
+                    isFirst ? 'bg-blue-400/20' : 
+                    isFourth ? 'bg-green-700/20' : 
+                    isSecond ? 'bg-green-400/20' : 
+                    isFifth ? 'bg-purple-400/20' : 
+                    isThird ? 'bg-red-400/20' : 
+                    isSixth ? 'bg-yellow-400/20' : 
+                    isSeventh ? 'bg-orange-400/20' : 
+                    isEighth ? 'bg-blue-500/20' : 
+                    isNinth ? 'bg-gray-400/20' : 
+                    'bg-primary/20'
+                  } flex items-center justify-center mb-6`}>
+                    <div className={`w-6 h-6 rounded ${
+                      isFirst ? 'bg-blue-400' : 
+                      isFourth ? 'bg-green-700' : 
+                      isSecond ? 'bg-green-400' : 
+                      isFifth ? 'bg-purple-400' : 
+                      isThird ? 'bg-red-400' : 
+                      isSixth ? 'bg-yellow-400' : 
+                      isSeventh ? 'bg-orange-400' : 
+                      isEighth ? 'bg-blue-500' : 
+                      isNinth ? 'bg-gray-400' : 
+                      'bg-primary'
+                    }`}></div>
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-4">
-                    {isFirst ? 'Meteorological network' : isFourth ? 'Hosting' : isSecond ? 'Logo development' : isFifth ? 'Gaming' : isThird ? 'WI-FI & network planning' : isSixth ? 'Forums & tech tips' : `Feature ${item}`}
+                    {isFirst ? 'Meteorological network' : 
+                     isFourth ? 'Hosting' : 
+                     isSecond ? 'Logo development' : 
+                     isFifth ? 'Gaming' : 
+                     isThird ? 'WI-FI & network planning' : 
+                     isSixth ? 'Forums & tech tips' : 
+                     isSeventh ? 'Radio' : 
+                     isEighth ? 'Maps' : 
+                     isNinth ? 'More...' : 
+                     `Feature ${item}`}
                   </h3>
                   <p className="text-muted-foreground mb-6">
                     {isFirst
@@ -94,6 +150,12 @@ const ContentSection = () => {
                       ? 'Does your business have WI-FI or connectivity issues? Is your tech outdated?'
                       : isSixth
                       ? 'Explore the LIEPNET™ forums and tech tips!'
+                      : isSeventh
+                      ? 'LIEPNET™ Radio Player'
+                      : isEighth
+                      ? 'Explore the LIEPNET™ maps'
+                      : isNinth
+                      ? 'See more of our services'
                       : 'Discover powerful features that help you achieve more with less effort. Our solutions are designed for modern workflows.'
                     }
                   </p>
@@ -103,6 +165,9 @@ const ContentSection = () => {
                   {isFifth && <Button variant="outline" className="mt-2">Play</Button>}
                   {isThird && <Button variant="outline" className="mt-2">Request</Button>}
                   {isSixth && <Button variant="outline" className="mt-2">Explore</Button>}
+                  {isSeventh && <Button variant="outline" className="mt-2">Listen</Button>}
+                  {isEighth && <Button variant="outline" className="mt-2">Explore</Button>}
+                  {isNinth && <Button variant="outline" className="mt-2">More...</Button>}
                 </div>
               </div>
             );

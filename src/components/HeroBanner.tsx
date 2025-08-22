@@ -43,7 +43,8 @@ const HeroBanner = () => {
   }, [backgroundImages.length, isPaused]);
 
   return (
-    <section className="relative w-full h-[32rem] md:h-[36rem] lg:h-[40rem] overflow-hidden animate-fade-in-banner">
+    <div className="space-y-4">
+      <section className="relative w-full h-[24rem] md:h-[28rem] lg:h-[32rem] overflow-hidden animate-fade-in-banner">
       {/* Background images with slide transition */}
       {backgroundImages.map((image, index) => (
         <div
@@ -64,23 +65,24 @@ const HeroBanner = () => {
 
       {/* Subtle pattern overlay */}
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]"></div>
+      </section>
       
-      {/* Navigation dots */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+      {/* Navigation dots - moved outside banner */}
+      <div className="flex justify-center space-x-3 pb-4">
         {backgroundImages.map((_, index) => (
           <button
             key={index}
             onClick={() => handleDotClick(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-110 ${
               index === currentImageIndex
-                ? 'bg-white shadow-lg ring-2 ring-white/30'
-                : 'bg-white/50 hover:bg-white/70'
+                ? 'bg-primary shadow-lg ring-2 ring-primary/30'
+                : 'bg-muted-foreground/50 hover:bg-muted-foreground/70'
             }`}
             aria-label={`Go to image ${index + 1}`}
           />
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 

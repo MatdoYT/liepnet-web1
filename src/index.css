@@ -49,10 +49,14 @@ All colors MUST be HSL.
     --bright-red-gradient: linear-gradient(135deg, 0 80% 15%, 0 70% 20%);
     --dark-green: 120 50% 30%;
     --dark-green-gradient: linear-gradient(135deg, 120 50% 10%, 120 40% 15%);
-    --bright-purple: 280 80% 50%;
+    --bright-purple: 269 86% 64%;
     --bright-purple-gradient: linear-gradient(135deg, 280 80% 15%, 280 70% 20%);
     --bright-yellow: 60 80% 50%;
     --bright-yellow-gradient: linear-gradient(135deg, 60 80% 15%, 60 70% 20%);
+    --yellow: 45 93% 58%;
+    --orange: 25 95% 53%;
+    --blue: 221 83% 53%;
+    --gray: 220 9% 46%;
     
     --radius: 1rem;
 
@@ -162,6 +166,26 @@ All colors MUST be HSL.
   
   .bright-yellow-gradient {
     background: var(--bright-yellow-gradient);
+  }
+  
+  .yellow-gradient {
+    @apply bg-gradient-to-br from-yellow via-yellow/90 to-yellow/80;
+  }
+
+  .purple-gradient {
+    @apply bg-gradient-to-br from-bright-purple via-bright-purple/90 to-bright-purple/80;
+  }
+
+  .orange-gradient {
+    @apply bg-gradient-to-br from-orange via-orange/90 to-orange/80;
+  }
+
+  .blue-gradient {
+    @apply bg-gradient-to-br from-blue via-blue/90 to-blue/80;
+  }
+
+  .gray-gradient {
+    @apply bg-gradient-to-br from-gray via-gray/90 to-gray/80;
   }
 }
 
