@@ -189,8 +189,13 @@ All colors MUST be HSL.
   }
   
   .banner-glow {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 50%, transparent 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 40%, rgba(255, 255, 255, 0.02) 70%, transparent 100%);
     pointer-events: none;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
   }
 }
 
