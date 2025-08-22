@@ -43,8 +43,7 @@ const HeroBanner = () => {
   }, [backgroundImages.length, isPaused]);
 
   return (
-    <div className="space-y-4">
-      <section className="relative w-full h-[24rem] md:h-[28rem] lg:h-[32rem] overflow-hidden animate-fade-in-banner">
+    <section className="relative w-full h-[24rem] md:h-[28rem] lg:h-[32rem] overflow-hidden animate-fade-in-banner">
       {/* Background images with slide transition */}
       {backgroundImages.map((image, index) => (
         <div
@@ -65,10 +64,9 @@ const HeroBanner = () => {
 
       {/* Subtle pattern overlay */}
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]"></div>
-      </section>
       
-      {/* Navigation dots - moved outside banner */}
-      <div className="flex justify-center space-x-3 pb-4">
+      {/* Navigation dots */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
         {backgroundImages.map((_, index) => (
           <button
             key={index}
@@ -82,7 +80,7 @@ const HeroBanner = () => {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
