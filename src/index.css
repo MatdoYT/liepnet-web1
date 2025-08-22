@@ -54,9 +54,13 @@ All colors MUST be HSL.
     --bright-yellow: 60 80% 50%;
     --bright-yellow-gradient: linear-gradient(135deg, 60 80% 15%, 60 70% 20%);
     --yellow: 45 93% 58%;
+    --yellow-gradient: linear-gradient(135deg, 45 93% 15%, 45 83% 20%);
     --orange: 25 95% 53%;
+    --orange-gradient: linear-gradient(135deg, 25 95% 15%, 25 85% 20%);
     --blue: 221 83% 53%;
+    --blue-gradient: linear-gradient(135deg, 221 83% 15%, 221 73% 20%);
     --gray: 220 9% 46%;
+    --gray-gradient: linear-gradient(135deg, 220 9% 15%, 220 9% 20%);
     
     --radius: 1rem;
 
@@ -164,28 +168,29 @@ All colors MUST be HSL.
     background: var(--bright-purple-gradient);
   }
   
-  .bright-yellow-gradient {
-    background: var(--bright-yellow-gradient);
+  .purple-gradient {
+    background: var(--bright-purple-gradient);
   }
   
   .yellow-gradient {
-    background: linear-gradient(135deg, hsl(var(--yellow)) 0%, hsl(var(--yellow) / 0.9) 50%, hsl(var(--yellow) / 0.8) 100%);
-  }
-
-  .purple-gradient {
-    background: linear-gradient(135deg, hsl(var(--bright-purple)) 0%, hsl(var(--bright-purple) / 0.9) 50%, hsl(var(--bright-purple) / 0.8) 100%);
+    background: var(--yellow-gradient);
   }
 
   .orange-gradient {
-    background: linear-gradient(135deg, hsl(var(--orange)) 0%, hsl(var(--orange) / 0.9) 50%, hsl(var(--orange) / 0.8) 100%);
+    background: var(--orange-gradient);
   }
 
   .blue-gradient {
-    background: linear-gradient(135deg, hsl(var(--blue)) 0%, hsl(var(--blue) / 0.9) 50%, hsl(var(--blue) / 0.8) 100%);
+    background: var(--blue-gradient);
   }
 
   .gray-gradient {
-    background: linear-gradient(135deg, hsl(var(--gray)) 0%, hsl(var(--gray) / 0.9) 50%, hsl(var(--gray) / 0.8) 100%);
+    background: var(--gray-gradient);
+  }
+  
+  .banner-glow {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 50%, transparent 100%);
+    pointer-events: none;
   }
 }
 

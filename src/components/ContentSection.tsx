@@ -23,8 +23,11 @@ const ContentSection = () => {
   const handleMouseLeave = () => {
     setTransform("perspective(1000px) rotateX(0deg) rotateY(0deg)");
   };
-  return <section className="px-6 py-16">
-      <div className="max-w-7xl mx-auto">
+  return <section className="px-6 py-16 relative">
+      {/* Subtle white glow overlay */}
+      <div className="absolute inset-0 banner-glow"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Main content columns */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           {/* Text Column */}
