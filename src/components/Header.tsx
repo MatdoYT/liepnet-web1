@@ -6,9 +6,27 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown, Globe } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
-  const navLinks = ["About", "Services"];
+  const { currentLanguage, setLanguage, t } = useLanguage();
+  
+  const navLinks = [
+    { key: 'about', label: t('about') },
+    { key: 'services', label: t('services') }
+  ];
+
+  const languages = [
+    { code: 'en' as const, flag: '🇺🇸', name: t('english') },
+    { code: 'lv' as const, flag: '🇱🇻', name: t('latvian') },
+    { code: 'ru' as const, flag: '🇷🇺', name: t('russian') },
+    { code: 'fr' as const, flag: '🇫🇷', name: t('french') },
+  ];
+
+  const getCurrentLanguageDisplay = () => {
+    const current = languages.find(lang => lang.code === currentLanguage);
+    return current ? current.code.toUpperCase() : 'EN';
+  };
 
   return (
     <header className="w-full px-6 py-4 flex items-center justify-between relative z-10">
@@ -27,11 +45,11 @@ const Header = () => {
       <nav className="hidden md:flex items-center space-x-8">
         {navLinks.map((link) => (
           <a
-            key={link}
+            key={link.key}
             href="#"
             className="text-foreground/80 hover:text-primary transition-colors duration-200 relative group"
           >
-            {link}
+            {link.label}
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
           </a>
         ))}
@@ -44,23 +62,27 @@ const Header = () => {
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="sm" className="hidden md:flex items-center space-x-2">
               <Globe className="w-4 h-4" />
-              <span>EN</span>
+              <span>{getCurrentLanguageDisplay()}</span>
               <ChevronDown className="w-3 h-3" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-32">
-            <DropdownMenuItem className="cursor-pointer">
-              🇺🇸 English
-            </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer">
-              🇱🇻 Latviešu
-            </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer">
-              🇷🇺 Русский
-            </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer">
-              🇫🇷 Français
-            </DropdownMenuItem>
+          <DropdownMenuContent align="end" className="w-36 p-1">
+            {languages.map((language) => (
+              <DropdownMenuItem 
+                key={language.code}
+                className="cursor-pointer p-0 focus:bg-transparent"
+                onClick={() => setLanguage(language.code)}
+              >
+                <div className={`flex items-center space-x-2 w-full px-3 py-2 rounded-md border transition-all duration-200 ${
+                  currentLanguage === language.code 
+                    ? 'bg-primary/10 border-primary/30 text-primary' 
+                    : 'bg-background/50 border-border/30 hover:bg-accent/50 hover:border-border/50'
+                }`}>
+                  <span className="text-sm">{language.flag}</span>
+                  <span className="text-sm font-medium">{language.name}</span>
+                </div>
+              </DropdownMenuItem>
+            ))}
           </DropdownMenuContent>
         </DropdownMenu>
 

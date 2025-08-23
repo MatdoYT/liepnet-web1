@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { useRef, useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const ContentSection = () => {
+  const { t } = useLanguage();
   const imageRef = useRef<HTMLDivElement>(null);
   const [transform, setTransform] = useState("perspective(1000px) rotateX(0deg) rotateY(0deg)");
 
@@ -32,8 +35,8 @@ const ContentSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           {/* Text Column */}
           <div className="space-y-6 animate-fade-in">
-            <h2 className="text-4xl font-bold text-foreground">WHAT IS LIEPNET™?</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">LIEPNET™ provides a range of services, including logo development, hosting, business WI-FI and network planning, meteorological information, and tech tips for everyone.</p>
+            <h2 className="text-4xl font-bold text-foreground">{t('whatIsLiepnet')}</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">{t('liepnetDescription')}</p>
             
           </div>
 
@@ -129,48 +132,48 @@ const ContentSection = () => {
                     }`}></div>
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-4">
-                    {isFirst ? 'Meteorological network' : 
-                     isFourth ? 'Hosting' : 
-                     isSecond ? 'Logo development' : 
-                     isFifth ? 'Gaming' : 
-                     isThird ? 'WI-FI & network planning' : 
-                     isSixth ? 'Forums & tech tips' : 
-                     isSeventh ? 'Radio' : 
-                     isEighth ? 'Maps' : 
-                     isNinth ? 'More...' : 
+                    {isFirst ? t('meteorologicalNetwork') : 
+                     isFourth ? t('hosting') : 
+                     isSecond ? t('logoDesign') : 
+                     isFifth ? t('gaming') : 
+                     isThird ? t('wifiNetworking') : 
+                     isSixth ? t('forumsTechTips') : 
+                     isSeventh ? t('radio') : 
+                     isEighth ? t('maps') : 
+                     isNinth ? t('more') : 
                      `Feature ${item}`}
                   </h3>
                   <p className="text-muted-foreground mb-6">
                     {isFirst
-                      ? 'The LIEPNET™ meteorological network in Latvia.' 
+                      ? t('meteorologicalDesc')
                       : isFourth
-                      ? 'LIEPNET™ hosting services'
+                      ? t('hostingDesc')
                       : isSecond
-                      ? 'Does your business need a new refreshed look?'
+                      ? t('logoDesc')
                       : isFifth
-                      ? 'Bored? Then check out our games!'
+                      ? t('gamingDesc')
                       : isThird
-                      ? 'Does your business have WI-FI or connectivity issues? Is your tech outdated?'
+                      ? t('wifiDesc')
                       : isSixth
-                      ? 'Explore the LIEPNET™ forums and tech tips!'
+                      ? t('forumsDesc')
                       : isSeventh
-                      ? 'LIEPNET™ Radio Player'
+                      ? t('radioDesc')
                       : isEighth
-                      ? 'Explore the LIEPNET™ maps'
+                      ? t('mapsDesc')
                       : isNinth
-                      ? 'See more of our services'
+                      ? t('moreDesc')
                       : 'Discover powerful features that help you achieve more with less effort. Our solutions are designed for modern workflows.'
                     }
                   </p>
-                  {isFirst && <Button variant="outline" className="mt-2">Explore</Button>}
-                  {isFourth && <Button variant="outline" className="mt-2">Start</Button>}
-                  {isSecond && <Button variant="outline" className="mt-2">Order</Button>}
-                  {isFifth && <Button variant="outline" className="mt-2">Play</Button>}
-                  {isThird && <Button variant="outline" className="mt-2">Request</Button>}
-                  {isSixth && <Button variant="outline" className="mt-2">Explore</Button>}
-                  {isSeventh && <Button variant="outline" className="mt-2">Listen</Button>}
-                  {isEighth && <Button variant="outline" className="mt-2">Explore</Button>}
-                  {isNinth && <Button variant="outline" className="mt-2">More...</Button>}
+                  {isFirst && <Button variant="outline" className="mt-2">{t('explore')}</Button>}
+                  {isFourth && <Button variant="outline" className="mt-2">{t('start')}</Button>}
+                  {isSecond && <Button variant="outline" className="mt-2">{t('order')}</Button>}
+                  {isFifth && <Button variant="outline" className="mt-2">{t('play')}</Button>}
+                  {isThird && <Button variant="outline" className="mt-2">{t('request')}</Button>}
+                  {isSixth && <Button variant="outline" className="mt-2">{t('explore')}</Button>}
+                  {isSeventh && <Button variant="outline" className="mt-2">{t('listen')}</Button>}
+                  {isEighth && <Button variant="outline" className="mt-2">{t('explore')}</Button>}
+                  {isNinth && <Button variant="outline" className="mt-2">{t('more')}</Button>}
                 </div>
               </div>
             );
@@ -180,20 +183,20 @@ const ContentSection = () => {
         {/* Accomplishments Section */}
         <div className="mt-24">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Our Accomplishments</h2>
-            <p className="text-muted-foreground">Celebrating our milestones and achievements</p>
+            <h2 className="text-3xl font-bold text-foreground mb-4">{t('accomplishments')}</h2>
+            <p className="text-muted-foreground">{t('accomplishmentsDesc')}</p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {[{
-            title: "Award Winner",
-            desc: "Recognized for excellence in innovation and technology solutions."
+            title: t('awardWinner'),
+            desc: t('awardDesc')
           }, {
-            title: "Global Reach",
-            desc: "Serving clients across 50+ countries with premium services."
+            title: t('globalReach'),
+            desc: t('globalDesc')
           }, {
-            title: "Industry Leader",
-            desc: "Setting new standards in digital transformation and growth."
+            title: t('industryLeader'),
+            desc: t('industryDesc')
           }].map((item, index) => <div key={index} className="bg-emerald-950/30 border border-emerald-900/20 rounded-2xl p-6 animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300" style={{
             animationDelay: `${(index + 4) * 0.1}s`
           }}>
@@ -203,7 +206,7 @@ const ContentSection = () => {
                 <div className="relative z-10">
                   {/* Image placeholder */}
                   <div className="w-full h-32 bg-emerald-800/20 rounded-lg mb-4 flex items-center justify-center">
-                    <div className="text-emerald-400/60 text-sm">Achievement Image</div>
+                    <div className="text-emerald-400/60 text-sm">{t('achievementImage')}</div>
                   </div>
                   
                   <h3 className="text-lg font-semibold text-foreground mb-3">
