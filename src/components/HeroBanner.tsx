@@ -2,11 +2,14 @@ import { useState, useEffect, useRef } from "react";
 import heroBg1 from "@/assets/hero-bg-1.jpg";
 import heroBg2 from "@/assets/hero-bg-2.jpg";
 import heroBg3 from "@/assets/hero-bg-3.jpg";
+import heroBg4 from "@/assets/hero-bg-4.jpg";
 
 const HeroBanner = () => {
-  const backgroundImages = [heroBg1, heroBg2, heroBg3];
+  const backgroundImages = [heroBg1, heroBg2, heroBg3, heroBg4];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStartX, setDragStartX] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -21,17 +24,47 @@ const HeroBanner = () => {
     }, 5000); // Change image every 5 seconds
   };
 
-  const handleDotClick = (index: number) => {
-    setCurrentImageIndex(index);
-    setIsPaused(true);
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setDragStartX(e.clientX);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+  };
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (!isDragging) return;
     
-    // Clear existing pause timeout
-    if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
+    const dragEndX = e.clientX;
+    const dragDistance = dragStartX - dragEndX;
+    const minDragDistance = 50;
+
+    if (Math.abs(dragDistance) > minDragDistance) {
+      if (dragDistance > 0) {
+        // Dragged left, go to next image
+        setCurrentImageIndex((prevIndex) => 
+          prevIndex === backgroundImages.length - 1 ? 0 : prevIndex + 1
+        );
+      } else {
+        // Dragged right, go to previous image
+        setCurrentImageIndex((prevIndex) => 
+          prevIndex === 0 ? backgroundImages.length - 1 : prevIndex - 1
+        );
+      }
+      
+      setIsPaused(true);
+      
+      // Clear existing pause timeout
+      if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
+      
+      // Resume auto-cycling after 5 seconds
+      pauseTimeoutRef.current = setTimeout(() => {
+        setIsPaused(false);
+      }, 5000);
+    }
     
-    // Resume auto-cycling after 20 seconds
-    pauseTimeoutRef.current = setTimeout(() => {
-      setIsPaused(false);
-    }, 20000);
+    setIsDragging(false);
   };
 
   useEffect(() => {
@@ -43,7 +76,13 @@ const HeroBanner = () => {
   }, [backgroundImages.length, isPaused]);
 
   return (
-    <section className="relative w-full h-[24rem] md:h-[28rem] lg:h-[32rem] overflow-hidden animate-fade-in-banner">
+    <section 
+      className="relative w-full h-[24rem] md:h-[28rem] lg:h-[32rem] overflow-hidden animate-fade-in-banner cursor-grab active:cursor-grabbing select-none"
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={() => setIsDragging(false)}
+    >
       {/* Background images with slide transition */}
       {backgroundImages.map((image, index) => (
         <div
