@@ -204,9 +204,19 @@ const ContentSection = () => {
                 <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-emerald-600/10 to-transparent group-hover:opacity-50 transition-opacity duration-300"></div>
                 
                 <div className="relative z-10">
-                  {/* Image placeholder */}
-                  <div className="w-full h-32 bg-emerald-800/20 rounded-lg mb-4 flex items-center justify-center">
-                    <div className="text-emerald-400/60 text-sm">{t('achievementImage')}</div>
+                  {/* Image */}
+                  <div className="w-full h-32 bg-emerald-800/20 rounded-lg mb-4 overflow-hidden">
+                    {index === 0 ? (
+                      <img 
+                        src="/lovable-uploads/53ab33fd-314e-49bc-80a1-ec4006d71675.png" 
+                        alt="Meteorological station" 
+                        className="w-full h-full object-cover" 
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <div className="text-emerald-400/60 text-sm">{t('achievementImage')}</div>
+                      </div>
+                    )}
                   </div>
                   
                   <h3 className="text-lg font-semibold text-foreground mb-3">

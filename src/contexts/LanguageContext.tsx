@@ -57,11 +57,11 @@ const translations = {
     request: 'Request',
     listen: 'Listen',
     
-    // Accomplishments
-    accomplishments: 'Our Accomplishments',
-    accomplishmentsDesc: 'Celebrating our milestones and achievements',
-    awardWinner: 'Award Winner',
-    awardDesc: 'Recognized for excellence in innovation and technology solutions.',
+    // Goals
+    accomplishments: 'OUR GOALS',
+    accomplishmentsDesc: 'These are the LIEPNET™ goals',
+    awardWinner: 'Meteorological network',
+    awardDesc: 'Our goal is to create the first crowdsourced meterological network in Latvia, with at least one station per KM². This density could function as a highly precise radar visually.',
     globalReach: 'Global Reach', 
     globalDesc: 'Serving clients across 50+ countries with premium services.',
     industryLeader: 'Industry Leader',
@@ -116,11 +116,11 @@ const translations = {
     request: 'Pieprasīt',
     listen: 'Klausīties',
     
-    // Accomplishments
-    accomplishments: 'Mūsu sasniegumi',
-    accomplishmentsDesc: 'Svinam mūsu atskaites punktus un sasniegumus',
-    awardWinner: 'Balvas ieguvējs',
-    awardDesc: 'Atzīts par izcilību inovācijās un tehnoloģiju risinājumos.',
+    // Goals
+    accomplishments: 'MŪSU MĒRĶI',
+    accomplishmentsDesc: 'Šie ir LIEPNET™ mērķi',
+    awardWinner: 'Meteoroloģiskais tīkls',
+    awardDesc: 'Mūsu mērķis ir izveidot pirmo kolektīvo meteoroloģisko tīklu Latvijā, ar vismaz vienu staciju uz KM². Šis blīvums varētu darboties kā ļoti precīzs radars vizuāli.',
     globalReach: 'Globāls pārklājums',
     globalDesc: 'Apkalpojam klientus vairāk nekā 50 valstīs ar augstākās kvalitātes pakalpojumiem.',
     industryLeader: 'Nozares līderis',
@@ -175,11 +175,11 @@ const translations = {
     request: 'Запросить',
     listen: 'Слушать',
     
-    // Accomplishments
-    accomplishments: 'Наши достижения',
-    accomplishmentsDesc: 'Празднуем наши вехи и достижения',
-    awardWinner: 'Лауреат премии',
-    awardDesc: 'Признан за превосходство в инновациях и технологических решениях.',
+    // Goals
+    accomplishments: 'НАШИ ЦЕЛИ',
+    accomplishmentsDesc: 'Это цели LIEPNET™',
+    awardWinner: 'Метеорологическая сеть',
+    awardDesc: 'Наша цель - создать первую краудсорсинговую метеорологическую сеть в Латвии, с минимум одной станцией на КМ². Такая плотность могла бы функционировать как высокоточный радар визуально.',
     globalReach: 'Глобальный охват',
     globalDesc: 'Обслуживаем клиентов в более чем 50 странах с премиальными услугами.',
     industryLeader: 'Лидер отрасли',
@@ -234,11 +234,11 @@ const translations = {
     request: 'Demander',
     listen: 'Écouter',
     
-    // Accomplishments
-    accomplishments: 'Nos réalisations',
-    accomplishmentsDesc: 'Célébrant nos jalons et réalisations',
-    awardWinner: 'Lauréat de prix',
-    awardDesc: 'Reconnu pour l\'excellence en innovation et solutions technologiques.',
+    // Goals
+    accomplishments: 'NOS OBJECTIFS',
+    accomplishmentsDesc: 'Voici les objectifs de LIEPNET™',
+    awardWinner: 'Réseau météorologique',
+    awardDesc: 'Notre objectif est de créer le premier réseau météorologique collaboratif en Lettonie, avec au moins une station par KM². Cette densité pourrait fonctionner comme un radar très précis visuellement.',
     globalReach: 'Portée mondiale',
     globalDesc: 'Servir des clients dans plus de 50 pays avec des services premium.',
     industryLeader: 'Leader de l\'industrie',
@@ -293,11 +293,11 @@ const translations = {
     request: 'Αίτημα',
     listen: 'Ακούστε',
     
-    // Accomplishments
-    accomplishments: 'Τα επιτεύγματά μας',
-    accomplishmentsDesc: 'Γιορτάζουμε τα ορόσημα και τα επιτεύγματά μας',
-    awardWinner: 'Βραβευμένος',
-    awardDesc: 'Αναγνωρισμένο για την αριστεία στην καινοτομία και τις τεχνολογικές λύσεις.',
+    // Goals
+    accomplishments: 'ΟΙΚΟΙ ΜΑΣ ΣΤΟΧΟΙ',
+    accomplishmentsDesc: 'Αυτοί είναι οι στόχοι του LIEPNET™',
+    awardWinner: 'Μετεωρολογικό δίκτυο',
+    awardDesc: 'Ο στόχος μας είναι να δημιουργήσουμε το πρώτο συνεργατικό μετεωρολογικό δίκτυο στη Λετονία, με τουλάχιστον έναν σταθμό ανά ΧΜ². Αυτή η πυκνότητα θα μπορούσε να λειτουργήσει ως ένα εξαιρετικά ακριβές ραντάρ οπτικά.',
     globalReach: 'Παγκόσμια εμβέλεια',
     globalDesc: 'Εξυπηρετώντας πελάτες σε περισσότερες από 50 χώρες με premium υπηρεσίες.',
     industryLeader: 'Ηγέτης της βιομηχανίας',
