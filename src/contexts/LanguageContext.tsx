@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-type Language = 'en' | 'lv' | 'ru' | 'fr';
+type Language = 'en' | 'lv' | 'ru' | 'fr' | 'el';
 
 interface LanguageContextType {
   currentLanguage: Language;
@@ -19,6 +19,7 @@ const translations = {
     latvian: 'Latviešu',
     russian: 'Русский',
     french: 'Français',
+    greek: 'Ελληνικά',
     
     // Hero section (you'll need to add these to your components)
     heroTitle: 'Welcome to LIEPNET',
@@ -77,6 +78,7 @@ const translations = {
     latvian: 'Latviešu',
     russian: 'Русский',
     french: 'Français',
+    greek: 'Ελληνικά',
     
     // Hero section
     heroTitle: 'Laipni lūdzam LIEPNET',
@@ -135,6 +137,7 @@ const translations = {
     latvian: 'Latviešu',
     russian: 'Русский',
     french: 'Français',
+    greek: 'Ελληνικά',
     
     // Hero section
     heroTitle: 'Добро пожаловать в LIEPNET',
@@ -193,6 +196,7 @@ const translations = {
     latvian: 'Latviešu',
     russian: 'Русский',
     french: 'Français',
+    greek: 'Ελληνικά',
     
     // Hero section
     heroTitle: 'Bienvenue chez LIEPNET',
@@ -240,6 +244,65 @@ const translations = {
     industryLeader: 'Leader de l\'industrie',
     industryDesc: 'Établir de nouveaux standards dans la transformation numérique et la croissance.',
     achievementImage: 'Image de réalisation',
+  },
+  el: {
+    // Navigation
+    about: 'Σχετικά',
+    services: 'Υπηρεσίες',
+    
+    // Language names
+    english: 'English',
+    latvian: 'Latviešu',
+    russian: 'Русский',
+    french: 'Français',
+    greek: 'Ελληνικά',
+    
+    // Hero section
+    heroTitle: 'Καλώς ήρθατε στο LIEPNET',
+    heroSubtitle: 'Ο αξιόπιστος τεχνολογικός σας εταίρος',
+    
+    // Content section
+    whatIsLiepnet: 'ΤΙ ΕΊΝΑΙ ΤΟ LIEPNET™;',
+    liepnetDescription: 'Το LIEPNET™ παρέχει μια σειρά υπηρεσιών, συμπεριλαμβανομένης της ανάπτυξης λογοτύπων, φιλοξενίας, επιχειρηματικού WI-FI και σχεδιασμού δικτύων, μετεωρολογικών πληροφοριών και τεχνικών συμβουλών για όλους.',
+    
+    // Services
+    meteorologicalNetwork: 'Μετεωρολογικό δίκτυο',
+    meteorologicalDesc: 'Το μετεωρολογικό δίκτυο LIEPNET™ στη Λετονία.',
+    hosting: 'Φιλοξενία',
+    hostingDesc: 'Υπηρεσίες φιλοξενίας LIEPNET™',
+    logoDesign: 'Ανάπτυξη λογοτύπου',
+    logoDesc: 'Χρειάζεται η επιχείρησή σας μια νέα ανανεωμένη εμφάνιση;',
+    gaming: 'Παιχνίδια',
+    gamingDesc: 'Βαριέστε; Τότε δείτε τα παιχνίδια μας!',
+    wifiNetworking: 'Σχεδιασμός WI-FI και δικτύων',
+    wifiDesc: 'Έχει η επιχείρησή σας προβλήματα WI-FI ή συνδεσιμότητας; Είναι η τεχνολογία σας παρωχημένη;',
+    forumsTechTips: 'Φόρουμ και τεχνικές συμβουλές',
+    forumsDesc: 'Εξερευνήστε τα φόρουμ LIEPNET™ και τις τεχνικές συμβουλές!',
+    radio: 'Ραδιόφωνο',
+    radioDesc: 'Αναπαραγωγέας Ραδιοφώνου LIEPNET™',
+    maps: 'Χάρτες',
+    mapsDesc: 'Εξερευνήστε τους χάρτες LIEPNET™',
+    more: 'Περισσότερα...',
+    moreDesc: 'Δείτε περισσότερες από τις υπηρεσίες μας',
+    
+    // Buttons
+    explore: 'Εξερεύνηση',
+    start: 'Έναρξη',
+    order: 'Παραγγελία',
+    play: 'Παίξτε',
+    request: 'Αίτημα',
+    listen: 'Ακούστε',
+    
+    // Accomplishments
+    accomplishments: 'Τα επιτεύγματά μας',
+    accomplishmentsDesc: 'Γιορτάζουμε τα ορόσημα και τα επιτεύγματά μας',
+    awardWinner: 'Βραβευμένος',
+    awardDesc: 'Αναγνωρισμένο για την αριστεία στην καινοτομία και τις τεχνολογικές λύσεις.',
+    globalReach: 'Παγκόσμια εμβέλεια',
+    globalDesc: 'Εξυπηρετώντας πελάτες σε περισσότερες από 50 χώρες με premium υπηρεσίες.',
+    industryLeader: 'Ηγέτης της βιομηχανίας',
+    industryDesc: 'Θέτοντας νέα πρότυπα στον ψηφιακό μετασχηματισμό και την ανάπτυξη.',
+    achievementImage: 'Εικόνα επιτεύγματος',
   },
 };
 

@@ -21,6 +21,7 @@ const Header = () => {
     { code: 'lv' as const, flag: '🇱🇻', name: t('latvian') },
     { code: 'ru' as const, flag: '🇷🇺', name: t('russian') },
     { code: 'fr' as const, flag: '🇫🇷', name: t('french') },
+    { code: 'el' as const, flag: '🇬🇷', name: t('greek') },
   ];
 
   const getCurrentLanguageDisplay = () => {
