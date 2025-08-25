@@ -205,7 +205,7 @@ const ContentSection = () => {
                 
                 <div className="relative z-10">
                   {/* Image */}
-                  <div className="w-full h-32 bg-emerald-800/20 rounded-lg mb-4 overflow-hidden">
+                  <div className="w-full aspect-square bg-emerald-800/20 rounded-lg mb-4 overflow-hidden">
                     {index === 0 ? (
                       <img 
                         src="/lovable-uploads/53ab33fd-314e-49bc-80a1-ec4006d71675.png" 
