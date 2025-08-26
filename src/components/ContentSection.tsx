@@ -212,6 +212,12 @@ const ContentSection = () => {
                         alt="Meteorological station" 
                         className="w-full h-full object-cover" 
                       />
+                    ) : index === 1 ? (
+                      <img 
+                        src="/lovable-uploads/ab598fe3-b0e7-47e8-8010-d1382caf53d6.png" 
+                        alt="Global network hosting infrastructure" 
+                        className="w-full h-full object-cover" 
+                      />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
                         <div className="text-emerald-400/60 text-sm">{t('achievementImage')}</div>
