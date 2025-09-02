@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import heroBg1 from "@/assets/hero-bg-1.jpg";
-import heroBg2 from "@/assets/hero-bg-2.jpg";
-import heroBg3 from "@/assets/hero-bg-3.jpg";
-import heroBg4 from "@/assets/hero-bg-4.jpg";
+import heroBg1 from "@/assets/banners/hero-bg-1.jpg";
+import heroBg2 from "@/assets/banners/hero-bg-2.jpg";
+import heroBg3 from "@/assets/banners/hero-bg-3.jpg";
+import heroBg4 from "@/assets/banners/hero-bg-4.jpg";
 
 const HeroBanner = () => {
   const backgroundImages = [heroBg1, heroBg2, heroBg3, heroBg4];
