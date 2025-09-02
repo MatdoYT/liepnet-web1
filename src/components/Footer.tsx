@@ -31,9 +31,7 @@ const Footer = () => {
           {/* Logo and Company */}
           <div className="space-y-4">
             <img src="/lovable-uploads/4ebce7aa-c438-4114-8c2a-b420e2c6453b.png" alt="LIEPNET Logo" className="h-12 w-auto" />
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Providing innovative technology solutions and services to connect people and businesses globally.
-            </p>
+            <p className="text-gray-300 text-sm leading-relaxed">Founded in February of 2025, Latvia.</p>
           </div>
 
           {/* Contact Information */}
