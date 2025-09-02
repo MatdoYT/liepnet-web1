@@ -219,9 +219,11 @@ const ContentSection = () => {
                         className="w-full h-full object-cover" 
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center">
-                        <div className="text-emerald-400/60 text-sm">{t('achievementImage')}</div>
-                      </div>
+                      <img 
+                        src="/lovable-uploads/d332fcb6-19fe-479b-a90f-3e538575b0a9.png" 
+                        alt="LIEPNET™ Services - Gaming and technology" 
+                        className="w-full h-full object-cover" 
+                      />
                     )}
                   </div>
                   
