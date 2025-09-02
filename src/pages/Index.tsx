@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import HeroBanner from "@/components/HeroBanner";
 import ContentSection from "@/components/ContentSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -10,6 +11,7 @@ const Index = () => {
         <HeroBanner />
         <ContentSection />
       </main>
+      <Footer />
     </div>
   );
 };
