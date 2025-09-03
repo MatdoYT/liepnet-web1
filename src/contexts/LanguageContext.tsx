@@ -67,6 +67,15 @@ const translations = {
     industryLeader: 'LIEPNET™ Services',
     industryDesc: 'Our goal is to make all of our services high-quality and inexpensive; however, we also want to make as many of our services free as possible because we feel that free makes things more accessible to a wider audience. We also intend to develop more services such as maps, radio, radio maps, forums, gaming, and so on. Our goals with these services are to make them simple to use and free; initially, we want to make them available to all users in Latvia, then gradually expand to the rest of Europe and eventually globally.',
     achievementImage: 'Achievement Image',
+    
+    // Footer
+    footerFoundedText: 'Founded in February of 2025, Latvia.',
+    contactInformation: 'Contact Information',
+    ownerCeo: 'Owner/CEO of LIEPNET',
+    executiveManager: 'Executive Manager of LIEPNET GREECE',
+    followUs: 'Follow Us',
+    allRightsReserved: 'All rights reserved.',
+    footerQuote: 'Everything happens for a reason, even if it\'s hard to understand the reason.',
   },
   lv: {
     // Navigation
@@ -126,6 +135,15 @@ const translations = {
     industryLeader: 'LIEPNET™ Pakalpojumi',
     industryDesc: 'Mūsu mērķis ir padarīt visus mūsu pakalpojumus augstas kvalitātes un lētus; tomēr mēs arī vēlamies padarīt pēc iespējas vairāk mūsu pakalpojumu bezmaksas, jo mēs uzskatām, ka bezmaksas padara lietas pieejamākas plašākai auditorijai. Mēs arī plānojam izstrādāt vairāk pakalpojumu, piemēram, kartes, radio, radio kartes, forumus, spēles un tā tālāk. Mūsu mērķi ar šiem pakalpojumiem ir padarīt tos vienkāršus lietošanā un bezmaksas; sākotnēji mēs vēlamies padarīt tos pieejamus visiem lietotājiem Latvijā, pēc tam pakāpeniski paplašināt uz pārējo Eiropu un galu galā globāli.',
     achievementImage: 'Sasnieguma attēls',
+    
+    // Footer
+    footerFoundedText: 'Dibināts 2025. gada februārī, Latvijā.',
+    contactInformation: 'Kontaktinformācija',
+    ownerCeo: 'Īpašnieks/LIEPNET vadītājs',
+    executiveManager: 'LIEPNET GREECE izpilddirektors',
+    followUs: 'Sekojiet mums',
+    allRightsReserved: 'Visas tiesības aizsargātas.',
+    footerQuote: 'Viss notiek ar iemeslu, pat ja iemeslu ir grūti saprast.',
   },
   ru: {
     // Navigation
@@ -185,6 +203,15 @@ const translations = {
     industryLeader: 'Сервисы LIEPNET™',
     industryDesc: 'Наша цель - сделать все наши сервисы высококачественными и недорогими; однако мы также хотим сделать как можно больше наших сервисов бесплатными, потому что мы считаем, что бесплатность делает вещи более доступными для более широкой аудитории. Мы также намерены разрабатывать больше сервисов, таких как карты, радио, радиокарты, форумы, игры и так далее. Наши цели с этими сервисами - сделать их простыми в использовании и бесплатными; первоначально мы хотим сделать их доступными для всех пользователей в Латвии, затем постепенно расширяться на остальную Европу и в конечном итоге глобально.',
     achievementImage: 'Изображение достижения',
+    
+    // Footer
+    footerFoundedText: 'Основана в феврале 2025 года, Латвия.',
+    contactInformation: 'Контактная информация',
+    ownerCeo: 'Владелец/Генеральный директор LIEPNET',
+    executiveManager: 'Исполнительный директор LIEPNET GREECE',
+    followUs: 'Следуйте за нами',
+    allRightsReserved: 'Все права защищены.',
+    footerQuote: 'Всё происходит по какой-то причине, даже если её трудно понять.',
   },
   fr: {
     // Navigation
@@ -244,6 +271,15 @@ const translations = {
     industryLeader: 'Services LIEPNET™',
     industryDesc: 'Notre objectif est de rendre tous nos services de haute qualité et peu coûteux ; cependant, nous voulons aussi rendre autant de nos services gratuits que possible car nous pensons que la gratuité rend les choses plus accessibles à un public plus large. Nous avons également l\'intention de développer plus de services tels que les cartes, la radio, les cartes radio, les forums, les jeux, etc. Nos objectifs avec ces services sont de les rendre simples à utiliser et gratuits ; initialement, nous voulons les rendre disponibles à tous les utilisateurs en Lettonie, puis étendre progressivement au reste de l\'Europe et éventuellement globalement.',
     achievementImage: 'Image de réalisation',
+    
+    // Footer
+    footerFoundedText: 'Fondée en février 2025, Lettonie.',
+    contactInformation: 'Informations de contact',
+    ownerCeo: 'Propriétaire/PDG de LIEPNET',
+    executiveManager: 'Directeur exécutif de LIEPNET GREECE',
+    followUs: 'Suivez-nous',
+    allRightsReserved: 'Tous droits réservés.',
+    footerQuote: 'Tout arrive pour une raison, même s\'il est difficile de comprendre cette raison.',
   },
   el: {
     // Navigation
@@ -303,6 +339,15 @@ const translations = {
     industryLeader: 'Υπηρεσίες LIEPNET™',
     industryDesc: 'Ο στόχος μας είναι να κάνουμε όλες τις υπηρεσίες μας υψηλής ποιότητας και οικονομικές· ωστόσο, θέλουμε επίσης να κάνουμε όσο το δυνατόν περισσότερες από τις υπηρεσίες μας δωρεάν γιατί πιστεύουμε ότι το δωρεάν κάνει τα πράγματα πιο προσβάσιμα σε ευρύτερο κοινό. Προτίθεμαι επίσης να αναπτύξουμε περισσότερες υπηρεσίες όπως χάρτες, ραδιόφωνο, ραδιοφωνικούς χάρτες, φόρουμ, παιχνίδια και ούτω καθεξής. Οι στόχοι μας με αυτές τις υπηρεσίες είναι να τις κάνουμε απλές στη χρήση και δωρεάν· αρχικά, θέλουμε να τις καταστήσουμε διαθέσιμες σε όλους τους χρήστες στη Λετονία, στη συνέχεια να επεκταθούμε σταδιακά στην υπόλοιπη Ευρώπη και τελικά παγκοσμίως.',
     achievementImage: 'Εικόνα επιτεύγματος',
+    
+    // Footer
+    footerFoundedText: 'Ιδρύθηκε τον Φεβρουάριο του 2025, Λετονία.',
+    contactInformation: 'Στοιχεία επικοινωνίας',
+    ownerCeo: 'Ιδιοκτήτης/Διευθύνων Σύμβουλος LIEPNET',
+    executiveManager: 'Εκτελεστικός Διευθυντής LIEPNET GREECE',
+    followUs: 'Ακολουθήστε μας',
+    allRightsReserved: 'Όλα τα δικαιώματα διατηρούνται.',
+    footerQuote: 'Όλα συμβαίνουν για έναν λόγο, ακόμα κι αν είναι δύσκολο να καταλάβουμε τον λόγο.',
   },
 };
 
