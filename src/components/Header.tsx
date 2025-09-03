@@ -7,13 +7,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown, Globe } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const { currentLanguage, setLanguage, t } = useLanguage();
   
   const navLinks = [
-    { key: 'about', label: t('about') },
-    { key: 'services', label: t('services') }
+    { key: 'about', label: t('about'), href: '#' },
+    { key: 'services', label: t('services'), href: '#' },
+    { key: 'gaming', label: t('gaming'), href: '/gaming' }
   ];
 
   const languages = [
@@ -33,26 +35,37 @@ const Header = () => {
     <header className="w-full px-6 py-4 flex items-center justify-between relative z-10">
       {/* Logo Area - Clickable Home Button */}
       <div className="flex items-center">
-        <a href="#" className="hover:opacity-80 transition-opacity duration-200">
+        <Link to="/" className="hover:opacity-80 transition-opacity duration-200">
           <img 
             src="/lovable-uploads/4ebce7aa-c438-4114-8c2a-b420e2c6453b.png" 
             alt="LIEPNET Logo - Home" 
             className="h-10 w-auto"
           />
-        </a>
+        </Link>
       </div>
 
       {/* Navigation Links */}
       <nav className="hidden md:flex items-center space-x-8">
         {navLinks.map((link) => (
-          <a
-            key={link.key}
-            href="#"
-            className="text-foreground/80 hover:text-primary transition-colors duration-200 relative group"
-          >
-            {link.label}
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-          </a>
+          link.href.startsWith('/') ? (
+            <Link
+              key={link.key}
+              to={link.href}
+              className="text-foreground/80 hover:text-primary transition-colors duration-200 relative group"
+            >
+              {link.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </Link>
+          ) : (
+            <a
+              key={link.key}
+              href={link.href}
+              className="text-foreground/80 hover:text-primary transition-colors duration-200 relative group"
+            >
+              {link.label}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+            </a>
+          )
         ))}
       </nav>
 

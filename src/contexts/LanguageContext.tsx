@@ -13,6 +13,21 @@ const translations = {
     // Navigation
     about: 'About',
     services: 'Services',
+    gaming: 'Gaming',
+    
+    // Gaming page
+    gamingDescription: 'Professional gaming network solutions and optimization services for the ultimate gaming experience.',
+    gamingServices: 'Gaming Services',
+    gameServerSetup: 'Game Server Setup',
+    networkOptimization: 'Network Optimization',
+    latencyReduction: 'Latency Reduction',
+    customGameConfigs: 'Custom Game Configurations',
+    supportedGames: 'Supported Games',
+    gamingTips: 'Gaming Tips & Tricks',
+    optimizeConnection: 'Optimize Your Connection',
+    reduceInput: 'Reduce Input Lag',
+    improveFramerate: 'Improve Framerate',
+    troubleshooting: 'Gaming Troubleshooting',
     
     // Language names
     english: 'English',
@@ -36,7 +51,6 @@ const translations = {
     hostingDesc: 'LIEPNET™ hosting services',
     logoDesign: 'Logo development', 
     logoDesc: 'Does your business need a new refreshed look?',
-    gaming: 'Gaming',
     gamingDesc: 'Bored? Then check out our games!',
     wifiNetworking: 'WI-FI & network planning',
     wifiDesc: 'Does your business have WI-FI or connectivity issues? Is your tech outdated?',
@@ -81,6 +95,21 @@ const translations = {
     // Navigation
     about: 'Par mums',
     services: 'Pakalpojumi',
+    gaming: 'Spēles',
+    
+    // Gaming page
+    gamingDescription: 'Profesionāli spēļu tīkla risinājumi un optimizācijas pakalpojumi maksimālai spēļu pieredzei.',
+    gamingServices: 'Spēļu pakalpojumi',
+    gameServerSetup: 'Spēļu serveru iestatīšana',
+    networkOptimization: 'Tīkla optimizācija',
+    latencyReduction: 'Latences samazināšana',
+    customGameConfigs: 'Pielāgotas spēļu konfigurācijas',
+    supportedGames: 'Atbalstītās spēles',
+    gamingTips: 'Spēļu padomi un triki',
+    optimizeConnection: 'Optimizējiet savienojumu',
+    reduceInput: 'Samazinājiet ievades aizkavi',
+    improveFramerate: 'Uzlabojiet kadru ātrumu',
+    troubleshooting: 'Spēļu problēmu novēršana',
     
     // Language names
     english: 'English',
@@ -104,7 +133,6 @@ const translations = {
     hostingDesc: 'LIEPNET™ hostinga pakalpojumi',
     logoDesign: 'Logo izstrāde',
     logoDesc: 'Vai jūsu uzņēmumam nepieciešams jauns, atjaunots izskats?',
-    gaming: 'Spēles',
     gamingDesc: 'Garlaicību? Tad apskatiet mūsu spēles!',
     wifiNetworking: 'WI-FI un tīkla plānošana',
     wifiDesc: 'Vai jūsu uzņēmumam ir WI-FI vai savienojamības problēmas? Vai jūsu tehnoloģijas ir novecojušas?',
@@ -149,6 +177,21 @@ const translations = {
     // Navigation
     about: 'О нас',
     services: 'Услуги',
+    gaming: 'Игры',
+    
+    // Gaming page
+    gamingDescription: 'Профессиональные игровые сетевые решения и сервисы оптимизации для максимального игрового опыта.',
+    gamingServices: 'Игровые сервисы',
+    gameServerSetup: 'Настройка игровых серверов',
+    networkOptimization: 'Оптимизация сети',
+    latencyReduction: 'Снижение задержки',
+    customGameConfigs: 'Пользовательские игровые конфигурации',
+    supportedGames: 'Поддерживаемые игры',
+    gamingTips: 'Игровые советы и трюки',
+    optimizeConnection: 'Оптимизируйте соединение',
+    reduceInput: 'Уменьшите задержку ввода',
+    improveFramerate: 'Улучшите частоту кадров',
+    troubleshooting: 'Устранение игровых проблем',
     
     // Language names
     english: 'English',
@@ -172,7 +215,6 @@ const translations = {
     hostingDesc: 'Услуги хостинга LIEPNET™',
     logoDesign: 'Разработка логотипа',
     logoDesc: 'Нужен ли вашему бизнесу новый обновленный вид?',
-    gaming: 'Игры',
     gamingDesc: 'Скучно? Тогда попробуйте наши игры!',
     wifiNetworking: 'WI-FI и планирование сетей',
     wifiDesc: 'Есть ли у вашего бизнеса проблемы с WI-FI или подключением? Устарели ли ваши технологии?',
@@ -217,6 +259,21 @@ const translations = {
     // Navigation
     about: 'À propos',
     services: 'Services',
+    gaming: 'Jeux',
+    
+    // Gaming page
+    gamingDescription: 'Solutions de réseau de jeu professionnelles et services d\'optimisation pour l\'expérience de jeu ultime.',
+    gamingServices: 'Services de jeu',
+    gameServerSetup: 'Configuration de serveur de jeu',
+    networkOptimization: 'Optimisation du réseau',
+    latencyReduction: 'Réduction de la latence',
+    customGameConfigs: 'Configurations de jeu personnalisées',
+    supportedGames: 'Jeux pris en charge',
+    gamingTips: 'Conseils et astuces de jeu',
+    optimizeConnection: 'Optimisez votre connexion',
+    reduceInput: 'Réduisez le délai d\'entrée',
+    improveFramerate: 'Améliorez la fréquence d\'images',
+    troubleshooting: 'Dépannage de jeu',
     
     // Language names
     english: 'English',
@@ -240,7 +297,6 @@ const translations = {
     hostingDesc: 'Services d\'hébergement LIEPNET™',
     logoDesign: 'Développement de logo',
     logoDesc: 'Votre entreprise a-t-elle besoin d\'un nouveau look rafraîchi?',
-    gaming: 'Jeux',
     gamingDesc: 'Vous vous ennuyez? Alors découvrez nos jeux!',
     wifiNetworking: 'Planification WI-FI et réseau',
     wifiDesc: 'Votre entreprise a-t-elle des problèmes de WI-FI ou de connectivité? Votre technologie est-elle obsolète?',
@@ -285,6 +341,21 @@ const translations = {
     // Navigation
     about: 'Σχετικά',
     services: 'Υπηρεσίες',
+    gaming: 'Παιχνίδια',
+    
+    // Gaming page
+    gamingDescription: 'Επαγγελματικές λύσεις δικτύου παιχνιδιών και υπηρεσίες βελτιστοποίησης για την απόλυτη εμπειρία παιχνιδιού.',
+    gamingServices: 'Υπηρεσίες παιχνιδιών',
+    gameServerSetup: 'Ρύθμιση διακομιστή παιχνιδιών',
+    networkOptimization: 'Βελτιστοποίηση δικτύου',
+    latencyReduction: 'Μείωση καθυστέρησης',
+    customGameConfigs: 'Προσαρμοσμένες διαμορφώσεις παιχνιδιών',
+    supportedGames: 'Υποστηριζόμενα παιχνίδια',
+    gamingTips: 'Συμβουλές και κόλπα παιχνιδιών',
+    optimizeConnection: 'Βελτιστοποιήστε τη σύνδεσή σας',
+    reduceInput: 'Μειώστε την καθυστέρηση εισόδου',
+    improveFramerate: 'Βελτιώστε την συχνότητα καρέ',
+    troubleshooting: 'Αντιμετώπιση προβλημάτων παιχνιδιών',
     
     // Language names
     english: 'English',
@@ -308,7 +379,6 @@ const translations = {
     hostingDesc: 'Υπηρεσίες φιλοξενίας LIEPNET™',
     logoDesign: 'Ανάπτυξη λογοτύπου',
     logoDesc: 'Χρειάζεται η επιχείρησή σας μια νέα ανανεωμένη εμφάνιση;',
-    gaming: 'Παιχνίδια',
     gamingDesc: 'Βαριέστε; Τότε δείτε τα παιχνίδια μας!',
     wifiNetworking: 'Σχεδιασμός WI-FI και δικτύων',
     wifiDesc: 'Έχει η επιχείρησή σας προβλήματα WI-FI ή συνδεσιμότητας; Είναι η τεχνολογία σας παρωχημένη;',
