@@ -13,12 +13,12 @@ const Gaming = () => {
       <main className="flex-1 flex items-center justify-center px-6 py-16">
         <div className="text-center max-w-2xl mx-auto">
           <div className="mb-8">
-            <h1 className="text-8xl font-bold text-primary/20 mb-4">404</h1>
+            <h1 className="text-8xl font-bold bg-gradient-to-r from-primary/10 via-primary/30 to-primary/10 bg-clip-text text-transparent mb-4">404</h1>
             <h2 className="text-3xl font-bold text-foreground mb-4">
-              {t('gaming')} - Coming Soon
+              Page Not Found
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              This page is currently under construction. We're working on bringing you amazing gaming content!
+              We've searched everywhere but didn't find the page you're looking for.
             </p>
           </div>
           
@@ -28,9 +28,6 @@ const Gaming = () => {
                 Return to Home
               </Button>
             </Link>
-            <p className="text-sm text-muted-foreground">
-              Check back soon for gaming services, tips, and more!
-            </p>
           </div>
         </div>
       </main>
