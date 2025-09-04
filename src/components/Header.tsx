@@ -14,8 +14,7 @@ const Header = () => {
   
   const navLinks = [
     { key: 'about', label: t('about'), href: '#' },
-    { key: 'services', label: t('services'), href: '#' },
-    { key: 'gaming', label: t('gaming'), href: '/gaming' }
+    { key: 'services', label: t('services'), href: '#' }
   ];
 
   const languages = [

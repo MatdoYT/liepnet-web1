@@ -168,7 +168,7 @@ const ContentSection = () => {
                   {isFirst && <Button variant="outline" className="mt-2">{t('explore')}</Button>}
                   {isFourth && <Button variant="outline" className="mt-2">{t('start')}</Button>}
                   {isSecond && <Button variant="outline" className="mt-2">{t('order')}</Button>}
-                  {isFifth && <Button variant="outline" className="mt-2">{t('play')}</Button>}
+                  {isFifth && <Button variant="outline" className="mt-2" onClick={() => window.location.href = '/gaming'}>{t('play')}</Button>}
                   {isThird && <Button variant="outline" className="mt-2">{t('request')}</Button>}
                   {isSixth && <Button variant="outline" className="mt-2">{t('explore')}</Button>}
                   {isSeventh && <Button variant="outline" className="mt-2">{t('listen')}</Button>}
