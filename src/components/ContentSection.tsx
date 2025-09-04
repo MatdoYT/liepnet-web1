@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { useRef, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -165,14 +166,14 @@ const ContentSection = () => {
                       : 'Discover powerful features that help you achieve more with less effort. Our solutions are designed for modern workflows.'
                     }
                   </p>
-                  {isFirst && <Button variant="outline" className="mt-2">{t('explore')}</Button>}
-                  {isFourth && <Button variant="outline" className="mt-2">{t('start')}</Button>}
-                  {isSecond && <Button variant="outline" className="mt-2">{t('order')}</Button>}
-                  {isFifth && <Button variant="outline" className="mt-2" onClick={() => window.location.href = '/gaming'}>{t('play')}</Button>}
-                  {isThird && <Button variant="outline" className="mt-2">{t('request')}</Button>}
-                  {isSixth && <Button variant="outline" className="mt-2">{t('explore')}</Button>}
-                  {isSeventh && <Button variant="outline" className="mt-2">{t('listen')}</Button>}
-                  {isEighth && <Button variant="outline" className="mt-2">{t('explore')}</Button>}
+                  {isFirst && <Link to="/meteo"><Button variant="outline" className="mt-2">{t('explore')}</Button></Link>}
+                  {isFourth && <Link to="/hosting"><Button variant="outline" className="mt-2">{t('start')}</Button></Link>}
+                  {isSecond && <Link to="/logos"><Button variant="outline" className="mt-2">{t('order')}</Button></Link>}
+                  {isFifth && <Link to="/gaming"><Button variant="outline" className="mt-2">{t('play')}</Button></Link>}
+                  {isThird && <Link to="/network-planning"><Button variant="outline" className="mt-2">{t('request')}</Button></Link>}
+                  {isSixth && <Link to="/forums"><Button variant="outline" className="mt-2">{t('explore')}</Button></Link>}
+                  {isSeventh && <Link to="/radio"><Button variant="outline" className="mt-2">{t('listen')}</Button></Link>}
+                  {isEighth && <Link to="/maps"><Button variant="outline" className="mt-2">{t('explore')}</Button></Link>}
                   {isNinth && <Button variant="outline" className="mt-2">{t('more')}</Button>}
                 </div>
               </div>
