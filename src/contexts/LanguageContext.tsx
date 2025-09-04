@@ -29,6 +29,11 @@ const translations = {
     improveFramerate: 'Improve Framerate',
     troubleshooting: 'Gaming Troubleshooting',
     
+    // 404 Pages
+    pageNotFound: 'Page Not Found',
+    pageNotFoundMessage: 'We\'ve searched everywhere but didn\'t find the page you\'re looking for.',
+    returnToHome: 'Return to Home',
+    
     // Language names
     english: 'English',
     latvian: 'Latviešu',
@@ -110,6 +115,11 @@ const translations = {
     reduceInput: 'Samazinājiet ievades aizkavi',
     improveFramerate: 'Uzlabojiet kadru ātrumu',
     troubleshooting: 'Spēļu problēmu novēršana',
+    
+    // 404 Pages
+    pageNotFound: 'Lapa nav atrasta',
+    pageNotFoundMessage: 'Mēs esam meklējuši visur, bet nevarējām atrast lapu, kuru meklējat.',
+    returnToHome: 'Atgriezties sākumā',
     
     // Language names
     english: 'English',
@@ -193,6 +203,11 @@ const translations = {
     improveFramerate: 'Улучшите частоту кадров',
     troubleshooting: 'Устранение игровых проблем',
     
+    // 404 Pages
+    pageNotFound: 'Страница не найдена',
+    pageNotFoundMessage: 'Мы искали везде, но не смогли найти страницу, которую вы ищете.',
+    returnToHome: 'Вернуться на главную',
+    
     // Language names
     english: 'English',
     latvian: 'Latviešu',
@@ -275,6 +290,11 @@ const translations = {
     improveFramerate: 'Améliorez la fréquence d\'images',
     troubleshooting: 'Dépannage de jeu',
     
+    // 404 Pages
+    pageNotFound: 'Page introuvable',
+    pageNotFoundMessage: 'Nous avons cherché partout mais n\'avons pas trouvé la page que vous recherchez.',
+    returnToHome: 'Retour à l\'accueil',
+    
     // Language names
     english: 'English',
     latvian: 'Latviešu',
@@ -356,6 +376,11 @@ const translations = {
     reduceInput: 'Μειώστε την καθυστέρηση εισόδου',
     improveFramerate: 'Βελτιώστε την συχνότητα καρέ',
     troubleshooting: 'Αντιμετώπιση προβλημάτων παιχνιδιών',
+    
+    // 404 Pages
+    pageNotFound: 'Η σελίδα δεν βρέθηκε',
+    pageNotFoundMessage: 'Ψάξαμε παντού αλλά δεν μπορέσαμε να βρούμε τη σελίδα που ψάχνετε.',
+    returnToHome: 'Επιστροφή στην αρχική',
     
     // Language names
     english: 'English',

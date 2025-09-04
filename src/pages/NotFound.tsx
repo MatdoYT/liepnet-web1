@@ -1,9 +1,12 @@
+import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const NotFound = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Header />
@@ -13,17 +16,17 @@ const NotFound = () => {
           <div className="mb-8">
             <h1 className="text-8xl font-bold bg-gradient-to-r from-primary/10 via-primary/30 to-primary/10 bg-clip-text text-transparent mb-4">404</h1>
             <h2 className="text-3xl font-bold text-foreground mb-4">
-              Page Not Found
+              {t('pageNotFound')}
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              We've searched everywhere but didn't find the page you're looking for.
+              {t('pageNotFoundMessage')}
             </p>
           </div>
           
           <div className="space-y-4">
             <Link to="/">
               <Button size="lg" className="px-8">
-                Return to Home
+                {t('returnToHome')}
               </Button>
             </Link>
           </div>
