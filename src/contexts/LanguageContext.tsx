@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-type Language = 'en' | 'lv' | 'ru' | 'fr' | 'el';
+type Language = 'en' | 'lv' | 'ru' | 'fr' | 'el' | 'de';
 
 interface LanguageContextType {
   currentLanguage: Language;
@@ -40,6 +40,7 @@ const translations = {
     russian: 'Русский',
     french: 'Français',
     greek: 'Ελληνικά',
+    german: 'Deutsch',
     
     // Hero section (you'll need to add these to your components)
     heroTitle: 'Welcome to LIEPNET',
@@ -127,6 +128,7 @@ const translations = {
     russian: 'Русский',
     french: 'Français',
     greek: 'Ελληνικά',
+    german: 'Deutsch',
     
     // Hero section
     heroTitle: 'Laipni lūdzam LIEPNET',
@@ -214,6 +216,7 @@ const translations = {
     russian: 'Русский',
     french: 'Français',
     greek: 'Ελληνικά',
+    german: 'Deutsch',
     
     // Hero section
     heroTitle: 'Добро пожаловать в LIEPNET',
@@ -301,6 +304,7 @@ const translations = {
     russian: 'Русский',
     french: 'Français',
     greek: 'Ελληνικά',
+    german: 'Deutsch',
     
     // Hero section
     heroTitle: 'Bienvenue chez LIEPNET',
@@ -388,6 +392,7 @@ const translations = {
     russian: 'Русский',
     french: 'Français',
     greek: 'Ελληνικά',
+    german: 'Deutsch',
     
     // Hero section
     heroTitle: 'Καλώς ήρθατε στο LIEPNET',
@@ -443,6 +448,94 @@ const translations = {
     followUs: 'Ακολουθήστε μας',
     allRightsReserved: 'Όλα τα δικαιώματα διατηρούνται.',
     footerQuote: 'Όλα συμβαίνουν για έναν λόγο, ακόμα κι αν είναι δύσκολο να καταλάβουμε τον λόγο.',
+  },
+  de: {
+    // Navigation
+    about: 'Über uns',
+    services: 'Dienstleistungen',
+    gaming: 'Gaming',
+    
+    // Gaming page
+    gamingDescription: 'Professionelle Gaming-Netzwerklösungen und Optimierungsdienste für das ultimative Spielerlebnis.',
+    gamingServices: 'Gaming-Dienste',
+    gameServerSetup: 'Spielserver-Einrichtung',
+    networkOptimization: 'Netzwerk-Optimierung',
+    latencyReduction: 'Latenz-Reduzierung',
+    customGameConfigs: 'Benutzerdefinierte Spiel-Konfigurationen',
+    supportedGames: 'Unterstützte Spiele',
+    gamingTips: 'Gaming-Tipps & Tricks',
+    optimizeConnection: 'Verbindung optimieren',
+    reduceInput: 'Input-Lag reduzieren',
+    improveFramerate: 'Framerate verbessern',
+    troubleshooting: 'Gaming-Problembehandlung',
+    
+    // 404 Pages
+    pageNotFound: 'Seite nicht gefunden',
+    pageNotFoundMessage: 'Wir haben überall gesucht, aber die gesuchte Seite nicht gefunden.',
+    returnToHome: 'Zurück zur Startseite',
+    
+    // Language names
+    english: 'English',
+    latvian: 'Latviešu',
+    russian: 'Русский',
+    french: 'Français',
+    greek: 'Ελληνικά',
+    german: 'Deutsch',
+    
+    // Hero section
+    heroTitle: 'Willkommen bei LIEPNET',
+    heroSubtitle: 'Ihr vertrauensvoller Technologie-Partner',
+    
+    // Content section
+    whatIsLiepnet: 'WAS IST LIEPNET™?',
+    liepnetDescription: 'LIEPNET™ bietet eine Vielzahl von Dienstleistungen, einschließlich Logo-Entwicklung, Hosting, Business-WLAN und Netzwerkplanung, meteorologische Informationen und Tech-Tipps für alle.',
+    
+    // Services
+    meteorologicalNetwork: 'Meteorologisches Netzwerk',
+    meteorologicalDesc: 'Das LIEPNET™ meteorologische Netzwerk in Lettland.',
+    hosting: 'Hosting',
+    hostingDesc: 'LIEPNET™ Hosting-Dienste',
+    logoDesign: 'Logo-Entwicklung',
+    logoDesc: 'Braucht Ihr Unternehmen einen neuen, aufgefrischten Look?',
+    gamingDesc: 'Langeweile? Dann schauen Sie sich unsere Spiele an!',
+    wifiNetworking: 'WLAN & Netzwerkplanung',
+    wifiDesc: 'Hat Ihr Unternehmen WLAN- oder Konnektivitätsprobleme? Ist Ihre Technologie veraltet?',
+    forumsTechTips: 'Foren & Tech-Tipps',
+    forumsDesc: 'Erkunden Sie die LIEPNET™ Foren und Tech-Tipps!',
+    radio: 'Radio',
+    radioDesc: 'LIEPNET™ Radio Player',
+    maps: 'Karten',
+    mapsDesc: 'Erkunden Sie die LIEPNET™ Karten',
+    more: 'Mehr...',
+    moreDesc: 'Sehen Sie mehr unserer Dienstleistungen',
+    
+    // Buttons
+    explore: 'Erkunden',
+    start: 'Starten',
+    order: 'Bestellen',
+    play: 'Spielen',
+    request: 'Anfragen',
+    listen: 'Anhören',
+    
+    // Goals
+    accomplishments: 'UNSERE ZIELE',
+    accomplishmentsDesc: 'Das sind die LIEPNET™ Ziele',
+    awardWinner: 'Meteorologisches Netzwerk',
+    awardDesc: 'Unser Ziel ist es, das erste Crowdsourcing-meteorologische Netzwerk in Lettland zu schaffen, mit mindestens einer Station pro KM². Diese Dichte könnte als hochpräzises Radar visuell funktionieren.',
+    globalReach: 'LIEPNET™ Hosting',
+    globalDesc: 'Unser Ziel mit LIEPNET™ Hosting ist es, erschwingliche Hosting-Lösungen für kleine Aufgaben wie Discord-Bot-Hosting und kleine Minecraft-Server-Hosting bereitzustellen. Wir zielen darauf ab, ein Netzwerk mit einigen Knoten weltweit zu schaffen, die die beste Verbindung zwischen dem LIEPNET™ CORE und Rebroadcast-Diensten für optimale Konnektivität haben.',
+    industryLeader: 'LIEPNET™ Dienste',
+    industryDesc: 'Unser Ziel ist es, alle unsere Dienste qualitativ hochwertig und kostengünstig zu machen; wir möchten jedoch auch so viele unserer Dienste wie möglich kostenlos machen, da wir glauben, dass kostenlos die Dinge für ein breiteres Publikum zugänglicher macht. Wir beabsichtigen auch, mehr Dienste wie Karten, Radio, Radiokarten, Foren, Gaming usw. zu entwickeln. Unsere Ziele mit diesen Diensten sind, sie einfach zu verwenden und kostenlos zu machen; zunächst möchten wir sie allen Benutzern in Lettland zur Verfügung stellen, dann schrittweise auf den Rest Europas und schließlich global ausweiten.',
+    achievementImage: 'Leistungsbild',
+    
+    // Footer
+    footerFoundedText: 'Gegründet im Februar 2025, Lettland.',
+    contactInformation: 'Kontaktinformationen',
+    ownerCeo: 'Inhaber/CEO von LIEPNET',
+    executiveManager: 'Geschäftsführer von LIEPNET GREECE',
+    followUs: 'Folgen Sie uns',
+    allRightsReserved: 'Alle Rechte vorbehalten.',
+    footerQuote: 'Alles geschieht aus einem Grund, auch wenn es schwer zu verstehen ist.',
   },
 };
 

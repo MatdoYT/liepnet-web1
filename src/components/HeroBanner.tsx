@@ -1,4 +1,7 @@
 import { useState, useEffect, useRef } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+
+// English banners
 import heroBg1 from "@/assets/banners/hero-bg-1.jpg";
 import heroBg2 from "@/assets/banners/hero-bg-2.jpg";
 import heroBg3 from "@/assets/banners/hero-bg-3.jpg";
@@ -8,9 +11,86 @@ import mobileBg2 from "@/assets/banners/mobile/hero-bg-2.jpg";
 import mobileBg3 from "@/assets/banners/mobile/hero-bg-3.jpg";
 import mobileBg4 from "@/assets/banners/mobile/hero-bg-4.jpg";
 
+// Latvian banners
+import lvHeroBg1 from "@/assets/banners/lv/hero-bg-1.jpg";
+import lvHeroBg2 from "@/assets/banners/lv/hero-bg-2.jpg";
+import lvHeroBg3 from "@/assets/banners/lv/hero-bg-3.jpg";
+import lvHeroBg4 from "@/assets/banners/lv/hero-bg-4.jpg";
+import lvMobileBg1 from "@/assets/banners/lv/mobile/hero-bg-1.jpg";
+import lvMobileBg2 from "@/assets/banners/lv/mobile/hero-bg-2.jpg";
+import lvMobileBg3 from "@/assets/banners/lv/mobile/hero-bg-3.jpg";
+import lvMobileBg4 from "@/assets/banners/lv/mobile/hero-bg-4.jpg";
+
+// Russian banners
+import ruHeroBg1 from "@/assets/banners/ru/hero-bg-1.jpg";
+import ruHeroBg2 from "@/assets/banners/ru/hero-bg-2.jpg";
+import ruHeroBg3 from "@/assets/banners/ru/hero-bg-3.jpg";
+import ruHeroBg4 from "@/assets/banners/ru/hero-bg-4.jpg";
+import ruMobileBg1 from "@/assets/banners/ru/mobile/hero-bg-1.jpg";
+import ruMobileBg2 from "@/assets/banners/ru/mobile/hero-bg-2.jpg";
+import ruMobileBg3 from "@/assets/banners/ru/mobile/hero-bg-3.jpg";
+import ruMobileBg4 from "@/assets/banners/ru/mobile/hero-bg-4.jpg";
+
+// French banners
+import frHeroBg1 from "@/assets/banners/fr/hero-bg-1.jpg";
+import frHeroBg2 from "@/assets/banners/fr/hero-bg-2.jpg";
+import frHeroBg3 from "@/assets/banners/fr/hero-bg-3.jpg";
+import frHeroBg4 from "@/assets/banners/fr/hero-bg-4.jpg";
+import frMobileBg1 from "@/assets/banners/fr/mobile/hero-bg-1.jpg";
+import frMobileBg2 from "@/assets/banners/fr/mobile/hero-bg-2.jpg";
+import frMobileBg3 from "@/assets/banners/fr/mobile/hero-bg-3.jpg";
+import frMobileBg4 from "@/assets/banners/fr/mobile/hero-bg-4.jpg";
+
+// Greek banners
+import elHeroBg1 from "@/assets/banners/el/hero-bg-1.jpg";
+import elHeroBg2 from "@/assets/banners/el/hero-bg-2.jpg";
+import elHeroBg3 from "@/assets/banners/el/hero-bg-3.jpg";
+import elHeroBg4 from "@/assets/banners/el/hero-bg-4.jpg";
+import elMobileBg1 from "@/assets/banners/el/mobile/hero-bg-1.jpg";
+import elMobileBg2 from "@/assets/banners/el/mobile/hero-bg-2.jpg";
+import elMobileBg3 from "@/assets/banners/el/mobile/hero-bg-3.jpg";
+import elMobileBg4 from "@/assets/banners/el/mobile/hero-bg-4.jpg";
+
+// German banners
+import deHeroBg1 from "@/assets/banners/de/hero-bg-1.jpg";
+import deHeroBg2 from "@/assets/banners/de/hero-bg-2.jpg";
+import deHeroBg3 from "@/assets/banners/de/hero-bg-3.jpg";
+import deHeroBg4 from "@/assets/banners/de/hero-bg-4.jpg";
+import deMobileBg1 from "@/assets/banners/de/mobile/hero-bg-1.jpg";
+import deMobileBg2 from "@/assets/banners/de/mobile/hero-bg-2.jpg";
+import deMobileBg3 from "@/assets/banners/de/mobile/hero-bg-3.jpg";
+import deMobileBg4 from "@/assets/banners/de/mobile/hero-bg-4.jpg";
+
 const HeroBanner = () => {
-  const desktopImages = [heroBg1, heroBg2, heroBg3, heroBg4];
-  const mobileImages = [mobileBg1, mobileBg2, mobileBg3, mobileBg4];
+  const { currentLanguage } = useLanguage();
+  
+  // Language-specific image sets
+  const imagesByLanguage = {
+    en: {
+      desktop: [heroBg1, heroBg2, heroBg3, heroBg4],
+      mobile: [mobileBg1, mobileBg2, mobileBg3, mobileBg4]
+    },
+    lv: {
+      desktop: [lvHeroBg1, lvHeroBg2, lvHeroBg3, lvHeroBg4],
+      mobile: [lvMobileBg1, lvMobileBg2, lvMobileBg3, lvMobileBg4]
+    },
+    ru: {
+      desktop: [ruHeroBg1, ruHeroBg2, ruHeroBg3, ruHeroBg4],
+      mobile: [ruMobileBg1, ruMobileBg2, ruMobileBg3, ruMobileBg4]
+    },
+    fr: {
+      desktop: [frHeroBg1, frHeroBg2, frHeroBg3, frHeroBg4],
+      mobile: [frMobileBg1, frMobileBg2, frMobileBg3, frMobileBg4]
+    },
+    el: {
+      desktop: [elHeroBg1, elHeroBg2, elHeroBg3, elHeroBg4],
+      mobile: [elMobileBg1, elMobileBg2, elMobileBg3, elMobileBg4]
+    },
+    de: {
+      desktop: [deHeroBg1, deHeroBg2, deHeroBg3, deHeroBg4],
+      mobile: [deMobileBg1, deMobileBg2, deMobileBg3, deMobileBg4]
+    }
+  };
   
   const [isMobile, setIsMobile] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -20,8 +100,9 @@ const HeroBanner = () => {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Get current background images based on screen size
-  const backgroundImages = isMobile ? mobileImages : desktopImages;
+  // Get current background images based on screen size and language
+  const currentImages = imagesByLanguage[currentLanguage];
+  const backgroundImages = isMobile ? currentImages.mobile : currentImages.desktop;
 
   // Screen size detection
   useEffect(() => {
@@ -95,7 +176,7 @@ const HeroBanner = () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
       if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
     };
-  }, [backgroundImages.length, isPaused]);
+  }, [backgroundImages.length, isPaused, currentLanguage]);
 
   return (
     <section 
