@@ -13,8 +13,8 @@ const Header = () => {
   const { currentLanguage, setLanguage, t } = useLanguage();
   
   const navLinks = [
-    { key: 'about', label: t('about'), href: '#' },
-    { key: 'services', label: t('services'), href: '#' }
+    { key: 'about', label: t('about'), href: '/about' },
+    { key: 'services', label: t('services'), href: '/services' }
   ];
 
   const languages = [
