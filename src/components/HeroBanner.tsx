@@ -3,15 +3,37 @@ import heroBg1 from "@/assets/banners/hero-bg-1.jpg";
 import heroBg2 from "@/assets/banners/hero-bg-2.jpg";
 import heroBg3 from "@/assets/banners/hero-bg-3.jpg";
 import heroBg4 from "@/assets/banners/hero-bg-4.jpg";
+import mobileBg1 from "@/assets/banners/mobile/hero-bg-1.jpg";
+import mobileBg2 from "@/assets/banners/mobile/hero-bg-2.jpg";
+import mobileBg3 from "@/assets/banners/mobile/hero-bg-3.jpg";
+import mobileBg4 from "@/assets/banners/mobile/hero-bg-4.jpg";
 
 const HeroBanner = () => {
-  const backgroundImages = [heroBg1, heroBg2, heroBg3, heroBg4];
+  const desktopImages = [heroBg1, heroBg2, heroBg3, heroBg4];
+  const mobileImages = [mobileBg1, mobileBg2, mobileBg3, mobileBg4];
+  
+  const [isMobile, setIsMobile] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [dragStartX, setDragStartX] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const pauseTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Get current background images based on screen size
+  const backgroundImages = isMobile ? mobileImages : desktopImages;
+
+  // Screen size detection
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 1024); // lg breakpoint
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
 
   const startAutoSlide = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
@@ -77,7 +99,9 @@ const HeroBanner = () => {
 
   return (
     <section 
-      className="relative w-full h-[24rem] md:h-[28rem] lg:h-[32rem] overflow-hidden animate-fade-in-banner cursor-grab active:cursor-grabbing select-none"
+      className={`relative w-full overflow-hidden animate-fade-in-banner cursor-grab active:cursor-grabbing select-none ${
+        isMobile ? 'h-[20rem] sm:h-[24rem]' : 'h-[24rem] md:h-[28rem] lg:h-[32rem]'
+      }`}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
