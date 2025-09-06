@@ -51,15 +51,35 @@ import elMobileBg2 from "@/assets/banners/el/mobile/hero-bg-2.jpg";
 import elMobileBg3 from "@/assets/banners/el/mobile/hero-bg-3.jpg";
 import elMobileBg4 from "@/assets/banners/el/mobile/hero-bg-4.jpg";
 
-// German banners
-import deHeroBg1 from "@/assets/banners/de/hero-bg-1.jpg";
-import deHeroBg2 from "@/assets/banners/de/hero-bg-2.jpg";
-import deHeroBg3 from "@/assets/banners/de/hero-bg-3.jpg";
-import deHeroBg4 from "@/assets/banners/de/hero-bg-4.jpg";
-import deMobileBg1 from "@/assets/banners/de/mobile/hero-bg-1.jpg";
-import deMobileBg2 from "@/assets/banners/de/mobile/hero-bg-2.jpg";
-import deMobileBg3 from "@/assets/banners/de/mobile/hero-bg-3.jpg";
-import deMobileBg4 from "@/assets/banners/de/mobile/hero-bg-4.jpg";
+// Lithuanian banners
+import ltHeroBg1 from "@/assets/banners/lt/hero-bg-1.jpg";
+import ltHeroBg2 from "@/assets/banners/lt/hero-bg-2.jpg";
+import ltHeroBg3 from "@/assets/banners/lt/hero-bg-3.jpg";
+import ltHeroBg4 from "@/assets/banners/lt/hero-bg-4.jpg";
+import ltMobileBg1 from "@/assets/banners/lt/mobile/hero-bg-1.jpg";
+import ltMobileBg2 from "@/assets/banners/lt/mobile/hero-bg-2.jpg";
+import ltMobileBg3 from "@/assets/banners/lt/mobile/hero-bg-3.jpg";
+import ltMobileBg4 from "@/assets/banners/lt/mobile/hero-bg-4.jpg";
+
+// Estonian banners
+import etHeroBg1 from "@/assets/banners/et/hero-bg-1.jpg";
+import etHeroBg2 from "@/assets/banners/et/hero-bg-2.jpg";
+import etHeroBg3 from "@/assets/banners/et/hero-bg-3.jpg";
+import etHeroBg4 from "@/assets/banners/et/hero-bg-4.jpg";
+import etMobileBg1 from "@/assets/banners/et/mobile/hero-bg-1.jpg";
+import etMobileBg2 from "@/assets/banners/et/mobile/hero-bg-2.jpg";
+import etMobileBg3 from "@/assets/banners/et/mobile/hero-bg-3.jpg";
+import etMobileBg4 from "@/assets/banners/et/mobile/hero-bg-4.jpg";
+
+// Swedish banners
+import svHeroBg1 from "@/assets/banners/sv/hero-bg-1.jpg";
+import svHeroBg2 from "@/assets/banners/sv/hero-bg-2.jpg";
+import svHeroBg3 from "@/assets/banners/sv/hero-bg-3.jpg";
+import svHeroBg4 from "@/assets/banners/sv/hero-bg-4.jpg";
+import svMobileBg1 from "@/assets/banners/sv/mobile/hero-bg-1.jpg";
+import svMobileBg2 from "@/assets/banners/sv/mobile/hero-bg-2.jpg";
+import svMobileBg3 from "@/assets/banners/sv/mobile/hero-bg-3.jpg";
+import svMobileBg4 from "@/assets/banners/sv/mobile/hero-bg-4.jpg";
 
 const HeroBanner = () => {
   const { currentLanguage } = useLanguage();
@@ -89,6 +109,18 @@ const HeroBanner = () => {
     de: {
       desktop: [deHeroBg1, deHeroBg2, deHeroBg3, deHeroBg4],
       mobile: [deMobileBg1, deMobileBg2, deMobileBg3, deMobileBg4]
+    },
+    lt: {
+      desktop: [ltHeroBg1, ltHeroBg2, ltHeroBg3, ltHeroBg4],
+      mobile: [ltMobileBg1, ltMobileBg2, ltMobileBg3, ltMobileBg4]
+    },
+    et: {
+      desktop: [etHeroBg1, etHeroBg2, etHeroBg3, etHeroBg4],
+      mobile: [etMobileBg1, etMobileBg2, etMobileBg3, etMobileBg4]
+    },
+    sv: {
+      desktop: [svHeroBg1, svHeroBg2, svHeroBg3, svHeroBg4],
+      mobile: [svMobileBg1, svMobileBg2, svMobileBg3, svMobileBg4]
     }
   };
   

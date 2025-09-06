@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-type Language = 'en' | 'lv' | 'ru' | 'fr' | 'el' | 'de';
+type Language = 'en' | 'lv' | 'ru' | 'fr' | 'el' | 'de' | 'lt' | 'et' | 'sv';
 
 interface LanguageContextType {
   currentLanguage: Language;
@@ -41,6 +41,9 @@ const translations = {
     french: 'Français',
     greek: 'Ελληνικά',
     german: 'Deutsch',
+    lithuanian: 'Lithuanian',
+    estonian: 'Estonian',
+    swedish: 'Swedish',
     
     // Hero section (you'll need to add these to your components)
     heroTitle: 'Welcome to LIEPNET',
@@ -129,6 +132,9 @@ const translations = {
     french: 'Français',
     greek: 'Ελληνικά',
     german: 'Deutsch',
+    lithuanian: 'Lietuvių',
+    estonian: 'Eesti',
+    swedish: 'Svenska',
     
     // Hero section
     heroTitle: 'Laipni lūdzam LIEPNET',
@@ -217,6 +223,9 @@ const translations = {
     french: 'Français',
     greek: 'Ελληνικά',
     german: 'Deutsch',
+    lithuanian: 'Lietuvių',
+    estonian: 'Eesti',
+    swedish: 'Svenska',
     
     // Hero section
     heroTitle: 'Добро пожаловать в LIEPNET',
@@ -305,6 +314,9 @@ const translations = {
     french: 'Français',
     greek: 'Ελληνικά',
     german: 'Deutsch',
+    lithuanian: 'Lietuvių',
+    estonian: 'Eesti',
+    swedish: 'Svenska',
     
     // Hero section
     heroTitle: 'Bienvenue chez LIEPNET',
@@ -393,6 +405,9 @@ const translations = {
     french: 'Français',
     greek: 'Ελληνικά',
     german: 'Deutsch',
+    lithuanian: 'Lietuvių',
+    estonian: 'Eesti',
+    swedish: 'Svenska',
     
     // Hero section
     heroTitle: 'Καλώς ήρθατε στο LIEPNET',
@@ -481,6 +496,9 @@ const translations = {
     french: 'Français',
     greek: 'Ελληνικά',
     german: 'Deutsch',
+    lithuanian: 'Lietuvių',
+    estonian: 'Eesti',
+    swedish: 'Svenska',
     
     // Hero section
     heroTitle: 'Willkommen bei LIEPNET',
@@ -536,6 +554,279 @@ const translations = {
     followUs: 'Folgen Sie uns',
     allRightsReserved: 'Alle Rechte vorbehalten.',
     footerQuote: 'Alles geschieht aus einem Grund, auch wenn es schwer zu verstehen ist.',
+  },
+  lt: {
+    // Navigation
+    about: 'Apie mus',
+    services: 'Paslaugos',
+    gaming: 'Žaidimai',
+    
+    // Gaming page
+    gamingDescription: 'Profesionalūs žaidimų tinklo sprendimai ir optimizavimo paslaugos geriausiai žaidimų patirčiai.',
+    gamingServices: 'Žaidimų paslaugos',
+    gameServerSetup: 'Žaidimų serverių sąranka',
+    networkOptimization: 'Tinklo optimizavimas',
+    latencyReduction: 'Vėlavimo mažinimas',
+    customGameConfigs: 'Pritaikytos žaidimų konfigūracijos',
+    supportedGames: 'Palaikomi žaidimai',
+    gamingTips: 'Žaidimų patarimai ir triukai',
+    optimizeConnection: 'Optimizuokite ryšį',
+    reduceInput: 'Sumažinkite įvesties vėlavimą',
+    improveFramerate: 'Pagerinkite kadrų dažnį',
+    troubleshooting: 'Žaidimų trikčių šalinimas',
+    
+    // 404 Pages
+    pageNotFound: 'Puslapis nerastas',
+    pageNotFoundMessage: 'Ieškojome visur, bet negalėjome rasti puslapio, kurio ieškote.',
+    returnToHome: 'Grįžti į pradžią',
+    
+    // Language names
+    english: 'Anglų',
+    latvian: 'Latvių',
+    russian: 'Rusų',
+    french: 'Prancūzų',
+    greek: 'Graikų',
+    german: 'Vokiečių',
+    lithuanian: 'Lietuvių',
+    estonian: 'Estų',
+    swedish: 'Švedų',
+    
+    // Hero section
+    heroTitle: 'Sveiki atvykę į LIEPNET',
+    heroSubtitle: 'Jūsų patikimas technologijų partneris',
+    
+    // Content section
+    whatIsLiepnet: 'KAS YRA LIEPNET™?',
+    liepnetDescription: 'LIEPNET™ teikia įvairias paslaugas, įskaitant logotipų kūrimą, hostingą, verslo WI-FI ir tinklų planavimą, meteorologinę informaciją ir technologijų patarimus visiems.',
+    
+    // Services
+    meteorologicalNetwork: 'Meteorologinis tinklas',
+    meteorologicalDesc: 'LIEPNET™ meteorologinis tinklas Latvijoje.',
+    hosting: 'Hostingas',
+    hostingDesc: 'LIEPNET™ hostingo paslaugos',
+    logoDesign: 'Logotipo kūrimas',
+    logoDesc: 'Ar jūsų verslui reikia naujo atnaujinto išvaizdos?',
+    gamingDesc: 'Nuobodu? Tada peržiūrėkite mūsų žaidimus!',
+    wifiNetworking: 'WI-FI ir tinklų planavimas',
+    wifiDesc: 'Ar jūsų verslas turi WI-FI ar ryšio problemų? Ar jūsų technologijos pasenusios?',
+    forumsTechTips: 'Forumai ir technologijų patarimai',
+    forumsDesc: 'Tyrinėkite LIEPNET™ forumus ir technologijų patarimus!',
+    radio: 'Radijas',
+    radioDesc: 'LIEPNET™ radijo grotuvas',
+    maps: 'Žemėlapiai',
+    mapsDesc: 'Tyrinėkite LIEPNET™ žemėlapius',
+    more: 'Daugiau...',
+    moreDesc: 'Žiūrėkite daugiau mūsų paslaugų',
+    
+    // Buttons
+    explore: 'Tyrinėti',
+    start: 'Pradėti',
+    order: 'Užsakyti',
+    play: 'Žaisti',
+    request: 'Prašyti',
+    listen: 'Klausyti',
+    
+    // Goals
+    accomplishments: 'MŪSŲ TIKSLAI',
+    accomplishmentsDesc: 'Tai yra LIEPNET™ tikslai',
+    awardWinner: 'Meteorologinis tinklas',
+    awardDesc: 'Mūsų tikslas yra sukurti pirmą kolektyvinio finansavimo meteorologinį tinklą Latvijoje, su bent viena stotimi vienam KM². Šis tankis galėtų veikti kaip labai tikslus radaras vizualiai.',
+    globalReach: 'LIEPNET™ Hostingas',
+    globalDesc: 'Mūsų tikslas su LIEPNET™ Hostingu yra teikti prieinamus hostingo sprendimus mažiems uždaviniams, tokiems kaip Discord botų hostingas ir mažų Minecraft serverių hostingas. Siekiame sukurti tinklą su keliais mazgais visame pasaulyje, kurie turi geriausią ryšį tarp LIEPNET™ CORE ir retransliacijų paslaugų optimaliam ryšiui.',
+    industryLeader: 'LIEPNET™ Paslaugos',
+    industryDesc: 'Mūsų tikslas yra padaryti visas mūsų paslaugas aukštos kokybės ir nebrangias; tačiau mes taip pat norime padaryti kuo daugiau mūsų paslaugų nemokamų, nes manome, kad nemokama padaro dalykus prieinamesnius platesnei auditorijai. Mes taip pat ketname plėtoti daugiau paslaugų, tokių kaip žemėlapiai, radijas, radijo žemėlapiai, forumai, žaidimai ir pan. Mūsų tikslai su šiomis paslaugomis yra padaryti jas lengvas naudoti ir nemokamas; iš pradžių mes norime padaryti jas prieinamas visiems vartotojams Latvijoje, tada palaipsniui plėsti į likusią Europą ir galiausiai globaliai.',
+    achievementImage: 'Pasiekimo paveikslėlis',
+    
+    // Footer
+    footerFoundedText: 'Įkurta 2025 m. vasarį, Latvijoje.',
+    contactInformation: 'Kontaktinė informacija',
+    ownerCeo: 'LIEPNET savininkas/CEO',
+    executiveManager: 'LIEPNET GREECE vykdomasis vadovas',
+    followUs: 'Sekite mus',
+    allRightsReserved: 'Visos teisės saugomos.',
+    footerQuote: 'Viskas vyksta dėl priežasties, net jei sunku suprasti priežastį.',
+  },
+  et: {
+    // Navigation
+    about: 'Meist',
+    services: 'Teenused',
+    gaming: 'Mängud',
+    
+    // Gaming page
+    gamingDescription: 'Professionaalsed mängu võrgu lahendused ja optimeerimise teenused parima mängu kogemuse jaoks.',
+    gamingServices: 'Mängu teenused',
+    gameServerSetup: 'Mängu serveri seadistamine',
+    networkOptimization: 'Võrgu optimeerimine',
+    latencyReduction: 'Latentsuse vähendamine',
+    customGameConfigs: 'Kohandatud mängu konfiguratsioonid',
+    supportedGames: 'Toetatud mängud',
+    gamingTips: 'Mängu nõuanded ja nipid',
+    optimizeConnection: 'Optimeerige ühendust',
+    reduceInput: 'Vähendage sisendi viivitust',
+    improveFramerate: 'Parandage kaadrisagedust',
+    troubleshooting: 'Mängu probleemide lahendamine',
+    
+    // 404 Pages
+    pageNotFound: 'Lehte ei leitud',
+    pageNotFoundMessage: 'Otisime kõikjalt, kuid ei suutnud leida lehte, mida otsite.',
+    returnToHome: 'Tagasi koju',
+    
+    // Language names
+    english: 'Inglise',
+    latvian: 'Läti',
+    russian: 'Vene',
+    french: 'Prantsuse',
+    greek: 'Kreeka',
+    german: 'Saksa',
+    lithuanian: 'Leedu',
+    estonian: 'Eesti',
+    swedish: 'Rootsi',
+    
+    // Hero section
+    heroTitle: 'Tere tulemast LIEPNET-i',
+    heroSubtitle: 'Teie usaldusväärne tehnoloogia partner',
+    
+    // Content section
+    whatIsLiepnet: 'MIS ON LIEPNET™?',
+    liepnetDescription: 'LIEPNET™ pakub mitmesuguseid teenuseid, sealhulgas logo arendamist, hostingut, äri WI-FI ja võrgu planeerimist, meteoroloogilist teavet ja tehnoloogia nõuandeid kõigile.',
+    
+    // Services
+    meteorologicalNetwork: 'Meteoroloogiline võrgustik',
+    meteorologicalDesc: 'LIEPNET™ meteoroloogiline võrgustik Lätis.',
+    hosting: 'Hosting',
+    hostingDesc: 'LIEPNET™ hostingu teenused',
+    logoDesign: 'Logo arendamine',
+    logoDesc: 'Kas teie ettevõte vajab uut värskendatud ilmet?',
+    gamingDesc: 'Igav? Siis vaadake meie mänge!',
+    wifiNetworking: 'WI-FI ja võrgu planeerimine',
+    wifiDesc: 'Kas teie ettevõttel on WI-FI või ühenduvuse probleeme? Kas teie tehnoloogia on aegunud?',
+    forumsTechTips: 'Foorumid ja tehnoloogia nõuanded',
+    forumsDesc: 'Uurige LIEPNET™ foorumeid ja tehnoloogia nõuandeid!',
+    radio: 'Raadio',
+    radioDesc: 'LIEPNET™ raadio mängija',
+    maps: 'Kaardid',
+    mapsDesc: 'Uurige LIEPNET™ kaarte',
+    more: 'Rohkem...',
+    moreDesc: 'Vaadake rohkem meie teenuseid',
+    
+    // Buttons
+    explore: 'Uurida',
+    start: 'Alustada',
+    order: 'Tellida',
+    play: 'Mängida',
+    request: 'Taotleda',
+    listen: 'Kuulata',
+    
+    // Goals
+    accomplishments: 'MEIE EESMÄRGID',
+    accomplishmentsDesc: 'Need on LIEPNET™ eesmärgid',
+    awardWinner: 'Meteoroloogiline võrgustik',
+    awardDesc: 'Meie eesmärk on luua esimene rahvapõhine meteoroloogiline võrgustik Lätis, vähemalt ühe jaamaga KM² kohta. See tihedus võiks toimida visuaalselt väga täpse radarina.',
+    globalReach: 'LIEPNET™ Hosting',
+    globalDesc: 'Meie eesmärk LIEPNET™ Hostinguga on pakkuda taskukohaseid hostingu lahendusi väikeste ülesannete jaoks, nagu Discord boti hosting ja väikeste Minecraft serveri hosting. Püüame luua võrgustiku mõne sõlmega üle maailma, millel on parim ühendus LIEPNET™ CORE ja ümberedastuse teenuste vahel optimaalse ühenduvuse jaoks.',
+    industryLeader: 'LIEPNET™ Teenused',
+    industryDesc: 'Meie eesmärk on muuta kõik meie teenused kvaliteetseks ja odavaks; siiski tahame ka teha võimalikult palju meie teenuseid tasuta, sest usume, et tasuta teeb asjad laiemale publikule kättesaadavamaks. Kavatseme ka arendada rohkem teenuseid, nagu kaardid, raadio, raadiokaardid, foorumid, mängud jne. Meie eesmärgid nende teenustega on muuta need lihtsaks kasutada ja tasuta; algselt tahame muuta need kättesaadavaks kõigile kasutajatele Lätis, seejärel järk-järgult laiendada ülejäänud Euroopasse ja lõpuks globaalselt.',
+    achievementImage: 'Saavutuse pilt',
+    
+    // Footer
+    footerFoundedText: 'Asutatud 2025. aasta veebruaris, Lätis.',
+    contactInformation: 'Kontaktandmed',
+    ownerCeo: 'LIEPNET omanik/CEO',
+    executiveManager: 'LIEPNET GREECE tegevjuht',
+    followUs: 'Jälgige meid',
+    allRightsReserved: 'Kõik õigused kaitstud.',
+    footerQuote: 'Kõik juhtub mingil põhjusel, isegi kui põhjust on raske mõista.',
+  },
+  sv: {
+    // Navigation
+    about: 'Om oss',
+    services: 'Tjänster',
+    gaming: 'Spel',
+    
+    // Gaming page
+    gamingDescription: 'Professionella spelnätverkslösningar och optimeringstjänster för den ultimata spelupplevelsen.',
+    gamingServices: 'Speltjänster',
+    gameServerSetup: 'Spelserverinställning',
+    networkOptimization: 'Nätverksoptimering',
+    latencyReduction: 'Latensreduktion',
+    customGameConfigs: 'Anpassade spelkonfigurationer',
+    supportedGames: 'Stödda spel',
+    gamingTips: 'Speltips och tricks',
+    optimizeConnection: 'Optimera din anslutning',
+    reduceInput: 'Minska input-lag',
+    improveFramerate: 'Förbättra bildhastighet',
+    troubleshooting: 'Spelfelsökning',
+    
+    // 404 Pages
+    pageNotFound: 'Sidan hittades inte',
+    pageNotFoundMessage: 'Vi har sökt överallt men kunde inte hitta sidan du letar efter.',
+    returnToHome: 'Tillbaka till hem',
+    
+    // Language names
+    english: 'Engelska',
+    latvian: 'Lettiska',
+    russian: 'Ryska',
+    french: 'Franska',
+    greek: 'Grekiska',
+    german: 'Tyska',
+    lithuanian: 'Litauiska',
+    estonian: 'Estniska',
+    swedish: 'Svenska',
+    
+    // Hero section
+    heroTitle: 'Välkommen till LIEPNET',
+    heroSubtitle: 'Din pålitliga teknikpartner',
+    
+    // Content section
+    whatIsLiepnet: 'VAD ÄR LIEPNET™?',
+    liepnetDescription: 'LIEPNET™ tillhandahåller en rad tjänster, inklusive logoutveckling, hosting, företags WI-FI och nätverksplanering, meteorologisk information och teknikråd för alla.',
+    
+    // Services
+    meteorologicalNetwork: 'Meteorologiskt nätverk',
+    meteorologicalDesc: 'LIEPNET™ meteorologiska nätverk i Lettland.',
+    hosting: 'Hosting',
+    hostingDesc: 'LIEPNET™ hostingtjänster',
+    logoDesign: 'Logoutveckling',
+    logoDesc: 'Behöver ditt företag en ny uppfräschad look?',
+    gamingDesc: 'Uttråkad? Då kolla våra spel!',
+    wifiNetworking: 'WI-FI och nätverksplanering',
+    wifiDesc: 'Har ditt företag WI-FI eller anslutningsproblem? Är din teknik föråldrad?',
+    forumsTechTips: 'Forum och teknikråd',
+    forumsDesc: 'Utforska LIEPNET™ forum och teknikråd!',
+    radio: 'Radio',
+    radioDesc: 'LIEPNET™ radiospelare',
+    maps: 'Kartor',
+    mapsDesc: 'Utforska LIEPNET™ kartor',
+    more: 'Mer...',
+    moreDesc: 'Se mer av våra tjänster',
+    
+    // Buttons
+    explore: 'Utforska',
+    start: 'Starta',
+    order: 'Beställa',
+    play: 'Spela',
+    request: 'Begära',
+    listen: 'Lyssna',
+    
+    // Goals
+    accomplishments: 'VÅRA MÅL',
+    accomplishmentsDesc: 'Detta är LIEPNET™ mål',
+    awardWinner: 'Meteorologiskt nätverk',
+    awardDesc: 'Vårt mål är att skapa det första crowdsourcade meteorologiska nätverket i Lettland, med minst en station per KM². Denna täthet skulle kunna fungera som en mycket exakt radar visuellt.',
+    globalReach: 'LIEPNET™ Hosting',
+    globalDesc: 'Vårt mål med LIEPNET™ Hosting är att tillhandahålla prisvärda hostinglösningar för små uppgifter som Discord bot hosting och små Minecraft server hosting. Vi strävar efter att skapa ett nätverk med några noder runt om i världen som har den bästa anslutningen mellan LIEPNET™ CORE och omsändningstjänster för optimal anslutning.',
+    industryLeader: 'LIEPNET™ Tjänster',
+    industryDesc: 'Vårt mål är att göra alla våra tjänster högkvalitativa och billiga; vi vill dock också göra så många av våra tjänster gratis som möjligt eftersom vi tror att gratis gör saker mer tillgängliga för en bredare publik. Vi avser också att utveckla fler tjänster som kartor, radio, radiokartor, forum, spel och så vidare. Våra mål med dessa tjänster är att göra dem enkla att använda och gratis; först vill vi göra dem tillgängliga för alla användare i Lettland, sedan gradvis expandera till resten av Europa och slutligen globalt.',
+    achievementImage: 'Prestationsbild',
+    
+    // Footer
+    footerFoundedText: 'Grundat i februari 2025, Lettland.',
+    contactInformation: 'Kontaktinformation',
+    ownerCeo: 'Ägare/VD för LIEPNET',
+    executiveManager: 'Verkställande chef för LIEPNET GREECE',
+    followUs: 'Följ oss',
+    allRightsReserved: 'Alla rättigheter förbehållna.',
+    footerQuote: 'Allt händer av en anledning, även om det är svårt att förstå anledningen.',
   },
 };
 
