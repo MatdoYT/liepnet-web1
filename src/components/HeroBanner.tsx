@@ -51,6 +51,16 @@ import elMobileBg2 from "@/assets/banners/el/mobile/hero-bg-2.jpg";
 import elMobileBg3 from "@/assets/banners/el/mobile/hero-bg-3.jpg";
 import elMobileBg4 from "@/assets/banners/el/mobile/hero-bg-4.jpg";
 
+// German banners
+import deHeroBg1 from "@/assets/banners/de/hero-bg-1.jpg";
+import deHeroBg2 from "@/assets/banners/de/hero-bg-2.jpg";
+import deHeroBg3 from "@/assets/banners/de/hero-bg-3.jpg";
+import deHeroBg4 from "@/assets/banners/de/hero-bg-4.jpg";
+import deMobileBg1 from "@/assets/banners/de/mobile/hero-bg-1.jpg";
+import deMobileBg2 from "@/assets/banners/de/mobile/hero-bg-2.jpg";
+import deMobileBg3 from "@/assets/banners/de/mobile/hero-bg-3.jpg";
+import deMobileBg4 from "@/assets/banners/de/mobile/hero-bg-4.jpg";
+
 // Lithuanian banners
 import ltHeroBg1 from "@/assets/banners/lt/hero-bg-1.jpg";
 import ltHeroBg2 from "@/assets/banners/lt/hero-bg-2.jpg";
