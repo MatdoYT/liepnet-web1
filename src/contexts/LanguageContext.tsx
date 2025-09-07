@@ -49,6 +49,48 @@ const translations = {
     heroTitle: 'Welcome to LIEPNET',
     heroSubtitle: 'Your trusted technology partner',
     
+    // About page
+    aboutTitle: 'About LIEPNET',
+    aboutSubtitle: 'Your Technology Partner from Latvia',
+    
+    // What LIEPNET is
+    whatIsTitle: 'What is LIEPNET?',
+    whatIsContent: 'LIEPNET is a leading technology company based in Latvia, specializing in network infrastructure, web hosting, and digital solutions. Founded with a vision to bridge the digital divide across Europe, we provide cutting-edge services to businesses and individuals.',
+    countryOrigin: 'Proudly serving from Latvia since our founding',
+    
+    // What LIEPNET means
+    whatMeansTitle: 'What LIEPNET Means',
+    whatMeansContent: 'LIEPNET represents innovation, reliability, and connection. Our name reflects our commitment to creating lasting networks that empower communities and businesses to thrive in the digital age.',
+    
+    // What LIEPNET has done
+    whatDoneTitle: 'Our Achievements',
+    achievement1Title: 'Network Infrastructure',
+    achievement1Content: 'Built robust network infrastructure serving thousands of users across the Baltic region',
+    achievement2Title: 'Web Hosting Excellence',
+    achievement2Content: 'Provided reliable hosting solutions for over 10,000 websites and applications',
+    achievement3Title: 'Digital Innovation',
+    achievement3Content: 'Pioneered innovative digital solutions that have transformed how businesses operate online',
+    
+    // What LIEPNET plans to do
+    whatPlansTitle: 'Our Vision for the Future',
+    plan1Title: 'European Expansion',
+    plan1Content: 'Expanding our network infrastructure across all European markets by 2026',
+    plan2Title: 'Green Technology',
+    plan2Content: 'Implementing sustainable, eco-friendly solutions in all our data centers',
+    plan3Title: 'AI Integration',
+    plan3Content: 'Integrating artificial intelligence to enhance our services and customer experience',
+    
+    // Why choose LIEPNET
+    whyChooseTitle: 'Why Choose LIEPNET?',
+    reason1Title: 'Reliability',
+    reason1Content: '99.9% uptime guarantee with 24/7 monitoring and support',
+    reason2Title: 'Innovation',
+    reason2Content: 'Cutting-edge technology solutions tailored to your needs',
+    reason3Title: 'Local Expertise',
+    reason3Content: 'Deep understanding of European markets and regulations',
+    reason4Title: 'Scalability',
+    reason4Content: 'Solutions that grow with your business, from startup to enterprise',
+    
     // Content section
     whatIsLiepnet: 'WHAT IS LIEPNET™?',
     liepnetDescription: 'LIEPNET™ provides a range of services, including logo development, hosting, business WI-FI and network planning, meteorological information, and tech tips for everyone.',
@@ -136,9 +178,51 @@ const translations = {
     estonian: 'Eesti',
     swedish: 'Svenska',
     
-    // Hero section
+    // Hero section (you'll need to add these to your components)
     heroTitle: 'Laipni lūdzam LIEPNET',
     heroSubtitle: 'Jūsu uzticamais tehnoloģiju partneris',
+    
+    // About page
+    aboutTitle: 'Par LIEPNET',
+    aboutSubtitle: 'Jūsu tehnoloģiju partneris no Latvijas',
+    
+    // What LIEPNET is
+    whatIsTitle: 'Kas ir LIEPNET?',
+    whatIsContent: 'LIEPNET ir vadošs tehnoloģiju uzņēmums ar mītni Latvijā, kas specializējas tīkla infrastruktūrā, web hostingā un digitālajos risinājumos. Dibināts ar vīziju savienot digitālo plaisu visā Eiropā, mēs nodrošinām modernākos pakalpojumus uzņēmumiem un privātpersonām.',
+    countryOrigin: 'Lepni kalpojam no Latvijas kopš mūsu dibināšanas',
+    
+    // What LIEPNET means
+    whatMeansTitle: 'Ko nozīmē LIEPNET',
+    whatMeansContent: 'LIEPNET pārstāv inovācijas, uzticamību un savienojumu. Mūsu nosaukums atspoguļo mūsu apņemšanos radīt ilgstošus tīklus, kas ļauj kopienām un uzņēmumiem uzplaukt digitālajā laikmetā.',
+    
+    // What LIEPNET has done
+    whatDoneTitle: 'Mūsu sasniegumi',
+    achievement1Title: 'Tīkla infrastruktūra',
+    achievement1Content: 'Izveidojuši stabilu tīkla infrastruktūru, kas apkalpo tūkstošiem lietotāju visā Baltijas reģionā',
+    achievement2Title: 'Web hostinga izcilība',
+    achievement2Content: 'Nodrošinājuši uzticamus hostinga risinājumus vairāk nekā 10 000 vietnēm un lietotnēm',
+    achievement3Title: 'Digitālās inovācijas',
+    achievement3Content: 'Pionieri inovatīvos digitālajos risinājumos, kas ir pārveidojuši veidu, kā uzņēmumi darbojas tiešsaistē',
+    
+    // What LIEPNET plans to do
+    whatPlansTitle: 'Mūsu nākotnes vīzija',
+    plan1Title: 'Paplašināšanās Eiropā',
+    plan1Content: 'Paplašināšu mūsu tīkla infrastruktūru visās Eiropas tirgos līdz 2026. gadam',
+    plan2Title: 'Zaļā tehnoloģija',
+    plan2Content: 'Ieviešam ilgtspējīgus, ekoloģiski draudzīgus risinājumus visos mūsu datu centros',
+    plan3Title: 'MI integrācija',
+    plan3Content: 'Integrējam mākslīgo intelektu, lai uzlabotu mūsu pakalpojumus un klienta pieredzi',
+    
+    // Why choose LIEPNET
+    whyChooseTitle: 'Kāpēc izvēlēties LIEPNET?',
+    reason1Title: 'Uzticamība',
+    reason1Content: '99,9% darbības laika garantija ar 24/7 uzraudzību un atbalstu',
+    reason2Title: 'Inovācijas',
+    reason2Content: 'Modernākās tehnoloģiju risinājumi, kas pielāgoti jūsu vajadzībām',
+    reason3Title: 'Vietējā ekspertīze',
+    reason3Content: 'Dziļa izpratne par Eiropas tirgiem un regulējumiem',
+    reason4Title: 'Mērogojamība',
+    reason4Content: 'Risinājumi, kas aug līdzi jūsu biznesam, no jaunuzņēmuma līdz korporācijai',
     
     // Content section
     whatIsLiepnet: 'KAS IR LIEPNET™?',
