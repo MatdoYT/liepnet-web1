@@ -1,37 +1,70 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useAdvancedScrollAnimation, useParallaxScroll } from "@/hooks/useAdvancedScrollAnimation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { MapPin, Target, Trophy, Lightbulb, Shield, Rocket, Globe, Leaf } from "lucide-react";
+import { MapPin, Target, Trophy, Lightbulb, Shield, Rocket, Globe, Leaf, ArrowDown } from "lucide-react";
 
-const AnimatedSection = ({ 
+const FullScreenSection = ({ 
   children, 
-  className = "", 
-  delay = 0 
+  className = "",
+  background = "bg-background"
 }: { 
   children: React.ReactNode; 
-  className?: string; 
-  delay?: number;
+  className?: string;
+  background?: string;
 }) => {
-  const { ref, isVisible } = useScrollAnimation();
+  return (
+    <section className={`min-h-screen flex items-center justify-center relative ${background} ${className}`}>
+      {children}
+    </section>
+  );
+};
+
+const AnimatedCard = ({ 
+  icon: Icon, 
+  title, 
+  content, 
+  color,
+  delay = 0,
+  animationType = 'slideUp'
+}: {
+  icon: any;
+  title: string;
+  content: string;
+  color: string;
+  delay?: number;
+  animationType?: 'slideUp' | 'slideLeft' | 'slideRight' | 'scaleIn';
+}) => {
+  const { ref, animationClass } = useAdvancedScrollAnimation({ animationType });
   
   return (
     <div
       ref={ref}
-      className={`transition-all duration-1000 ease-out ${
-        isVisible 
-          ? 'opacity-100 translate-y-0' 
-          : 'opacity-0 translate-y-8'
-      } ${className}`}
+      className={`${animationClass} bg-card/80 backdrop-blur-lg border border-border/50 rounded-3xl p-8 hover:scale-105 hover:border-primary/50 transition-all duration-500 group`}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      {children}
+      <div className="flex flex-col items-center text-center space-y-4">
+        <div className={`p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-transparent group-hover:scale-110 transition-transform duration-300`}>
+          <Icon className={`w-8 h-8 ${color}`} />
+        </div>
+        <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+          {title}
+        </h3>
+        <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
+          {content}
+        </p>
+      </div>
     </div>
   );
 };
 
 const About = () => {
   const { t } = useLanguage();
+  const scrollY = useParallaxScroll();
+  
+  const { ref: heroRef, animationClass: heroAnimation } = useAdvancedScrollAnimation({ animationType: 'fadeIn' });
+  const { ref: whatIsRef, animationClass: whatIsAnimation } = useAdvancedScrollAnimation({ animationType: 'slideUp' });
+  const { ref: meaningRef, animationClass: meaningAnimation } = useAdvancedScrollAnimation({ animationType: 'slideRight' });
 
   const achievements = [
     {
@@ -103,135 +136,159 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="bg-background text-foreground overflow-x-hidden">
       <Header />
       
-      {/* Hero Section */}
-      <section className="relative pt-20 pb-16 px-6">
-        <div className="container mx-auto max-w-4xl text-center">
-          <AnimatedSection>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-purple-400 bg-clip-text text-transparent">
+      {/* Hero Section - Full Screen */}
+      <FullScreenSection className="relative" background="bg-gradient-to-br from-background via-primary/5 to-background">
+        <div 
+          className="absolute inset-0 opacity-30"
+          style={{
+            transform: `translateY(${scrollY * 0.5}px)`,
+            background: 'radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%)'
+          }}
+        />
+        
+        <div ref={heroRef} className={`${heroAnimation} container mx-auto px-6 text-center relative z-10`}>
+          <div className="space-y-8">
+            <h1 className="text-5xl md:text-8xl font-bold bg-gradient-to-r from-primary via-purple-400 to-pink-400 bg-clip-text text-transparent animate-float">
               {t('aboutTitle')}
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8">
+            <p className="text-xl md:text-3xl text-muted-foreground max-w-4xl mx-auto">
               {t('aboutSubtitle')}
             </p>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* What is LIEPNET */}
-      <section className="py-16 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <AnimatedSection className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
-              {t('whatIsTitle')}
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto mb-8 leading-relaxed">
-              {t('whatIsContent')}
-            </p>
-            <div className="flex items-center justify-center space-x-2 text-emerald-400">
-              <MapPin className="w-5 h-5" />
+            <div className="flex items-center justify-center space-x-3 text-emerald-400">
+              <MapPin className="w-6 h-6" />
               <span className="text-lg font-medium">{t('countryOrigin')}</span>
             </div>
-          </AnimatedSection>
+          </div>
+          
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <ArrowDown className="w-6 h-6 text-primary" />
+          </div>
         </div>
-      </section>
+      </FullScreenSection>
 
-      {/* What LIEPNET means */}
-      <section className="py-16 px-6 bg-card/50">
-        <div className="container mx-auto max-w-6xl">
-          <AnimatedSection className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
+      {/* What is LIEPNET - Full Screen */}
+      <FullScreenSection background="bg-gradient-to-br from-card/50 to-background">
+        <div ref={whatIsRef} className={`${whatIsAnimation} container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center`}>
+          <div className="space-y-8">
+            <h2 className="text-4xl md:text-6xl font-bold text-primary">
+              {t('whatIsTitle')}
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              {t('whatIsContent')}
+            </p>
+          </div>
+          
+          <div 
+            className="relative"
+            style={{ transform: `translateY(${scrollY * 0.1}px)` }}
+          >
+            <div className="w-80 h-80 mx-auto rounded-full bg-gradient-to-br from-primary/20 via-purple-500/20 to-pink-500/20 flex items-center justify-center backdrop-blur-sm border border-primary/30">
+              <Globe className="w-32 h-32 text-primary animate-float" />
+            </div>
+          </div>
+        </div>
+      </FullScreenSection>
+
+      {/* What LIEPNET means - Full Screen */}
+      <FullScreenSection background="bg-gradient-to-br from-background to-primary/5">
+        <div ref={meaningRef} className={`${meaningAnimation} container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center`}>
+          <div 
+            className="order-2 lg:order-1 relative"
+            style={{ transform: `translateY(${scrollY * -0.1}px)` }}
+          >
+            <div className="w-80 h-80 mx-auto rounded-full bg-gradient-to-br from-emerald-500/20 via-blue-500/20 to-purple-500/20 flex items-center justify-center backdrop-blur-sm border border-emerald-400/30">
+              <Lightbulb className="w-32 h-32 text-emerald-400 animate-float" />
+            </div>
+          </div>
+          
+          <div className="order-1 lg:order-2 space-y-8">
+            <h2 className="text-4xl md:text-6xl font-bold text-primary">
               {t('whatMeansTitle')}
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
               {t('whatMeansContent')}
             </p>
-          </AnimatedSection>
+          </div>
         </div>
-      </section>
+      </FullScreenSection>
 
-      {/* What LIEPNET has done */}
-      <section className="py-16 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <AnimatedSection className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
+      {/* Achievements - Full Screen */}
+      <FullScreenSection background="bg-gradient-to-br from-card/30 to-background">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-bold text-primary mb-8">
               {t('whatDoneTitle')}
             </h2>
-          </AnimatedSection>
+          </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {achievements.map((achievement, index) => (
-              <AnimatedSection key={index} delay={index * 200}>
-                <div className="bg-card border border-border rounded-2xl p-8 text-center hover:scale-105 transition-all duration-300 hover:border-primary/50">
-                  <achievement.icon className={`w-12 h-12 mx-auto mb-4 ${achievement.color}`} />
-                  <h3 className="text-xl font-bold mb-4 text-foreground">
-                    {achievement.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {achievement.content}
-                  </p>
-                </div>
-              </AnimatedSection>
+              <AnimatedCard
+                key={index}
+                icon={achievement.icon}
+                title={achievement.title}
+                content={achievement.content}
+                color={achievement.color}
+                delay={index * 200}
+                animationType={index % 2 === 0 ? 'slideUp' : 'scaleIn'}
+              />
             ))}
           </div>
         </div>
-      </section>
+      </FullScreenSection>
 
-      {/* What LIEPNET plans to do */}
-      <section className="py-16 px-6 bg-card/50">
-        <div className="container mx-auto max-w-6xl">
-          <AnimatedSection className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
+      {/* Future Plans - Full Screen */}
+      <FullScreenSection background="bg-gradient-to-br from-background to-card/30">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-bold text-primary mb-8">
               {t('whatPlansTitle')}
             </h2>
-          </AnimatedSection>
+          </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {plans.map((plan, index) => (
-              <AnimatedSection key={index} delay={index * 200}>
-                <div className="bg-card border border-border rounded-2xl p-8 text-center hover:scale-105 transition-all duration-300 hover:border-primary/50">
-                  <plan.icon className={`w-12 h-12 mx-auto mb-4 ${plan.color}`} />
-                  <h3 className="text-xl font-bold mb-4 text-foreground">
-                    {plan.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {plan.content}
-                  </p>
-                </div>
-              </AnimatedSection>
+              <AnimatedCard
+                key={index}
+                icon={plan.icon}
+                title={plan.title}
+                content={plan.content}
+                color={plan.color}
+                delay={index * 200}
+                animationType={index % 3 === 0 ? 'slideLeft' : index % 3 === 1 ? 'slideUp' : 'slideRight'}
+              />
             ))}
           </div>
         </div>
-      </section>
+      </FullScreenSection>
 
-      {/* Why choose LIEPNET */}
-      <section className="py-16 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <AnimatedSection className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">
+      {/* Why Choose LIEPNET - Full Screen */}
+      <FullScreenSection background="bg-gradient-to-br from-primary/10 via-background to-purple-500/10">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-bold text-primary mb-8">
               {t('whyChooseTitle')}
             </h2>
-          </AnimatedSection>
+          </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {reasons.map((reason, index) => (
-              <AnimatedSection key={index} delay={index * 150}>
-                <div className="bg-card border border-border rounded-xl p-6 text-center hover:scale-105 transition-all duration-300 hover:border-primary/50">
-                  <reason.icon className={`w-10 h-10 mx-auto mb-3 ${reason.color}`} />
-                  <h3 className="text-lg font-bold mb-3 text-foreground">
-                    {reason.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {reason.content}
-                  </p>
-                </div>
-              </AnimatedSection>
+              <AnimatedCard
+                key={index}
+                icon={reason.icon}
+                title={reason.title}
+                content={reason.content}
+                color={reason.color}
+                delay={index * 150}
+                animationType={index % 2 === 0 ? 'slideUp' : 'scaleIn'}
+              />
             ))}
           </div>
         </div>
-      </section>
+      </FullScreenSection>
 
       <Footer />
     </div>
