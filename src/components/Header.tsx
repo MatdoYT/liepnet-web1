@@ -18,15 +18,15 @@ const Header = () => {
   ];
 
   const languages = [
-    { code: 'en' as const, flag: '🇺🇸', name: t('english') },
-    { code: 'lv' as const, flag: '🇱🇻', name: t('latvian') },
-    { code: 'ru' as const, flag: '🇷🇺', name: t('russian') },
-    { code: 'fr' as const, flag: '🇫🇷', name: t('french') },
-    { code: 'el' as const, flag: '🇬🇷', name: t('greek') },
-    { code: 'de' as const, flag: '🇩🇪', name: t('german') },
-    { code: 'lt' as const, flag: '🇱🇹', name: t('lithuanian') },
-    { code: 'et' as const, flag: '🇪🇪', name: t('estonian') },
-    { code: 'sv' as const, flag: '🇸🇪', name: t('swedish') },
+    { code: 'en' as const, flag: '🇺🇸', name: 'English' },
+    { code: 'lv' as const, flag: '🇱🇻', name: 'Latviešu' },
+    { code: 'ru' as const, flag: '🇷🇺', name: 'Русский' },
+    { code: 'fr' as const, flag: '🇫🇷', name: 'Français' },
+    { code: 'el' as const, flag: '🇬🇷', name: 'Ελληνικά' },
+    { code: 'de' as const, flag: '🇩🇪', name: 'Deutsch' },
+    { code: 'lt' as const, flag: '🇱🇹', name: 'Lietuvių' },
+    { code: 'et' as const, flag: '🇪🇪', name: 'Eesti' },
+    { code: 'sv' as const, flag: '🇸🇪', name: 'Svenska' },
   ];
 
   const getCurrentLanguageDisplay = () => {
