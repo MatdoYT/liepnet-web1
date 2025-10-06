@@ -206,7 +206,7 @@ const ContentSection = () => {
                 
                 <div className="relative z-10">
                   {/* Image */}
-                  <div className="w-full aspect-square bg-gray-800/30 rounded-lg mb-4 overflow-hidden">
+                  <div className="w-full aspect-square bg-gray-800/30 rounded-lg mb-4 overflow-hidden relative">
                     {index === 0 ? (
                       <img 
                         src="/lovable-uploads/53ab33fd-314e-49bc-80a1-ec4006d71675.png" 
@@ -226,6 +226,8 @@ const ContentSection = () => {
                         className="w-full h-full object-cover" 
                       />
                     )}
+                    {/* Black gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-tl from-black/60 via-black/20 to-transparent"></div>
                   </div>
                   
                   <h3 className="text-lg font-semibold text-foreground mb-3">
