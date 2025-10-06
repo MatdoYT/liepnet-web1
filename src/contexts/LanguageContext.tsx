@@ -14,6 +14,7 @@ const translations = {
     about: 'About',
     services: 'Services',
     gaming: 'Gaming',
+    status: 'Status',
     
     // Gaming page
     gamingDescription: 'Professional gaming network solutions and optimization services for the ultimate gaming experience.',
@@ -147,6 +148,7 @@ const translations = {
     about: 'Par mums',
     services: 'Pakalpojumi',
     gaming: 'Spēles',
+    status: 'Statuss',
     
     // Gaming page
     gamingDescription: 'Profesionāli spēļu tīkla risinājumi un optimizācijas pakalpojumi maksimālai spēļu pieredzei.',
@@ -280,6 +282,7 @@ const translations = {
     about: 'О нас',
     services: 'Услуги',
     gaming: 'Игры',
+    status: 'Статус',
     
     // Gaming page
     gamingDescription: 'Профессиональные игровые сетевые решения и сервисы оптимизации для максимального игрового опыта.',
@@ -413,6 +416,7 @@ const translations = {
     about: 'À propos',
     services: 'Services',
     gaming: 'Jeux',
+    status: 'Statut',
     
     // Gaming page
     gamingDescription: 'Solutions de réseau de jeu professionnelles et services d\'optimisation pour l\'expérience de jeu ultime.',
@@ -546,6 +550,7 @@ const translations = {
     about: 'Σχετικά',
     services: 'Υπηρεσίες',
     gaming: 'Παιχνίδια',
+    status: 'Κατάσταση',
     
     // Gaming page
     gamingDescription: 'Επαγγελματικές λύσεις δικτύου παιχνιδιών και υπηρεσίες βελτιστοποίησης για την απόλυτη εμπειρία παιχνιδιού.',
@@ -679,6 +684,7 @@ const translations = {
     about: 'Über uns',
     services: 'Dienstleistungen',
     gaming: 'Gaming',
+    status: 'Status',
     
     // Gaming page
     gamingDescription: 'Professionelle Gaming-Netzwerklösungen und Optimierungsdienste für das ultimative Spielerlebnis.',
@@ -812,6 +818,7 @@ const translations = {
     about: 'Apie mus',
     services: 'Paslaugos',
     gaming: 'Žaidimai',
+    status: 'Būsena',
     
     // Gaming page
     gamingDescription: 'Profesionalūs žaidimų tinklo sprendimai ir optimizavimo paslaugos geriausiai žaidimų patirčiai.',
@@ -945,6 +952,7 @@ const translations = {
     about: 'Meist',
     services: 'Teenused',
     gaming: 'Mängud',
+    status: 'Olek',
     
     // Gaming page
     gamingDescription: 'Professionaalsed mängu võrgu lahendused ja optimeerimise teenused parima mängu kogemuse jaoks.',
@@ -1078,6 +1086,7 @@ const translations = {
     about: 'Om oss',
     services: 'Tjänster',
     gaming: 'Spel',
+    status: 'Status',
     
     // Gaming page
     gamingDescription: 'Professionella spelnätverkslösningar och optimeringstjänster för den ultimata spelupplevelsen.',

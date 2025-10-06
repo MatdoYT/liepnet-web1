@@ -14,7 +14,8 @@ const Header = () => {
   
   const navLinks = [
     { key: 'about', label: t('about'), href: '/about' },
-    { key: 'services', label: t('services'), href: '/services' }
+    { key: 'services', label: t('services'), href: '/services' },
+    { key: 'status', label: t('status'), href: 'https://lv-status.liepnet.eu' }
   ];
 
   const languages = [
