@@ -3,6 +3,7 @@ import { useAdvancedScrollAnimation, useParallaxScroll } from "@/hooks/useAdvanc
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { MapPin, Target, Trophy, Lightbulb, Shield, Rocket, Globe, Leaf, ArrowDown } from "lucide-react";
+import liepnetHero from "@/assets/liepnet-hero.png";
 
 const FullScreenSection = ({ 
   children, 
@@ -139,35 +140,18 @@ const About = () => {
     <div className="bg-background text-foreground overflow-x-hidden">
       <Header />
       
-      {/* Hero Section - Full Screen */}
-      <FullScreenSection className="relative" background="bg-gradient-to-br from-background via-primary/5 to-background">
-        <div 
-          className="absolute inset-0 opacity-30"
-          style={{
-            transform: `translateY(${scrollY * 0.5}px)`,
-            background: 'radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%)'
-          }}
+      {/* Hero Image Section - Full Screen */}
+      <section className="relative h-screen w-full overflow-hidden">
+        <img 
+          src={liepnetHero} 
+          alt="LIEPNET Hero" 
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        
-        <div ref={heroRef} className={`${heroAnimation} container mx-auto px-6 text-center relative z-10`}>
-          <div className="space-y-8">
-            <h1 className="text-5xl md:text-8xl font-bold bg-gradient-to-r from-primary via-purple-400 to-pink-400 bg-clip-text text-transparent animate-float">
-              {t('aboutTitle')}
-            </h1>
-            <p className="text-xl md:text-3xl text-muted-foreground max-w-4xl mx-auto">
-              {t('aboutSubtitle')}
-            </p>
-            <div className="flex items-center justify-center space-x-3 text-emerald-400">
-              <MapPin className="w-6 h-6" />
-              <span className="text-lg font-medium">{t('countryOrigin')}</span>
-            </div>
-          </div>
-          
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <ArrowDown className="w-6 h-6 text-primary" />
-          </div>
-        </div>
-      </FullScreenSection>
+        {/* Gradient overlay starting at 2/3 down */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" style={{ 
+          backgroundImage: 'linear-gradient(to bottom, transparent 0%, transparent 66.67%, hsl(var(--background)) 100%)' 
+        }} />
+      </section>
 
       {/* What is LIEPNET - Full Screen */}
       <FullScreenSection background="bg-gradient-to-br from-card/50 to-background">
