@@ -198,15 +198,15 @@ const ContentSection = () => {
           }, {
             title: t('industryLeader'),
             desc: t('industryDesc')
-          }].map((item, index) => <div key={index} className="bg-emerald-950/30 border border-emerald-900/20 rounded-2xl p-6 animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300" style={{
+          }].map((item, index) => <div key={index} className="bg-gray-900/40 border border-gray-800/30 rounded-2xl p-6 animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300" style={{
             animationDelay: `${(index + 4) * 0.1}s`
           }}>
                 {/* Card gradient overlay */}
-                <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-emerald-600/10 to-transparent group-hover:opacity-50 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-gray-700/20 to-transparent group-hover:opacity-50 transition-opacity duration-300"></div>
                 
                 <div className="relative z-10">
                   {/* Image */}
-                  <div className="w-full aspect-square bg-emerald-800/20 rounded-lg mb-4 overflow-hidden">
+                  <div className="w-full aspect-square bg-gray-800/30 rounded-lg mb-4 overflow-hidden">
                     {index === 0 ? (
                       <img 
                         src="/lovable-uploads/53ab33fd-314e-49bc-80a1-ec4006d71675.png" 
