@@ -62,34 +62,58 @@ const Radio = () => {
             <TabsTrigger value="international">International</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="all" className="space-y-8">
+          <TabsContent value="all" className="space-y-8 animate-fade-in">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-              {stations.map((station) => (
-                <RadioStationCard key={station.id} {...station} />
+              {stations.map((station, index) => (
+                <div 
+                  key={station.id} 
+                  className="animate-scale-in"
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  <RadioStationCard {...station} />
+                </div>
               ))}
             </div>
           </TabsContent>
 
-          <TabsContent value="popular" className="space-y-8">
+          <TabsContent value="popular" className="space-y-8 animate-fade-in">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-              {stations.slice(0, 3).map((station) => (
-                <RadioStationCard key={station.id} {...station} />
+              {stations.slice(0, 3).map((station, index) => (
+                <div 
+                  key={station.id} 
+                  className="animate-scale-in"
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  <RadioStationCard {...station} />
+                </div>
               ))}
             </div>
           </TabsContent>
 
-          <TabsContent value="local" className="space-y-8">
+          <TabsContent value="local" className="space-y-8 animate-fade-in">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-              {stations.slice(0, 2).map((station) => (
-                <RadioStationCard key={station.id} {...station} />
+              {stations.slice(0, 2).map((station, index) => (
+                <div 
+                  key={station.id} 
+                  className="animate-scale-in"
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  <RadioStationCard {...station} />
+                </div>
               ))}
             </div>
           </TabsContent>
 
-          <TabsContent value="international" className="space-y-8">
+          <TabsContent value="international" className="space-y-8 animate-fade-in">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-              {stations.slice(2).map((station) => (
-                <RadioStationCard key={station.id} {...station} />
+              {stations.slice(2).map((station, index) => (
+                <div 
+                  key={station.id} 
+                  className="animate-scale-in"
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  <RadioStationCard {...station} />
+                </div>
               ))}
             </div>
           </TabsContent>
