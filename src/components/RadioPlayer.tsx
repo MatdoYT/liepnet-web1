@@ -8,7 +8,10 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
+  DropdownMenuLabel,
 } from '@/components/ui/dropdown-menu';
+import { toast } from '@/hooks/use-toast';
 
 const RadioPlayer = () => {
   const { currentStation, isPlaying, volume, quality, pauseStation, playStation, setVolume, setQuality } = useRadioPlayer();
@@ -28,9 +31,17 @@ const RadioPlayer = () => {
     navigate(`/radio/${currentStation.id}`);
   };
 
+  const handleCopyStreamLink = () => {
+    navigator.clipboard.writeText(currentStation.streamUrl);
+    toast({
+      title: "Stream link copied!",
+      description: "The stream URL has been copied to your clipboard.",
+    });
+  };
+
   return (
     <div className="fixed bottom-6 left-6 right-6 z-50 animate-slide-up">
-      <div className="backdrop-blur-xl bg-background/80 border border-white/10 rounded-2xl shadow-2xl p-4">
+      <div className="backdrop-blur-xl bg-gradient-to-b from-black/60 to-black/80 border border-white/10 rounded-2xl shadow-2xl p-4">
         <div className="flex items-center gap-4">
           {/* Station logo */}
           <img 
@@ -49,7 +60,7 @@ const RadioPlayer = () => {
           <Button
             onClick={handleTogglePlay}
             size="icon"
-            className="w-12 h-12 rounded-full shadow-lg"
+            className="w-12 h-12 rounded-full shadow-lg bg-white hover:bg-gray-100 text-black"
           >
             {isPlaying ? (
               <Pause className="w-5 h-5" fill="currentColor" />
@@ -58,31 +69,27 @@ const RadioPlayer = () => {
             )}
           </Button>
 
-          {/* Quality selector */}
+          {/* Stream info dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
                 className="rounded-full"
-                disabled={!currentStation.hasQualityOptions}
               >
-                <Settings className={`w-5 h-5 ${!currentStation.hasQualityOptions ? 'text-muted-foreground/50' : ''}`} />
+                <Settings className="w-5 h-5" />
               </Button>
             </DropdownMenuTrigger>
-            {currentStation.hasQualityOptions && (
-              <DropdownMenuContent className="backdrop-blur-xl bg-background/95 border-white/10">
-                <DropdownMenuItem onClick={() => setQuality('high')}>
-                  High Quality {quality === 'high' && '✓'}
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setQuality('medium')}>
-                  Medium Quality {quality === 'medium' && '✓'}
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setQuality('low')}>
-                  Low Quality {quality === 'low' && '✓'}
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            )}
+            <DropdownMenuContent className="backdrop-blur-xl bg-background/95 border-white/10">
+              <DropdownMenuLabel>Stream Quality</DropdownMenuLabel>
+              <DropdownMenuItem disabled>
+                <span className="text-green-500">128 Kbps</span>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={handleCopyStreamLink}>
+                📋 Copy Stream Link
+              </DropdownMenuItem>
+            </DropdownMenuContent>
           </DropdownMenu>
 
           {/* Volume control */}

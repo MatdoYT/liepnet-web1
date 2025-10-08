@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Play } from 'lucide-react';
 import { useRadioPlayer } from '@/contexts/RadioPlayerContext';
+import { useNavigate } from 'react-router-dom';
 
 interface RadioStationCardProps {
   id: string;
@@ -15,6 +16,7 @@ const RadioStationCard = ({ id, name, logo, streamUrl, hasQualityOptions = false
   const [darkness, setDarkness] = useState(0);
   const cardRef = useRef<HTMLDivElement>(null);
   const { playStation } = useRadioPlayer();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -39,8 +41,13 @@ const RadioStationCard = ({ id, name, logo, streamUrl, hasQualityOptions = false
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  const handlePlay = () => {
+  const handlePlay = (e: React.MouseEvent) => {
+    e.stopPropagation();
     playStation({ id, name, logo, streamUrl, hasQualityOptions });
+  };
+
+  const handleCardClick = () => {
+    navigate(`/radio/${id}`);
   };
 
   return (
@@ -49,6 +56,7 @@ const RadioStationCard = ({ id, name, logo, streamUrl, hasQualityOptions = false
       className="group relative aspect-square rounded-lg overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleCardClick}
     >
       <img 
         src={logo} 

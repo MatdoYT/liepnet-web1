@@ -4,14 +4,15 @@ import Footer from '@/components/Footer';
 import RadioPlayer from '@/components/RadioPlayer';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Radio as RadioIcon, MapPin, Clock } from 'lucide-react';
+import radioSkontoLogo from '@/assets/radio-skonto-logo.png';
 
 // Placeholder data - will be dynamic based on station ID
 const stationData: Record<string, any> = {
   'radio-skonto': {
     name: 'Radio Skonto',
-    logo: 'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=400&h=400&fit=crop',
-    streamUrl: 'https://example.com/stream1',
-    hasQualityOptions: true,
+    logo: radioSkontoLogo,
+    streamUrl: 'https://stream.radioskonto.lv:8443/stereo',
+    hasQualityOptions: false,
     description: 'Radio Skonto is one of the leading radio stations in Latvia, broadcasting a mix of contemporary hits and local content.',
     broadcastAreas: ['Riga', 'Jurmala', 'Sigulda', 'Valmiera'],
     programs: [
@@ -56,6 +57,9 @@ const RadioStation = () => {
               src={station.logo}
               alt={station.name}
               className="w-full max-w-md aspect-square rounded-2xl shadow-2xl object-cover mx-auto"
+              style={{ 
+                filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.2))'
+              }}
             />
           </div>
 

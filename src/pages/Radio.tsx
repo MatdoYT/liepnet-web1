@@ -4,14 +4,16 @@ import RadioStationCard from '@/components/RadioStationCard';
 import RadioPlayer from '@/components/RadioPlayer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
+import radioSkontoLogo from '@/assets/radio-skonto-logo.png';
+
 // Placeholder stations - user will edit these
 const stations = [
   {
     id: 'radio-skonto',
     name: 'Radio Skonto',
-    logo: 'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=400&h=400&fit=crop',
-    streamUrl: 'https://example.com/stream1',
-    hasQualityOptions: true,
+    logo: radioSkontoLogo,
+    streamUrl: 'https://stream.radioskonto.lv:8443/stereo',
+    hasQualityOptions: false,
   },
   {
     id: 'station-2',
