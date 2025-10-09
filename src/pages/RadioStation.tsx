@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import RadioPlayer from '@/components/RadioPlayer';
@@ -46,6 +46,8 @@ const RadioStation = () => {
   const navigate = useNavigate();
   const { playStation } = useRadioPlayer();
   const [isHovered, setIsHovered] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const tableRef = useRef<HTMLDivElement>(null);
   
   const station = stationData[stationId || ''] || {
     name: 'Station',
@@ -64,6 +66,34 @@ const RadioStation = () => {
     });
   };
 
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  const calculateOpacity = (element: HTMLElement | null) => {
+    if (!element) return 1;
+    
+    const rect = element.getBoundingClientRect();
+    const elementCenterX = rect.left + rect.width / 2;
+    const elementCenterY = rect.top + rect.height / 2;
+    
+    const distance = Math.sqrt(
+      Math.pow(mousePosition.x - elementCenterX, 2) + 
+      Math.pow(mousePosition.y - elementCenterY, 2)
+    );
+    
+    const maxDistance = 500;
+    const minOpacity = 0.5;
+    const opacity = Math.max(minOpacity, 1 - (distance / maxDistance) * (1 - minOpacity));
+    
+    return opacity;
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -78,8 +108,16 @@ const RadioStation = () => {
           Back to Radio
         </Button>
 
+        {/* Station Info */}
+        <div className="mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">{station.name}</h1>
+          <p className="text-muted-foreground text-lg leading-relaxed max-w-4xl">
+            {station.description}
+          </p>
+        </div>
+
         <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Station Logo */}
+          {/* Left Column: Station Logo and Frequencies */}
           <div className="space-y-12">
             <div 
               className="relative w-full max-w-md aspect-square rounded-2xl shadow-2xl mx-auto overflow-hidden cursor-pointer group"
@@ -102,79 +140,82 @@ const RadioStation = () => {
               </div>
             </div>
 
-            {/* Broadcast Areas */}
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-4">
-                <div className="flex items-center gap-2 text-xl font-semibold">
-                  <MapPin className="w-6 h-6 text-white" />
-                  <h2 className="text-white">Broadcast Frequencies</h2>
-                </div>
-                <div className="rounded-lg border border-border overflow-hidden">
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className="text-white">City</TableHead>
-                        <TableHead className="text-white">Frequency</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {station.frequencies?.map((item: any) => (
-                        <TableRow key={item.city}>
+            {/* Broadcast Frequencies */}
+            <div className="space-y-4" ref={tableRef}>
+              <div className="flex items-center gap-2 text-xl font-semibold">
+                <MapPin className="w-6 h-6 text-white" />
+                <h2 className="text-white">Broadcast Frequencies</h2>
+              </div>
+              <div className="rounded-lg border border-border overflow-hidden">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="text-white">City</TableHead>
+                      <TableHead className="text-white">Frequency</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {station.frequencies?.map((item: any, index: number) => {
+                      const rowRef = useRef<HTMLTableRowElement>(null);
+                      return (
+                        <TableRow 
+                          key={item.city}
+                          ref={rowRef}
+                          style={{
+                            opacity: calculateOpacity(document.querySelector(`[data-row-index="${index}"]`))
+                          }}
+                          data-row-index={index}
+                          className="transition-opacity duration-100"
+                        >
                           <TableCell className="font-medium">{item.city}</TableCell>
                           <TableCell>{item.frequency}</TableCell>
                         </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
+                      );
+                    })}
+                  </TableBody>
+                </Table>
               </div>
-
-              {/* Station Details */}
-              <div className="space-y-6">
-                <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-white">Radio Skonto website</h3>
-                  <a href="https://radioskonto.lv" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                    radioskonto.lv
-                  </a>
-                </div>
-                
-                <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-white">Owned by</h3>
-                  <p className="text-muted-foreground">SIA SKONTO GROUP</p>
-                </div>
-                
-                <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-white">Legal address</h3>
-                  <p className="text-muted-foreground">Rīga, Mūkusalas iela 41, LV-1004</p>
-                </div>
-                
-                <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-white">Local time zone</h3>
-                  <p className="text-muted-foreground">EEST/EET</p>
-                </div>
-                
-                <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-white">Music genre</h3>
-                  <p className="text-muted-foreground">Soft pop, classic hits</p>
-                </div>
-                
-                <div className="space-y-3">
-                  <h3 className="text-lg font-semibold text-white">Phone number</h3>
-                  <a href="tel:+37124992499" className="text-primary hover:underline">
-                    +371 24992499
-                  </a>
-                </div>
-              </div>
+              <p className="text-sm text-muted-foreground">
+                Frequencies updated on the 10th of October, 2025.<br />
+                Information source: <a href="https://www.fmlist.org" target="_blank" rel="noopener noreferrer" className="hover:underline">www.fmlist.org</a>
+              </p>
             </div>
           </div>
 
-          {/* Station Info */}
-          <div className="space-y-8">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">{station.name}</h1>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                {station.description}
-              </p>
+          {/* Right Column: Station Details */}
+          <div className="space-y-6">
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-white">Radio Skonto website</h3>
+              <a href="https://radioskonto.lv" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:underline">
+                radioskonto.lv
+              </a>
+            </div>
+            
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-white">Owned by</h3>
+              <p className="text-muted-foreground">SIA SKONTO GROUP</p>
+            </div>
+            
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-white">Legal address</h3>
+              <p className="text-muted-foreground">Rīga, Mūkusalas iela 41, LV-1004</p>
+            </div>
+            
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-white">Local time zone</h3>
+              <p className="text-muted-foreground">EEST/EET</p>
+            </div>
+            
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-white">Music genre</h3>
+              <p className="text-muted-foreground">Soft pop, classic hits</p>
+            </div>
+            
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-white">Phone number</h3>
+              <a href="tel:+37124992499" className="text-red-500 hover:underline">
+                +371 24992499
+              </a>
             </div>
           </div>
         </div>
