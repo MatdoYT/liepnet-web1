@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useRef, useEffect, ReactNode } from 'react';
 
 interface RadioStation {
   id: string;
@@ -37,6 +37,54 @@ export const RadioPlayerProvider = ({ children }: { children: ReactNode }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(75);
   const [quality, setQuality] = useState('high');
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Initialize audio element
+  useEffect(() => {
+    audioRef.current = new Audio();
+    audioRef.current.preload = 'none';
+    
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = '';
+      }
+    };
+  }, []);
+
+  // Update audio source when station changes
+  useEffect(() => {
+    if (audioRef.current && currentStation) {
+      audioRef.current.src = currentStation.streamUrl;
+      if (isPlaying) {
+        audioRef.current.play().catch(err => {
+          console.error('Error playing audio:', err);
+          setIsPlaying(false);
+        });
+      }
+    }
+  }, [currentStation]);
+
+  // Handle play/pause
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play().catch(err => {
+          console.error('Error playing audio:', err);
+          setIsPlaying(false);
+        });
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isPlaying]);
+
+  // Handle volume changes
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume / 100;
+    }
+  }, [volume]);
 
   const playStation = (station: RadioStation) => {
     setCurrentStation(station);
