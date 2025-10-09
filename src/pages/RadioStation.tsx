@@ -80,20 +80,20 @@ const RadioStation = () => {
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Station Logo */}
-          <div className="space-y-6">
+          <div className="space-y-12">
             <div 
               className="relative w-full max-w-md aspect-square rounded-2xl shadow-2xl mx-auto overflow-hidden cursor-pointer group"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
               onClick={handlePlay}
+              style={{ 
+                filter: 'drop-shadow(0 0 30px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 60px rgba(255, 255, 255, 0.3))'
+              }}
             >
               <img
                 src={station.logo}
                 alt={station.name}
-                className={`w-full h-full object-cover transition-all duration-300 ${isHovered ? 'blur-sm scale-105' : ''}`}
-                style={{ 
-                  filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.2))'
-                }}
+                className={`w-full h-full object-cover transition-all duration-300 ${isHovered ? 'blur-sm scale-105' : 'blur-0 scale-100'}`}
               />
               <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
                 <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-2xl">
@@ -103,28 +103,67 @@ const RadioStation = () => {
             </div>
 
             {/* Broadcast Areas */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-2 text-xl font-semibold">
-                <MapPin className="w-6 h-6 text-white" />
-                <h2 className="text-white">Broadcast Frequencies</h2>
-              </div>
-              <div className="rounded-lg border border-border overflow-hidden">
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead className="text-white">City</TableHead>
-                      <TableHead className="text-white">Frequency</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {station.frequencies?.map((item: any) => (
-                      <TableRow key={item.city}>
-                        <TableCell className="font-medium">{item.city}</TableCell>
-                        <TableCell>{item.frequency}</TableCell>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <div className="flex items-center gap-2 text-xl font-semibold">
+                  <MapPin className="w-6 h-6 text-white" />
+                  <h2 className="text-white">Broadcast Frequencies</h2>
+                </div>
+                <div className="rounded-lg border border-border overflow-hidden">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="text-white">City</TableHead>
+                        <TableHead className="text-white">Frequency</TableHead>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                    </TableHeader>
+                    <TableBody>
+                      {station.frequencies?.map((item: any) => (
+                        <TableRow key={item.city}>
+                          <TableCell className="font-medium">{item.city}</TableCell>
+                          <TableCell>{item.frequency}</TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+              </div>
+
+              {/* Station Details */}
+              <div className="space-y-6">
+                <div className="space-y-3">
+                  <h3 className="text-lg font-semibold text-white">Radio Skonto website</h3>
+                  <a href="https://radioskonto.lv" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                    radioskonto.lv
+                  </a>
+                </div>
+                
+                <div className="space-y-3">
+                  <h3 className="text-lg font-semibold text-white">Owned by</h3>
+                  <p className="text-muted-foreground">SIA SKONTO GROUP</p>
+                </div>
+                
+                <div className="space-y-3">
+                  <h3 className="text-lg font-semibold text-white">Legal address</h3>
+                  <p className="text-muted-foreground">Rīga, Mūkusalas iela 41, LV-1004</p>
+                </div>
+                
+                <div className="space-y-3">
+                  <h3 className="text-lg font-semibold text-white">Local time zone</h3>
+                  <p className="text-muted-foreground">EEST/EET</p>
+                </div>
+                
+                <div className="space-y-3">
+                  <h3 className="text-lg font-semibold text-white">Music genre</h3>
+                  <p className="text-muted-foreground">Soft pop, classic hits</p>
+                </div>
+                
+                <div className="space-y-3">
+                  <h3 className="text-lg font-semibold text-white">Phone number</h3>
+                  <a href="tel:+37124992499" className="text-primary hover:underline">
+                    +371 24992499
+                  </a>
+                </div>
               </div>
             </div>
           </div>
