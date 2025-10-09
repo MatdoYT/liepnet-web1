@@ -1,10 +1,13 @@
 import { useParams, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import RadioPlayer from '@/components/RadioPlayer';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Radio as RadioIcon, MapPin, Clock } from 'lucide-react';
+import { ArrowLeft, MapPin, Play } from 'lucide-react';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import radioSkontoLogo from '@/assets/radio-skonto-logo.png';
+import { useRadioPlayer } from '@/contexts/RadioPlayerContext';
 
 // Placeholder data - will be dynamic based on station ID
 const stationData: Record<string, any> = {
@@ -13,13 +16,27 @@ const stationData: Record<string, any> = {
     logo: radioSkontoLogo,
     streamUrl: 'https://stream.radioskonto.lv:8443/stereo',
     hasQualityOptions: false,
-    description: 'Radio Skonto is one of the leading radio stations in Latvia, broadcasting a mix of contemporary hits and local content.',
-    broadcastAreas: ['Riga', 'Jurmala', 'Sigulda', 'Valmiera'],
-    programs: [
-      'Morning Show (6:00-10:00)',
-      'Midday Music (10:00-14:00)',
-      'Drive Time (14:00-18:00)',
-      'Evening Vibes (18:00-22:00)',
+    description: 'Since 1993, Radio Skonto, one of Latvia\'s most recognizable FM stations, has been transmitting on 107,2 MHz in Riga. It is renowned for its cozy, laid-back style, which combines short news updates, amiable, conversational hosts, timeless hits, and local favorites with soft pop. By providing a comfortable, familiar, and intimate listening experience whether at home, at work, or while traveling, the station has amassed a devoted adult audience. Radio Skonto is still a mainstay of Latvian radio culture thanks to its soothing playlists and reliable voices.',
+    frequencies: [
+      { city: 'Rīga', frequency: '107,2 MHz' },
+      { city: 'Cēsis', frequency: '97,6 MHz' },
+      { city: 'Limbaži', frequency: '92,8 MHz' },
+      { city: 'Saldus', frequency: '98,1 MHz' },
+      { city: 'Talsi', frequency: '87,5 MHz' },
+      { city: 'Salacgrīva', frequency: '88,0 MHz' },
+      { city: 'Valmiera', frequency: '97,0 MHz' },
+      { city: 'Valga', frequency: '94,6 MHz' },
+      { city: 'Alūksne', frequency: '94,2 MHz' },
+      { city: 'Cesvaine', frequency: '99,8 MHz' },
+      { city: 'Rugāji', frequency: '92,2 MHz' },
+      { city: 'Jēkabpils', frequency: '94,7 MHz' },
+      { city: 'Dagda', frequency: '99,1 MHz' },
+      { city: 'Daugavpils', frequency: '106,1 MHz' },
+      { city: 'Skrunda', frequency: '97,6 MHz' },
+      { city: 'Kuldīga', frequency: '96,9 MHz' },
+      { city: 'Aizpute', frequency: '96,6 MHz' },
+      { city: 'Ventspils', frequency: '100,5 MHz' },
+      { city: 'Liepāja', frequency: '97,5 MHz' },
     ],
   },
 };
@@ -27,13 +44,24 @@ const stationData: Record<string, any> = {
 const RadioStation = () => {
   const { stationId } = useParams<{ stationId: string }>();
   const navigate = useNavigate();
+  const { playStation } = useRadioPlayer();
+  const [isHovered, setIsHovered] = useState(false);
   
   const station = stationData[stationId || ''] || {
     name: 'Station',
     logo: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&h=400&fit=crop',
     description: 'A great radio station broadcasting quality content.',
-    broadcastAreas: ['Area 1', 'Area 2'],
-    programs: ['Program 1', 'Program 2'],
+    frequencies: [],
+  };
+
+  const handlePlay = () => {
+    playStation({
+      id: stationId || '',
+      name: station.name,
+      logo: station.logo,
+      streamUrl: station.streamUrl,
+      hasQualityOptions: station.hasQualityOptions,
+    });
   };
 
   return (
@@ -53,14 +81,52 @@ const RadioStation = () => {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Station Logo */}
           <div className="space-y-6">
-            <img
-              src={station.logo}
-              alt={station.name}
-              className="w-full max-w-md aspect-square rounded-2xl shadow-2xl object-cover mx-auto"
-              style={{ 
-                filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.2))'
-              }}
-            />
+            <div 
+              className="relative w-full max-w-md aspect-square rounded-2xl shadow-2xl mx-auto overflow-hidden cursor-pointer group"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              onClick={handlePlay}
+            >
+              <img
+                src={station.logo}
+                alt={station.name}
+                className={`w-full h-full object-cover transition-all duration-300 ${isHovered ? 'blur-sm scale-105' : ''}`}
+                style={{ 
+                  filter: 'drop-shadow(0 0 20px rgba(255, 255, 255, 0.4)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.2))'
+                }}
+              />
+              <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+                <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-2xl">
+                  <Play className="w-10 h-10 text-black ml-1" fill="black" />
+                </div>
+              </div>
+            </div>
+
+            {/* Broadcast Areas */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-2 text-xl font-semibold">
+                <MapPin className="w-6 h-6 text-white" />
+                <h2 className="text-white">Broadcast Frequencies</h2>
+              </div>
+              <div className="rounded-lg border border-border overflow-hidden">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="text-white">City</TableHead>
+                      <TableHead className="text-white">Frequency</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {station.frequencies?.map((item: any) => (
+                      <TableRow key={item.city}>
+                        <TableCell className="font-medium">{item.city}</TableCell>
+                        <TableCell>{item.frequency}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            </div>
           </div>
 
           {/* Station Info */}
@@ -70,49 +136,6 @@ const RadioStation = () => {
               <p className="text-muted-foreground text-lg leading-relaxed">
                 {station.description}
               </p>
-            </div>
-
-            {/* Broadcast Areas */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-2 text-xl font-semibold">
-                <MapPin className="w-6 h-6 text-primary" />
-                <h2>Broadcast Areas</h2>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {station.broadcastAreas?.map((area: string) => (
-                  <span
-                    key={area}
-                    className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium"
-                  >
-                    {area}
-                  </span>
-                ))}
-              </div>
-              {/* Placeholder for custom map */}
-              <div className="w-full h-64 bg-muted rounded-lg flex items-center justify-center border border-border">
-                <div className="text-center text-muted-foreground">
-                  <MapPin className="w-12 h-12 mx-auto mb-2 opacity-50" />
-                  <p>Custom broadcast map will be displayed here</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Programs */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-2 text-xl font-semibold">
-                <Clock className="w-6 h-6 text-primary" />
-                <h2>Programs</h2>
-              </div>
-              <div className="space-y-2">
-                {station.programs?.map((program: string) => (
-                  <div
-                    key={program}
-                    className="p-4 bg-card border border-border rounded-lg hover:border-primary/50 transition-colors"
-                  >
-                    <p className="font-medium">{program}</p>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </div>
