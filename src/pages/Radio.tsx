@@ -5,6 +5,7 @@ import RadioPlayer from '@/components/RadioPlayer';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 import radioSkontoLogo from '@/assets/radio-skonto-logo.png';
+import ehrLogo from '@/assets/ehr-logo.png';
 
 // Placeholder stations - user will edit these
 const stations = [
@@ -16,10 +17,10 @@ const stations = [
     hasQualityOptions: false,
   },
   {
-    id: 'station-2',
-    name: 'Station 2',
-    logo: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&h=400&fit=crop',
-    streamUrl: 'https://example.com/stream2',
+    id: 'ehr',
+    name: 'European Hit Radio',
+    logo: ehrLogo,
+    streamUrl: 'https://playerservices.streamtheworld.com/api/livestream-redirect/EHR.mp3',
     hasQualityOptions: false,
   },
   {

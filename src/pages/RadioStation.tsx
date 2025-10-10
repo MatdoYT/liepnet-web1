@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, MapPin, Play } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import radioSkontoLogo from '@/assets/radio-skonto-logo.png';
+import ehrLogo from '@/assets/ehr-logo.png';
 import { useRadioPlayer } from '@/contexts/RadioPlayerContext';
 
 // Placeholder data - will be dynamic based on station ID
@@ -38,6 +39,41 @@ const stationData: Record<string, any> = {
       { city: 'Ventspils', frequency: '100,5 MHz' },
       { city: 'Liepāja', frequency: '97,5 MHz' },
     ],
+    website: 'https://radioskonto.lv',
+    ownedBy: 'SIA SKONTO GROUP',
+    address: 'Rīga, Mūkusalas iela 41, LV-1004',
+    timeZone: 'EEST/EET',
+    musicGenre: 'Soft pop, classic hits',
+    phone: '+371 24992499',
+  },
+  'ehr': {
+    name: 'European Hit Radio',
+    logo: ehrLogo,
+    streamUrl: 'https://playerservices.streamtheworld.com/api/livestream-redirect/EHR.mp3',
+    hasQualityOptions: false,
+    description: 'One of Latvia\'s top commercial stations, European Hit Radio (EHR), has been airing since 1992 and is well-known for its emphasis on the newest local and international hits. EHR provides a continuous mix of Top 40, pop, and dance songs on its flagship frequency in Riga (104,3 MHz), which reflects current trends in both Europe and the US. The station makes sure that listeners always hear the newest and most well-liked songs by curating its playlists straight from music charts. With its lively music flow, countdown shows, themed charts, and interactive features, EHR—which is specifically targeted at younger audiences—is the go-to place for anyone looking to keep up with today\'s popular music culture.',
+    frequencies: [
+      { city: 'Rīga', frequency: '104,3 MHz' },
+      { city: 'Cēsis', frequency: '99,2 MHz' },
+      { city: 'Valmiera', frequency: '102,4 MHz' },
+      { city: 'Madona', frequency: '102,0 MHz' },
+      { city: 'Gulbene', frequency: '88,4 MHz' },
+      { city: 'Valka', frequency: '96,2 MHz' },
+      { city: 'Rēzekne', frequency: '97,1 MHz' },
+      { city: 'Daugavpils', frequency: '92,9 MHz' },
+      { city: 'Jēkabpils', frequency: '98,4 MHz' },
+      { city: 'Saldus', frequency: '93,6 MHz' },
+      { city: 'Talsi', frequency: '100,8 MHz' },
+      { city: 'Kuldīga', frequency: '107,4 MHz' },
+      { city: 'Liepāja', frequency: '96,1 MHz' },
+      { city: 'Ventspils', frequency: '101,9 MHz' },
+    ],
+    website: 'https://www.ehr.fm',
+    ownedBy: 'SIA "EHR Mediju Grupa"',
+    address: 'Rīga, Krasta iela 44, LV-1003',
+    timeZone: 'EEST/EET',
+    musicGenre: 'Contemporary pop, Top 40, dance music',
+    phone: '+371 67204404',
   },
 };
 
@@ -185,36 +221,36 @@ const RadioStation = () => {
           {/* Right Column: Station Details */}
           <div className="space-y-6">
             <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-white">Radio Skonto website</h3>
-              <a href="https://radioskonto.lv" target="_blank" rel="noopener noreferrer" className="text-red-500 hover:underline">
-                radioskonto.lv
+              <h3 className="text-lg font-semibold text-white">{station.name} website</h3>
+              <a href={station.website} target="_blank" rel="noopener noreferrer" className="text-red-500 hover:underline">
+                {station.website?.replace('https://', '').replace('http://', '')}
               </a>
             </div>
             
             <div className="space-y-3">
               <h3 className="text-lg font-semibold text-white">Owned by</h3>
-              <p className="text-muted-foreground">SIA SKONTO GROUP</p>
+              <p className="text-muted-foreground">{station.ownedBy}</p>
             </div>
             
             <div className="space-y-3">
               <h3 className="text-lg font-semibold text-white">Legal address</h3>
-              <p className="text-muted-foreground">Rīga, Mūkusalas iela 41, LV-1004</p>
+              <p className="text-muted-foreground">{station.address}</p>
             </div>
             
             <div className="space-y-3">
               <h3 className="text-lg font-semibold text-white">Local time zone</h3>
-              <p className="text-muted-foreground">EEST/EET</p>
+              <p className="text-muted-foreground">{station.timeZone}</p>
             </div>
             
             <div className="space-y-3">
               <h3 className="text-lg font-semibold text-white">Music genre</h3>
-              <p className="text-muted-foreground">Soft pop, classic hits</p>
+              <p className="text-muted-foreground">{station.musicGenre}</p>
             </div>
             
             <div className="space-y-3">
               <h3 className="text-lg font-semibold text-white">Phone number</h3>
-              <a href="tel:+37124992499" className="text-red-500 hover:underline">
-                +371 24992499
+              <a href={`tel:${station.phone}`} className="text-red-500 hover:underline">
+                {station.phone}
               </a>
             </div>
           </div>
