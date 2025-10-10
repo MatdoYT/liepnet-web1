@@ -108,18 +108,9 @@ const RadioStation = () => {
           Back to Radio
         </Button>
 
-        {/* Station Info */}
-        <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">{station.name}</h1>
-          <p className="text-muted-foreground text-lg leading-relaxed max-w-4xl">
-            {station.description}
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Left Column: Station Logo and Frequencies */}
-          <div className="space-y-12">
-            <div 
+        {/* Station Logo and Description */}
+        <div className="grid md:grid-cols-2 gap-12 items-start mb-12">
+          <div
               className="relative w-full max-w-md aspect-square rounded-2xl shadow-2xl mx-auto overflow-hidden cursor-pointer group"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
@@ -140,8 +131,18 @@ const RadioStation = () => {
               </div>
             </div>
 
-            {/* Broadcast Frequencies */}
-            <div className="space-y-4" ref={tableRef}>
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">{station.name}</h1>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              {station.description}
+            </p>
+          </div>
+        </div>
+
+        {/* Frequencies and Station Details */}
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* Left Column: Frequencies */}
+          <div className="space-y-4" ref={tableRef}>
               <div className="flex items-center gap-2 text-xl font-semibold">
                 <MapPin className="w-6 h-6 text-white" />
                 <h2 className="text-white">Broadcast Frequencies</h2>
@@ -180,7 +181,6 @@ const RadioStation = () => {
                 Information source: <a href="https://www.fmlist.org" target="_blank" rel="noopener noreferrer" className="hover:underline">www.fmlist.org</a>
               </p>
             </div>
-          </div>
 
           {/* Right Column: Station Details */}
           <div className="space-y-6">
