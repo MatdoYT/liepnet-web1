@@ -79,6 +79,26 @@ All colors MUST be HSL.
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Motion tokens - durations */
+    --motion-instant: 120ms;
+    --motion-fast: 220ms;
+    --motion-normal: 400ms;
+    --motion-slow: 600ms;
+    --motion-slowest: 1000ms;
+    
+    /* Motion tokens - easings */
+    --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Shadow depths */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.25);
   }
 
   .dark {
@@ -216,5 +236,78 @@ All colors MUST be HSL.
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes morph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
+
+@keyframes scroll-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Motion utilities */
+@layer utilities {
+  .motion-safe {
+    transition-property: transform, opacity;
+    transition-timing-function: var(--ease-smooth);
+  }
+  
+  .hover-lift {
+    transition: transform var(--motion-fast) var(--ease-spring), 
+                box-shadow var(--motion-fast) var(--ease-smooth);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  .hover-tilt {
+    transform-style: preserve-3d;
+    transition: transform var(--motion-fast) var(--ease-spring);
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-morph {
+    animation: morph 8s ease-in-out infinite;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .motion-safe,
+    .hover-lift,
+    .hover-tilt,
+    .animate-float,
+    .animate-morph {
+      animation: none !important;
+      transition: none !important;
+    }
+    
+    .hover-lift:hover {
+      transform: none;
+    }
   }
 }

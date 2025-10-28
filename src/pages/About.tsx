@@ -1,59 +1,333 @@
+import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useAdvancedScrollAnimation, useParallaxScroll } from "@/hooks/useAdvancedScrollAnimation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { MapPin, Target, Trophy, Lightbulb, Shield, Rocket, Globe, Leaf, ArrowDown } from "lucide-react";
+import { 
+  MapPin, Target, Trophy, Lightbulb, Shield, Rocket, 
+  Globe, Leaf, ArrowDown, Sparkles, Zap, Users 
+} from "lucide-react";
 import liepnetHero from "@/assets/liepnet-hero.png";
 
-const FullScreenSection = ({ 
-  children, 
-  className = "",
-  background = "bg-background"
-}: { 
-  children: React.ReactNode; 
-  className?: string;
-  background?: string;
-}) => {
+// Hero section with parallax and scroll-scrubbed animation
+const ParallaxHero = () => {
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const heroRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!heroRef.current) return;
+      const rect = heroRef.current.getBoundingClientRect();
+      const progress = Math.max(0, Math.min(1, 1 - (rect.bottom / window.innerHeight)));
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section className={`min-h-screen flex items-center justify-center relative ${background} ${className}`}>
-      {children}
+    <section 
+      ref={heroRef}
+      className="relative h-screen w-full overflow-hidden"
+      style={{ willChange: 'transform' }}
+    >
+      {/* Background layer - slowest parallax */}
+      <div 
+        className="absolute inset-0 bg-gradient-to-br from-primary/20 via-purple-500/10 to-background"
+        style={{ 
+          transform: `translateY(${scrollProgress * 50}px) scale(${1 + scrollProgress * 0.1})`,
+          opacity: 1 - scrollProgress * 0.3
+        }}
+      />
+      
+      {/* Image layer - medium parallax */}
+      <div
+        className="absolute inset-0"
+        style={{ 
+          transform: `translateY(${scrollProgress * 100}px) scale(${1 + scrollProgress * 0.15})`,
+          opacity: 1 - scrollProgress * 0.5
+        }}
+      >
+        <img 
+          src={liepnetHero} 
+          alt="LIEPNET Hero" 
+          className="w-full h-full object-cover"
+        />
+      </div>
+
+      {/* Gradient overlay */}
+      <div 
+        className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background"
+        style={{ 
+          backgroundImage: `linear-gradient(to bottom, transparent 0%, transparent 66.67%, hsl(var(--background)) 100%)`,
+          opacity: 0.5 + scrollProgress * 0.5
+        }}
+      />
+
+      {/* Foreground content - fastest parallax */}
+      <div 
+        className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
+        style={{ 
+          transform: `translateY(${scrollProgress * 150}px)`,
+          opacity: 1 - scrollProgress * 1.5
+        }}
+      >
+        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
+          LIEPNET
+        </h1>
+        <p className="text-xl md:text-2xl text-white/90 max-w-2xl mb-8 drop-shadow-lg">
+          Building the future of connectivity
+        </p>
+        <ArrowDown className="w-8 h-8 text-white/70 animate-bounce" />
+      </div>
+
+      {/* Scroll progress indicator */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
+        <div 
+          className="h-full bg-primary transition-all"
+          style={{ 
+            width: `${scrollProgress * 100}%`,
+            transition: 'width 100ms linear'
+          }}
+        />
+      </div>
     </section>
   );
 };
 
+// Staggered card reveal with hover effects
 const AnimatedCard = ({ 
   icon: Icon, 
   title, 
   content, 
   color,
   delay = 0,
-  animationType = 'slideUp'
+  index = 0
 }: {
   icon: any;
   title: string;
   content: string;
   color: string;
   delay?: number;
-  animationType?: 'slideUp' | 'slideLeft' | 'slideRight' | 'scaleIn';
+  index?: number;
 }) => {
-  const { ref, animationClass } = useAdvancedScrollAnimation({ animationType });
-  
+  const [isVisible, setIsVisible] = useState(false);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    setTilt({ x: y * 10, y: -x * 10 });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ x: 0, y: 0 });
+  };
+
   return (
     <div
-      ref={ref}
-      className={`${animationClass} bg-card/80 backdrop-blur-lg border border-border/50 rounded-3xl p-8 hover:scale-105 hover:border-primary/50 transition-all duration-500 group`}
-      style={{ transitionDelay: `${delay}ms` }}
+      ref={cardRef}
+      className="group relative"
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
+        transition: `all var(--motion-slow) var(--ease-out-quad) ${delay}ms`,
+        willChange: 'transform, opacity'
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     >
-      <div className="flex flex-col items-center text-center space-y-4">
-        <div className={`p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-transparent group-hover:scale-110 transition-transform duration-300`}>
-          <Icon className={`w-8 h-8 ${color}`} />
+      <div
+        className="relative bg-card/80 backdrop-blur-lg border border-border/50 rounded-3xl p-8 hover-lift overflow-hidden"
+        style={{
+          transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+          transition: 'transform var(--motion-fast) var(--ease-spring)',
+          boxShadow: 'var(--shadow-md)'
+        }}
+      >
+        {/* Morphing background blob */}
+        <div 
+          className="absolute -top-20 -right-20 w-40 h-40 opacity-10 animate-morph"
+          style={{ 
+            background: `linear-gradient(135deg, ${color.replace('text-', '')} 0%, transparent 100%)`,
+            animationDelay: `${index * 200}ms`
+          }}
+        />
+
+        <div className="relative flex flex-col items-center text-center space-y-4">
+          <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-transparent group-hover:scale-110 transition-transform duration-300">
+            <Icon className={`w-8 h-8 ${color}`} />
+          </div>
+          <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+            {title}
+          </h3>
+          <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
+            {content}
+          </p>
         </div>
-        <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-          {title}
-        </h3>
-        <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
-          {content}
-        </p>
+
+        {/* Hover glow effect */}
+        <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-transparent transition-all duration-500 pointer-events-none" />
+      </div>
+    </div>
+  );
+};
+
+// Sticky pinned section with scroll-driven animation
+const StickySection = () => {
+  const { t } = useLanguage();
+  const [progress, setProgress] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const sectionHeight = rect.height;
+      const windowHeight = window.innerHeight;
+      
+      if (rect.top <= 0 && rect.bottom >= windowHeight) {
+        const scrolled = Math.abs(rect.top);
+        const total = sectionHeight - windowHeight;
+        setProgress(Math.min(1, scrolled / total));
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const steps = [
+    { icon: Globe, label: t('achievement1Title'), color: 'text-blue-400' },
+    { icon: Shield, label: t('achievement2Title'), color: 'text-emerald-400' },
+    { icon: Sparkles, label: t('achievement3Title'), color: 'text-purple-400' },
+    { icon: Zap, label: 'Innovation', color: 'text-yellow-400' }
+  ];
+
+  const currentStep = Math.floor(progress * steps.length);
+
+  return (
+    <section 
+      ref={sectionRef}
+      className="relative min-h-[300vh] bg-gradient-to-b from-background via-card/30 to-background"
+    >
+      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-6xl font-bold text-primary mb-4">
+              Our Journey
+            </h2>
+            <div className="w-full max-w-md mx-auto h-2 bg-border/30 rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-primary transition-all duration-300"
+                style={{ width: `${progress * 100}%` }}
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            {steps.map((step, index) => {
+              const isActive = index <= currentStep;
+              const isPast = index < currentStep;
+              
+              return (
+                <div
+                  key={index}
+                  className="flex flex-col items-center space-y-4"
+                  style={{
+                    opacity: isActive ? 1 : 0.3,
+                    transform: isActive ? 'scale(1)' : 'scale(0.9)',
+                    transition: 'all var(--motion-normal) var(--ease-spring)'
+                  }}
+                >
+                  <div 
+                    className={`p-6 rounded-2xl bg-card/80 backdrop-blur border ${
+                      isActive ? 'border-primary/50' : 'border-border/30'
+                    } relative`}
+                    style={{
+                      boxShadow: isActive ? 'var(--shadow-lg)' : 'var(--shadow-sm)'
+                    }}
+                  >
+                    <step.icon className={`w-12 h-12 ${step.color}`} />
+                    {isPast && (
+                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                  <p className={`text-sm font-medium ${isActive ? 'text-foreground' : 'text-muted-foreground'}`}>
+                    {step.label}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Morphing button/card transition
+const MorphingCTA = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const { t } = useLanguage();
+
+  return (
+    <div className="flex justify-center items-center min-h-[60vh] py-20">
+      <div className="relative">
+        <div
+          className="relative cursor-pointer"
+          onClick={() => setIsExpanded(!isExpanded)}
+          style={{
+            width: isExpanded ? '600px' : '200px',
+            height: isExpanded ? '400px' : '60px',
+            transition: 'all var(--motion-slow) var(--ease-spring)',
+            maxWidth: '90vw'
+          }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-primary to-purple-600 rounded-3xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
+            {!isExpanded ? (
+              <div className="flex items-center justify-center h-full">
+                <span className="text-white font-bold text-lg">Learn More</span>
+              </div>
+            ) : (
+              <div className="p-8 text-white space-y-4 opacity-0 animate-in fade-in duration-500" style={{ animationDelay: '200ms', opacity: 1 }}>
+                <h3 className="text-2xl font-bold">Why Choose LIEPNET?</h3>
+                <p className="text-white/90">
+                  {t('whyChooseTitle')}
+                </p>
+                <div className="flex gap-4 mt-6">
+                  <Users className="w-6 h-6" />
+                  <Target className="w-6 h-6" />
+                  <Rocket className="w-6 h-6" />
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -61,11 +335,6 @@ const AnimatedCard = ({
 
 const About = () => {
   const { t } = useLanguage();
-  const scrollY = useParallaxScroll();
-  
-  const { ref: heroRef, animationClass: heroAnimation } = useAdvancedScrollAnimation({ animationType: 'fadeIn' });
-  const { ref: whatIsRef, animationClass: whatIsAnimation } = useAdvancedScrollAnimation({ animationType: 'slideUp' });
-  const { ref: meaningRef, animationClass: meaningAnimation } = useAdvancedScrollAnimation({ animationType: 'slideRight' });
 
   const achievements = [
     {
@@ -140,22 +409,12 @@ const About = () => {
     <div className="bg-background text-foreground overflow-x-hidden">
       <Header />
       
-      {/* Hero Image Section - Full Screen */}
-      <section className="relative h-screen w-full overflow-hidden">
-        <img 
-          src={liepnetHero} 
-          alt="LIEPNET Hero" 
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        {/* Gradient overlay starting at 2/3 down */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" style={{ 
-          backgroundImage: 'linear-gradient(to bottom, transparent 0%, transparent 66.67%, hsl(var(--background)) 100%)' 
-        }} />
-      </section>
+      {/* Hero with parallax */}
+      <ParallaxHero />
 
-      {/* What is LIEPNET - Full Screen */}
-      <FullScreenSection background="bg-gradient-to-br from-card/50 to-background">
-        <div ref={whatIsRef} className={`${whatIsAnimation} container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center`}>
+      {/* What is LIEPNET */}
+      <section className="min-h-screen flex items-center justify-center py-20 bg-gradient-to-br from-card/50 to-background">
+        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
             <h2 className="text-4xl md:text-6xl font-bold text-primary">
               {t('whatIsTitle')}
@@ -165,42 +424,19 @@ const About = () => {
             </p>
           </div>
           
-          <div 
-            className="relative"
-            style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-          >
-            <div className="w-80 h-80 mx-auto rounded-full bg-gradient-to-br from-primary/20 via-purple-500/20 to-pink-500/20 flex items-center justify-center backdrop-blur-sm border border-primary/30">
-              <Globe className="w-32 h-32 text-primary animate-float" />
+          <div className="relative flex justify-center">
+            <div className="w-80 h-80 rounded-full bg-gradient-to-br from-primary/20 via-purple-500/20 to-pink-500/20 flex items-center justify-center backdrop-blur-sm border border-primary/30 animate-float">
+              <Globe className="w-32 h-32 text-primary" />
             </div>
           </div>
         </div>
-      </FullScreenSection>
+      </section>
 
-      {/* What LIEPNET means - Full Screen */}
-      <FullScreenSection background="bg-gradient-to-br from-background to-primary/5">
-        <div ref={meaningRef} className={`${meaningAnimation} container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center`}>
-          <div 
-            className="order-2 lg:order-1 relative"
-            style={{ transform: `translateY(${scrollY * -0.1}px)` }}
-          >
-            <div className="w-80 h-80 mx-auto rounded-full bg-gradient-to-br from-emerald-500/20 via-blue-500/20 to-purple-500/20 flex items-center justify-center backdrop-blur-sm border border-emerald-400/30">
-              <Lightbulb className="w-32 h-32 text-emerald-400 animate-float" />
-            </div>
-          </div>
-          
-          <div className="order-1 lg:order-2 space-y-8">
-            <h2 className="text-4xl md:text-6xl font-bold text-primary">
-              {t('whatMeansTitle')}
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              {t('whatMeansContent')}
-            </p>
-          </div>
-        </div>
-      </FullScreenSection>
+      {/* Sticky scroll section */}
+      <StickySection />
 
-      {/* Achievements - Full Screen */}
-      <FullScreenSection background="bg-gradient-to-br from-card/30 to-background">
+      {/* Achievements with staggered reveal */}
+      <section className="min-h-screen flex items-center justify-center py-20 bg-gradient-to-br from-card/30 to-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-bold text-primary mb-8">
@@ -216,16 +452,21 @@ const About = () => {
                 title={achievement.title}
                 content={achievement.content}
                 color={achievement.color}
-                delay={index * 200}
-                animationType={index % 2 === 0 ? 'slideUp' : 'scaleIn'}
+                delay={index * 60}
+                index={index}
               />
             ))}
           </div>
         </div>
-      </FullScreenSection>
+      </section>
 
-      {/* Future Plans - Full Screen */}
-      <FullScreenSection background="bg-gradient-to-br from-background to-card/30">
+      {/* Morphing CTA */}
+      <section className="bg-gradient-to-br from-background to-card/30">
+        <MorphingCTA />
+      </section>
+
+      {/* Future Plans */}
+      <section className="min-h-screen flex items-center justify-center py-20 bg-gradient-to-br from-background to-card/30">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-bold text-primary mb-8">
@@ -241,16 +482,16 @@ const About = () => {
                 title={plan.title}
                 content={plan.content}
                 color={plan.color}
-                delay={index * 200}
-                animationType={index % 3 === 0 ? 'slideLeft' : index % 3 === 1 ? 'slideUp' : 'slideRight'}
+                delay={index * 60}
+                index={index}
               />
             ))}
           </div>
         </div>
-      </FullScreenSection>
+      </section>
 
-      {/* Why Choose LIEPNET - Full Screen */}
-      <FullScreenSection background="bg-gradient-to-br from-primary/10 via-background to-purple-500/10">
+      {/* Why Choose LIEPNET */}
+      <section className="min-h-screen flex items-center justify-center py-20 bg-gradient-to-br from-primary/10 via-background to-purple-500/10">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-bold text-primary mb-8">
@@ -266,13 +507,13 @@ const About = () => {
                 title={reason.title}
                 content={reason.content}
                 color={reason.color}
-                delay={index * 150}
-                animationType={index % 2 === 0 ? 'slideUp' : 'scaleIn'}
+                delay={index * 50}
+                index={index}
               />
             ))}
           </div>
         </div>
-      </FullScreenSection>
+      </section>
 
       <Footer />
     </div>
