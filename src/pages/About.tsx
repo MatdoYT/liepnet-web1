@@ -64,23 +64,6 @@ const ParallaxHero = () => {
         }}
       />
 
-      {/* Foreground content - fastest parallax */}
-      <div 
-        className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"
-        style={{ 
-          transform: `translateY(${scrollProgress * 150}px)`,
-          opacity: 1 - scrollProgress * 1.5
-        }}
-      >
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
-          LIEPNET
-        </h1>
-        <p className="text-xl md:text-2xl text-white/90 max-w-2xl mb-8 drop-shadow-lg">
-          Building the future of connectivity
-        </p>
-        <ArrowDown className="w-8 h-8 text-white/70 animate-bounce" />
-      </div>
-
       {/* Scroll progress indicator */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
         <div 
