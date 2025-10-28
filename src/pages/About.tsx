@@ -33,7 +33,7 @@ const ParallaxHero = () => {
     >
       {/* Background layer - slowest parallax */}
       <div 
-        className="absolute inset-0 bg-gradient-to-br from-primary/20 via-purple-500/10 to-background"
+        className="absolute inset-0 bg-background"
         style={{ 
           transform: `translateY(${scrollProgress * 50}px) scale(${1 + scrollProgress * 0.1})`,
           opacity: 1 - scrollProgress * 0.3
@@ -148,20 +148,12 @@ const AnimatedCard = ({
           boxShadow: 'var(--shadow-md)'
         }}
       >
-        {/* Morphing background blob */}
-        <div 
-          className="absolute -top-20 -right-20 w-40 h-40 opacity-10 animate-morph"
-          style={{ 
-            background: `linear-gradient(135deg, ${color.replace('text-', '')} 0%, transparent 100%)`,
-            animationDelay: `${index * 200}ms`
-          }}
-        />
 
         <div className="relative flex flex-col items-center text-center space-y-4">
-          <div className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-transparent group-hover:scale-110 transition-transform duration-300">
-            <Icon className={`w-8 h-8 ${color}`} />
+          <div className="p-4 rounded-2xl bg-muted group-hover:scale-110 transition-transform duration-300">
+            <Icon className={`w-8 h-8 text-foreground`} />
           </div>
-          <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+          <h3 className="text-xl font-bold text-foreground group-hover:text-foreground transition-colors duration-300">
             {title}
           </h3>
           <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
@@ -169,8 +161,6 @@ const AnimatedCard = ({
           </p>
         </div>
 
-        {/* Hover glow effect */}
-        <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-transparent transition-all duration-500 pointer-events-none" />
       </div>
     </div>
   );
@@ -201,10 +191,10 @@ const StickySection = () => {
   }, []);
 
   const steps = [
-    { icon: Globe, label: t('achievement1Title'), color: 'text-blue-400' },
-    { icon: Shield, label: t('achievement2Title'), color: 'text-emerald-400' },
-    { icon: Sparkles, label: t('achievement3Title'), color: 'text-purple-400' },
-    { icon: Zap, label: 'Innovation', color: 'text-yellow-400' }
+    { icon: Globe, label: t('achievement1Title'), color: 'text-foreground' },
+    { icon: Shield, label: t('achievement2Title'), color: 'text-foreground' },
+    { icon: Sparkles, label: t('achievement3Title'), color: 'text-foreground' },
+    { icon: Zap, label: 'Innovation', color: 'text-foreground' }
   ];
 
   const currentStep = Math.floor(progress * steps.length);
@@ -212,17 +202,17 @@ const StickySection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative min-h-[300vh] bg-gradient-to-b from-background via-card/30 to-background"
+      className="relative min-h-[300vh] bg-background"
     >
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-6xl font-bold text-primary mb-4">
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
               Our Journey
             </h2>
             <div className="w-full max-w-md mx-auto h-2 bg-border/30 rounded-full overflow-hidden">
               <div 
-                className="h-full bg-primary transition-all duration-300"
+                className="h-full bg-foreground transition-all duration-300"
                 style={{ width: `${progress * 100}%` }}
               />
             </div>
@@ -245,7 +235,7 @@ const StickySection = () => {
                 >
                   <div 
                     className={`p-6 rounded-2xl bg-card/80 backdrop-blur border ${
-                      isActive ? 'border-primary/50' : 'border-border/30'
+                      isActive ? 'border-foreground/50' : 'border-border/30'
                     } relative`}
                     style={{
                       boxShadow: isActive ? 'var(--shadow-lg)' : 'var(--shadow-sm)'
@@ -253,8 +243,8 @@ const StickySection = () => {
                   >
                     <step.icon className={`w-12 h-12 ${step.color}`} />
                     {isPast && (
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
-                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-foreground rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-background" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                         </svg>
                       </div>
@@ -291,15 +281,15 @@ const MorphingCTA = () => {
             maxWidth: '90vw'
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-primary to-purple-600 rounded-3xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
+          <div className="absolute inset-0 bg-foreground rounded-3xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
             {!isExpanded ? (
               <div className="flex items-center justify-center h-full">
-                <span className="text-white font-bold text-lg">Learn More</span>
+                <span className="text-background font-bold text-lg">Learn More</span>
               </div>
             ) : (
-              <div className="p-8 text-white space-y-4 opacity-0 animate-in fade-in duration-500" style={{ animationDelay: '200ms', opacity: 1 }}>
+              <div className="p-8 text-background space-y-4 opacity-0 animate-in fade-in duration-500" style={{ animationDelay: '200ms', opacity: 1 }}>
                 <h3 className="text-2xl font-bold">Why Choose LIEPNET?</h3>
-                <p className="text-white/90">
+                <p className="text-background/90">
                   {t('whyChooseTitle')}
                 </p>
                 <div className="flex gap-4 mt-6">
@@ -324,19 +314,19 @@ const About = () => {
       icon: Globe,
       title: t('achievement1Title'),
       content: t('achievement1Content'),
-      color: 'text-blue-400'
+      color: 'text-foreground'
     },
     {
       icon: Shield,
       title: t('achievement2Title'),
       content: t('achievement2Content'),
-      color: 'text-emerald-400'
+      color: 'text-foreground'
     },
     {
       icon: Lightbulb,
       title: t('achievement3Title'),
       content: t('achievement3Content'),
-      color: 'text-purple-400'
+      color: 'text-foreground'
     }
   ];
 
@@ -345,19 +335,19 @@ const About = () => {
       icon: Target,
       title: t('plan1Title'),
       content: t('plan1Content'),
-      color: 'text-orange-400'
+      color: 'text-foreground'
     },
     {
       icon: Leaf,
       title: t('plan2Title'),
       content: t('plan2Content'),
-      color: 'text-green-400'
+      color: 'text-foreground'
     },
     {
       icon: Rocket,
       title: t('plan3Title'),
       content: t('plan3Content'),
-      color: 'text-pink-400'
+      color: 'text-foreground'
     }
   ];
 
@@ -366,25 +356,25 @@ const About = () => {
       icon: Shield,
       title: t('reason1Title'),
       content: t('reason1Content'),
-      color: 'text-blue-400'
+      color: 'text-foreground'
     },
     {
       icon: Lightbulb,
       title: t('reason2Title'),
       content: t('reason2Content'),
-      color: 'text-purple-400'
+      color: 'text-foreground'
     },
     {
       icon: MapPin,
       title: t('reason3Title'),
       content: t('reason3Content'),
-      color: 'text-emerald-400'
+      color: 'text-foreground'
     },
     {
       icon: Trophy,
       title: t('reason4Title'),
       content: t('reason4Content'),
-      color: 'text-yellow-400'
+      color: 'text-foreground'
     }
   ];
 
@@ -396,10 +386,10 @@ const About = () => {
       <ParallaxHero />
 
       {/* What is LIEPNET */}
-      <section className="min-h-screen flex items-center justify-center py-20 bg-gradient-to-br from-card/50 to-background">
+      <section className="min-h-screen flex items-center justify-center py-20 bg-background">
         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">
-            <h2 className="text-4xl md:text-6xl font-bold text-primary">
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground">
               {t('whatIsTitle')}
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
@@ -408,8 +398,8 @@ const About = () => {
           </div>
           
           <div className="relative flex justify-center">
-            <div className="w-80 h-80 rounded-full bg-gradient-to-br from-primary/20 via-purple-500/20 to-pink-500/20 flex items-center justify-center backdrop-blur-sm border border-primary/30 animate-float">
-              <Globe className="w-32 h-32 text-primary" />
+            <div className="w-80 h-80 rounded-full bg-card border border-border flex items-center justify-center animate-float">
+              <Globe className="w-32 h-32 text-foreground" />
             </div>
           </div>
         </div>
@@ -419,10 +409,10 @@ const About = () => {
       <StickySection />
 
       {/* Achievements with staggered reveal */}
-      <section className="min-h-screen flex items-center justify-center py-20 bg-gradient-to-br from-card/30 to-background">
+      <section className="min-h-screen flex items-center justify-center py-20 bg-muted/30">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-primary mb-8">
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-8">
               {t('whatDoneTitle')}
             </h2>
           </div>
@@ -444,15 +434,15 @@ const About = () => {
       </section>
 
       {/* Morphing CTA */}
-      <section className="bg-gradient-to-br from-background to-card/30">
+      <section className="bg-background">
         <MorphingCTA />
       </section>
 
       {/* Future Plans */}
-      <section className="min-h-screen flex items-center justify-center py-20 bg-gradient-to-br from-background to-card/30">
+      <section className="min-h-screen flex items-center justify-center py-20 bg-background">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-primary mb-8">
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-8">
               {t('whatPlansTitle')}
             </h2>
           </div>
@@ -474,10 +464,10 @@ const About = () => {
       </section>
 
       {/* Why Choose LIEPNET */}
-      <section className="min-h-screen flex items-center justify-center py-20 bg-gradient-to-br from-primary/10 via-background to-purple-500/10">
+      <section className="min-h-screen flex items-center justify-center py-20 bg-muted/30">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-primary mb-8">
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-8">
               {t('whyChooseTitle')}
             </h2>
           </div>
