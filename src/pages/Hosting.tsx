@@ -19,7 +19,7 @@ const Hosting = () => {
     
     setTimeout(() => {
       setShowBubbles(false);
-      // Navigate or perform action here
+      navigate('/hosting/liepnet-website-hosting');
     }, 800);
   };
 
@@ -60,7 +60,7 @@ const Hosting = () => {
               {/* Content */}
               <div className="relative z-10 py-6 px-8 flex items-center justify-between">
                 {/* Left Side: Title & Description */}
-                <div className="flex-1">
+                <div className="flex-1 text-left">
                   <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-2">
                     WEBSITE HOSTING
                   </h2>
@@ -77,7 +77,10 @@ const Hosting = () => {
                   </div>
                   <div className="text-right">
                     <p className="text-sm text-muted-foreground mb-1">HOSTING</p>
-                    <p className="text-xl font-bold text-foreground">Starting from 20€/month</p>
+                    <div>
+                      <span className="text-xs text-muted-foreground">Starting from </span>
+                      <span className="text-xl font-bold text-foreground">20€/mo</span>
+                    </div>
                   </div>
                 </div>
               </div>
