@@ -31,7 +31,7 @@ const Hosting = () => {
         {/* Banner Background with Fade */}
         <div className="absolute inset-0">
           <div 
-            className="absolute inset-0 bg-center bg-cover"
+            className="absolute inset-0 bg-cover bg-[center_top_-20%] brightness-[0.7]"
             style={{ backgroundImage: `url(${hostingBanner})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/80 to-background" />
@@ -39,12 +39,12 @@ const Hosting = () => {
         
         <div className="relative z-10 container mx-auto px-4 py-16 md:py-24">
           {/* Title with Gradient */}
-          <h1 className="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold text-center mb-24 bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent">
             LIEPNET™ HOSTING
           </h1>
 
           {/* Hosting Options */}
-          <div className="max-w-6xl mx-auto px-4">
+          <div className="w-full px-8">
             <button
               onClick={handleHostingClick}
               className="relative w-full group overflow-hidden rounded-lg transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
@@ -58,7 +58,7 @@ const Hosting = () => {
               </div>
 
               {/* Content */}
-              <div className="relative z-10 py-12 px-8 flex items-center justify-between">
+              <div className="relative z-10 py-6 px-8 flex items-center justify-between">
                 {/* Left Side: Title & Description */}
                 <div className="flex-1">
                   <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-2">
@@ -70,7 +70,7 @@ const Hosting = () => {
                 </div>
                 
                 {/* Right Side: Pricing */}
-                <div className="flex flex-col items-end gap-4 ml-8">
+                <div className="flex items-center gap-8 ml-8">
                   <div className="text-right">
                     <p className="text-sm text-muted-foreground mb-1">SETUP FEE</p>
                     <p className="text-2xl font-bold text-foreground">100€</p>
