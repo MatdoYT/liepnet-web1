@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import hostingBanner from "@/assets/hosting-banner.png";
 
 const Hosting = () => {
   const navigate = useNavigate();
@@ -27,17 +28,23 @@ const Hosting = () => {
       <Header />
       
       <main className="flex-1 relative overflow-hidden">
-        {/* Fading Banner Background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-muted/50 via-background to-background" />
+        {/* Banner Background with Fade */}
+        <div className="absolute inset-0">
+          <div 
+            className="absolute inset-0 bg-center bg-cover"
+            style={{ backgroundImage: `url(${hostingBanner})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/80 to-background" />
+        </div>
         
         <div className="relative z-10 container mx-auto px-4 py-16 md:py-24">
           {/* Title with Gradient */}
           <h1 className="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent">
-            CHOOSE WHAT HOSTING SERVICE YOU WANT
+            LIEPNET™ HOSTING
           </h1>
 
           {/* Hosting Options */}
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto px-4">
             <button
               onClick={handleHostingClick}
               className="relative w-full group overflow-hidden rounded-lg transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
@@ -51,13 +58,28 @@ const Hosting = () => {
               </div>
 
               {/* Content */}
-              <div className="relative z-10 py-12 px-8">
-                <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-2">
-                  Website Hosting
-                </h2>
-                <p className="text-muted-foreground">
-                  Professional web hosting solutions for your projects
-                </p>
+              <div className="relative z-10 py-12 px-8 flex items-center justify-between">
+                {/* Left Side: Title & Description */}
+                <div className="flex-1">
+                  <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-2">
+                    WEBSITE HOSTING
+                  </h2>
+                  <p className="text-muted-foreground">
+                    Cheap and professional web hosting solutions for your business.
+                  </p>
+                </div>
+                
+                {/* Right Side: Pricing */}
+                <div className="flex flex-col items-end gap-4 ml-8">
+                  <div className="text-right">
+                    <p className="text-sm text-muted-foreground mb-1">SETUP FEE</p>
+                    <p className="text-2xl font-bold text-foreground">100€</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm text-muted-foreground mb-1">HOSTING</p>
+                    <p className="text-xl font-bold text-foreground">Starting from 20€/month</p>
+                  </div>
+                </div>
               </div>
 
               {/* Green Bubble Portal Animation */}
