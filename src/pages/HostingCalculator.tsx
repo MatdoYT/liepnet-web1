@@ -11,12 +11,14 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import hostingBanner from "@/assets/hosting-banner.png";
+import calculatorBg from "@/assets/calculator-bg.jpg";
+import { Mail } from "lucide-react";
 
 const HostingCalculator = () => {
   const [changes, setChanges] = useState(3);
   const [priority, setPriority] = useState<"normal" | "high">("normal");
   const [setupFee, setSetupFee] = useState<"simple" | "complex">("simple");
+  const [location, setLocation] = useState<"malpils">("malpils");
 
   const basePrice = 25.32;
   const changeIncreaseCost = 5;
@@ -54,8 +56,8 @@ const HostingCalculator = () => {
           <div 
             className="absolute inset-0 bg-cover brightness-[0.7]"
             style={{ 
-              backgroundImage: `url(${hostingBanner})`,
-              backgroundPosition: 'center 75%'
+              backgroundImage: `url(${calculatorBg})`,
+              backgroundPosition: 'center'
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/80 to-background" />
@@ -63,9 +65,12 @@ const HostingCalculator = () => {
         
         <div className="relative z-10 container mx-auto px-4 py-16 md:py-24">
           {/* Title with Gradient */}
-          <h1 className="text-4xl md:text-6xl font-bold text-center mb-16 bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent">
-            PRICE CALCULATOR
-          </h1>
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent">
+              PRICE CALCULATOR
+            </h1>
+            <p className="text-sm text-muted-foreground mt-2">For the "WEBSITE HOSTING" plan</p>
+          </div>
 
           {/* Calculator Card */}
           <div className="max-w-2xl mx-auto">
@@ -82,7 +87,7 @@ const HostingCalculator = () => {
               <div className="relative z-10 p-8 space-y-8">
                 {/* Changes per Month */}
                 <div className="space-y-4">
-                  <Label className="text-lg font-semibold text-foreground">
+                  <Label className="text-lg font-semibold text-foreground uppercase">
                     Changes per Month
                   </Label>
                   <div className="flex items-center gap-4">
@@ -105,15 +110,12 @@ const HostingCalculator = () => {
                     >
                       <Plus className="h-4 w-4" />
                     </Button>
-                    <span className="text-sm text-muted-foreground ml-2">
-                      (max 10)
-                    </span>
                   </div>
                 </div>
 
                 {/* Priority */}
                 <div className="space-y-4">
-                  <Label className="text-lg font-semibold text-foreground">
+                  <Label className="text-lg font-semibold text-foreground uppercase">
                     Priority
                   </Label>
                   <RadioGroup value={priority} onValueChange={(value: "normal" | "high") => setPriority(value)}>
@@ -123,22 +125,27 @@ const HostingCalculator = () => {
                     </div>
                     <div className="flex items-center space-x-2">
                       <RadioGroupItem value="high" id="high" />
-                      <Label htmlFor="high" className="cursor-pointer">High Priority (2x price)</Label>
+                      <Label htmlFor="high" className="cursor-pointer">High Priority</Label>
                     </div>
                   </RadioGroup>
                 </div>
 
                 {/* Location */}
                 <div className="space-y-4">
-                  <Label className="text-lg font-semibold text-foreground">
+                  <Label className="text-lg font-semibold text-foreground uppercase">
                     Location
                   </Label>
-                  <div className="text-foreground">Mālpils</div>
+                  <RadioGroup value={location} onValueChange={(value: "malpils") => setLocation(value)}>
+                    <div className="flex items-center space-x-2">
+                      <RadioGroupItem value="malpils" id="malpils" />
+                      <Label htmlFor="malpils" className="cursor-pointer">Mālpils</Label>
+                    </div>
+                  </RadioGroup>
                 </div>
 
                 {/* Website Setup Fee */}
                 <div className="space-y-4">
-                  <Label className="text-lg font-semibold text-foreground">
+                  <Label className="text-lg font-semibold text-foreground uppercase">
                     Website Setup Fee
                   </Label>
                   <RadioGroup value={setupFee} onValueChange={(value: "simple" | "complex") => setSetupFee(value)}>
@@ -148,7 +155,7 @@ const HostingCalculator = () => {
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <Label htmlFor="simple" className="cursor-pointer">
-                              Simple Website (100 EUR)
+                              Simple Website
                             </Label>
                           </TooltipTrigger>
                           <TooltipContent>
@@ -163,7 +170,7 @@ const HostingCalculator = () => {
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <Label htmlFor="complex" className="cursor-pointer">
-                              Complex Website (200 EUR)
+                              Complex Website
                             </Label>
                           </TooltipTrigger>
                           <TooltipContent>
@@ -199,6 +206,20 @@ const HostingCalculator = () => {
                     <span className="text-muted-foreground">Total (excl. VAT):</span>
                     <span className="text-muted-foreground">{totalWithoutVAT.toFixed(2)} EUR</span>
                   </div>
+                </div>
+
+                {/* Contact Button */}
+                <div className="pt-6">
+                  <Button 
+                    asChild 
+                    className="w-full"
+                    size="lg"
+                  >
+                    <a href="mailto:matiss.apsitis@liepnet.id.lv">
+                      <Mail className="mr-2 h-5 w-5" />
+                      CONTACT US
+                    </a>
+                  </Button>
                 </div>
               </div>
             </div>
