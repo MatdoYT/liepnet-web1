@@ -55,19 +55,19 @@ const Header = () => {
             <Link
               key={link.key}
               to={link.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-200 relative group"
+              className="text-foreground/60 hover:text-foreground transition-colors duration-200 relative group"
             >
               {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full"></span>
             </Link>
           ) : (
             <a
               key={link.key}
               href={link.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-200 relative group"
+              className="text-foreground/60 hover:text-foreground transition-colors duration-200 relative group"
             >
               {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full"></span>
             </a>
           )
         ))}
