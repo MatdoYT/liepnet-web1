@@ -11,6 +11,7 @@ import About from "./pages/About";
 import Radio from "./pages/Radio";
 import RadioStation from "./pages/RadioStation";
 import Hosting from "./pages/Hosting";
+import HostingCalculator from "./pages/HostingCalculator";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
               <Route path="/logos" element={<NotFound />} />
               <Route path="/network-planning" element={<NotFound />} />
               <Route path="/hosting" element={<Hosting />} />
+              <Route path="/hosting/liepnet-website-hosting" element={<HostingCalculator />} />
               <Route path="/forums" element={<NotFound />} />
               <Route path="/maps" element={<NotFound />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
