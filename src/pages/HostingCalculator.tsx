@@ -39,33 +39,37 @@ const HostingCalculator = () => {
     document.title = t('priceCalculator');
   }, [t]);
 
-  const basePrice = 25.32;
-  const changeIncreaseCost = 5;
-  const changeDecreaseCost = 3;
+  // Base prices WITHOUT VAT (whole numbers)
+  const baseMonthlyPriceNoVAT = 13; // EUR without VAT for 3 changes, normal priority
+  const changeIncreaseCostNoVAT = 4; // EUR without VAT per additional change
+  const changeDecreaseCostNoVAT = 2; // EUR without VAT per reduced change
 
-  const calculateMonthlyPrice = () => {
-    let price = basePrice;
+  const calculateMonthlyPriceWithVAT = () => {
+    let priceNoVAT = baseMonthlyPriceNoVAT;
     
     if (changes > 3) {
-      price += (changes - 3) * changeIncreaseCost;
+      priceNoVAT += (changes - 3) * changeIncreaseCostNoVAT;
     } else if (changes < 3) {
-      price -= (3 - changes) * changeDecreaseCost;
+      priceNoVAT -= (3 - changes) * changeDecreaseCostNoVAT;
     }
 
     if (priority === "high") {
-      price *= 2;
+      priceNoVAT *= 2;
     }
 
-    return price;
+    // Add VAT (21%)
+    return priceNoVAT * 1.21;
   };
 
-  const monthlyPrice = calculateMonthlyPrice(); // Already includes VAT
-  const monthlyPriceWithoutVAT = monthlyPrice / 1.21;
-  const setupFeeBase = setupFee === "simple" ? 50 : 150;
+  const monthlyPriceWithVAT = calculateMonthlyPriceWithVAT();
+  const monthlyPriceNoVAT = monthlyPriceWithVAT / 1.21;
+  const setupFeeBase = setupFee === "simple" ? 50 : 150; // Without VAT
   const setupFeeWithVAT = setupFeeBase * 1.21;
   const setupFeeVAT = setupFeeBase * 0.21;
-  const totalUpfrontWithVAT = setupFeeWithVAT + monthlyPrice;
-  const totalUpfrontWithoutVAT = setupFeeBase + monthlyPriceWithoutVAT;
+  const monthlyVAT = monthlyPriceWithVAT - monthlyPriceNoVAT;
+  const totalUpfrontWithVAT = setupFeeWithVAT + monthlyPriceWithVAT;
+  const totalUpfrontVAT = setupFeeVAT + monthlyVAT;
+  const totalUpfrontWithoutVAT = setupFeeBase + monthlyPriceNoVAT;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -249,7 +253,7 @@ const HostingCalculator = () => {
                       <TooltipTrigger asChild>
                         <div className="flex justify-between items-center cursor-help">
                           <span className="text-foreground font-bold text-lg">{t('monthlyHosting')}</span>
-                          <span className="text-foreground font-bold text-lg">{monthlyPrice.toFixed(2)} EUR/mo</span>
+                          <span className="text-foreground font-bold text-lg">{monthlyPriceWithVAT.toFixed(2)} EUR/mo</span>
                         </div>
                       </TooltipTrigger>
                       <TooltipContent>
@@ -282,7 +286,7 @@ const HostingCalculator = () => {
                   </div>
                   <div className="flex justify-between items-center text-sm">
                     <span className="text-muted-foreground">{t('vatAmount')}</span>
-                    <span className="text-muted-foreground">{setupFeeVAT.toFixed(2)} EUR</span>
+                    <span className="text-muted-foreground">{totalUpfrontVAT.toFixed(2)} EUR</span>
                   </div>
                   <div className="flex justify-between items-center text-sm">
                     <span className="text-muted-foreground">{t('totalExclVat')}</span>

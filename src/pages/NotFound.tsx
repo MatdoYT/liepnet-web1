@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -6,6 +7,10 @@ import { Link } from "react-router-dom";
 
 const NotFound = () => {
   const { t } = useLanguage();
+
+  useEffect(() => {
+    document.title = 'LIEPNET™';
+  }, []);
 
   return (
     <div className="min-h-screen bg-background flex flex-col">

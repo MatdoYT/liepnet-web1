@@ -92,6 +92,10 @@ const RadioStation = () => {
     frequencies: [],
   };
 
+  useEffect(() => {
+    document.title = 'LIEPNET™';
+  }, []);
+
   const handlePlay = () => {
     playStation({
       id: stationId || '',

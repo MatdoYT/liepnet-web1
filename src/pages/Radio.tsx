@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import RadioStationCard from '@/components/RadioStationCard';
@@ -47,6 +48,10 @@ const stations = [
 ];
 
 const Radio = () => {
+  useEffect(() => {
+    document.title = 'LIEPNET™';
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />

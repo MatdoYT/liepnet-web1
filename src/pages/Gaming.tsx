@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
@@ -6,6 +7,10 @@ import { Link } from "react-router-dom";
 
 const Gaming = () => {
   const { t } = useLanguage();
+
+  useEffect(() => {
+    document.title = 'LIEPNET™';
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">

@@ -309,6 +309,10 @@ const MorphingCTA = () => {
 const About = () => {
   const { t } = useLanguage();
 
+  useEffect(() => {
+    document.title = 'LIEPNET™';
+  }, []);
+
   const achievements = [
     {
       icon: Globe,
