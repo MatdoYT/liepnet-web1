@@ -142,6 +142,47 @@ const translations = {
     followUs: 'Follow Us',
     allRightsReserved: 'All rights reserved.',
     footerQuote: 'Everything happens for a reason, even if it\'s hard to understand the reason.',
+    
+    // Hosting page
+    hostingTitle: 'LIEPNET™ HOSTING',
+    websiteHosting: 'WEBSITE HOSTING',
+    websiteHostingDesc: 'Cheap and professional web hosting solutions for your business.',
+    setupFeeLabel: 'SETUP FEE',
+    hostingLabel: 'HOSTING',
+    startingFrom: 'Starting from',
+    
+    // Price Calculator
+    priceCalculator: 'PRICE CALCULATOR',
+    priceCalculatorSubtitle: 'For the "WEBSITE HOSTING" plan',
+    changesPerMonth: 'CHANGES PER MONTH',
+    priority: 'PRIORITY',
+    location: 'LOCATION',
+    websiteSetupFee: 'WEBSITE SETUP FEE',
+    normalPriority: 'Normal Priority',
+    highPriority: 'High Priority',
+    simpleWebsite: 'Simple Website',
+    complexWebsite: 'Complex Website',
+    monthlyHosting: 'MONTHLY HOSTING',
+    upfrontCost: 'UPFRONT COST',
+    totalInclVat: 'Total (incl. VAT 21%):',
+    vatAmount: 'VAT Amount:',
+    totalExclVat: 'Total (excl. VAT):',
+    contactUs: 'CONTACT US',
+    
+    // Tooltips
+    tooltipMalpils: 'This server location is located near Mālpils, this is the LIEPNET™ CORE and provides the cheapest hosting.',
+    tooltipNormalPriority: 'Normal priority provides normal priority, which is usually adequate for small businesses with low website traffic and does not negatively impact business if the website experiences minor downtime.',
+    tooltipHighPriority: 'High priority provides high priority, which means that your website is prioritized over other websites for fixes and any issues that may arise at random. High priority also ensures the highest available uptime because your website will be hosted on multiple nodes for uptime in the event that the primary chosen node goes offline or is under maintenance.',
+    tooltipSimpleWebsite: 'A simple website includes simple static or slightly dynamic pages.',
+    tooltipComplexWebsite: 'A complex website includes mostly dynamic pages and can include places where the contents can change or get updated externally.',
+    tooltipUpfrontCost: 'Upfront cost (one time fee).',
+    tooltipMonthlyHosting: 'Monthly hosting cost.',
+    
+    // Confirmation dialog
+    unsavedChangesTitle: 'Unsaved Changes',
+    unsavedChangesDesc: 'Changes are not saved. Are you sure you want to go back?',
+    cancel: 'Cancel',
+    goBack: 'Go Back',
   },
   lv: {
     // Navigation
@@ -276,6 +317,47 @@ const translations = {
     followUs: 'Sekojiet mums',
     allRightsReserved: 'Visas tiesības aizsargātas.',
     footerQuote: 'Viss notiek ar iemeslu, pat ja iemeslu ir grūti saprast.',
+    
+    // Hosting page
+    hostingTitle: 'LIEPNET™ HOSTINGS',
+    websiteHosting: 'VIETNES HOSTINGS',
+    websiteHostingDesc: 'Lēti un profesionāli tīmekļa hostinga risinājumi jūsu biznesam.',
+    setupFeeLabel: 'UZSTĀDĪŠANAS MAKSA',
+    hostingLabel: 'HOSTINGS',
+    startingFrom: 'Sākot no',
+    
+    // Price Calculator
+    priceCalculator: 'CENAS KALKULATORS',
+    priceCalculatorSubtitle: 'Plānam "VIETNES HOSTINGS"',
+    changesPerMonth: 'IZMAIŅAS MĒNESĪ',
+    priority: 'PRIORITĀTE',
+    location: 'ATRAŠANĀS VIETA',
+    websiteSetupFee: 'VIETNES UZSTĀDĪŠANAS MAKSA',
+    normalPriority: 'Normāla prioritāte',
+    highPriority: 'Augsta prioritāte',
+    simpleWebsite: 'Vienkārša vietne',
+    complexWebsite: 'Sarežģīta vietne',
+    monthlyHosting: 'MĒNEŠA HOSTINGS',
+    upfrontCost: 'SĀKOTNĒJĀS IZMAKSAS',
+    totalInclVat: 'Kopā (ieskaitot PVN 21%):',
+    vatAmount: 'PVN summa:',
+    totalExclVat: 'Kopā (bez PVN):',
+    contactUs: 'SAZINIETIES AR MUMS',
+    
+    // Tooltips
+    tooltipMalpils: 'Šī servera atrašanās vieta atrodas netālu no Mālpils, šis ir LIEPNET™ CORE un nodrošina vislētāko hostingu.',
+    tooltipNormalPriority: 'Normāla prioritāte nodrošina normālu prioritāti, kas parasti ir pietiekama maziem uzņēmumiem ar zemu vietnes apmeklētību un negatīvi neietekmē biznesu, ja vietne piedzīvo nelielu dīkstāvi.',
+    tooltipHighPriority: 'Augsta prioritāte nodrošina augstu prioritāti, kas nozīmē, ka jūsu vietne tiek prioritizēta pār citām vietnēm labojumu un jebkādu problēmu gadījumā, kas var rasties nejauši. Augsta prioritāte arī nodrošina augstāko pieejamo darbības laiku, jo jūsu vietne tiks mitināta uz vairākiem mezgliem darbības laika nodrošināšanai gadījumā, ja primārais izvēlētais mezgls ir bezsaistē vai tiek veikta apkope.',
+    tooltipSimpleWebsite: 'Vienkārša vietne ietver vienkāršas statiskas vai nedaudz dinamiskas lapas.',
+    tooltipComplexWebsite: 'Sarežģīta vietne ietver galvenokārt dinamiskas lapas un var ietvert vietas, kur saturs var mainīties vai tikt atjaunināts ārēji.',
+    tooltipUpfrontCost: 'Sākotnējās izmaksas (vienreizēja maksa).',
+    tooltipMonthlyHosting: 'Mēneša hostinga izmaksas.',
+    
+    // Confirmation dialog
+    unsavedChangesTitle: 'Nesaglabātas izmaiņas',
+    unsavedChangesDesc: 'Izmaiņas nav saglabātas. Vai tiešām vēlaties atgriezties?',
+    cancel: 'Atcelt',
+    goBack: 'Atgriezties',
   },
   ru: {
     // Navigation

@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import hostingBanner from "@/assets/hosting-banner.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hosting = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
   const [clickPosition, setClickPosition] = useState<{ x: number; y: number } | null>(null);
   const [showBubbles, setShowBubbles] = useState(false);
+  
+  useEffect(() => {
+    document.title = t('hostingTitle');
+  }, [t]);
 
   const handleHostingClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -43,7 +49,7 @@ const Hosting = () => {
         <div className="relative z-10 container mx-auto px-4 py-16 md:py-24">
           {/* Title with Gradient */}
           <h1 className="text-4xl md:text-6xl font-bold text-center mb-24 bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent">
-            LIEPNET™ HOSTING
+            {t('hostingTitle')}
           </h1>
 
           {/* Hosting Options */}
@@ -65,23 +71,23 @@ const Hosting = () => {
                 {/* Left Side: Title & Description */}
                 <div className="flex-1 text-left">
                   <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-2">
-                    WEBSITE HOSTING
+                    {t('websiteHosting')}
                   </h2>
                   <p className="text-muted-foreground">
-                    Cheap and professional web hosting solutions for your business.
+                    {t('websiteHostingDesc')}
                   </p>
                 </div>
                 
                 {/* Right Side: Pricing */}
                 <div className="flex items-center gap-8 ml-8">
                   <div className="text-right">
-                    <p className="text-sm text-muted-foreground mb-1">SETUP FEE</p>
+                    <p className="text-sm text-muted-foreground mb-1">{t('setupFeeLabel')}</p>
                     <p className="text-2xl font-bold text-foreground">100€</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm text-muted-foreground mb-1">HOSTING</p>
+                    <p className="text-sm text-muted-foreground mb-1">{t('hostingLabel')}</p>
                     <div>
-                      <span className="text-xs text-muted-foreground">Starting from </span>
+                      <span className="text-xs text-muted-foreground">{t('startingFrom')} </span>
                       <span className="text-xl font-bold text-foreground">20€/mo</span>
                     </div>
                   </div>
