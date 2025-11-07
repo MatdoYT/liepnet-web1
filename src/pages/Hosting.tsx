@@ -82,13 +82,16 @@ const Hosting = () => {
                 <div className="flex items-center gap-8 ml-8">
                   <div className="text-right">
                     <p className="text-sm text-muted-foreground mb-1">{t('setupFeeLabel')}</p>
-                    <p className="text-2xl font-bold text-foreground">100€</p>
+                    <div>
+                      <span className="text-xs text-muted-foreground">{t('startingFrom')} </span>
+                      <span className="text-2xl font-bold text-foreground">50€</span>
+                    </div>
                   </div>
                   <div className="text-right">
                     <p className="text-sm text-muted-foreground mb-1">{t('hostingLabel')}</p>
                     <div>
                       <span className="text-xs text-muted-foreground">{t('startingFrom')} </span>
-                      <span className="text-xl font-bold text-foreground">20€/mo</span>
+                      <span className="text-xl font-bold text-foreground">16€/mo</span>
                     </div>
                   </div>
                 </div>

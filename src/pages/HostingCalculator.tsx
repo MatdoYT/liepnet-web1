@@ -60,11 +60,12 @@ const HostingCalculator = () => {
   };
 
   const monthlyPrice = calculateMonthlyPrice(); // Already includes VAT
-  const setupFeeBase = setupFee === "simple" ? 100 : 200;
+  const monthlyPriceWithoutVAT = monthlyPrice / 1.21;
+  const setupFeeBase = setupFee === "simple" ? 50 : 150;
   const setupFeeWithVAT = setupFeeBase * 1.21;
   const setupFeeVAT = setupFeeBase * 0.21;
-  const totalUpfrontWithVAT = setupFeeWithVAT;
-  const totalUpfrontWithoutVAT = setupFeeBase;
+  const totalUpfrontWithVAT = setupFeeWithVAT + monthlyPrice;
+  const totalUpfrontWithoutVAT = setupFeeBase + monthlyPriceWithoutVAT;
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -322,7 +323,10 @@ const HostingCalculator = () => {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>{t('cancel')}</AlertDialogCancel>
-            <AlertDialogAction onClick={() => navigate('/hosting')}>
+            <AlertDialogAction 
+              onClick={() => navigate('/hosting')}
+              className="bg-foreground text-background hover:bg-foreground/90"
+            >
               {t('goBack')}
             </AlertDialogAction>
           </AlertDialogFooter>
