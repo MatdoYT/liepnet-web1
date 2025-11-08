@@ -267,9 +267,14 @@ const HostingCalculator = () => {
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <div className="flex justify-between items-center text-lg font-bold pt-3 cursor-help">
-                          <span className="text-foreground">{t('upfrontCost')}</span>
-                          <span className="text-foreground">{totalUpfrontWithVAT.toFixed(2)} EUR</span>
+                        <div className="cursor-help">
+                          <div className="flex justify-between items-center text-lg font-bold pt-3">
+                            <span className="text-foreground">{t('upfrontCost')}</span>
+                            <span className="text-foreground">{totalUpfrontWithVAT.toFixed(2)} EUR</span>
+                          </div>
+                          <div className="text-xs text-muted-foreground mt-1">
+                            {t('inclVat')}
+                          </div>
                         </div>
                       </TooltipTrigger>
                       <TooltipContent>
@@ -279,11 +284,6 @@ const HostingCalculator = () => {
                   </TooltipProvider>
                   
                   <Separator className="bg-foreground" />
-                  
-                  <div className="flex justify-between items-center text-sm">
-                    <span className="text-muted-foreground">{t('totalInclVat')}</span>
-                    <span className="text-muted-foreground">{totalUpfrontWithVAT.toFixed(2)} EUR</span>
-                  </div>
                   <div className="flex justify-between items-center text-sm">
                     <span className="text-muted-foreground">{t('vatAmount')}</span>
                     <span className="text-muted-foreground">{totalUpfrontVAT.toFixed(2)} EUR</span>
