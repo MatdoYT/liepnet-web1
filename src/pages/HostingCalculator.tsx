@@ -40,7 +40,7 @@ const HostingCalculator = () => {
   }, [t]);
 
   // Base prices WITHOUT VAT (whole numbers)
-  const baseMonthlyPriceNoVAT = 13; // EUR without VAT for 3 changes, normal priority
+  const baseMonthlyPriceNoVAT = 20; // EUR without VAT for 3 changes, normal priority
   const changeIncreaseCostNoVAT = 4; // EUR without VAT per additional change
   const changeDecreaseCostNoVAT = 2; // EUR without VAT per reduced change
 
