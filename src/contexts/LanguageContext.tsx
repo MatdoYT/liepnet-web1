@@ -168,6 +168,7 @@ const translations = {
     vatAmount: 'VAT Amount:',
     totalExclVat: 'Total (excl. VAT):',
     contactUs: 'CONTACT US',
+    perMonth: '/mo',
     
     // Tooltips
     tooltipMalpils: 'This server location is located near Mālpils, this is the LIEPNET™ CORE and provides the cheapest hosting.',
@@ -343,6 +344,7 @@ const translations = {
     vatAmount: 'PVN summa:',
     totalExclVat: 'Kopā (bez PVN):',
     contactUs: 'SAZINIETIES AR MUMS',
+    perMonth: '/mēn.',
     
     // Tooltips
     tooltipMalpils: 'Šī servera atrašanās vieta atrodas netālu no Mālpils, šis ir LIEPNET™ CORE un nodrošina vislētāko hostingu.',
@@ -484,6 +486,47 @@ const translations = {
     reason4Title: 'Масштабируемость',
     reason4Content: 'Решения, которые растут вместе с вашим бизнесом, от стартапа до корпорации',
 
+    // Hosting page
+    websiteHosting: 'ХОСТИНГ САЙТОВ',
+    websiteHostingDesc: 'Дешевые и профессиональные решения веб-хостинга для вашего бизнеса.',
+    setupFeeLabel: 'ПЛАТА ЗА УСТАНОВКУ',
+    hostingLabel: 'ХОСТИНГ',
+    startingFrom: 'Начиная от',
+    
+    // Price Calculator
+    priceCalculator: 'КАЛЬКУЛЯТОР ЦЕН',
+    priceCalculatorSubtitle: 'Для плана "ХОСТИНГ САЙТОВ"',
+    changesPerMonth: 'ИЗМЕНЕНИЙ В МЕСЯЦ',
+    priority: 'ПРИОРИТЕТ',
+    location: 'МЕСТОПОЛОЖЕНИЕ',
+    websiteSetupFee: 'ПЛАТА ЗА УСТАНОВКУ САЙТА',
+    normalPriority: 'Нормальный приоритет',
+    highPriority: 'Высокий приоритет',
+    simpleWebsite: 'Простой сайт',
+    complexWebsite: 'Сложный сайт',
+    monthlyHosting: 'ЕЖЕМЕСЯЧНЫЙ ХОСТИНГ',
+    upfrontCost: 'ПЕРВОНАЧАЛЬНЫЕ РАСХОДЫ',
+    totalInclVat: 'Итого (включая НДС 21%):',
+    vatAmount: 'Сумма НДС:',
+    totalExclVat: 'Итого (без НДС):',
+    contactUs: 'СВЯЗАТЬСЯ С НАМИ',
+    perMonth: '/мес.',
+    
+    // Tooltips
+    tooltipMalpils: 'Это расположение сервера находится рядом с Малпилсом, это LIEPNET™ CORE и обеспечивает самый дешевый хостинг.',
+    tooltipNormalPriority: 'Нормальный приоритет обеспечивает обычный приоритет, который обычно достаточен для малого бизнеса с низким трафиком веб-сайта и не оказывает негативного влияния на бизнес, если веб-сайт испытывает незначительные простои.',
+    tooltipHighPriority: 'Высокий приоритет означает, что ваш веб-сайт имеет приоритет перед другими веб-сайтами для исправлений и любых проблем, которые могут возникнуть случайно. Высокий приоритет также обеспечивает максимальное доступное время работы, потому что ваш веб-сайт будет размещен на нескольких узлах для обеспечения работы в случае, если основной выбранный узел отключен или находится на обслуживании.',
+    tooltipSimpleWebsite: 'Простой веб-сайт включает простые статические или слегка динамические страницы.',
+    tooltipComplexWebsite: 'Сложный веб-сайт включает в основном динамические страницы и может включать места, где содержимое может изменяться или обновляться извне.',
+    tooltipUpfrontCost: 'Первоначальные расходы (единоразовая плата).',
+    tooltipMonthlyHosting: 'Ежемесячная стоимость хостинга.',
+    
+    // Confirmation dialog
+    unsavedChangesTitle: 'Несохраненные изменения',
+    unsavedChangesDesc: 'Вы уверены, что хотите вернуться? Все ваши изменения будут потеряны.',
+    cancel: 'Отмена',
+    goBack: 'Вернуться',
+
     // Footer
     footerFoundedText: 'Основана в феврале 2025 года, Латвия.',
     contactInformation: 'Контактная информация',
@@ -617,6 +660,47 @@ const translations = {
     reason3Content: 'Compréhension approfondie des marchés européens et des réglementations',
     reason4Title: 'Évolutivité',
     reason4Content: 'Solutions qui évoluent avec votre entreprise, de la startup à la corporation',
+
+    // Hosting page
+    websiteHosting: 'HÉBERGEMENT DE SITE WEB',
+    websiteHostingDesc: 'Solutions d\'hébergement web professionnelles et abordables pour votre entreprise.',
+    setupFeeLabel: 'FRAIS D\'INSTALLATION',
+    hostingLabel: 'HÉBERGEMENT',
+    startingFrom: 'À partir de',
+    
+    // Price Calculator
+    priceCalculator: 'CALCULATEUR DE PRIX',
+    priceCalculatorSubtitle: 'Pour le plan "HÉBERGEMENT DE SITE WEB"',
+    changesPerMonth: 'MODIFICATIONS PAR MOIS',
+    priority: 'PRIORITÉ',
+    location: 'EMPLACEMENT',
+    websiteSetupFee: 'FRAIS D\'INSTALLATION DU SITE',
+    normalPriority: 'Priorité normale',
+    highPriority: 'Haute priorité',
+    simpleWebsite: 'Site simple',
+    complexWebsite: 'Site complexe',
+    monthlyHosting: 'HÉBERGEMENT MENSUEL',
+    upfrontCost: 'COÛT INITIAL',
+    totalInclVat: 'Total (TVA 21% incluse) :',
+    vatAmount: 'Montant de la TVA :',
+    totalExclVat: 'Total (hors TVA) :',
+    contactUs: 'NOUS CONTACTER',
+    perMonth: '/mois',
+    
+    // Tooltips
+    tooltipMalpils: 'Cet emplacement de serveur est situé près de Mālpils, c\'est le LIEPNET™ CORE et offre l\'hébergement le moins cher.',
+    tooltipNormalPriority: 'La priorité normale fournit une priorité normale, qui est généralement suffisante pour les petites entreprises avec un trafic de site Web faible et n\'a pas d\'impact négatif sur l\'entreprise si le site Web connaît un temps d\'arrêt mineur.',
+    tooltipHighPriority: 'La haute priorité signifie que votre site Web est priorisé par rapport aux autres sites Web pour les corrections et tout problème qui pourrait survenir de manière aléatoire. La haute priorité garantit également le plus haut temps de disponibilité car votre site Web sera hébergé sur plusieurs nœuds pour la disponibilité au cas où le nœud principal choisi serait hors ligne ou en maintenance.',
+    tooltipSimpleWebsite: 'Un site simple comprend des pages statiques simples ou légèrement dynamiques.',
+    tooltipComplexWebsite: 'Un site complexe comprend principalement des pages dynamiques et peut inclure des endroits où le contenu peut changer ou être mis à jour de manière externe.',
+    tooltipUpfrontCost: 'Coût initial (frais uniques).',
+    tooltipMonthlyHosting: 'Coût d\'hébergement mensuel.',
+    
+    // Confirmation dialog
+    unsavedChangesTitle: 'Modifications non enregistrées',
+    unsavedChangesDesc: 'Êtes-vous sûr de vouloir revenir en arrière ? Tous vos changements seront perdus.',
+    cancel: 'Annuler',
+    goBack: 'Retour',
 
     // Footer
     footerFoundedText: 'Fondée en février 2025, Lettonie.',
@@ -752,6 +836,47 @@ const translations = {
     reason4Title: 'Κλιμάκωση',
     reason4Content: 'Λύσεις που αναπτύσσονται μαζί με την επιχείρησή σας, από startup μέχρι εταιρεία',
 
+    // Hosting page
+    websiteHosting: 'ΦΙΛΟΞΕΝΙΑ ΙΣΤΟΣΕΛΙΔΩΝ',
+    websiteHostingDesc: 'Φθηνές και επαγγελματικές λύσεις φιλοξενίας ιστού για την επιχείρησή σας.',
+    setupFeeLabel: 'ΤΕΛΟΣ ΕΓΚΑΤΑΣΤΑΣΗΣ',
+    hostingLabel: 'ΦΙΛΟΞΕΝΙΑ',
+    startingFrom: 'Ξεκινώντας από',
+    
+    // Price Calculator
+    priceCalculator: 'ΥΠΟΛΟΓΙΣΤΗΣ ΤΙΜΩΝ',
+    priceCalculatorSubtitle: 'Για το πλάνο "ΦΙΛΟΞΕΝΙΑ ΙΣΤΟΣΕΛΙΔΩΝ"',
+    changesPerMonth: 'ΑΛΛΑΓΕΣ ΑΝΑ ΜΗΝΑ',
+    priority: 'ΠΡΟΤΕΡΑΙΟΤΗΤΑ',
+    location: 'ΤΟΠΟΘΕΣΙΑ',
+    websiteSetupFee: 'ΤΕΛΟΣ ΕΓΚΑΤΑΣΤΑΣΗΣ ΙΣΤΟΣΕΛΙΔΑΣ',
+    normalPriority: 'Κανονική προτεραιότητα',
+    highPriority: 'Υψηλή προτεραιότητα',
+    simpleWebsite: 'Απλή ιστοσελίδα',
+    complexWebsite: 'Σύνθετη ιστοσελίδα',
+    monthlyHosting: 'ΜΗΝΙΑΙΑ ΦΙΛΟΞΕΝΙΑ',
+    upfrontCost: 'ΑΡΧΙΚΟ ΚΟΣΤΟΣ',
+    totalInclVat: 'Σύνολο (συμπ. ΦΠΑ 21%):',
+    vatAmount: 'Ποσό ΦΠΑ:',
+    totalExclVat: 'Σύνολο (χωρίς ΦΠΑ):',
+    contactUs: 'ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ',
+    perMonth: '/μήνα',
+    
+    // Tooltips
+    tooltipMalpils: 'Αυτή η τοποθεσία διακομιστή βρίσκεται κοντά στο Mālpils, αυτό είναι το LIEPNET™ CORE και παρέχει την πιο φθηνή φιλοξενία.',
+    tooltipNormalPriority: 'Η κανονική προτεραιότητα παρέχει κανονική προτεραιότητα, η οποία είναι συνήθως επαρκής για μικρές επιχειρήσεις με χαμηλή επισκεψιμότητα ιστοσελίδας και δεν επηρεάζει αρνητικά την επιχείρηση εάν η ιστοσελίδα αντιμετωπίσει ελάχιστο χρόνο διακοπής λειτουργίας.',
+    tooltipHighPriority: 'Η υψηλή προτεραιότητα σημαίνει ότι η ιστοσελίδα σας έχει προτεραιότητα έναντι άλλων ιστοσελίδων για διορθώσεις και τυχόν προβλήματα που μπορεί να προκύψουν τυχαία. Η υψηλή προτεραιότητα διασφαλίζει επίσης τον υψηλότερο διαθέσιμο χρόνο λειτουργίας επειδή η ιστοσελίδα σας θα φιλοξενείται σε πολλαπλούς κόμβους για χρόνο λειτουργίας σε περίπτωση που ο κύριος επιλεγμένος κόμβος είναι εκτός σύνδεσης ή υπό συντήρηση.',
+    tooltipSimpleWebsite: 'Μια απλή ιστοσελίδα περιλαμβάνει απλές στατικές ή ελαφρώς δυναμικές σελίδες.',
+    tooltipComplexWebsite: 'Μια σύνθετη ιστοσελίδα περιλαμβάνει κυρίως δυναμικές σελίδες και μπορεί να περιλαμβάνει σημεία όπου το περιεχόμενο μπορεί να αλλάξει ή να ενημερωθεί εξωτερικά.',
+    tooltipUpfrontCost: 'Αρχικό κόστος (εφάπαξ τέλος).',
+    tooltipMonthlyHosting: 'Μηνιαίο κόστος φιλοξενίας.',
+    
+    // Confirmation dialog
+    unsavedChangesTitle: 'Μη αποθηκευμένες αλλαγές',
+    unsavedChangesDesc: 'Είστε σίγουροι ότι θέλετε να επιστρέψετε; Όλες οι αλλαγές σας θα χαθούν.',
+    cancel: 'Ακύρωση',
+    goBack: 'Επιστροφή',
+
     // Footer
     footerFoundedText: 'Ιδρύθηκε τον Φεβρουάριο του 2025, Λετονία.',
     contactInformation: 'Στοιχεία επικοινωνίας',
@@ -885,6 +1010,47 @@ const translations = {
     reason3Content: 'Tiefes Verständnis europäischer Märkte und Vorschriften',
     reason4Title: 'Skalierbarkeit',
     reason4Content: 'Lösungen, die mit Ihrem Unternehmen wachsen, vom Startup bis zum Konzern',
+
+    // Hosting page
+    websiteHosting: 'WEBSITE-HOSTING',
+    websiteHostingDesc: 'Günstige und professionelle Web-Hosting-Lösungen für Ihr Unternehmen.',
+    setupFeeLabel: 'EINRICHTUNGSGEBÜHR',
+    hostingLabel: 'HOSTING',
+    startingFrom: 'Ab',
+    
+    // Price Calculator
+    priceCalculator: 'PREISRECHNER',
+    priceCalculatorSubtitle: 'Für den Plan "WEBSITE-HOSTING"',
+    changesPerMonth: 'ÄNDERUNGEN PRO MONAT',
+    priority: 'PRIORITÄT',
+    location: 'STANDORT',
+    websiteSetupFee: 'WEBSITE-EINRICHTUNGSGEBÜHR',
+    normalPriority: 'Normale Priorität',
+    highPriority: 'Hohe Priorität',
+    simpleWebsite: 'Einfache Website',
+    complexWebsite: 'Komplexe Website',
+    monthlyHosting: 'MONATLICHES HOSTING',
+    upfrontCost: 'ERSTKOSTEN',
+    totalInclVat: 'Gesamt (inkl. MwSt. 21%):',
+    vatAmount: 'MwSt.-Betrag:',
+    totalExclVat: 'Gesamt (exkl. MwSt.):',
+    contactUs: 'KONTAKTIEREN SIE UNS',
+    perMonth: '/Monat',
+    
+    // Tooltips
+    tooltipMalpils: 'Dieser Serverstandort befindet sich in der Nähe von Mālpils, dies ist der LIEPNET™ CORE und bietet das günstigste Hosting.',
+    tooltipNormalPriority: 'Normale Priorität bietet normale Priorität, die in der Regel für kleine Unternehmen mit niedrigem Website-Traffic ausreichend ist und das Geschäft nicht negativ beeinflusst, wenn die Website geringfügige Ausfallzeiten erlebt.',
+    tooltipHighPriority: 'Hohe Priorität bedeutet, dass Ihre Website gegenüber anderen Websites für Korrekturen und alle zufällig auftretenden Probleme priorisiert wird. Hohe Priorität stellt auch die höchste verfügbare Betriebszeit sicher, da Ihre Website auf mehreren Knoten für Betriebszeit gehostet wird, falls der primäre ausgewählte Knoten offline ist oder gewartet wird.',
+    tooltipSimpleWebsite: 'Eine einfache Website umfasst einfache statische oder leicht dynamische Seiten.',
+    tooltipComplexWebsite: 'Eine komplexe Website umfasst hauptsächlich dynamische Seiten und kann Stellen umfassen, an denen Inhalte geändert oder extern aktualisiert werden können.',
+    tooltipUpfrontCost: 'Erstkosten (einmalige Gebühr).',
+    tooltipMonthlyHosting: 'Monatliche Hosting-Kosten.',
+    
+    // Confirmation dialog
+    unsavedChangesTitle: 'Nicht gespeicherte Änderungen',
+    unsavedChangesDesc: 'Sind Sie sicher, dass Sie zurückgehen möchten? Alle Ihre Änderungen gehen verloren.',
+    cancel: 'Abbrechen',
+    goBack: 'Zurück',
 
     // Footer
     footerFoundedText: 'Gegründet im Februar 2025, Lettland.',
@@ -1020,6 +1186,47 @@ const translations = {
     reason4Title: 'Masteliacijos galimybė',
     reason4Content: 'Sprendimai, kurie auga kartu su jūsų verslu, nuo startuolio iki korporacijos',
 
+    // Hosting page
+    websiteHosting: 'SVETAINĖS PRIEGLOBOS',
+    websiteHostingDesc: 'Pigios ir profesionalios interneto prieglobos sprendimai jūsų verslui.',
+    setupFeeLabel: 'ĮDIEGIMO MOKESTIS',
+    hostingLabel: 'PRIEGLOBOS',
+    startingFrom: 'Nuo',
+    
+    // Price Calculator
+    priceCalculator: 'KAINŲ SKAIČIUOKLĖ',
+    priceCalculatorSubtitle: 'Planui "SVETAINĖS PRIEGLOBOS"',
+    changesPerMonth: 'PAKEITIMAI PER MĖNESĮ',
+    priority: 'PRIORITETAS',
+    location: 'VIETA',
+    websiteSetupFee: 'SVETAINĖS ĮDIEGIMO MOKESTIS',
+    normalPriority: 'Normalus prioritetas',
+    highPriority: 'Aukštas prioritetas',
+    simpleWebsite: 'Paprasta svetainė',
+    complexWebsite: 'Sudėtinga svetainė',
+    monthlyHosting: 'MĖNESINIS PRIEGLOBOS',
+    upfrontCost: 'PRADINĖS IŠLAIDOS',
+    totalInclVat: 'Iš viso (su PVM 21%):',
+    vatAmount: 'PVM suma:',
+    totalExclVat: 'Iš viso (be PVM):',
+    contactUs: 'SUSISIEKITE SU MUMIS',
+    perMonth: '/mėn.',
+    
+    // Tooltips
+    tooltipMalpils: 'Šis serverio vieta yra netoli Mālpils, tai yra LIEPNET™ CORE ir teikia pigiausią priešprieglobos.',
+    tooltipNormalPriority: 'Normalus prioritetas suteikia normalų prioritetą, kuris paprastai yra pakankamas mažoms įmonėms su mažu svetainės lankomumu ir neturi neigiamo poveikio verslui, jei svetainė patiria nedidelį nefunkcionavimo laiką.',
+    tooltipHighPriority: 'Aukštas prioritetas reiškia, kad jūsų svetainė yra prioritizuojama prieš kitas svetaines pataisymo ir bet kokių atsitiktinai kylančių problemų atveju. Aukštas prioritetas taip pat užtikrina didžiausią galimą veikimo laiką, nes jūsų svetainė bus talpinama keliuose mazguose veikimo laiko užtikrinimui, jei pagrindinis pasirinktas mazgas yra neprieinamas arba vykdoma priežiūra.',
+    tooltipSimpleWebsite: 'Paprasta svetainė apima paprastus statinius arba šiek tiek dinaminius puslapius.',
+    tooltipComplexWebsite: 'Sudėtinga svetainė apima daugiausia dinaminius puslapius ir gali apimti vietas, kur turinys gali keistis arba atnaujinamas išoriškai.',
+    tooltipUpfrontCost: 'Pradinės išlaidos (vienkartinis mokestis).',
+    tooltipMonthlyHosting: 'Mėnesinis prieglobos kaina.',
+    
+    // Confirmation dialog
+    unsavedChangesTitle: 'Neišsaugoti pakeitimai',
+    unsavedChangesDesc: 'Ar tikrai norite grįžti? Visi jūsų pakeitimai bus prarasti.',
+    cancel: 'Atšaukti',
+    goBack: 'Grįžti',
+
     // Footer
     footerFoundedText: 'Įkurta 2025 m. vasarį, Latvijoje.',
     contactInformation: 'Kontaktinė informacija',
@@ -1154,6 +1361,47 @@ const translations = {
     reason4Title: 'Skaleeritavus',
     reason4Content: 'Lahendused, mis kasvavad koos teie äriga, alates idufirmast kuni korporatsioonini',
 
+    // Hosting page
+    websiteHosting: 'VEEBILEHE HOSTING',
+    websiteHostingDesc: 'Odavad ja professionaalsed veebi hostingu lahendused teie ettevõttele.',
+    setupFeeLabel: 'PAIGALDUSMAKSE',
+    hostingLabel: 'HOSTING',
+    startingFrom: 'Alates',
+    
+    // Price Calculator
+    priceCalculator: 'HINNAKALKULAATOR',
+    priceCalculatorSubtitle: 'Plaani "VEEBILEHE HOSTING" jaoks',
+    changesPerMonth: 'MUUDATUSED KUUS',
+    priority: 'PRIORITEET',
+    location: 'ASUKOHT',
+    websiteSetupFee: 'VEEBILEHE PAIGALDUSMAKSE',
+    normalPriority: 'Tavaline prioriteet',
+    highPriority: 'Kõrge prioriteet',
+    simpleWebsite: 'Lihtne veebileht',
+    complexWebsite: 'Keeruline veebileht',
+    monthlyHosting: 'IGAKUINE HOSTING',
+    upfrontCost: 'ESIALGNE MAKSUMUS',
+    totalInclVat: 'Kokku (koos KM 21%):',
+    vatAmount: 'KM summa:',
+    totalExclVat: 'Kokku (ilma KM-ta):',
+    contactUs: 'VÕTKE MEIEGA ÜHENDUST',
+    perMonth: '/kuus',
+    
+    // Tooltips
+    tooltipMalpils: 'See serveri asukoht asub Mālpilsi lähedal, see on LIEPNET™ CORE ja pakub kõige odavamat hostingut.',
+    tooltipNormalPriority: 'Tavaline prioriteet pakub tavalist prioriteeti, mis on tavaliselt piisav väikestele ettevõtetele madala veebilehe liiklusega ja ei mõjuta negatiivselt äri, kui veebileht kogeb väikest seisuaja.',
+    tooltipHighPriority: 'Kõrge prioriteet tähendab, et teie veebileht on eelistatud teiste veebilehtede ees paranduste ja mis tahes juhuslikult tekkivate probleemide korral. Kõrge prioriteet tagab ka kõrgeima saadaoleva töötamise aja, sest teie veebileht majutatakse mitmel sõlmel töötamise aja tagamiseks juhul, kui esmane valitud sõlm on võrgust väljas või hoolduses.',
+    tooltipSimpleWebsite: 'Lihtne veebileht sisaldab lihtsaid staatilisi või veidi dünaamilisi lehti.',
+    tooltipComplexWebsite: 'Keeruline veebileht sisaldab peamiselt dünaamilisi lehti ja võib sisaldada kohti, kus sisu võib muutuda või väliselt uuendada.',
+    tooltipUpfrontCost: 'Esialgne maksumus (ühekordne makse).',
+    tooltipMonthlyHosting: 'Igakuine hostingu maksumus.',
+    
+    // Confirmation dialog
+    unsavedChangesTitle: 'Salvestamata muudatused',
+    unsavedChangesDesc: 'Kas olete kindel, et soovite tagasi minna? Kõik teie muudatused lähevad kaotsi.',
+    cancel: 'Tühista',
+    goBack: 'Mine tagasi',
+
     // Footer
     footerFoundedText: 'Asutatud 2025. aasta veebruaris, Lätis.',
     contactInformation: 'Kontaktandmed',
@@ -1287,6 +1535,47 @@ const translations = {
     reason3Content: 'Djup förståelse för europeiska marknader och regleringar',
     reason4Title: 'Skalbarhet',
     reason4Content: 'Lösningar som växer med ditt företag, från startup till koncern',
+
+    // Hosting page
+    websiteHosting: 'WEBBPLATSHOSTING',
+    websiteHostingDesc: 'Billiga och professionella webbhotell-lösningar för ditt företag.',
+    setupFeeLabel: 'INSTALLATIONSAVGIFT',
+    hostingLabel: 'HOSTING',
+    startingFrom: 'Från',
+    
+    // Price Calculator
+    priceCalculator: 'PRISKALKYLATOR',
+    priceCalculatorSubtitle: 'För planen "WEBBPLATSHOSTING"',
+    changesPerMonth: 'ÄNDRINGAR PER MÅNAD',
+    priority: 'PRIORITET',
+    location: 'PLATS',
+    websiteSetupFee: 'WEBBPLATS INSTALLATIONSAVGIFT',
+    normalPriority: 'Normal prioritet',
+    highPriority: 'Hög prioritet',
+    simpleWebsite: 'Enkel webbplats',
+    complexWebsite: 'Komplex webbplats',
+    monthlyHosting: 'MÅNATLIG HOSTING',
+    upfrontCost: 'INITIALKOSTNAD',
+    totalInclVat: 'Totalt (inkl. moms 21%):',
+    vatAmount: 'Momsbelopp:',
+    totalExclVat: 'Totalt (exkl. moms):',
+    contactUs: 'KONTAKTA OSS',
+    perMonth: '/mån',
+    
+    // Tooltips
+    tooltipMalpils: 'Denna serverplats ligger nära Mālpils, detta är LIEPNET™ CORE och erbjuder billigast hosting.',
+    tooltipNormalPriority: 'Normal prioritet ger normal prioritet, vilket vanligtvis är tillräckligt för små företag med låg webbplatstrafik och inte negativt påverkar verksamheten om webbplatsen upplever mindre driftstopp.',
+    tooltipHighPriority: 'Hög prioritet betyder att din webbplats prioriteras framför andra webbplatser för korrigeringar och eventuella problem som kan uppstå slumpmässigt. Hög prioritet garanterar också högsta tillgängliga drifttid eftersom din webbplats kommer att vara värd på flera noder för drifttid om den primära valda noden är offline eller under underhåll.',
+    tooltipSimpleWebsite: 'En enkel webbplats inkluderar enkla statiska eller något dynamiska sidor.',
+    tooltipComplexWebsite: 'En komplex webbplats inkluderar mestadels dynamiska sidor och kan inkludera platser där innehållet kan ändras eller uppdateras externt.',
+    tooltipUpfrontCost: 'Initialkostnad (engångsavgift).',
+    tooltipMonthlyHosting: 'Månatlig hosting-kostnad.',
+    
+    // Confirmation dialog
+    unsavedChangesTitle: 'Osparade ändringar',
+    unsavedChangesDesc: 'Är du säker på att du vill gå tillbaka? Alla dina ändringar kommer att förloras.',
+    cancel: 'Avbryt',
+    goBack: 'Gå tillbaka',
 
     // Footer
     footerFoundedText: 'Grundat i februari 2025, Lettland.',

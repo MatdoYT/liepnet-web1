@@ -253,7 +253,7 @@ const HostingCalculator = () => {
                       <TooltipTrigger asChild>
                         <div className="flex justify-between items-center cursor-help">
                           <span className="text-foreground font-bold text-lg">{t('monthlyHosting')}</span>
-                          <span className="text-foreground font-bold text-lg">{monthlyPriceWithVAT.toFixed(2)} EUR/mo</span>
+                          <span className="text-foreground font-bold text-lg">{monthlyPriceWithVAT.toFixed(2)} EUR{t('perMonth')}</span>
                         </div>
                       </TooltipTrigger>
                       <TooltipContent>
