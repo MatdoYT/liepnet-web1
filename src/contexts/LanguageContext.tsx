@@ -487,6 +487,7 @@ const translations = {
     reason4Content: 'Решения, которые растут вместе с вашим бизнесом, от стартапа до корпорации',
 
     // Hosting page
+    hostingTitle: 'ХОСТИНГ LIEPNET™',
     websiteHosting: 'ХОСТИНГ САЙТОВ',
     websiteHostingDesc: 'Дешевые и профессиональные решения веб-хостинга для вашего бизнеса.',
     setupFeeLabel: 'ПЛАТА ЗА УСТАНОВКУ',
@@ -662,6 +663,7 @@ const translations = {
     reason4Content: 'Solutions qui évoluent avec votre entreprise, de la startup à la corporation',
 
     // Hosting page
+    hostingTitle: 'HÉBERGEMENT LIEPNET™',
     websiteHosting: 'HÉBERGEMENT DE SITE WEB',
     websiteHostingDesc: 'Solutions d\'hébergement web professionnelles et abordables pour votre entreprise.',
     setupFeeLabel: 'FRAIS D\'INSTALLATION',
@@ -837,6 +839,7 @@ const translations = {
     reason4Content: 'Λύσεις που αναπτύσσονται μαζί με την επιχείρησή σας, από startup μέχρι εταιρεία',
 
     // Hosting page
+    hostingTitle: 'ΦΙΛΟΞΕΝΙΑ LIEPNET™',
     websiteHosting: 'ΦΙΛΟΞΕΝΙΑ ΙΣΤΟΣΕΛΙΔΩΝ',
     websiteHostingDesc: 'Φθηνές και επαγγελματικές λύσεις φιλοξενίας ιστού για την επιχείρησή σας.',
     setupFeeLabel: 'ΤΕΛΟΣ ΕΓΚΑΤΑΣΤΑΣΗΣ',
@@ -1012,6 +1015,7 @@ const translations = {
     reason4Content: 'Lösungen, die mit Ihrem Unternehmen wachsen, vom Startup bis zum Konzern',
 
     // Hosting page
+    hostingTitle: 'LIEPNET™ HOSTING',
     websiteHosting: 'WEBSITE-HOSTING',
     websiteHostingDesc: 'Günstige und professionelle Web-Hosting-Lösungen für Ihr Unternehmen.',
     setupFeeLabel: 'EINRICHTUNGSGEBÜHR',
@@ -1187,6 +1191,7 @@ const translations = {
     reason4Content: 'Sprendimai, kurie auga kartu su jūsų verslu, nuo startuolio iki korporacijos',
 
     // Hosting page
+    hostingTitle: 'LIEPNET™ PRIEGLOBOS',
     websiteHosting: 'SVETAINĖS PRIEGLOBOS',
     websiteHostingDesc: 'Pigios ir profesionalios interneto prieglobos sprendimai jūsų verslui.',
     setupFeeLabel: 'ĮDIEGIMO MOKESTIS',
@@ -1362,6 +1367,7 @@ const translations = {
     reason4Content: 'Lahendused, mis kasvavad koos teie äriga, alates idufirmast kuni korporatsioonini',
 
     // Hosting page
+    hostingTitle: 'LIEPNET™ HOSTING',
     websiteHosting: 'VEEBILEHE HOSTING',
     websiteHostingDesc: 'Odavad ja professionaalsed veebi hostingu lahendused teie ettevõttele.',
     setupFeeLabel: 'PAIGALDUSMAKSE',
@@ -1537,6 +1543,7 @@ const translations = {
     reason4Content: 'Lösningar som växer med ditt företag, från startup till koncern',
 
     // Hosting page
+    hostingTitle: 'LIEPNET™ HOSTING',
     websiteHosting: 'WEBBPLATSHOSTING',
     websiteHostingDesc: 'Billiga och professionella webbhotell-lösningar för ditt företag.',
     setupFeeLabel: 'INSTALLATIONSAVGIFT',
