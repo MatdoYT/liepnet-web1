@@ -169,6 +169,12 @@ const translations = {
     totalExclVat: 'Total (excl. VAT):',
     contactUs: 'CONTACT US',
     perMonth: '/mo',
+    whyNeedWebsite: 'Why do I need a website? Why choose us?',
+    whyNeedWebsiteTitle: 'WHY DO I NEED A WEBSITE?',
+    whyNeedWebsiteContent: "It's 2025, and your company must have a website to expand your business's reach and professionalism. You may also claim that you already use social media platforms such as X, YouTube, and Facebook, which are all valid, but they can change their terms of service at any time, terminate your account for any reason, or simply stop recommending your posts or account to other users, which is particularly costly to small businesses.",
+    whyChooseUsTitle: 'WHY CHOOSE US?',
+    whyChooseUsContent: "LIEPNET™ offers affordable all-in-one website hosting. Simply tell us what you want and we'll create it. We'll also maintain, fix bugs, and update your website when needed. If you want to create your own website, you can use any of our other website hosting services (if available) or go with a lower-cost website hosting provider; the choice is yours.",
+    close: 'Close',
     
     // Tooltips
     tooltipMalpils: 'This server location is located near Mālpils, this is the LIEPNET™ CORE and provides the cheapest hosting.',
@@ -345,6 +351,12 @@ const translations = {
     totalExclVat: 'Kopā (bez PVN):',
     contactUs: 'SAZINIETIES AR MUMS',
     perMonth: '/mēn.',
+    whyNeedWebsite: 'Kāpēc man ir nepieciešama tīmekļa vietne? Kāpēc izvēlēties mūs?',
+    whyNeedWebsiteTitle: 'KĀPĒC MAN IR NEPIECIEŠAMA TĪMEKĻA VIETNE?',
+    whyNeedWebsiteContent: 'Ir 2025. gads, un jūsu uzņēmumam ir jābūt tīmekļa vietnei, lai paplašinātu uzņēmuma darbības jomu un profesionalitāti. Jūs varat arī apgalvot, ka jau izmantojat sociālo mediju platformas, piemēram, X, YouTube un Facebook, kas visas ir derīgas, taču tās jebkurā laikā var mainīt savus pakalpojumu sniegšanas noteikumus, jebkura iemesla dēļ izbeigt jūsu kontu vai vienkārši pārtraukt ieteikt jūsu ierakstus vai kontu citiem lietotājiem, kas īpaši kaitē maziem uzņēmumiem.',
+    whyChooseUsTitle: 'KĀPĒC IZVĒLĒTIES MŪS?',
+    whyChooseUsContent: 'LIEPNET™ piedāvā pieejamu visu vienā tīmekļa vietņu hostingu. Vienkārši pastāstiet mums, ko vēlaties, un mēs to izveidosim. Mēs arī uzturēsim, labosim kļūdas un atjaunināsim jūsu tīmekļa vietni, kad nepieciešams. Ja vēlaties izveidot savu tīmekļa vietni pats, varat izmantot jebkuru no mūsu citiem tīmekļa vietņu hostinga pakalpojumiem (ja pieejami) vai izvēlēties lētāku tīmekļa vietņu hostinga pakalpojumu sniedzēju; izvēle ir jūsu.',
+    close: 'Aizvērt',
     
     // Tooltips
     tooltipMalpils: 'Šī servera atrašanās vieta atrodas netālu no Mālpils, šis ir LIEPNET™ CORE un nodrošina vislētāko hostingu.',
@@ -512,6 +524,12 @@ const translations = {
     totalExclVat: 'Итого (без НДС):',
     contactUs: 'СВЯЗАТЬСЯ С НАМИ',
     perMonth: '/мес.',
+    whyNeedWebsite: 'Зачем мне нужен сайт? Почему выбирают нас?',
+    whyNeedWebsiteTitle: 'ЗАЧЕМ МНЕ НУЖЕН САЙТ?',
+    whyNeedWebsiteContent: 'Сейчас 2025 год, и ваша компания должна иметь веб-сайт, чтобы расширить охват и профессионализм вашего бизнеса. Вы также можете заявить, что уже используете платформы социальных сетей, такие как X, YouTube и Facebook, которые действительны, но они могут в любое время изменить свои условия обслуживания, закрыть вашу учетную запись по любой причине или просто перестать рекомендовать ваши публикации или учетную запись другим пользователям, что особенно вредно для малого бизнеса.',
+    whyChooseUsTitle: 'ПОЧЕМУ ВЫБИРАЮТ НАС?',
+    whyChooseUsContent: 'LIEPNET™ предлагает доступный комплексный хостинг веб-сайтов. Просто скажите нам, что вы хотите, и мы создадим это. Мы также будем поддерживать, исправлять ошибки и обновлять ваш сайт по мере необходимости. Если вы хотите создать свой собственный сайт, вы можете использовать любые другие наши услуги хостинга веб-сайтов (если они доступны) или выбрать более дешевого провайдера хостинга веб-сайтов; выбор за вами.',
+    close: 'Закрыть',
     
     // Tooltips
     tooltipMalpils: 'Это расположение сервера находится рядом с Малпилсом, это LIEPNET™ CORE и обеспечивает самый дешевый хостинг.',
@@ -688,6 +706,12 @@ const translations = {
     totalExclVat: 'Total (hors TVA) :',
     contactUs: 'NOUS CONTACTER',
     perMonth: '/mois',
+    whyNeedWebsite: 'Pourquoi ai-je besoin d\'un site web? Pourquoi nous choisir?',
+    whyNeedWebsiteTitle: 'POURQUOI AI-JE BESOIN D\'UN SITE WEB?',
+    whyNeedWebsiteContent: 'Nous sommes en 2025, et votre entreprise doit avoir un site web pour étendre la portée et le professionnalisme de votre entreprise. Vous pouvez également prétendre que vous utilisez déjà des plateformes de médias sociaux telles que X, YouTube et Facebook, qui sont toutes valables, mais elles peuvent modifier leurs conditions d\'utilisation à tout moment, résilier votre compte pour quelque raison que ce soit ou simplement cesser de recommander vos publications ou votre compte à d\'autres utilisateurs, ce qui est particulièrement coûteux pour les petites entreprises.',
+    whyChooseUsTitle: 'POURQUOI NOUS CHOISIR?',
+    whyChooseUsContent: 'LIEPNET™ propose un hébergement de sites web tout-en-un abordable. Dites-nous simplement ce que vous voulez et nous le créerons. Nous assurerons également la maintenance, corrigerons les bugs et mettrons à jour votre site web si nécessaire. Si vous souhaitez créer votre propre site web, vous pouvez utiliser l\'un de nos autres services d\'hébergement de sites web (si disponibles) ou opter pour un fournisseur d\'hébergement de sites web moins cher; le choix vous appartient.',
+    close: 'Fermer',
     
     // Tooltips
     tooltipMalpils: 'Cet emplacement de serveur est situé près de Mālpils, c\'est le LIEPNET™ CORE et offre l\'hébergement le moins cher.',
@@ -864,6 +888,12 @@ const translations = {
     totalExclVat: 'Σύνολο (χωρίς ΦΠΑ):',
     contactUs: 'ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ',
     perMonth: '/μήνα',
+    whyNeedWebsite: 'Γιατί χρειάζομαι έναν ιστότοπο; Γιατί να μας επιλέξετε;',
+    whyNeedWebsiteTitle: 'ΓΙΑΤΙ ΧΡΕΙΑΖΟΜΑΙ ΕΝΑΝ ΙΣΤΟΤΟΠΟ;',
+    whyNeedWebsiteContent: 'Είναι το 2025 και η εταιρεία σας πρέπει να έχει έναν ιστότοπο για να επεκτείνει την εμβέλεια και τον επαγγελματισμό της επιχείρησής σας. Μπορείτε επίσης να ισχυριστείτε ότι χρησιμοποιείτε ήδη πλατφόρμες κοινωνικών μέσων όπως το X, το YouTube και το Facebook, οι οποίες είναι όλες έγκυρες, αλλά μπορούν να αλλάξουν τους όρους παροχής υπηρεσιών τους ανά πάσα στιγμή, να διακόψουν τον λογαριασμό σας για οποιονδήποτε λόγο ή απλώς να σταματήσουν να συστήνουν τις αναρτήσεις ή τον λογαριασμό σας σε άλλους χρήστες, κάτι που είναι ιδιαίτερα δαπανηρό για τις μικρές επιχειρήσεις.',
+    whyChooseUsTitle: 'ΓΙΑΤΙ ΝΑ ΜΑΣ ΕΠΙΛΕΞΕΤΕ;',
+    whyChooseUsContent: 'Η LIEPNET™ προσφέρει οικονομικά all-in-one φιλοξενία ιστοσελίδων. Απλά πείτε μας τι θέλετε και θα το δημιουργήσουμε. Θα διατηρήσουμε επίσης, θα διορθώσουμε σφάλματα και θα ενημερώσουμε τον ιστότοπό σας όταν χρειάζεται. Αν θέλετε να δημιουργήσετε τον δικό σας ιστότοπο, μπορείτε να χρησιμοποιήσετε οποιαδήποτε από τις άλλες υπηρεσίες φιλοξενίας ιστοσελίδων μας (εάν είναι διαθέσιμες) ή να επιλέξετε έναν πάροχο φιλοξενίας ιστοσελίδων χαμηλότερου κόστους· η επιλογή είναι δική σας.',
+    close: 'Κλείσιμο',
     
     // Tooltips
     tooltipMalpils: 'Αυτή η τοποθεσία διακομιστή βρίσκεται κοντά στο Mālpils, αυτό είναι το LIEPNET™ CORE και παρέχει την πιο φθηνή φιλοξενία.',
@@ -1040,6 +1070,12 @@ const translations = {
     totalExclVat: 'Gesamt (exkl. MwSt.):',
     contactUs: 'KONTAKTIEREN SIE UNS',
     perMonth: '/Monat',
+    whyNeedWebsite: 'Warum brauche ich eine Website? Warum uns wählen?',
+    whyNeedWebsiteTitle: 'WARUM BRAUCHE ICH EINE WEBSITE?',
+    whyNeedWebsiteContent: 'Es ist 2025, und Ihr Unternehmen muss eine Website haben, um die Reichweite und Professionalität Ihres Unternehmens zu erweitern. Sie können auch behaupten, dass Sie bereits Social-Media-Plattformen wie X, YouTube und Facebook nutzen, die alle gültig sind, aber sie können ihre Nutzungsbedingungen jederzeit ändern, Ihr Konto aus beliebigen Gründen kündigen oder einfach aufhören, Ihre Beiträge oder Ihr Konto anderen Nutzern zu empfehlen, was besonders für kleine Unternehmen kostspielig ist.',
+    whyChooseUsTitle: 'WARUM UNS WÄHLEN?',
+    whyChooseUsContent: 'LIEPNET™ bietet erschwingliches All-in-One-Website-Hosting. Sagen Sie uns einfach, was Sie wollen, und wir erstellen es. Wir werden auch Ihre Website warten, Fehler beheben und Ihre Website bei Bedarf aktualisieren. Wenn Sie Ihre eigene Website selbst erstellen möchten, können Sie einen unserer anderen Website-Hosting-Dienste (falls verfügbar) nutzen oder sich für einen günstigeren Website-Hosting-Anbieter entscheiden; die Wahl liegt bei Ihnen.',
+    close: 'Schließen',
     
     // Tooltips
     tooltipMalpils: 'Dieser Serverstandort befindet sich in der Nähe von Mālpils, dies ist der LIEPNET™ CORE und bietet das günstigste Hosting.',
@@ -1216,6 +1252,12 @@ const translations = {
     totalExclVat: 'Iš viso (be PVM):',
     contactUs: 'SUSISIEKITE SU MUMIS',
     perMonth: '/mėn.',
+    whyNeedWebsite: 'Kodėl man reikia svetainės? Kodėl pasirinkti mus?',
+    whyNeedWebsiteTitle: 'KODĖL MAN REIKIA SVETAINĖS?',
+    whyNeedWebsiteContent: 'Tai 2025 metai, ir jūsų įmonė turi turėti svetainę, kad išplėstų savo verslo apimtį ir profesionalumą. Jūs taip pat galite teigti, kad jau naudojate socialinės žiniasklaidos platformas, tokias kaip X, YouTube ir Facebook, kurios visos yra galiojančios, tačiau jos gali bet kada pakeisti savo paslaugų teikimo sąlygas, nutraukti jūsų paskyrą dėl bet kokios priežasties arba tiesiog nustoti rekomenduoti jūsų įrašus ar paskyrą kitiems vartotojams, o tai ypač kenkia mažoms įmonėms.',
+    whyChooseUsTitle: 'KODĖL PASIRINKTI MUS?',
+    whyChooseUsContent: 'LIEPNET™ siūlo prieinamą visapusišką svetainių prieglaudą. Tiesiog pasakykite mums, ko norite, ir mes tai sukursime. Taip pat prižiūrėsime, taisysime klaidas ir atnaujinsime jūsų svetainę, kai reikia. Jei norite patys sukurti savo svetainę, galite naudoti bet kurią iš mūsų kitų svetainių prieglaudos paslaugų (jei yra) arba pasirinkti pigesnį svetainių prieglaudos paslaugų teikėją; pasirinkimas yra jūsų.',
+    close: 'Uždaryti',
     
     // Tooltips
     tooltipMalpils: 'Šis serverio vieta yra netoli Mālpils, tai yra LIEPNET™ CORE ir teikia pigiausią priešprieglobos.',
@@ -1392,6 +1434,12 @@ const translations = {
     totalExclVat: 'Kokku (ilma KM-ta):',
     contactUs: 'VÕTKE MEIEGA ÜHENDUST',
     perMonth: '/kuus',
+    whyNeedWebsite: 'Miks ma vajan veebilehte? Miks valida meid?',
+    whyNeedWebsiteTitle: 'MIKS MA VAJAN VEEBILEHTE?',
+    whyNeedWebsiteContent: 'On 2025. aasta ja teie ettevõttel peab olema veebileht, et laiendada oma ettevõtte ulatust ja professionaalsust. Võite ka väita, et kasutate juba sotsiaalmeedia platvorme nagu X, YouTube ja Facebook, mis on kõik kehtivad, kuid nad võivad igal ajal muuta oma teenuse osutamise tingimusi, lõpetada teie konto mis tahes põhjusel või lihtsalt lõpetada teie postituste või konto soovitamise teistele kasutajatele, mis on eriti kulukas väikeettevõtetele.',
+    whyChooseUsTitle: 'MIKS VALIDA MEID?',
+    whyChooseUsContent: 'LIEPNET™ pakub taskukohast ühe katuse all veebilehe hostingut. Lihtsalt öelge meile, mida soovite, ja me loome selle. Samuti hooldame, parandame vigu ja uuendame teie veebilehte vajadusel. Kui soovite oma veebilehte ise luua, saate kasutada mis tahes meie muid veebilehe hostingu teenuseid (kui need on saadaval) või valida odavama veebilehe hostingu pakkuja; valik on teie.',
+    close: 'Sulge',
     
     // Tooltips
     tooltipMalpils: 'See serveri asukoht asub Mālpilsi lähedal, see on LIEPNET™ CORE ja pakub kõige odavamat hostingut.',
@@ -1568,6 +1616,12 @@ const translations = {
     totalExclVat: 'Totalt (exkl. moms):',
     contactUs: 'KONTAKTA OSS',
     perMonth: '/mån',
+    whyNeedWebsite: 'Varför behöver jag en webbplats? Varför välja oss?',
+    whyNeedWebsiteTitle: 'VARFÖR BEHÖVER JAG EN WEBBPLATS?',
+    whyNeedWebsiteContent: 'Det är 2025, och ditt företag måste ha en webbplats för att utöka ditt företags räckvidd och professionalism. Du kan också hävda att du redan använder sociala medieplattformar som X, YouTube och Facebook, som alla är giltiga, men de kan när som helst ändra sina användarvillkor, avsluta ditt konto av vilken anledning som helst eller helt enkelt sluta rekommendera dina inlägg eller konto till andra användare, vilket är särskilt kostsamt för små företag.',
+    whyChooseUsTitle: 'VARFÖR VÄLJA OSS?',
+    whyChooseUsContent: 'LIEPNET™ erbjuder prisvärd allt-i-ett webbplatshosting. Berätta bara för oss vad du vill ha och vi skapar det. Vi kommer också att underhålla, fixa buggar och uppdatera din webbplats vid behov. Om du vill skapa din egen webbplats kan du använda någon av våra andra webbplatshotell-tjänster (om tillgängliga) eller gå med en lägre kostnad webbplatshotell-leverantör; valet är ditt.',
+    close: 'Stäng',
     
     // Tooltips
     tooltipMalpils: 'Denna serverplats ligger nära Mālpils, detta är LIEPNET™ CORE och erbjuder billigast hosting.',

@@ -34,6 +34,7 @@ const HostingCalculator = () => {
   const [setupFee, setSetupFee] = useState<"simple" | "complex">("simple");
   const [location, setLocation] = useState<"malpils">("malpils");
   const [showBackDialog, setShowBackDialog] = useState(false);
+  const [showInfoDialog, setShowInfoDialog] = useState(false);
   
   useEffect(() => {
     document.title = t('priceCalculator');
@@ -309,6 +310,16 @@ const HostingCalculator = () => {
                 </div>
               </div>
             </div>
+            
+            {/* Info Link */}
+            <div className="mt-4 text-center">
+              <button
+                onClick={() => setShowInfoDialog(true)}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors underline cursor-pointer"
+              >
+                {t('whyNeedWebsite')}
+              </button>
+            </div>
           </div>
           </div>
         </div>
@@ -332,6 +343,29 @@ const HostingCalculator = () => {
               className="bg-foreground text-background hover:bg-foreground/90"
             >
               {t('goBack')}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+      
+      {/* Info Dialog */}
+      <AlertDialog open={showInfoDialog} onOpenChange={setShowInfoDialog}>
+        <AlertDialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+          <AlertDialogHeader>
+            <AlertDialogTitle className="text-xl mb-4">{t('whyNeedWebsiteTitle')}</AlertDialogTitle>
+            <AlertDialogDescription className="text-base space-y-4">
+              <p>{t('whyNeedWebsiteContent')}</p>
+              
+              <AlertDialogTitle className="text-xl mt-6 mb-2">{t('whyChooseUsTitle')}</AlertDialogTitle>
+              <p>{t('whyChooseUsContent')}</p>
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction 
+              onClick={() => setShowInfoDialog(false)}
+              className="bg-foreground text-background hover:bg-foreground/90"
+            >
+              {t('close')}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
