@@ -37,11 +37,11 @@ const Hosting = () => {
         {/* Banner Background with Fade */}
         <div className="absolute inset-0">
           <div 
-            className="absolute inset-0 brightness-[0.7]"
+            className="absolute inset-0 brightness-[0.7] bg-hosting-banner"
             style={{ 
               backgroundImage: `url(${hostingBanner})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center 40%'
+              backgroundPosition: 'center 75%'
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/80 to-background" />
@@ -126,6 +126,12 @@ const Hosting = () => {
       <Footer />
 
       <style>{`
+        @media (min-width: 768px) {
+          .bg-hosting-banner {
+            background-position: center 60% !important;
+          }
+        }
+        
         @keyframes bubble-expand {
           0% {
             width: 0;
