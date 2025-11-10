@@ -37,11 +37,11 @@ const Hosting = () => {
         {/* Banner Background with Fade */}
         <div className="absolute inset-0">
           <div 
-            className="absolute inset-0 bg-cover bg-center brightness-[0.7]"
+            className="absolute inset-0 brightness-[0.7]"
             style={{ 
               backgroundImage: `url(${hostingBanner})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center'
+              backgroundPosition: 'center 40%'
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/80 to-background" />
