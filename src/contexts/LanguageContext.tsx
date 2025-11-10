@@ -150,6 +150,7 @@ const translations = {
     setupFeeLabel: 'SETUP FEE',
     hostingLabel: 'HOSTING',
     startingFrom: 'Starting from',
+    from: 'from',
     
     // Price Calculator
     priceCalculator: 'PRICE CALCULATOR',
@@ -332,6 +333,7 @@ const translations = {
     setupFeeLabel: 'UZSTĀDĪŠANAS MAKSA',
     hostingLabel: 'HOSTINGS',
     startingFrom: 'Sākot no',
+    from: 'no',
     
     // Price Calculator
     priceCalculator: 'CENAS KALKULATORS',
@@ -505,6 +507,7 @@ const translations = {
     setupFeeLabel: 'ПЛАТА ЗА УСТАНОВКУ',
     hostingLabel: 'ХОСТИНГ',
     startingFrom: 'Начиная от',
+    from: 'от',
     
     // Price Calculator
     priceCalculator: 'КАЛЬКУЛЯТОР ЦЕН',
@@ -687,6 +690,7 @@ const translations = {
     setupFeeLabel: 'FRAIS D\'INSTALLATION',
     hostingLabel: 'HÉBERGEMENT',
     startingFrom: 'À partir de',
+    from: 'de',
     
     // Price Calculator
     priceCalculator: 'CALCULATEUR DE PRIX',
@@ -869,6 +873,7 @@ const translations = {
     setupFeeLabel: 'ΤΕΛΟΣ ΕΓΚΑΤΑΣΤΑΣΗΣ',
     hostingLabel: 'ΦΙΛΟΞΕΝΙΑ',
     startingFrom: 'Ξεκινώντας από',
+    from: 'από',
     
     // Price Calculator
     priceCalculator: 'ΥΠΟΛΟΓΙΣΤΗΣ ΤΙΜΩΝ',
@@ -1051,6 +1056,7 @@ const translations = {
     setupFeeLabel: 'EINRICHTUNGSGEBÜHR',
     hostingLabel: 'HOSTING',
     startingFrom: 'Ab',
+    from: 'ab',
     
     // Price Calculator
     priceCalculator: 'PREISRECHNER',
@@ -1233,6 +1239,7 @@ const translations = {
     setupFeeLabel: 'ĮDIEGIMO MOKESTIS',
     hostingLabel: 'PRIEGLOBOS',
     startingFrom: 'Nuo',
+    from: 'nuo',
     
     // Price Calculator
     priceCalculator: 'KAINŲ SKAIČIUOKLĖ',
@@ -1415,6 +1422,7 @@ const translations = {
     setupFeeLabel: 'PAIGALDUSMAKSE',
     hostingLabel: 'HOSTING',
     startingFrom: 'Alates',
+    from: 'alates',
     
     // Price Calculator
     priceCalculator: 'HINNAKALKULAATOR',
@@ -1597,6 +1605,7 @@ const translations = {
     setupFeeLabel: 'INSTALLATIONSAVGIFT',
     hostingLabel: 'HOSTING',
     startingFrom: 'Från',
+    from: 'från',
     
     // Price Calculator
     priceCalculator: 'PRISKALKYLATOR',

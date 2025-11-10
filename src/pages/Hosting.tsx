@@ -37,18 +37,19 @@ const Hosting = () => {
         {/* Banner Background with Fade */}
         <div className="absolute inset-0">
           <div 
-            className="absolute inset-0 bg-cover brightness-[0.7]"
+            className="absolute inset-0 bg-cover bg-center brightness-[0.7]"
             style={{ 
               backgroundImage: `url(${hostingBanner})`,
-              backgroundPosition: 'center 75%'
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/80 to-background" />
         </div>
         
-        <div className="relative z-10 container mx-auto px-4 py-16 md:py-24">
+        <div className="relative z-10 container mx-auto px-4 py-8 md:py-24">
           {/* Title with Gradient */}
-          <h1 className="text-4xl md:text-6xl font-bold text-center mb-24 bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold text-center mb-8 md:mb-24 bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent">
             {t('hostingTitle')}
           </h1>
 
@@ -73,7 +74,7 @@ const Hosting = () => {
                   <h2 className="text-xl md:text-2xl lg:text-4xl font-bold text-foreground mb-1 md:mb-2">
                     {t('websiteHosting')}
                   </h2>
-                  <p className="text-sm md:text-base text-muted-foreground">
+                  <p className="text-sm md:text-base text-muted-foreground hidden md:block">
                     {t('websiteHostingDesc')}
                   </p>
                 </div>
@@ -83,14 +84,16 @@ const Hosting = () => {
                   <div className="text-left md:text-right">
                     <p className="text-xs md:text-sm text-muted-foreground mb-1">{t('setupFeeLabel')}</p>
                     <div>
-                      <span className="text-xs text-muted-foreground">{t('startingFrom')} </span>
+                      <span className="text-xs text-muted-foreground md:hidden">{t('from')} </span>
+                      <span className="text-xs text-muted-foreground hidden md:inline">{t('startingFrom')} </span>
                       <span className="text-xl md:text-2xl font-bold text-foreground">50€</span>
                     </div>
                   </div>
                   <div className="text-left md:text-right">
                     <p className="text-xs md:text-sm text-muted-foreground mb-1">{t('hostingLabel')}</p>
                     <div>
-                      <span className="text-xs text-muted-foreground">{t('startingFrom')} </span>
+                      <span className="text-xs text-muted-foreground md:hidden">{t('from')} </span>
+                      <span className="text-xs text-muted-foreground hidden md:inline">{t('startingFrom')} </span>
                       <span className="text-lg md:text-xl font-bold text-foreground">16€/mo</span>
                     </div>
                   </div>
