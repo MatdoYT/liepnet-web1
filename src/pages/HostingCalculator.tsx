@@ -99,19 +99,19 @@ const HostingCalculator = () => {
           </div>
 
           {/* Calculator Card with Back Button */}
-          <div className="max-w-2xl mx-auto flex items-start gap-4">
+          <div className="max-w-2xl mx-auto flex flex-col md:flex-row items-start gap-4">
             {/* Back Button */}
             <Button
               variant="outline"
               size="icon"
               onClick={() => setShowBackDialog(true)}
-              className="shrink-0"
+              className="shrink-0 self-start"
             >
               <ArrowLeft className="h-4 w-4" />
             </Button>
             
             {/* Calculator Card */}
-            <div className="flex-1">
+            <div className="flex-1 w-full">
             <div className="relative overflow-hidden rounded-lg">
               {/* Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/30 to-background" />
@@ -122,22 +122,23 @@ const HostingCalculator = () => {
               </div>
 
               {/* Content */}
-              <div className="relative z-10 p-8 space-y-8">
+              <div className="relative z-10 p-4 md:p-8 space-y-6 md:space-y-8">
                 {/* Changes per Month */}
-                <div className="space-y-4">
-                  <Label className="text-lg font-semibold text-foreground">
+                <div className="space-y-3 md:space-y-4">
+                  <Label className="text-base md:text-lg font-semibold text-foreground">
                     {t('changesPerMonth')}
                   </Label>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3 md:gap-4">
                     <Button
                       variant="outline"
                       size="icon"
                       onClick={() => setChanges(Math.max(0, changes - 1))}
                       disabled={changes <= 0}
+                      className="h-10 w-10 md:h-11 md:w-11"
                     >
                       <Minus className="h-4 w-4" />
                     </Button>
-                    <span className="text-2xl font-bold text-foreground min-w-[3ch] text-center">
+                    <span className="text-xl md:text-2xl font-bold text-foreground min-w-[3ch] text-center">
                       {changes}
                     </span>
                     <Button
@@ -145,6 +146,7 @@ const HostingCalculator = () => {
                       size="icon"
                       onClick={() => setChanges(Math.min(10, changes + 1))}
                       disabled={changes >= 10}
+                      className="h-10 w-10 md:h-11 md:w-11"
                     >
                       <Plus className="h-4 w-4" />
                     </Button>
@@ -152,8 +154,8 @@ const HostingCalculator = () => {
                 </div>
 
                 {/* Priority */}
-                <div className="space-y-4">
-                  <Label className="text-lg font-semibold text-foreground">
+                <div className="space-y-3 md:space-y-4">
+                  <Label className="text-base md:text-lg font-semibold text-foreground">
                     {t('priority')}
                   </Label>
                   <TooltipProvider>
@@ -185,8 +187,8 @@ const HostingCalculator = () => {
                 </div>
 
                 {/* Location */}
-                <div className="space-y-4">
-                  <Label className="text-lg font-semibold text-foreground">
+                <div className="space-y-3 md:space-y-4">
+                  <Label className="text-base md:text-lg font-semibold text-foreground">
                     {t('location')}
                   </Label>
                   <TooltipProvider>
@@ -207,8 +209,8 @@ const HostingCalculator = () => {
                 </div>
 
                 {/* Website Setup Fee */}
-                <div className="space-y-4">
-                  <Label className="text-lg font-semibold text-foreground">
+                <div className="space-y-3 md:space-y-4">
+                  <Label className="text-base md:text-lg font-semibold text-foreground">
                     {t('websiteSetupFee')}
                   </Label>
                   <RadioGroup value={setupFee} onValueChange={(value: "simple" | "complex") => setSetupFee(value)}>
@@ -248,13 +250,13 @@ const HostingCalculator = () => {
                 </div>
 
                 {/* Price Summary */}
-                <div className="pt-6 border-t border-foreground space-y-3">
+                <div className="pt-4 md:pt-6 border-t border-foreground space-y-2 md:space-y-3">
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger asChild>
-                        <div className="flex justify-between items-center cursor-help">
-                          <span className="text-foreground font-bold text-lg">{t('monthlyHosting')}</span>
-                          <span className="text-foreground font-bold text-lg">{monthlyPriceWithVAT.toFixed(2)} EUR{t('perMonth')}</span>
+                        <div className="flex justify-between items-center cursor-help gap-2">
+                          <span className="text-foreground font-bold text-base md:text-lg">{t('monthlyHosting')}</span>
+                          <span className="text-foreground font-bold text-base md:text-lg whitespace-nowrap">{monthlyPriceWithVAT.toFixed(2)} EUR{t('perMonth')}</span>
                         </div>
                       </TooltipTrigger>
                       <TooltipContent>
@@ -269,9 +271,9 @@ const HostingCalculator = () => {
                     <Tooltip>
                       <TooltipTrigger asChild>
                         <div className="cursor-help">
-                          <div className="flex justify-between items-center text-lg font-bold pt-3">
+                          <div className="flex justify-between items-center text-base md:text-lg font-bold pt-2 md:pt-3 gap-2">
                             <span className="text-foreground">{t('upfrontCost')}</span>
-                            <span className="text-foreground">{totalUpfrontWithVAT.toFixed(2)} EUR</span>
+                            <span className="text-foreground whitespace-nowrap">{totalUpfrontWithVAT.toFixed(2)} EUR</span>
                           </div>
                           <div className="text-xs text-muted-foreground mt-1">
                             {t('inclVat')}
@@ -285,13 +287,13 @@ const HostingCalculator = () => {
                   </TooltipProvider>
                   
                   <Separator className="bg-foreground" />
-                  <div className="flex justify-between items-center text-sm">
+                  <div className="flex justify-between items-center text-xs md:text-sm gap-2">
                     <span className="text-muted-foreground">{t('vatAmount')}</span>
-                    <span className="text-muted-foreground">{totalUpfrontVAT.toFixed(2)} EUR</span>
+                    <span className="text-muted-foreground whitespace-nowrap">{totalUpfrontVAT.toFixed(2)} EUR</span>
                   </div>
-                  <div className="flex justify-between items-center text-sm">
+                  <div className="flex justify-between items-center text-xs md:text-sm gap-2">
                     <span className="text-muted-foreground">{t('totalExclVat')}</span>
-                    <span className="text-muted-foreground">{totalUpfrontWithoutVAT.toFixed(2)} EUR</span>
+                    <span className="text-muted-foreground whitespace-nowrap">{totalUpfrontWithoutVAT.toFixed(2)} EUR</span>
                   </div>
                 </div>
 
@@ -312,10 +314,10 @@ const HostingCalculator = () => {
             </div>
             
             {/* Info Link */}
-            <div className="mt-4 text-center">
+            <div className="mt-3 md:mt-4 text-center px-4">
               <button
                 onClick={() => setShowInfoDialog(true)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors underline cursor-pointer"
+                className="text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors underline cursor-pointer"
               >
                 {t('whyNeedWebsite')}
               </button>

@@ -53,7 +53,7 @@ const Hosting = () => {
           </h1>
 
           {/* Hosting Options */}
-          <div className="w-full px-8">
+          <div className="w-full px-4 md:px-8">
             <button
               onClick={handleHostingClick}
               className="relative w-full group overflow-hidden rounded-lg transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
@@ -67,31 +67,31 @@ const Hosting = () => {
               </div>
 
               {/* Content */}
-              <div className="relative z-10 py-6 px-8 flex items-center justify-between">
+              <div className="relative z-10 py-4 px-4 md:py-6 md:px-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4 md:gap-0">
                 {/* Left Side: Title & Description */}
                 <div className="flex-1 text-left">
-                  <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-2">
+                  <h2 className="text-xl md:text-2xl lg:text-4xl font-bold text-foreground mb-1 md:mb-2">
                     {t('websiteHosting')}
                   </h2>
-                  <p className="text-muted-foreground">
+                  <p className="text-sm md:text-base text-muted-foreground">
                     {t('websiteHostingDesc')}
                   </p>
                 </div>
                 
                 {/* Right Side: Pricing */}
-                <div className="flex items-center gap-8 ml-8">
-                  <div className="text-right">
-                    <p className="text-sm text-muted-foreground mb-1">{t('setupFeeLabel')}</p>
+                <div className="flex items-center gap-4 md:gap-8 md:ml-8">
+                  <div className="text-left md:text-right">
+                    <p className="text-xs md:text-sm text-muted-foreground mb-1">{t('setupFeeLabel')}</p>
                     <div>
                       <span className="text-xs text-muted-foreground">{t('startingFrom')} </span>
-                      <span className="text-2xl font-bold text-foreground">50€</span>
+                      <span className="text-xl md:text-2xl font-bold text-foreground">50€</span>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <p className="text-sm text-muted-foreground mb-1">{t('hostingLabel')}</p>
+                  <div className="text-left md:text-right">
+                    <p className="text-xs md:text-sm text-muted-foreground mb-1">{t('hostingLabel')}</p>
                     <div>
                       <span className="text-xs text-muted-foreground">{t('startingFrom')} </span>
-                      <span className="text-xl font-bold text-foreground">16€/mo</span>
+                      <span className="text-lg md:text-xl font-bold text-foreground">16€/mo</span>
                     </div>
                   </div>
                 </div>
