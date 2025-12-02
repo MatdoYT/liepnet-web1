@@ -29,7 +29,7 @@ const HeroBanner = () => {
     <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center brightness-[0.7]"
         style={{ backgroundImage: `url(${heroBannerMain})` }}
       />
       
