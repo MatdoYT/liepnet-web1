@@ -1,9 +1,21 @@
-import { useRef, useState } from "react";
-import heroBannerMain from "@/assets/hero-banner-main.webp";
+import { useRef, useState, useEffect } from "react";
+import heroBanner1 from "@/assets/hero-banner-main.webp";
+import heroBanner2 from "@/assets/hero-banner-2.webp";
+import heroBanner3 from "@/assets/hero-banner-3.webp";
+
+const bannerImages = [heroBanner1, heroBanner2, heroBanner3];
 
 const HeroBanner = () => {
   const logoRef = useRef<HTMLDivElement>(null);
   const [transform, setTransform] = useState("perspective(1000px) rotateX(0deg) rotateY(0deg)");
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % bannerImages.length);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!logoRef.current) return;
@@ -27,11 +39,17 @@ const HeroBanner = () => {
 
   return (
     <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center brightness-[0.7]"
-        style={{ backgroundImage: `url(${heroBannerMain})` }}
-      />
+      {/* Background Images with fade transition */}
+      {bannerImages.map((image, index) => (
+        <div 
+          key={index}
+          className="absolute inset-0 bg-cover bg-center brightness-[0.7] transition-opacity duration-1000"
+          style={{ 
+            backgroundImage: `url(${image})`,
+            opacity: currentIndex === index ? 1 : 0
+          }}
+        />
+      ))}
       
       {/* Gradient overlay - bottom 1/3 fading to background */}
       <div 
