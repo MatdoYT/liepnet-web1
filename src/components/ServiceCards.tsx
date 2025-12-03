@@ -36,12 +36,18 @@ const ServiceCards = () => {
   return (
     <section className="px-6 py-12">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* Divider with SERVICES label */}
+        <div className="flex items-center gap-4 mb-8">
+          <span className="text-xs tracking-widest text-muted-foreground uppercase">Services</span>
+          <div className="flex-1 h-px bg-muted-foreground/30" />
+        </div>
+        
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           {services.map((service, index) => (
             <Link
               key={index}
               to={service.link}
-              className="relative h-48 md:h-56 rounded-2xl overflow-hidden group cursor-pointer block"
+              className="relative aspect-[3/4] rounded-2xl overflow-hidden group cursor-pointer block"
             >
               {/* Background Image */}
               <div
@@ -54,7 +60,7 @@ const ServiceCards = () => {
               
               {/* Text - top left */}
               <div className="absolute top-4 left-4 z-10">
-                <h3 className="text-lg md:text-xl font-semibold text-foreground">
+                <h3 className="text-sm md:text-base lg:text-lg font-semibold text-foreground uppercase tracking-wide">
                   {service.title}
                 </h3>
               </div>
