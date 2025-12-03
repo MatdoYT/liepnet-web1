@@ -39,7 +39,7 @@ const ServiceCards = () => {
         {/* Divider with SERVICES label */}
         <div className="flex items-center gap-4 mb-8">
           <span className="text-xs tracking-widest text-muted-foreground uppercase">Services</span>
-          <div className="flex-1 h-px bg-muted-foreground/30" />
+          <div className="flex-1 h-px bg-muted-foreground" />
         </div>
         
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -55,8 +55,8 @@ const ServiceCards = () => {
                 style={{ backgroundImage: `url(${service.backgroundImage})` }}
               />
               
-              {/* Bottom Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              {/* Bottom Gradient - only 1/4 of card */}
+              <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-black/70 to-transparent" />
               
               {/* Text - top left */}
               <div className="absolute top-4 left-4 z-10">
@@ -66,6 +66,12 @@ const ServiceCards = () => {
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Divider with WHAT IS LIEPNET label */}
+        <div className="flex items-center gap-4 mt-12">
+          <span className="text-xs tracking-widest text-muted-foreground uppercase">What is LIEPNET</span>
+          <div className="flex-1 h-px bg-muted-foreground" />
         </div>
       </div>
     </section>
