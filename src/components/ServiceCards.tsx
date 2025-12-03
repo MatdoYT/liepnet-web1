@@ -60,7 +60,7 @@ const ServiceCards = () => {
               
               {/* Text - top left */}
               <div className="absolute top-4 left-4 z-10">
-                <h3 className="text-sm md:text-base lg:text-lg font-semibold text-foreground uppercase tracking-wide">
+                <h3 className="text-sm md:text-base lg:text-lg font-semibold uppercase tracking-wide opacity-50 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
                   {service.title}
                 </h3>
               </div>
