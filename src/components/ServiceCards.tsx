@@ -38,8 +38,8 @@ const ServiceCards = () => {
       <div className="max-w-7xl mx-auto">
         {/* Divider with SERVICES label */}
         <div className="flex items-center gap-4 mb-8">
-          <span className="text-xs tracking-widest text-muted-foreground uppercase">Services</span>
-          <div className="flex-1 h-px bg-muted-foreground" />
+          <span className="text-xs tracking-widest text-muted-foreground/60 uppercase">Services</span>
+          <div className="flex-1 h-px bg-muted-foreground/60" />
         </div>
         
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
@@ -70,8 +70,8 @@ const ServiceCards = () => {
 
         {/* Divider with WHAT IS LIEPNET label */}
         <div className="flex items-center gap-4 mt-12">
-          <span className="text-xs tracking-widest text-muted-foreground uppercase">What is LIEPNET</span>
-          <div className="flex-1 h-px bg-muted-foreground" />
+          <span className="text-xs tracking-widest text-muted-foreground/60 uppercase">What is LIEPNET</span>
+          <div className="flex-1 h-px bg-muted-foreground/60" />
         </div>
       </div>
     </section>
