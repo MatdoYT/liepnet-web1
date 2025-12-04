@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import meteoVideo from "@/assets/videos/meteo-card.webm";
 import hostingVideo from "@/assets/videos/hosting-card.webm";
 import networkVideo from "@/assets/videos/network-card.webm";
@@ -16,6 +16,7 @@ interface ServiceCard {
 const ServiceCards = () => {
   const { t } = useLanguage();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const services: ServiceCard[] = [
     {
@@ -44,6 +45,20 @@ const ServiceCards = () => {
     }
   ];
 
+  // Handle video play/pause on hover
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (video) {
+        if (hoveredIndex === index) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+          video.currentTime = 0;
+        }
+      }
+    });
+  }, [hoveredIndex]);
+
   return (
     <section className="px-6 py-12">
       <div className="max-w-7xl mx-auto">
@@ -62,23 +77,27 @@ const ServiceCards = () => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              {/* Background Image */}
-              <div
-                className="absolute inset-0 bg-cover bg-center brightness-50 transition-all duration-300 group-hover:brightness-[0.6] group-hover:scale-105"
-                style={{ backgroundImage: `url(${service.backgroundImage})` }}
+              {/* Background Image with lazy loading */}
+              <img
+                src={service.backgroundImage}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover brightness-50 transition-all duration-300 group-hover:brightness-[0.6] group-hover:scale-105"
               />
               
-              {/* Hover Video */}
+              {/* Hover Video - only load when needed */}
               {service.hoverVideo && (
                 <video
+                  ref={el => videoRefs.current[index] = el}
                   src={service.hoverVideo}
                   className={`absolute inset-0 w-full h-full object-cover brightness-50 transition-opacity duration-300 group-hover:brightness-[0.6] ${
                     hoveredIndex === index ? 'opacity-100' : 'opacity-0'
                   }`}
-                  autoPlay
                   muted
                   loop
                   playsInline
+                  preload="none"
                 />
               )}
               

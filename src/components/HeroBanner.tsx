@@ -9,12 +9,29 @@ const HeroBanner = () => {
   const logoRef = useRef<HTMLDivElement>(null);
   const [transform, setTransform] = useState("perspective(1000px) rotateX(0deg) rotateY(0deg)");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean[]>([true, false, false]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % bannerImages.length);
     }, 10000);
     return () => clearInterval(interval);
+  }, []);
+
+  // Preload next images after initial render
+  useEffect(() => {
+    bannerImages.forEach((src, index) => {
+      if (index === 0) return; // First image loaded eagerly
+      const img = new Image();
+      img.src = src;
+      img.onload = () => {
+        setImagesLoaded(prev => {
+          const next = [...prev];
+          next[index] = true;
+          return next;
+        });
+      };
+    });
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -45,7 +62,7 @@ const HeroBanner = () => {
           key={index}
           className="absolute inset-0 bg-cover bg-center brightness-[0.7] transition-opacity duration-1000"
           style={{ 
-            backgroundImage: `url(${image})`,
+            backgroundImage: imagesLoaded[index] ? `url(${image})` : undefined,
             opacity: currentIndex === index ? 1 : 0
           }}
         />
@@ -74,7 +91,9 @@ const HeroBanner = () => {
           <img 
             src="/lovable-uploads/e98631d3-970c-4648-98fd-9425dd2e5140.png" 
             alt="LIEPNET Logo" 
-            className="w-64 md:w-80 lg:w-96 h-auto object-contain drop-shadow-2xl" 
+            className="w-64 md:w-80 lg:w-96 h-auto object-contain drop-shadow-2xl"
+            fetchPriority="high"
+            decoding="async"
           />
         </div>
       </div>
