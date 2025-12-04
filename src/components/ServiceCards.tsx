@@ -4,6 +4,7 @@ import { useState } from "react";
 import meteoVideo from "@/assets/videos/meteo-card.webm";
 import hostingVideo from "@/assets/videos/hosting-card.webm";
 import networkVideo from "@/assets/videos/network-card.webm";
+import logoVideo from "@/assets/videos/logo-card.webm";
 
 interface ServiceCard {
   title: string;
@@ -32,7 +33,8 @@ const ServiceCards = () => {
     {
       title: t('logoDesign'),
       link: "/logos",
-      backgroundImage: "/lovable-uploads/53ab33fd-314e-49bc-80a1-ec4006d71675.png"
+      backgroundImage: "/lovable-uploads/53ab33fd-314e-49bc-80a1-ec4006d71675.png",
+      hoverVideo: logoVideo
     },
     {
       title: t('meteorologicalNetwork'),
