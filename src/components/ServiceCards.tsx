@@ -3,6 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
 import meteoVideo from "@/assets/videos/meteo-card.webm";
 import hostingVideo from "@/assets/videos/hosting-card.webm";
+import networkVideo from "@/assets/videos/network-card.webm";
 
 interface ServiceCard {
   title: string;
@@ -25,7 +26,8 @@ const ServiceCards = () => {
     {
       title: t('wifiNetworking'),
       link: "/network-planning",
-      backgroundImage: "/lovable-uploads/d332fcb6-19fe-479b-a90f-3e538575b0a9.png"
+      backgroundImage: "/lovable-uploads/d332fcb6-19fe-479b-a90f-3e538575b0a9.png",
+      hoverVideo: networkVideo
     },
     {
       title: t('logoDesign'),
