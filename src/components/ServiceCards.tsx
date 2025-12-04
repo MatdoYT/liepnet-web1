@@ -1,14 +1,18 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useState } from "react";
+import meteoVideo from "@/assets/videos/meteo-card.webm";
 
 interface ServiceCard {
   title: string;
   link: string;
   backgroundImage: string;
+  hoverVideo?: string;
 }
 
 const ServiceCards = () => {
   const { t } = useLanguage();
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const services: ServiceCard[] = [
     {
@@ -29,7 +33,8 @@ const ServiceCards = () => {
     {
       title: t('meteorologicalNetwork'),
       link: "/meteo",
-      backgroundImage: "/lovable-uploads/4ebce7aa-c438-4114-8c2a-b420e2c6453b.png"
+      backgroundImage: "/lovable-uploads/4ebce7aa-c438-4114-8c2a-b420e2c6453b.png",
+      hoverVideo: meteoVideo
     }
   ];
 
@@ -48,12 +53,28 @@ const ServiceCards = () => {
               key={index}
               to={service.link}
               className="relative aspect-[3/4] rounded-2xl overflow-hidden group cursor-pointer block"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
               {/* Background Image */}
               <div
                 className="absolute inset-0 bg-cover bg-center brightness-50 transition-all duration-300 group-hover:brightness-[0.6] group-hover:scale-105"
                 style={{ backgroundImage: `url(${service.backgroundImage})` }}
               />
+              
+              {/* Hover Video */}
+              {service.hoverVideo && (
+                <video
+                  src={service.hoverVideo}
+                  className={`absolute inset-0 w-full h-full object-cover brightness-50 transition-opacity duration-300 group-hover:brightness-[0.6] ${
+                    hoveredIndex === index ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+              )}
               
               {/* Bottom Gradient - only 1/4 of card */}
               <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-black/70 to-transparent" />
