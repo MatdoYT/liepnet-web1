@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
 import meteoVideo from "@/assets/videos/meteo-card.webm";
+import hostingVideo from "@/assets/videos/hosting-card.webm";
 
 interface ServiceCard {
   title: string;
@@ -18,7 +19,8 @@ const ServiceCards = () => {
     {
       title: t('hosting'),
       link: "/hosting",
-      backgroundImage: "/lovable-uploads/ab598fe3-b0e7-47e8-8010-d1382caf53d6.png"
+      backgroundImage: "/lovable-uploads/ab598fe3-b0e7-47e8-8010-d1382caf53d6.png",
+      hoverVideo: hostingVideo
     },
     {
       title: t('wifiNetworking'),
