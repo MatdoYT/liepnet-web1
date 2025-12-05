@@ -17,8 +17,8 @@ All colors MUST be HSL.
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 263 70% 50%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
 
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
@@ -34,12 +34,11 @@ All colors MUST be HSL.
 
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 263 70% 50%;
+    --ring: 0 0% 98%;
 
-    /* Custom design tokens for the website */
-    --hero-gradient: linear-gradient(135deg, 263 70% 50%, 220 70% 50%);
+    --hero-gradient: linear-gradient(135deg, 0 0% 98%, 0 0% 80%);
     --card-gradient: linear-gradient(135deg, 240 5% 8%, 240 3% 12%);
-    --banner-gradient: linear-gradient(180deg, 263 70% 50%, transparent);
+    --banner-gradient: linear-gradient(180deg, 0 0% 98%, transparent);
     --stroke: 240 6% 25%;
     --light-blue: 200 80% 60%;
     --light-blue-gradient: linear-gradient(135deg, 200 80% 15%, 200 70% 20%);
