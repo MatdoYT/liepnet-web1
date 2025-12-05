@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { RadioPlayerProvider } from "@/contexts/RadioPlayerContext";
+import liepnetLeaf from "@/assets/liepnet-leaf.webp";
 
 // Eagerly load the index page for fast initial render
 import Index from "./pages/Index";
@@ -21,10 +22,15 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
-// Minimal loading fallback
+// LIEPNET branded loading spinner
 const PageLoader = () => (
   <div className="min-h-screen bg-background flex items-center justify-center">
-    <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+    <img 
+      src={liepnetLeaf} 
+      alt="" 
+      className="w-12 h-12 animate-spin opacity-70"
+      style={{ animationDuration: '1.5s' }}
+    />
   </div>
 );
 
