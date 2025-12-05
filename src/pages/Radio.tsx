@@ -56,7 +56,7 @@ const Radio = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="container mx-auto px-6 py-24">
+      <main className="container mx-auto px-6 py-24 pt-28">
         <div className="mb-8">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Radio Stations</h1>
           <p className="text-muted-foreground text-lg">Listen to your favorite radio stations</p>

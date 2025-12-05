@@ -383,7 +383,7 @@ const About = () => {
   ];
 
   return (
-    <div className="bg-background text-foreground overflow-x-hidden">
+    <div className="bg-background text-foreground overflow-x-hidden pt-20">
       <Header />
       
       {/* Hero with parallax */}
