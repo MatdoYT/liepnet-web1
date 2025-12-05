@@ -5,6 +5,10 @@ import meteoVideo from "@/assets/videos/meteo-card.webm";
 import hostingVideo from "@/assets/videos/hosting-card.webm";
 import networkVideo from "@/assets/videos/network-card.webm";
 import logoVideo from "@/assets/videos/logo-card.webm";
+import hostingImage from "@/assets/services/hosting-card.webp";
+import networkImage from "@/assets/services/network-card.webp";
+import logoImage from "@/assets/services/logo-card.webp";
+import meteoImage from "@/assets/services/meteo-card.webp";
 
 interface ServiceCard {
   title: string;
@@ -22,25 +26,25 @@ const ServiceCards = () => {
     {
       title: t('hosting'),
       link: "/hosting",
-      backgroundImage: "/lovable-uploads/ab598fe3-b0e7-47e8-8010-d1382caf53d6.png",
+      backgroundImage: hostingImage,
       hoverVideo: hostingVideo
     },
     {
       title: t('wifiNetworking'),
       link: "/network-planning",
-      backgroundImage: "/lovable-uploads/d332fcb6-19fe-479b-a90f-3e538575b0a9.png",
+      backgroundImage: networkImage,
       hoverVideo: networkVideo
     },
     {
       title: t('logoDesign'),
       link: "/logos",
-      backgroundImage: "/lovable-uploads/53ab33fd-314e-49bc-80a1-ec4006d71675.png",
+      backgroundImage: logoImage,
       hoverVideo: logoVideo
     },
     {
       title: t('meteorologicalNetwork'),
       link: "/meteo",
-      backgroundImage: "/lovable-uploads/4ebce7aa-c438-4114-8c2a-b420e2c6453b.png",
+      backgroundImage: meteoImage,
       hoverVideo: meteoVideo
     }
   ];
