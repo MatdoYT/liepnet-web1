@@ -8,9 +8,21 @@ import {
 import { ChevronDown, Globe } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const Header = () => {
   const { currentLanguage, setLanguage, t } = useLanguage();
+  const [isAtTop, setIsAtTop] = useState(true);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsAtTop(window.scrollY < 50);
+    };
+    
+    handleScroll(); // Check initial position
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   
   const navLinks = [
     { key: 'about', label: t('about'), href: '/about' },
@@ -19,31 +31,34 @@ const Header = () => {
   ];
 
   const languages = [
-    { code: 'en' as const, flag: '🇺🇸', name: 'English' },
-    { code: 'lv' as const, flag: '🇱🇻', name: 'Latviešu' },
-    { code: 'ru' as const, flag: '🇷🇺', name: 'Русский' },
-    { code: 'fr' as const, flag: '🇫🇷', name: 'Français' },
-    { code: 'el' as const, flag: '🇬🇷', name: 'Ελληνικά' },
-    { code: 'de' as const, flag: '🇩🇪', name: 'Deutsch' },
-    { code: 'lt' as const, flag: '🇱🇹', name: 'Lietuvių' },
-    { code: 'et' as const, flag: '🇪🇪', name: 'Eesti' },
-    { code: 'sv' as const, flag: '🇸🇪', name: 'Svenska' },
+    { code: 'en' as const, flag: '🇺🇸', name: 'English', short: 'EN' },
+    { code: 'lv' as const, flag: '🇱🇻', name: 'Latviešu', short: 'LV' },
+    { code: 'ru' as const, flag: '🇷🇺', name: 'Русский', short: 'RU' },
+    { code: 'fr' as const, flag: '🇫🇷', name: 'Français', short: 'FR' },
+    { code: 'el' as const, flag: '🇬🇷', name: 'Ελληνικά', short: 'EL' },
+    { code: 'de' as const, flag: '🇩🇪', name: 'Deutsch', short: 'DE' },
+    { code: 'lt' as const, flag: '🇱🇹', name: 'Lietuvių', short: 'LT' },
+    { code: 'et' as const, flag: '🇪🇪', name: 'Eesti', short: 'ET' },
+    { code: 'sv' as const, flag: '🇸🇪', name: 'Svenska', short: 'SV' },
   ];
 
-  const getCurrentLanguageDisplay = () => {
-    const current = languages.find(lang => lang.code === currentLanguage);
-    return current ? current.code.toUpperCase() : 'EN';
+  const getCurrentLanguage = () => {
+    return languages.find(lang => lang.code === currentLanguage);
   };
 
+  const currentLang = getCurrentLanguage();
+
   return (
-    <header className="w-full px-6 py-4 flex items-center justify-between relative z-10">
+    <header className={`w-full px-6 flex items-center justify-between relative z-10 transition-all duration-300 ${
+      isAtTop ? 'py-6' : 'py-4'
+    }`}>
       {/* Logo Area - Clickable Home Button */}
       <div className="flex items-center">
-        <Link to="/" className="hover:opacity-80 transition-opacity duration-200">
+        <Link to="/" className="hover:opacity-80 transition-all duration-300">
           <img 
             src="/lovable-uploads/4ebce7aa-c438-4114-8c2a-b420e2c6453b.png" 
             alt="LIEPNET Logo - Home" 
-            className="h-10 w-auto"
+            className={`w-auto transition-all duration-300 ${isAtTop ? 'h-14' : 'h-10'}`}
           />
         </Link>
       </div>
@@ -55,7 +70,11 @@ const Header = () => {
             <Link
               key={link.key}
               to={link.href}
-              className="text-foreground/60 hover:text-foreground transition-colors duration-200 relative group"
+              className={`transition-all duration-300 relative group ${
+                isAtTop 
+                  ? 'text-foreground text-base font-medium' 
+                  : 'text-foreground/60 text-sm hover:text-foreground'
+              }`}
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full"></span>
@@ -64,7 +83,11 @@ const Header = () => {
             <a
               key={link.key}
               href={link.href}
-              className="text-foreground/60 hover:text-foreground transition-colors duration-200 relative group"
+              className={`transition-all duration-300 relative group ${
+                isAtTop 
+                  ? 'text-foreground text-base font-medium' 
+                  : 'text-foreground/60 text-sm hover:text-foreground'
+              }`}
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full"></span>
@@ -78,10 +101,18 @@ const Header = () => {
         {/* Language Dropdown */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" size="sm" className="hidden md:flex items-center space-x-2">
-              <Globe className="w-4 h-4" />
-              <span>{getCurrentLanguageDisplay()}</span>
-              <ChevronDown className="w-3 h-3" />
+            <Button 
+              variant="ghost" 
+              size={isAtTop ? "default" : "sm"} 
+              className={`hidden md:flex items-center space-x-2 transition-all duration-300 ${
+                isAtTop ? 'text-base' : 'text-sm'
+              }`}
+            >
+              <Globe className={`transition-all duration-300 ${isAtTop ? 'w-5 h-5' : 'w-4 h-4'}`} />
+              <span className="uppercase">
+                {isAtTop ? currentLang?.name : currentLang?.short}
+              </span>
+              <ChevronDown className={`transition-all duration-300 ${isAtTop ? 'w-4 h-4' : 'w-3 h-3'}`} />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-36 p-1">
