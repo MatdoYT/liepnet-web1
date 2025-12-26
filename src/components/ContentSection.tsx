@@ -34,9 +34,15 @@ const ContentSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           {/* Text Column */}
           <div className="space-y-6 animate-fade-in">
-            <h2 className="text-4xl font-bold text-foreground">{t('whatIsLiepnet')}</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">{t('liepnetDescription')}</p>
-            
+            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-to-br from-white to-gray-400 bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(25deg, hsl(0, 0%, 100%), hsl(0, 0%, 75%))' }}>
+              WHAT IS LIEPNET™?
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              <strong className="text-foreground">LIEPNET™</strong> is a Latvia-based project that provides online services such as <strong className="text-foreground">website hosting</strong> and intends to establish a network with very low latency between <strong className="text-foreground">Europe</strong> and <strong className="text-foreground">North America</strong>.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              <strong className="text-foreground">Matīss Apsītis</strong> founded LIEPNET™. The word <strong className="text-foreground">LIEPNET™</strong> is derived from <strong className="text-foreground">"liepa"</strong> (Latvian for linden/tilia), which means <strong className="text-foreground">"linden network"</strong> in English.
+            </p>
           </div>
 
           {/* Image Column */}
