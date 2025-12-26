@@ -28,8 +28,6 @@ const ContentSection = () => {
     setTransform("perspective(1000px) rotateX(0deg) rotateY(0deg)");
   };
   return <section className="px-6 py-16 relative">
-      {/* Gradient from banner to content */}
-      <div className="banner-glow"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Main content columns */}
