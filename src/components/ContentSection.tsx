@@ -70,89 +70,128 @@ const ContentSection = () => {
         </div>
 
 
-        {/* Goals Section - 3D Perspective Blocks */}
+        {/* Goals Section - 2.5D long blocks converging toward title */}
         <div className="mt-24 relative">
-          {/* 3D Perspective Container */}
-          <div 
-            className="relative w-full overflow-hidden"
-            style={{ 
-              perspective: '1200px',
-              perspectiveOrigin: '50% 0%',
-              height: '700px'
-            }}
-          >
-            {/* The 3D blocks */}
-            <div className="absolute inset-0 flex justify-center items-end" style={{ transformStyle: 'preserve-3d' }}>
-              {[
-                { 
-                  title: t('awardWinner'),
-                  desc: t('awardDesc'),
-                  rotateY: 25,
-                  translateX: -180
-                },
-                { 
-                  title: t('globalReach'),
-                  desc: t('globalDesc'),
-                  rotateY: 0,
-                  translateX: 0
-                },
-                { 
-                  title: t('industryLeader'),
-                  desc: t('industryDesc'),
-                  rotateY: -25,
-                  translateX: 180
-                }
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="absolute bottom-0"
-                  style={{
-                    transform: `translateX(${item.translateX}px) rotateY(${item.rotateY}deg)`,
-                    transformStyle: 'preserve-3d',
-                    width: '220px'
-                  }}
-                >
-                  {/* The tall 3D block */}
-                  <div 
-                    className="relative bg-gray-800/80 border border-gray-600/40"
-                    style={{
-                      width: '220px',
-                      height: '550px',
-                      clipPath: 'polygon(10% 0%, 90% 0%, 100% 3%, 100% 100%, 0% 100%, 0% 3%)',
-                      background: 'linear-gradient(to bottom, hsl(0, 0%, 35%) 0%, hsl(0, 0%, 15%) 100%)'
-                    }}
-                  >
-                    {/* Content inside the block - positioned at bottom */}
-                    <div className="absolute bottom-0 left-0 right-0 p-5">
-                      <h3 className="text-lg font-semibold text-white mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-gray-300">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Gradient overlay that fades blocks at the top */}
-            <div 
-              className="absolute top-0 left-0 right-0 z-10 pointer-events-none"
-              style={{
-                height: '250px',
-                background: 'linear-gradient(to bottom, hsl(0, 0%, 0%) 0%, hsl(0, 0%, 0%) 40%, transparent 100%)'
-              }}
-            />
-            
-            {/* Title positioned on top of the gradient */}
-            <div className="absolute top-8 left-0 right-0 z-20 text-center">
-              <h2 
-                className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent" 
+          <div className="relative w-full overflow-hidden" style={{ height: 720 }}>
+            {/* Long "depth" blocks (illusion) */}
+            <svg
+              className="absolute inset-0 z-0 pointer-events-none"
+              viewBox="0 0 1000 720"
+              preserveAspectRatio="none"
+              aria-hidden="true"
+            >
+              <defs>
+                <linearGradient id="beamA" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="hsl(var(--foreground) / 0.02)" />
+                  <stop offset="55%" stopColor="hsl(var(--foreground) / 0.08)" />
+                  <stop offset="100%" stopColor="hsl(var(--foreground) / 0.18)" />
+                </linearGradient>
+                <linearGradient id="beamB" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="hsl(var(--foreground) / 0.02)" />
+                  <stop offset="55%" stopColor="hsl(var(--foreground) / 0.08)" />
+                  <stop offset="100%" stopColor="hsl(var(--foreground) / 0.18)" />
+                </linearGradient>
+                <linearGradient id="beamC" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="hsl(var(--foreground) / 0.02)" />
+                  <stop offset="55%" stopColor="hsl(var(--foreground) / 0.08)" />
+                  <stop offset="100%" stopColor="hsl(var(--foreground) / 0.18)" />
+                </linearGradient>
+              </defs>
+
+              {/* Left beam (doesn't touch center) */}
+              <polygon
+                points="160,720 360,720 490,0 465,0"
+                fill="url(#beamA)"
+                stroke="hsl(var(--foreground) / 0.22)"
+                strokeWidth="1"
+              />
+              {/* Center beam */}
+              <polygon
+                points="400,720 600,720 515,0 485,0"
+                fill="url(#beamB)"
+                stroke="hsl(var(--foreground) / 0.22)"
+                strokeWidth="1"
+              />
+              {/* Right beam (doesn't touch center) */}
+              <polygon
+                points="640,720 840,720 535,0 510,0"
+                fill="url(#beamC)"
+                stroke="hsl(var(--foreground) / 0.22)"
+                strokeWidth="1"
+              />
+            </svg>
+
+            {/* Title layer (sits on the fade) */}
+            <div className="absolute top-8 left-0 right-0 z-30 text-center">
+              <h2
+                className="text-6xl md:text-7xl font-bold bg-clip-text text-transparent"
                 style={{ backgroundImage: 'linear-gradient(25deg, hsl(0, 0%, 100%), hsl(0, 0%, 75%))' }}
               >
                 OUR GOALS
               </h2>
+            </div>
+
+            {/* Fade layer (where the beams "disappear" behind the title) */}
+            <div
+              className="absolute top-0 left-0 right-0 z-20 pointer-events-none"
+              style={{
+                height: 320,
+                backgroundImage:
+                  'linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background)) 62%, transparent 100%)'
+              }}
+            />
+
+            {/* Original cards (kept), positioned in front */}
+            <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center items-end gap-4 sm:gap-6 md:gap-10 px-4 pb-8">
+              {[
+                {
+                  title: t('awardWinner'),
+                  desc: t('awardDesc'),
+                  image: "/lovable-uploads/53ab33fd-314e-49bc-80a1-ec4006d71675.png",
+                  alt: "Meteorological station"
+                },
+                {
+                  title: t('globalReach'),
+                  desc: t('globalDesc'),
+                  image: "/lovable-uploads/ab598fe3-b0e7-47e8-8010-d1382caf53d6.png",
+                  alt: "Global network hosting infrastructure"
+                },
+                {
+                  title: t('industryLeader'),
+                  desc: t('industryDesc'),
+                  image: "/lovable-uploads/d332fcb6-19fe-479b-a90f-3e538575b0a9.png",
+                  alt: "LIEPNET™ Services - Gaming and technology"
+                }
+              ].map((item, index) => (
+                <div key={index} className="relative w-[180px] sm:w-[220px] md:w-[260px]" style={{ height: 420 }}>
+                  <div
+                    className="absolute bottom-0 left-0 right-0 rounded-2xl p-4 md:p-5"
+                    style={{
+                      backgroundImage:
+                        'linear-gradient(to bottom, hsl(var(--foreground) / 0.10), hsl(var(--foreground) / 0.06))',
+                      border: '1px solid hsl(var(--foreground) / 0.28)'
+                    }}
+                  >
+                    <div
+                      className="w-full aspect-square rounded-lg overflow-hidden relative mb-4"
+                      style={{ border: '1px solid hsl(var(--foreground) / 0.20)' }}
+                    >
+                      <img src={item.image} alt={item.alt} className="w-full h-full object-cover" loading="lazy" />
+                      <div
+                        className="absolute inset-0"
+                        style={{ backgroundImage: 'linear-gradient(to top left, hsl(var(--background) / 0.65), transparent)' }}
+                      />
+                    </div>
+
+                    <h3 className="text-base md:text-lg font-semibold text-foreground mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
