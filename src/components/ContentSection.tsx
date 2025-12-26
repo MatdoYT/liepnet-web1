@@ -70,83 +70,90 @@ const ContentSection = () => {
         </div>
 
 
-        {/* Goals Section - Radial Layout */}
-        <div className="mt-24">
-          <div className="text-center mb-16 relative">
-            <h2 
-              className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent" 
-              style={{ backgroundImage: 'linear-gradient(25deg, hsl(0, 0%, 100%), hsl(0, 0%, 75%))' }}
-            >
-              OUR GOALS
-            </h2>
-            
-            {/* Particle/Glow effect emanating from title */}
-            <div className="absolute left-1/2 top-full -translate-x-1/2 w-full h-32 overflow-visible">
-              {/* Center line */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-white/40 to-transparent"></div>
-              {/* Left line */}
-              <div className="absolute left-1/2 top-0 w-1 h-full bg-gradient-to-b from-white/40 to-transparent origin-top -translate-x-1/2" style={{ transform: 'translateX(-50%) rotate(-25deg)' }}></div>
-              {/* Right line */}
-              <div className="absolute left-1/2 top-0 w-1 h-full bg-gradient-to-b from-white/40 to-transparent origin-top -translate-x-1/2" style={{ transform: 'translateX(-50%) rotate(25deg)' }}></div>
-              
-              {/* Glow effect */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-0 w-64 h-24 bg-white/10 blur-3xl rounded-full"></div>
-            </div>
-          </div>
-          
-          {/* Cards in radial layout */}
-          <div className="relative flex justify-center items-end gap-4 md:gap-8 mt-32 px-4">
-            {[{
-              title: t('awardWinner'),
-              desc: t('awardDesc'),
-              image: "/lovable-uploads/53ab33fd-314e-49bc-80a1-ec4006d71675.png",
-              alt: "Meteorological station",
-              offset: 'translate-y-8'
-            }, {
-              title: t('globalReach'),
-              desc: t('globalDesc'),
-              image: "/lovable-uploads/ab598fe3-b0e7-47e8-8010-d1382caf53d6.png",
-              alt: "Global network hosting infrastructure",
-              offset: '-translate-y-4'
-            }, {
-              title: t('industryLeader'),
-              desc: t('industryDesc'),
-              image: "/lovable-uploads/d332fcb6-19fe-479b-a90f-3e538575b0a9.png",
-              alt: "LIEPNET™ Services - Gaming and technology",
-              offset: 'translate-y-8'
-            }].map((item, index) => (
-              <div 
-                key={index} 
-                className={`bg-gray-900/60 border border-gray-700/40 rounded-t-3xl rounded-b-lg p-5 animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300 w-full max-w-xs ${item.offset}`}
-                style={{
-                  animationDelay: `${(index + 4) * 0.1}s`,
-                  clipPath: 'polygon(8% 0%, 92% 0%, 100% 8%, 100% 100%, 0% 100%, 0% 8%)'
-                }}
-              >
-                {/* Card gradient overlay */}
-                <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-gray-600/20 to-transparent group-hover:opacity-50 transition-opacity duration-300"></div>
-                
-                <div className="relative z-10">
-                  {/* Image */}
-                  <div className="w-full aspect-square bg-gray-800/30 rounded-lg mb-4 overflow-hidden relative">
-                    <img 
-                      src={item.image} 
-                      alt={item.alt} 
-                      className="w-full h-full object-cover" 
-                    />
-                    {/* Black gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-tl from-black/60 via-black/20 to-transparent"></div>
+        {/* Goals Section - 3D Perspective Blocks */}
+        <div className="mt-24 relative">
+          {/* 3D Perspective Container */}
+          <div 
+            className="relative w-full overflow-hidden"
+            style={{ 
+              perspective: '1200px',
+              perspectiveOrigin: '50% 0%',
+              height: '700px'
+            }}
+          >
+            {/* The 3D blocks */}
+            <div className="absolute inset-0 flex justify-center items-end" style={{ transformStyle: 'preserve-3d' }}>
+              {[
+                { 
+                  title: t('awardWinner'),
+                  desc: t('awardDesc'),
+                  rotateY: 25,
+                  translateX: -180
+                },
+                { 
+                  title: t('globalReach'),
+                  desc: t('globalDesc'),
+                  rotateY: 0,
+                  translateX: 0
+                },
+                { 
+                  title: t('industryLeader'),
+                  desc: t('industryDesc'),
+                  rotateY: -25,
+                  translateX: 180
+                }
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="absolute bottom-0"
+                  style={{
+                    transform: `translateX(${item.translateX}px) rotateY(${item.rotateY}deg)`,
+                    transformStyle: 'preserve-3d',
+                    width: '220px'
+                  }}
+                >
+                  {/* The tall 3D block */}
+                  <div 
+                    className="relative bg-gray-800/80 border border-gray-600/40"
+                    style={{
+                      width: '220px',
+                      height: '550px',
+                      clipPath: 'polygon(10% 0%, 90% 0%, 100% 3%, 100% 100%, 0% 100%, 0% 3%)',
+                      background: 'linear-gradient(to bottom, hsl(0, 0%, 35%) 0%, hsl(0, 0%, 15%) 100%)'
+                    }}
+                  >
+                    {/* Content inside the block - positioned at bottom */}
+                    <div className="absolute bottom-0 left-0 right-0 p-5">
+                      <h3 className="text-lg font-semibold text-white mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-gray-300">
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
-                  
-                  <h3 className="text-lg font-semibold text-foreground mb-3">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground">
-                    {item.desc}
-                  </p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            
+            {/* Gradient overlay that fades blocks at the top */}
+            <div 
+              className="absolute top-0 left-0 right-0 z-10 pointer-events-none"
+              style={{
+                height: '250px',
+                background: 'linear-gradient(to bottom, hsl(0, 0%, 0%) 0%, hsl(0, 0%, 0%) 40%, transparent 100%)'
+              }}
+            />
+            
+            {/* Title positioned on top of the gradient */}
+            <div className="absolute top-8 left-0 right-0 z-20 text-center">
+              <h2 
+                className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent" 
+                style={{ backgroundImage: 'linear-gradient(25deg, hsl(0, 0%, 100%), hsl(0, 0%, 75%))' }}
+              >
+                OUR GOALS
+              </h2>
+            </div>
           </div>
         </div>
       </div>
