@@ -70,51 +70,70 @@ const ContentSection = () => {
         </div>
 
 
-        {/* Accomplishments Section */}
+        {/* Goals Section - Radial Layout */}
         <div className="mt-24">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">{t('accomplishments')}</h2>
-            <p className="text-muted-foreground">{t('accomplishmentsDesc')}</p>
+          <div className="text-center mb-16 relative">
+            <h2 
+              className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent" 
+              style={{ backgroundImage: 'linear-gradient(25deg, hsl(0, 0%, 100%), hsl(0, 0%, 75%))' }}
+            >
+              OUR GOALS
+            </h2>
+            
+            {/* Particle/Glow effect emanating from title */}
+            <div className="absolute left-1/2 top-full -translate-x-1/2 w-full h-32 overflow-visible">
+              {/* Center line */}
+              <div className="absolute left-1/2 -translate-x-1/2 top-0 w-1 h-full bg-gradient-to-b from-white/40 to-transparent"></div>
+              {/* Left line */}
+              <div className="absolute left-1/2 top-0 w-1 h-full bg-gradient-to-b from-white/40 to-transparent origin-top -translate-x-1/2" style={{ transform: 'translateX(-50%) rotate(-25deg)' }}></div>
+              {/* Right line */}
+              <div className="absolute left-1/2 top-0 w-1 h-full bg-gradient-to-b from-white/40 to-transparent origin-top -translate-x-1/2" style={{ transform: 'translateX(-50%) rotate(25deg)' }}></div>
+              
+              {/* Glow effect */}
+              <div className="absolute left-1/2 -translate-x-1/2 top-0 w-64 h-24 bg-white/10 blur-3xl rounded-full"></div>
+            </div>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* Cards in radial layout */}
+          <div className="relative flex justify-center items-end gap-4 md:gap-8 mt-32 px-4">
             {[{
-            title: t('awardWinner'),
-            desc: t('awardDesc')
-          }, {
-            title: t('globalReach'),
-            desc: t('globalDesc')
-          }, {
-            title: t('industryLeader'),
-            desc: t('industryDesc')
-          }].map((item, index) => <div key={index} className="bg-gray-900/40 border border-gray-800/30 rounded-2xl p-6 animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300" style={{
-            animationDelay: `${(index + 4) * 0.1}s`
-          }}>
+              title: t('awardWinner'),
+              desc: t('awardDesc'),
+              image: "/lovable-uploads/53ab33fd-314e-49bc-80a1-ec4006d71675.png",
+              alt: "Meteorological station",
+              offset: 'translate-y-8'
+            }, {
+              title: t('globalReach'),
+              desc: t('globalDesc'),
+              image: "/lovable-uploads/ab598fe3-b0e7-47e8-8010-d1382caf53d6.png",
+              alt: "Global network hosting infrastructure",
+              offset: '-translate-y-4'
+            }, {
+              title: t('industryLeader'),
+              desc: t('industryDesc'),
+              image: "/lovable-uploads/d332fcb6-19fe-479b-a90f-3e538575b0a9.png",
+              alt: "LIEPNET™ Services - Gaming and technology",
+              offset: 'translate-y-8'
+            }].map((item, index) => (
+              <div 
+                key={index} 
+                className={`bg-gray-900/60 border border-gray-700/40 rounded-t-3xl rounded-b-lg p-5 animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300 w-full max-w-xs ${item.offset}`}
+                style={{
+                  animationDelay: `${(index + 4) * 0.1}s`,
+                  clipPath: 'polygon(8% 0%, 92% 0%, 100% 8%, 100% 100%, 0% 100%, 0% 8%)'
+                }}
+              >
                 {/* Card gradient overlay */}
-                <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-gray-700/20 to-transparent group-hover:opacity-50 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-gray-600/20 to-transparent group-hover:opacity-50 transition-opacity duration-300"></div>
                 
                 <div className="relative z-10">
                   {/* Image */}
                   <div className="w-full aspect-square bg-gray-800/30 rounded-lg mb-4 overflow-hidden relative">
-                    {index === 0 ? (
-                      <img 
-                        src="/lovable-uploads/53ab33fd-314e-49bc-80a1-ec4006d71675.png" 
-                        alt="Meteorological station" 
-                        className="w-full h-full object-cover" 
-                      />
-                    ) : index === 1 ? (
-                      <img 
-                        src="/lovable-uploads/ab598fe3-b0e7-47e8-8010-d1382caf53d6.png" 
-                        alt="Global network hosting infrastructure" 
-                        className="w-full h-full object-cover" 
-                      />
-                    ) : (
-                      <img 
-                        src="/lovable-uploads/d332fcb6-19fe-479b-a90f-3e538575b0a9.png" 
-                        alt="LIEPNET™ Services - Gaming and technology" 
-                        className="w-full h-full object-cover" 
-                      />
-                    )}
+                    <img 
+                      src={item.image} 
+                      alt={item.alt} 
+                      className="w-full h-full object-cover" 
+                    />
                     {/* Black gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-tl from-black/60 via-black/20 to-transparent"></div>
                   </div>
@@ -126,7 +145,8 @@ const ContentSection = () => {
                     {item.desc}
                   </p>
                 </div>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </div>
