@@ -70,105 +70,63 @@ const ContentSection = () => {
         </div>
 
 
-        {/* Goals Section - 2.5D long blocks converging toward title */}
-        <div className="mt-24 relative">
-          <div className="relative w-full overflow-hidden" style={{ height: 720 }}>
-            {/* Long "depth" blocks (illusion) */}
-            <svg
-              className="absolute inset-0 z-0 pointer-events-none"
-              viewBox="0 0 1000 720"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <defs>
-                {/* Dark green gradients - darker at bottom */}
-                <linearGradient id="beamA" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="hsl(140, 50%, 20% / 0.4)" />
-                  <stop offset="100%" stopColor="hsl(140, 60%, 12% / 0.9)" />
-                </linearGradient>
-                <linearGradient id="beamB" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="hsl(140, 50%, 22% / 0.45)" />
-                  <stop offset="100%" stopColor="hsl(140, 60%, 14% / 0.95)" />
-                </linearGradient>
-                <linearGradient id="beamC" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="hsl(140, 50%, 20% / 0.4)" />
-                  <stop offset="100%" stopColor="hsl(140, 60%, 12% / 0.9)" />
-                </linearGradient>
-              </defs>
-
-              {/* Left block */}
-              <polygon
-                points="160,720 360,720 490,0 465,0"
-                fill="url(#beamA)"
-              />
-
-              {/* Center block */}
-              <polygon
-                points="400,720 600,720 522,0 478,0"
-                fill="url(#beamB)"
-              />
-
-              {/* Right block */}
-              <polygon
-                points="640,720 840,720 550,0 505,0"
-                fill="url(#beamC)"
-              />
-            </svg>
-
-            {/* Title layer (sits on the fade) */}
-            <div className="absolute top-8 left-0 right-0 z-30 text-center">
-              <h2
-                className="text-6xl md:text-7xl font-bold bg-clip-text text-transparent"
-                style={{ backgroundImage: 'linear-gradient(25deg, hsl(0, 0%, 100%), hsl(0, 0%, 75%))' }}
-              >
-                OUR GOALS
-              </h2>
-            </div>
-
-            {/* Fade layer (where the beams "disappear" behind the title) */}
-            <div
-              className="absolute top-0 left-0 right-0 z-20 pointer-events-none"
-              style={{
-                height: 320,
-                backgroundImage:
-                  'linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background)) 62%, transparent 100%)'
-              }}
-            />
-
-            {/* Original cards (kept), positioned in front */}
-            <div className="absolute inset-x-0 bottom-0 z-10 flex justify-center items-end gap-4 sm:gap-6 md:gap-10 px-4 pb-8">
-              {[
-                {
-                  title: t('awardWinner'),
-                  desc: t('awardDesc')
-                },
-                {
-                  title: t('globalReach'),
-                  desc: t('globalDesc')
-                },
-                {
-                  title: t('industryLeader'),
-                  desc: t('industryDesc')
-                }
-              ].map((item, index) => (
-                <div key={index} className="relative w-[180px] sm:w-[220px] md:w-[260px]">
-                  <div
-                    className="rounded-2xl p-4 md:p-5 backdrop-blur-md"
-                    style={{
-                      backgroundColor: 'hsl(var(--background) / 0.6)',
-                      border: '1px solid hsl(var(--foreground) / 0.15)'
-                    }}
-                  >
-                    <h3 className="text-base md:text-lg font-semibold text-foreground mb-2">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
-                      {item.desc}
-                    </p>
+        {/* Accomplishments Section */}
+        <div className="mt-24">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground mb-4">{t('accomplishments')}</h2>
+            <p className="text-muted-foreground">{t('accomplishmentsDesc')}</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[{
+            title: t('awardWinner'),
+            desc: t('awardDesc')
+          }, {
+            title: t('globalReach'),
+            desc: t('globalDesc')
+          }, {
+            title: t('industryLeader'),
+            desc: t('industryDesc')
+          }].map((item, index) => <div key={index} className="bg-gray-900/40 border border-gray-800/30 rounded-2xl p-6 animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300" style={{
+            animationDelay: `${(index + 4) * 0.1}s`
+          }}>
+                {/* Card gradient overlay */}
+                <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-gray-700/20 to-transparent group-hover:opacity-50 transition-opacity duration-300"></div>
+                
+                <div className="relative z-10">
+                  {/* Image */}
+                  <div className="w-full aspect-square bg-gray-800/30 rounded-lg mb-4 overflow-hidden relative">
+                    {index === 0 ? (
+                      <img 
+                        src="/lovable-uploads/53ab33fd-314e-49bc-80a1-ec4006d71675.png" 
+                        alt="Meteorological station" 
+                        className="w-full h-full object-cover" 
+                      />
+                    ) : index === 1 ? (
+                      <img 
+                        src="/lovable-uploads/ab598fe3-b0e7-47e8-8010-d1382caf53d6.png" 
+                        alt="Global network hosting infrastructure" 
+                        className="w-full h-full object-cover" 
+                      />
+                    ) : (
+                      <img 
+                        src="/lovable-uploads/d332fcb6-19fe-479b-a90f-3e538575b0a9.png" 
+                        alt="LIEPNET™ Services - Gaming and technology" 
+                        className="w-full h-full object-cover" 
+                      />
+                    )}
+                    {/* Black gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-tl from-black/60 via-black/20 to-transparent"></div>
                   </div>
+                  
+                  <h3 className="text-lg font-semibold text-foreground mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {item.desc}
+                  </p>
                 </div>
-              ))}
-            </div>
+              </div>)}
           </div>
         </div>
       </div>
