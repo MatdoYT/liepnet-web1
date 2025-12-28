@@ -81,43 +81,90 @@ const ContentSection = () => {
               aria-hidden="true"
             >
               <defs>
-                <linearGradient id="beamA" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="hsl(var(--foreground) / 0.02)" />
-                  <stop offset="55%" stopColor="hsl(var(--foreground) / 0.08)" />
-                  <stop offset="100%" stopColor="hsl(var(--foreground) / 0.18)" />
+                {/* Main face gradients - darker at bottom */}
+                <linearGradient id="beamFaceA" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="hsl(var(--foreground) / 0.03)" />
+                  <stop offset="40%" stopColor="hsl(var(--foreground) / 0.08)" />
+                  <stop offset="100%" stopColor="hsl(var(--foreground) / 0.22)" />
                 </linearGradient>
-                <linearGradient id="beamB" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="hsl(var(--foreground) / 0.02)" />
-                  <stop offset="55%" stopColor="hsl(var(--foreground) / 0.08)" />
-                  <stop offset="100%" stopColor="hsl(var(--foreground) / 0.18)" />
+                <linearGradient id="beamFaceB" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="hsl(var(--foreground) / 0.03)" />
+                  <stop offset="40%" stopColor="hsl(var(--foreground) / 0.10)" />
+                  <stop offset="100%" stopColor="hsl(var(--foreground) / 0.25)" />
                 </linearGradient>
-                <linearGradient id="beamC" x1="0" y1="0" x2="0" y2="1">
+                <linearGradient id="beamFaceC" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="hsl(var(--foreground) / 0.03)" />
+                  <stop offset="40%" stopColor="hsl(var(--foreground) / 0.08)" />
+                  <stop offset="100%" stopColor="hsl(var(--foreground) / 0.22)" />
+                </linearGradient>
+                {/* Side edge gradients - slightly darker for 3D effect */}
+                <linearGradient id="beamSideLeft" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="hsl(var(--foreground) / 0.01)" />
+                  <stop offset="50%" stopColor="hsl(var(--foreground) / 0.04)" />
+                  <stop offset="100%" stopColor="hsl(var(--foreground) / 0.12)" />
+                </linearGradient>
+                <linearGradient id="beamSideRight" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0%" stopColor="hsl(var(--foreground) / 0.02)" />
-                  <stop offset="55%" stopColor="hsl(var(--foreground) / 0.08)" />
-                  <stop offset="100%" stopColor="hsl(var(--foreground) / 0.18)" />
+                  <stop offset="50%" stopColor="hsl(var(--foreground) / 0.06)" />
+                  <stop offset="100%" stopColor="hsl(var(--foreground) / 0.15)" />
                 </linearGradient>
               </defs>
 
-              {/* Left beam (doesn't touch center) */}
+              {/* Left block */}
+              {/* Left side edge */}
+              <polygon
+                points="140,720 160,720 465,0 450,0"
+                fill="url(#beamSideLeft)"
+              />
+              {/* Main face */}
               <polygon
                 points="160,720 360,720 490,0 465,0"
-                fill="url(#beamA)"
-                stroke="hsl(var(--foreground) / 0.22)"
+                fill="url(#beamFaceA)"
+                stroke="hsl(var(--foreground) / 0.18)"
                 strokeWidth="1"
               />
-              {/* Center beam */}
+              {/* Right side edge */}
               <polygon
-                points="400,720 600,720 515,0 485,0"
-                fill="url(#beamB)"
-                stroke="hsl(var(--foreground) / 0.22)"
+                points="360,720 380,720 495,0 490,0"
+                fill="url(#beamSideRight)"
+              />
+
+              {/* Center block */}
+              {/* Left side edge */}
+              <polygon
+                points="380,720 400,720 485,0 478,0"
+                fill="url(#beamSideLeft)"
+              />
+              {/* Main face */}
+              <polygon
+                points="400,720 600,720 522,0 478,0"
+                fill="url(#beamFaceB)"
+                stroke="hsl(var(--foreground) / 0.18)"
                 strokeWidth="1"
               />
-              {/* Right beam (doesn't touch center) */}
+              {/* Right side edge */}
               <polygon
-                points="640,720 840,720 535,0 510,0"
-                fill="url(#beamC)"
-                stroke="hsl(var(--foreground) / 0.22)"
+                points="600,720 620,720 528,0 522,0"
+                fill="url(#beamSideRight)"
+              />
+
+              {/* Right block */}
+              {/* Left side edge */}
+              <polygon
+                points="620,720 640,720 505,0 500,0"
+                fill="url(#beamSideLeft)"
+              />
+              {/* Main face */}
+              <polygon
+                points="640,720 840,720 550,0 505,0"
+                fill="url(#beamFaceC)"
+                stroke="hsl(var(--foreground) / 0.18)"
                 strokeWidth="1"
+              />
+              {/* Right side edge */}
+              <polygon
+                points="840,720 860,720 555,0 550,0"
+                fill="url(#beamSideRight)"
               />
             </svg>
 
