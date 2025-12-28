@@ -81,90 +81,37 @@ const ContentSection = () => {
               aria-hidden="true"
             >
               <defs>
-                {/* Main face gradients - darker at bottom */}
-                <linearGradient id="beamFaceA" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="hsl(var(--foreground) / 0.03)" />
-                  <stop offset="40%" stopColor="hsl(var(--foreground) / 0.08)" />
-                  <stop offset="100%" stopColor="hsl(var(--foreground) / 0.22)" />
+                {/* Dark green gradients - darker at bottom */}
+                <linearGradient id="beamA" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="hsl(140, 50%, 20% / 0.4)" />
+                  <stop offset="100%" stopColor="hsl(140, 60%, 12% / 0.9)" />
                 </linearGradient>
-                <linearGradient id="beamFaceB" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="hsl(var(--foreground) / 0.03)" />
-                  <stop offset="40%" stopColor="hsl(var(--foreground) / 0.10)" />
-                  <stop offset="100%" stopColor="hsl(var(--foreground) / 0.25)" />
+                <linearGradient id="beamB" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="hsl(140, 50%, 22% / 0.45)" />
+                  <stop offset="100%" stopColor="hsl(140, 60%, 14% / 0.95)" />
                 </linearGradient>
-                <linearGradient id="beamFaceC" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="hsl(var(--foreground) / 0.03)" />
-                  <stop offset="40%" stopColor="hsl(var(--foreground) / 0.08)" />
-                  <stop offset="100%" stopColor="hsl(var(--foreground) / 0.22)" />
-                </linearGradient>
-                {/* Side edge gradients - slightly darker for 3D effect */}
-                <linearGradient id="beamSideLeft" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="hsl(var(--foreground) / 0.01)" />
-                  <stop offset="50%" stopColor="hsl(var(--foreground) / 0.04)" />
-                  <stop offset="100%" stopColor="hsl(var(--foreground) / 0.12)" />
-                </linearGradient>
-                <linearGradient id="beamSideRight" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="hsl(var(--foreground) / 0.02)" />
-                  <stop offset="50%" stopColor="hsl(var(--foreground) / 0.06)" />
-                  <stop offset="100%" stopColor="hsl(var(--foreground) / 0.15)" />
+                <linearGradient id="beamC" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="hsl(140, 50%, 20% / 0.4)" />
+                  <stop offset="100%" stopColor="hsl(140, 60%, 12% / 0.9)" />
                 </linearGradient>
               </defs>
 
               {/* Left block */}
-              {/* Left side edge */}
-              <polygon
-                points="140,720 160,720 465,0 450,0"
-                fill="url(#beamSideLeft)"
-              />
-              {/* Main face */}
               <polygon
                 points="160,720 360,720 490,0 465,0"
-                fill="url(#beamFaceA)"
-                stroke="hsl(var(--foreground) / 0.18)"
-                strokeWidth="1"
-              />
-              {/* Right side edge */}
-              <polygon
-                points="360,720 380,720 495,0 490,0"
-                fill="url(#beamSideRight)"
+                fill="url(#beamA)"
               />
 
               {/* Center block */}
-              {/* Left side edge */}
-              <polygon
-                points="380,720 400,720 485,0 478,0"
-                fill="url(#beamSideLeft)"
-              />
-              {/* Main face */}
               <polygon
                 points="400,720 600,720 522,0 478,0"
-                fill="url(#beamFaceB)"
-                stroke="hsl(var(--foreground) / 0.18)"
-                strokeWidth="1"
-              />
-              {/* Right side edge */}
-              <polygon
-                points="600,720 620,720 528,0 522,0"
-                fill="url(#beamSideRight)"
+                fill="url(#beamB)"
               />
 
               {/* Right block */}
-              {/* Left side edge */}
-              <polygon
-                points="620,720 640,720 505,0 500,0"
-                fill="url(#beamSideLeft)"
-              />
-              {/* Main face */}
               <polygon
                 points="640,720 840,720 550,0 505,0"
-                fill="url(#beamFaceC)"
-                stroke="hsl(var(--foreground) / 0.18)"
-                strokeWidth="1"
-              />
-              {/* Right side edge */}
-              <polygon
-                points="840,720 860,720 555,0 550,0"
-                fill="url(#beamSideRight)"
+                fill="url(#beamC)"
               />
             </svg>
 
@@ -193,43 +140,25 @@ const ContentSection = () => {
               {[
                 {
                   title: t('awardWinner'),
-                  desc: t('awardDesc'),
-                  image: "/lovable-uploads/53ab33fd-314e-49bc-80a1-ec4006d71675.png",
-                  alt: "Meteorological station"
+                  desc: t('awardDesc')
                 },
                 {
                   title: t('globalReach'),
-                  desc: t('globalDesc'),
-                  image: "/lovable-uploads/ab598fe3-b0e7-47e8-8010-d1382caf53d6.png",
-                  alt: "Global network hosting infrastructure"
+                  desc: t('globalDesc')
                 },
                 {
                   title: t('industryLeader'),
-                  desc: t('industryDesc'),
-                  image: "/lovable-uploads/d332fcb6-19fe-479b-a90f-3e538575b0a9.png",
-                  alt: "LIEPNET™ Services - Gaming and technology"
+                  desc: t('industryDesc')
                 }
               ].map((item, index) => (
-                <div key={index} className="relative w-[180px] sm:w-[220px] md:w-[260px]" style={{ height: 420 }}>
+                <div key={index} className="relative w-[180px] sm:w-[220px] md:w-[260px]">
                   <div
-                    className="absolute bottom-0 left-0 right-0 rounded-2xl p-4 md:p-5"
+                    className="rounded-2xl p-4 md:p-5 backdrop-blur-md"
                     style={{
-                      backgroundImage:
-                        'linear-gradient(to bottom, hsl(var(--foreground) / 0.10), hsl(var(--foreground) / 0.06))',
-                      border: '1px solid hsl(var(--foreground) / 0.28)'
+                      backgroundColor: 'hsl(var(--background) / 0.6)',
+                      border: '1px solid hsl(var(--foreground) / 0.15)'
                     }}
                   >
-                    <div
-                      className="w-full aspect-square rounded-lg overflow-hidden relative mb-4"
-                      style={{ border: '1px solid hsl(var(--foreground) / 0.20)' }}
-                    >
-                      <img src={item.image} alt={item.alt} className="w-full h-full object-cover" loading="lazy" />
-                      <div
-                        className="absolute inset-0"
-                        style={{ backgroundImage: 'linear-gradient(to top left, hsl(var(--background) / 0.65), transparent)' }}
-                      />
-                    </div>
-
                     <h3 className="text-base md:text-lg font-semibold text-foreground mb-2">
                       {item.title}
                     </h3>
