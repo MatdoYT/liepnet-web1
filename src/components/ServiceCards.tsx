@@ -109,7 +109,7 @@ const ServiceCards = () => {
               <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-black/70 to-transparent" />
               
               {/* Text - top left */}
-              <div className="absolute top-4 left-4 z-10">
+              <div className="absolute top-4 left-4 z-10 transition-all duration-300 group-hover:blur-sm">
                 <h3 className="text-sm md:text-base lg:text-lg font-semibold uppercase tracking-wide opacity-50 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
                   {service.title}
                 </h3>
