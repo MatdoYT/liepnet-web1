@@ -143,12 +143,20 @@ export default {
 						transform: 'scale(1)'
 					}
 				},
-				'float': {
+			'float': {
 					'0%, 100%': {
 						transform: 'translateY(0px)'
 					},
 					'50%': {
 						transform: 'translateY(-20px)'
+					}
+				},
+				'flash': {
+					'0%, 100%': {
+						opacity: '0.3'
+					},
+					'50%': {
+						opacity: '1'
 					}
 				}
 			},
