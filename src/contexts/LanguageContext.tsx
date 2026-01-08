@@ -94,6 +94,9 @@ const translations = {
     
     // Content section
     whatIsLiepnet: 'WHAT IS LIEPNET™?',
+    whatIsLiepnetTitle: 'WHAT IS LIEPNET™?',
+    whatIsLiepnetPara1: '<strong class="text-foreground">LIEPNET™</strong> is a Latvia-based project that provides online services such as <strong class="text-foreground">website hosting</strong> and intends to establish a network with very low latency between <strong class="text-foreground">Europe</strong> and <strong class="text-foreground">North America</strong>.',
+    whatIsLiepnetPara2: '<strong class="text-foreground">Matīss Apsītis</strong> founded LIEPNET™. The word <strong class="text-foreground">LIEPNET™</strong> is derived from <strong class="text-foreground">"liepa"</strong> (Latvian for linden/tilia), which means <strong class="text-foreground">"linden network"</strong> in English.',
     liepnetDescription: 'LIEPNET™ provides a range of services, including logo development, hosting, business WI-FI and network planning, meteorological information, and tech tips for everyone.',
     
     // Services
@@ -277,6 +280,9 @@ const translations = {
     
     // Content section
     whatIsLiepnet: 'KAS IR LIEPNET™?',
+    whatIsLiepnetTitle: 'KAS IR LIEPNET™?',
+    whatIsLiepnetPara1: '<strong class="text-foreground">LIEPNET™</strong> ir Latvijā bāzēts projekts, kas nodrošina tiešsaistes pakalpojumus, piemēram, <strong class="text-foreground">vietņu hostingu</strong>, un plāno izveidot tīklu ar ļoti zemu latentumu starp <strong class="text-foreground">Eiropu</strong> un <strong class="text-foreground">Ziemeļameriku</strong>.',
+    whatIsLiepnetPara2: '<strong class="text-foreground">Matīss Apsītis</strong> dibināja LIEPNET™. Vārds <strong class="text-foreground">LIEPNET™</strong> ir atvasināts no <strong class="text-foreground">"liepa"</strong>, kas nozīmē <strong class="text-foreground">"liepu tīkls"</strong>.',
     liepnetDescription: 'LIEPNET™ piedāvā dažādus pakalpojumus, tostarp logo izstrādi, hostingu, uzņēmumu WI-FI un tīkla plānošanu, meteoroloģisko informāciju un tehnoloģiju padomus visiem.',
     
     // Services
@@ -418,6 +424,9 @@ const translations = {
     
     // Content section
     whatIsLiepnet: 'ЧТО ТАКОЕ LIEPNET™?',
+    whatIsLiepnetTitle: 'ЧТО ТАКОЕ LIEPNET™?',
+    whatIsLiepnetPara1: '<strong class="text-foreground">LIEPNET™</strong> — это проект, базирующийся в Латвии, который предоставляет онлайн-услуги, такие как <strong class="text-foreground">хостинг веб-сайтов</strong>, и намерен создать сеть с очень низкой задержкой между <strong class="text-foreground">Европой</strong> и <strong class="text-foreground">Северной Америкой</strong>.',
+    whatIsLiepnetPara2: '<strong class="text-foreground">Матисс Апситис</strong> основал LIEPNET™. Слово <strong class="text-foreground">LIEPNET™</strong> происходит от <strong class="text-foreground">«liepa»</strong> (латышское слово для липы), что означает <strong class="text-foreground">«липовая сеть»</strong> на английском.',
     liepnetDescription: 'LIEPNET™ предоставляет широкий спектр услуг, включая разработку логотипов, хостинг, планирование бизнес WI-FI и сетей, метеорологическую информацию и технические советы для всех.',
     
     // Services
@@ -601,6 +610,9 @@ const translations = {
     
     // Content section
     whatIsLiepnet: 'QU\'EST-CE QUE LIEPNET™?',
+    whatIsLiepnetTitle: 'QU\'EST-CE QUE LIEPNET™?',
+    whatIsLiepnetPara1: '<strong class="text-foreground">LIEPNET™</strong> est un projet basé en Lettonie qui fournit des services en ligne tels que <strong class="text-foreground">l\'hébergement de sites web</strong> et a l\'intention d\'établir un réseau à très faible latence entre <strong class="text-foreground">l\'Europe</strong> et <strong class="text-foreground">l\'Amérique du Nord</strong>.',
+    whatIsLiepnetPara2: '<strong class="text-foreground">Matīss Apsītis</strong> a fondé LIEPNET™. Le mot <strong class="text-foreground">LIEPNET™</strong> est dérivé de <strong class="text-foreground">«liepa»</strong> (tilleul en letton), qui signifie <strong class="text-foreground">«réseau de tilleul»</strong> en français.',
     liepnetDescription: 'LIEPNET™ fournit une gamme de services, y compris le développement de logos, l\'hébergement, la planification WI-FI et réseau d\'entreprise, les informations météorologiques et les conseils techniques pour tous.',
     
     // Services
@@ -784,6 +796,9 @@ const translations = {
     
     // Content section
     whatIsLiepnet: 'ΤΙ ΕΊΝΑΙ ΤΟ LIEPNET™;',
+    whatIsLiepnetTitle: 'ΤΙ ΕΊΝΑΙ ΤΟ LIEPNET™;',
+    whatIsLiepnetPara1: '<strong class="text-foreground">LIEPNET™</strong> είναι ένα έργο με έδρα τη Λετονία που παρέχει διαδικτυακές υπηρεσίες όπως <strong class="text-foreground">φιλοξενία ιστοσελίδων</strong> και σκοπεύει να δημιουργήσει ένα δίκτυο με πολύ χαμηλή καθυστέρηση μεταξύ <strong class="text-foreground">Ευρώπης</strong> και <strong class="text-foreground">Βόρειας Αμερικής</strong>.',
+    whatIsLiepnetPara2: 'Ο <strong class="text-foreground">Matīss Apsītis</strong> ίδρυσε το LIEPNET™. Η λέξη <strong class="text-foreground">LIEPNET™</strong> προέρχεται από το <strong class="text-foreground">«liepa»</strong> (λετονικά για φλαμουριά), που σημαίνει <strong class="text-foreground">«δίκτυο φλαμουριάς»</strong> στα αγγλικά.',
     liepnetDescription: 'Το LIEPNET™ παρέχει μια σειρά υπηρεσιών, συμπεριλαμβανομένης της ανάπτυξης λογοτύπων, φιλοξενίας, επιχειρηματικού WI-FI και σχεδιασμού δικτύων, μετεωρολογικών πληροφοριών και τεχνικών συμβουλών για όλους.',
     
     // Services
@@ -967,6 +982,9 @@ const translations = {
     
     // Content section
     whatIsLiepnet: 'WAS IST LIEPNET™?',
+    whatIsLiepnetTitle: 'WAS IST LIEPNET™?',
+    whatIsLiepnetPara1: '<strong class="text-foreground">LIEPNET™</strong> ist ein in Lettland ansässiges Projekt, das Online-Dienste wie <strong class="text-foreground">Website-Hosting</strong> anbietet und beabsichtigt, ein Netzwerk mit sehr geringer Latenz zwischen <strong class="text-foreground">Europa</strong> und <strong class="text-foreground">Nordamerika</strong> aufzubauen.',
+    whatIsLiepnetPara2: '<strong class="text-foreground">Matīss Apsītis</strong> gründete LIEPNET™. Das Wort <strong class="text-foreground">LIEPNET™</strong> leitet sich von <strong class="text-foreground">«liepa»</strong> (lettisch für Linde) ab, was auf Deutsch <strong class="text-foreground">«Lindennetzwerk»</strong> bedeutet.',
     liepnetDescription: 'LIEPNET™ bietet eine Vielzahl von Dienstleistungen, einschließlich Logo-Entwicklung, Hosting, Business-WLAN und Netzwerkplanung, meteorologische Informationen und Tech-Tipps für alle.',
     
     // Services
@@ -1150,6 +1168,9 @@ const translations = {
     
     // Content section
     whatIsLiepnet: 'KAS YRA LIEPNET™?',
+    whatIsLiepnetTitle: 'KAS YRA LIEPNET™?',
+    whatIsLiepnetPara1: '<strong class="text-foreground">LIEPNET™</strong> yra Latvijoje įsikūręs projektas, teikiantis internetines paslaugas, tokias kaip <strong class="text-foreground">svetainių talpinimas</strong>, ir ketinantis sukurti tinklą su labai mažu vėlavimu tarp <strong class="text-foreground">Europos</strong> ir <strong class="text-foreground">Šiaurės Amerikos</strong>.',
+    whatIsLiepnetPara2: '<strong class="text-foreground">Matīss Apsītis</strong> įkūrė LIEPNET™. Žodis <strong class="text-foreground">LIEPNET™</strong> kilęs iš <strong class="text-foreground">«liepa»</strong> (latviškai liepa), kas reiškia <strong class="text-foreground">«liepų tinklą»</strong> lietuvių kalba.',
     liepnetDescription: 'LIEPNET™ teikia įvairias paslaugas, įskaitant logotipų kūrimą, hostingą, verslo WI-FI ir tinklų planavimą, meteorologinę informaciją ir technologijų patarimus visiems.',
     
     // Services
@@ -1333,6 +1354,9 @@ const translations = {
     
     // Content section
     whatIsLiepnet: 'MIS ON LIEPNET™?',
+    whatIsLiepnetTitle: 'MIS ON LIEPNET™?',
+    whatIsLiepnetPara1: '<strong class="text-foreground">LIEPNET™</strong> on Lätis asuv projekt, mis pakub veebiteenuseid nagu <strong class="text-foreground">veebilehe hostimine</strong> ja kavatseb luua madala viivitusega võrgustiku <strong class="text-foreground">Euroopa</strong> ja <strong class="text-foreground">Põhja-Ameerika</strong> vahel.',
+    whatIsLiepnetPara2: '<strong class="text-foreground">Matīss Apsītis</strong> asutas LIEPNET™. Sõna <strong class="text-foreground">LIEPNET™</strong> tuleneb sõnast <strong class="text-foreground">«liepa»</strong> (läti keeles pärn), mis tähendab <strong class="text-foreground">«pärnavõrku»</strong> eesti keeles.',
     liepnetDescription: 'LIEPNET™ pakub mitmesuguseid teenuseid, sealhulgas logo arendamist, hostingut, äri WI-FI ja võrgu planeerimist, meteoroloogilist teavet ja tehnoloogia nõuandeid kõigile.',
     
     // Services
@@ -1516,6 +1540,9 @@ const translations = {
     
     // Content section
     whatIsLiepnet: 'VAD ÄR LIEPNET™?',
+    whatIsLiepnetTitle: 'VAD ÄR LIEPNET™?',
+    whatIsLiepnetPara1: '<strong class="text-foreground">LIEPNET™</strong> är ett Lettlandsbaserat projekt som tillhandahåller onlinetjänster som <strong class="text-foreground">webbplatshosting</strong> och avser att etablera ett nätverk med mycket låg latens mellan <strong class="text-foreground">Europa</strong> och <strong class="text-foreground">Nordamerika</strong>.',
+    whatIsLiepnetPara2: '<strong class="text-foreground">Matīss Apsītis</strong> grundade LIEPNET™. Ordet <strong class="text-foreground">LIEPNET™</strong> kommer från <strong class="text-foreground">«liepa»</strong> (lettiska för lind), vilket betyder <strong class="text-foreground">«lindnätverk»</strong> på svenska.',
     liepnetDescription: 'LIEPNET™ tillhandahåller en rad tjänster, inklusive logoutveckling, hosting, företags WI-FI och nätverksplanering, meteorologisk information och teknikråd för alla.',
     
     // Services
