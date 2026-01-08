@@ -73,8 +73,7 @@ const ContentSection = () => {
         {/* Accomplishments Section */}
         <div className="mt-24">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">{t('accomplishments')}</h2>
-            <p className="text-muted-foreground">{t('accomplishmentsDesc')}</p>
+            <h2 className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent" style={{ backgroundImage: 'linear-gradient(25deg, hsl(0, 0%, 100%), hsl(0, 0%, 75%))' }}>{t('accomplishments')}</h2>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
