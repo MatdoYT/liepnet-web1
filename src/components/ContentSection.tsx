@@ -87,37 +87,10 @@ const ContentSection = () => {
           }, {
             title: t('industryLeader'),
             desc: t('industryDesc')
-          }].map((item, index) => <div key={index} className="bg-gray-900/40 border border-gray-800/30 rounded-2xl p-6 animate-fade-in relative overflow-hidden group hover:scale-105 transition-all duration-300" style={{
+          }].map((item, index) => <div key={index} className="bg-white/5 backdrop-blur-md border border-emerald-900/50 rounded-2xl p-6 animate-fade-in relative overflow-hidden group hover:scale-105 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300" style={{
             animationDelay: `${(index + 4) * 0.1}s`
           }}>
-                {/* Card gradient overlay */}
-                <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-gray-700/20 to-transparent group-hover:opacity-50 transition-opacity duration-300"></div>
-                
                 <div className="relative z-10">
-                  {/* Image */}
-                  <div className="w-full aspect-square bg-gray-800/30 rounded-lg mb-4 overflow-hidden relative">
-                    {index === 0 ? (
-                      <img 
-                        src="/lovable-uploads/53ab33fd-314e-49bc-80a1-ec4006d71675.png" 
-                        alt="Meteorological station" 
-                        className="w-full h-full object-cover" 
-                      />
-                    ) : index === 1 ? (
-                      <img 
-                        src="/lovable-uploads/ab598fe3-b0e7-47e8-8010-d1382caf53d6.png" 
-                        alt="Global network hosting infrastructure" 
-                        className="w-full h-full object-cover" 
-                      />
-                    ) : (
-                      <img 
-                        src="/lovable-uploads/d332fcb6-19fe-479b-a90f-3e538575b0a9.png" 
-                        alt="LIEPNET™ Services - Gaming and technology" 
-                        className="w-full h-full object-cover" 
-                      />
-                    )}
-                    {/* Black gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-tl from-black/60 via-black/20 to-transparent"></div>
-                  </div>
                   
                   <h3 className="text-lg font-semibold text-foreground mb-3">
                     {item.title}
