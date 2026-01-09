@@ -15,6 +15,7 @@ const translations = {
     services: 'Services',
     gaming: 'Gaming',
     status: 'Status',
+    hostingNav: 'Hosting',
     
     // Gaming page
     gamingDescription: 'Professional gaming network solutions and optimization services for the ultimate gaming experience.',
@@ -201,6 +202,7 @@ const translations = {
     services: 'Pakalpojumi',
     gaming: 'Spēles',
     status: 'Statuss',
+    hostingNav: 'Hostings',
     
     // Gaming page
     gamingDescription: 'Profesionāli spēļu tīkla risinājumi un optimizācijas pakalpojumi maksimālai spēļu pieredzei.',
@@ -387,6 +389,7 @@ const translations = {
     services: 'Услуги',
     gaming: 'Игры',
     status: 'Статус',
+    hostingNav: 'Хостинг',
     
     // Gaming page
     gamingDescription: 'Профессиональные игровые сетевые решения и сервисы оптимизации для максимального игрового опыта.',
@@ -573,6 +576,7 @@ const translations = {
     services: 'Services',
     gaming: 'Jeux',
     status: 'Statut',
+    hostingNav: 'Hébergement',
     
     // Gaming page
     gamingDescription: 'Solutions de réseau de jeu professionnelles et services d\'optimisation pour l\'expérience de jeu ultime.',
@@ -759,6 +763,7 @@ const translations = {
     services: 'Υπηρεσίες',
     gaming: 'Παιχνίδια',
     status: 'Κατάσταση',
+    hostingNav: 'Φιλοξενία',
     
     // Gaming page
     gamingDescription: 'Επαγγελματικές λύσεις δικτύου παιχνιδιών και υπηρεσίες βελτιστοποίησης για την απόλυτη εμπειρία παιχνιδιού.',
@@ -945,6 +950,7 @@ const translations = {
     services: 'Dienstleistungen',
     gaming: 'Gaming',
     status: 'Status',
+    hostingNav: 'Hosting',
     
     // Gaming page
     gamingDescription: 'Professionelle Gaming-Netzwerklösungen und Optimierungsdienste für das ultimative Spielerlebnis.',
@@ -1131,6 +1137,7 @@ const translations = {
     services: 'Paslaugos',
     gaming: 'Žaidimai',
     status: 'Būsena',
+    hostingNav: 'Hostingas',
     
     // Gaming page
     gamingDescription: 'Profesionalūs žaidimų tinklo sprendimai ir optimizavimo paslaugos geriausiai žaidimų patirčiai.',
@@ -1317,6 +1324,7 @@ const translations = {
     services: 'Teenused',
     gaming: 'Mängud',
     status: 'Olek',
+    hostingNav: 'Hosting',
     
     // Gaming page
     gamingDescription: 'Professionaalsed mängu võrgu lahendused ja optimeerimise teenused parima mängu kogemuse jaoks.',
@@ -1503,6 +1511,7 @@ const translations = {
     services: 'Tjänster',
     gaming: 'Spel',
     status: 'Status',
+    hostingNav: 'Hosting',
     
     // Gaming page
     gamingDescription: 'Professionella spelnätverkslösningar och optimeringstjänster för den ultimata spelupplevelsen.',
