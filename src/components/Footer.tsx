@@ -29,39 +29,39 @@ const Footer = () => {
         </svg>
   }];
   return <footer className="bg-black text-white">
-      <div className="max-w-7xl mx-auto px-6 py-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo and Company */}
           <div className="space-y-4">
-            <img src="/lovable-uploads/4ebce7aa-c438-4114-8c2a-b420e2c6453b.png" alt="LIEPNET Logo" className="h-12 w-auto" />
+            <img src="/lovable-uploads/4ebce7aa-c438-4114-8c2a-b420e2c6453b.png" alt="LIEPNET Logo" className="h-10 md:h-12 w-auto" />
             <p className="text-gray-300 text-sm leading-relaxed">{t('footerFoundedText')}</p>
           </div>
 
           {/* Contact Information */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">{t('contactInformation')}</h3>
+            <h3 className="text-base md:text-lg font-semibold text-white">{t('contactInformation')}</h3>
             <div className="space-y-3">
               <div className="flex items-start space-x-3">
-                <Mail className="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" />
-                <div className="space-y-1">
-                  <a href="mailto:matiss.apsitis@liepnet.id.lv" className="text-gray-300 hover:text-white transition-colors text-sm block">
+                <Mail className="w-4 h-4 md:w-5 md:h-5 text-gray-400 mt-0.5 flex-shrink-0" />
+                <div className="space-y-1 min-w-0">
+                  <a href="mailto:matiss.apsitis@liepnet.id.lv" className="text-gray-300 hover:text-white transition-colors text-xs md:text-sm block truncate">
                     matiss.apsitis@liepnet.id.lv
                   </a>
                   <p className="text-gray-500 text-xs">{t('ownerCeo')}</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <Mail className="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" />
-                <div className="space-y-1">
-                  <a href="mailto:giorgos.k@liepnet.id.lv" className="text-gray-300 hover:text-white transition-colors text-sm block">
+                <Mail className="w-4 h-4 md:w-5 md:h-5 text-gray-400 mt-0.5 flex-shrink-0" />
+                <div className="space-y-1 min-w-0">
+                  <a href="mailto:giorgos.k@liepnet.id.lv" className="text-gray-300 hover:text-white transition-colors text-xs md:text-sm block truncate">
                     giorgos.k@liepnet.id.lv
                   </a>
                   <p className="text-gray-500 text-xs">{t('executiveManager')}</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" />
-                <p className="text-gray-300 text-sm">
+                <MapPin className="w-4 h-4 md:w-5 md:h-5 text-gray-400 mt-0.5 flex-shrink-0" />
+                <p className="text-gray-300 text-xs md:text-sm">
                   Mālpils pagasts, Siguldas novads, Latvija, LV-2152
                 </p>
               </div>
@@ -70,25 +70,25 @@ const Footer = () => {
 
           {/* Social Media */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-white">{t('followUs')}</h3>
-            <div className="flex flex-wrap gap-4">
+            <h3 className="text-base md:text-lg font-semibold text-white">{t('followUs')}</h3>
+            <div className="flex flex-wrap gap-3 md:gap-4">
               {socialLinks.map(social => <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors group">
-                  <div className="p-2 rounded-lg bg-gray-800 group-hover:bg-gray-700 transition-colors">
+                  <div className="p-1.5 md:p-2 rounded-lg bg-gray-800 group-hover:bg-gray-700 transition-colors">
                     {social.icon}
                   </div>
-                  <span className="text-sm font-medium">{social.name}</span>
+                  <span className="text-xs md:text-sm font-medium hidden sm:inline">{social.name}</span>
                 </a>)}
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400 text-sm">
+        <div className="border-t border-gray-800 mt-6 md:mt-8 pt-6 md:pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
+            <p className="text-gray-400 text-xs md:text-sm text-center md:text-left">
               © {new Date().getFullYear()} LIEPNET. {t('allRightsReserved')}
             </p>
-            <p className="text-gray-500 text-xs">&quot;{t('footerQuote')}&quot;</p>
+            <p className="text-gray-500 text-xs text-center md:text-right">&quot;{t('footerQuote')}&quot;</p>
           </div>
         </div>
       </div>

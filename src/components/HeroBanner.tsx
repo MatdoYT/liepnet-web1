@@ -55,7 +55,7 @@ const HeroBanner = () => {
   };
 
   return (
-    <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
+    <section className="relative h-[60vh] md:h-[70vh] min-h-[400px] md:min-h-[500px] overflow-hidden">
       {/* Background Images with fade transition */}
       {bannerImages.map((image, index) => (
         <div 
@@ -77,7 +77,7 @@ const HeroBanner = () => {
       />
       
       {/* Logo centered in gradient area */}
-      <div className="absolute bottom-0 left-0 right-0 h-1/3 flex items-center justify-center">
+      <div className="absolute bottom-0 left-0 right-0 h-1/3 flex items-center justify-center px-4">
         <div 
           ref={logoRef}
           className="cursor-pointer"
@@ -91,7 +91,7 @@ const HeroBanner = () => {
           <img 
             src="/lovable-uploads/e98631d3-970c-4648-98fd-9425dd2e5140.png" 
             alt="LIEPNET Logo" 
-            className="w-64 md:w-80 lg:w-96 h-auto object-contain drop-shadow-2xl"
+            className="w-48 sm:w-64 md:w-80 lg:w-96 h-auto object-contain drop-shadow-2xl"
             fetchPriority="high"
             decoding="async"
           />

@@ -64,20 +64,20 @@ const ServiceCards = () => {
   }, [hoveredIndex]);
 
   return (
-    <section className="px-6 py-12">
+    <section className="px-4 md:px-6 py-8 md:py-12">
       <div className="max-w-7xl mx-auto">
         {/* Divider with SERVICES label */}
-        <div className="flex items-center gap-4 mb-8">
+        <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
           <span className="text-xs tracking-widest text-muted-foreground/60 uppercase">Services</span>
           <div className="flex-1 h-px bg-muted-foreground/60" />
         </div>
         
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           {services.map((service, index) => (
             <Link
               key={index}
               to={service.link}
-              className="relative aspect-[3/4] rounded-2xl overflow-hidden group cursor-pointer block transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]"
+              className="relative aspect-[3/4] rounded-xl md:rounded-2xl overflow-hidden group cursor-pointer block transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
@@ -90,12 +90,12 @@ const ServiceCards = () => {
                 className="absolute inset-0 w-full h-full object-cover brightness-50 transition-all duration-300 group-hover:brightness-[0.6] group-hover:scale-105"
               />
               
-              {/* Hover Video - only load when needed */}
+              {/* Hover Video - only load when needed, hidden on mobile */}
               {service.hoverVideo && (
                 <video
                   ref={el => videoRefs.current[index] = el}
                   src={service.hoverVideo}
-                  className={`absolute inset-0 w-full h-full object-cover brightness-50 transition-opacity duration-300 group-hover:brightness-[0.6] ${
+                  className={`absolute inset-0 w-full h-full object-cover brightness-50 transition-opacity duration-300 group-hover:brightness-[0.6] hidden md:block ${
                     hoveredIndex === index ? 'opacity-100' : 'opacity-0'
                   }`}
                   muted
@@ -109,8 +109,8 @@ const ServiceCards = () => {
               <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-black/70 to-transparent" />
               
               {/* Text - top left */}
-              <div className="absolute top-4 left-4 z-10 transition-all duration-300 group-hover:blur-sm">
-                <h3 className="text-sm md:text-base lg:text-lg font-semibold uppercase tracking-wide opacity-50 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+              <div className="absolute top-3 left-3 md:top-4 md:left-4 z-10 transition-all duration-300 group-hover:blur-sm">
+                <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-semibold uppercase tracking-wide opacity-70 md:opacity-50 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
                   {service.title}
                 </h3>
               </div>
@@ -119,7 +119,7 @@ const ServiceCards = () => {
         </div>
 
         {/* Divider with WHAT IS LIEPNET label */}
-        <div className="flex items-center gap-4 mt-12">
+        <div className="flex items-center gap-3 md:gap-4 mt-8 md:mt-12">
           <span className="text-xs tracking-widest text-muted-foreground/60 uppercase">What is LIEPNET</span>
           <div className="flex-1 h-px bg-muted-foreground/60" />
         </div>
