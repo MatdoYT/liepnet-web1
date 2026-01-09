@@ -51,7 +51,7 @@ const Header = () => {
 
   return (
     <header className={`w-full px-6 flex items-center justify-between fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
-      isAtTop ? 'py-6 bg-transparent border-b border-transparent' : 'py-4 bg-background/95 border-b border-border/10'
+      isAtTop ? 'py-6 bg-transparent border-b border-transparent' : 'py-4 bg-black/80 backdrop-blur-xl border-b border-white/5'
     }`}>
       {/* Logo Area - Clickable Home Button */}
       <div className="flex items-center">
