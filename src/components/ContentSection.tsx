@@ -85,12 +85,12 @@ const ContentSection = () => {
             }].map((item, index) => (
               <div 
                 key={index} 
-                className="goal-card bg-white/5 backdrop-blur-md border border-emerald-900/50 rounded-2xl p-6 animate-fade-in relative overflow-hidden group hover:scale-105 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300" 
-                style={{ animationDelay: `${(index + 4) * 0.1}s` }}
+                className="goal-card backdrop-blur-md border border-emerald-900/50 rounded-2xl p-6 animate-fade-in relative overflow-hidden group hover:scale-105 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300" 
+                style={{ 
+                  animationDelay: `${(index + 4) * 0.1}s`,
+                  background: 'linear-gradient(45deg, rgba(16, 185, 129, 0.08), rgba(16, 185, 129, 0.02))'
+                }}
               >
-                {/* Delayed gradient overlay */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 delay-[5000ms] pointer-events-none bg-gradient-to-br from-emerald-500/30 via-sky-400/20 to-emerald-600/25 rounded-2xl" />
-
                 <div className="relative z-10">
                   <h3 className="text-lg font-semibold text-foreground mb-3">
                     {item.title}

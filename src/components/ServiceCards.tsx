@@ -77,7 +77,7 @@ const ServiceCards = () => {
             <Link
               key={index}
               to={service.link}
-              className="relative aspect-[3/4] rounded-2xl overflow-hidden group cursor-pointer block"
+              className="relative aspect-[3/4] rounded-2xl overflow-hidden group cursor-pointer block transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >

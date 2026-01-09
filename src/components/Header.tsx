@@ -27,6 +27,7 @@ const Header = () => {
   const navLinks = [
     { key: 'about', label: t('about'), href: '/about' },
     { key: 'services', label: t('services'), href: '/services' },
+    { key: 'hosting', label: t('hostingNav'), href: 'https://liepnet.cloud' },
     { key: 'status', label: t('status'), href: 'https://lv-status.liepnet.eu' }
   ];
 
@@ -49,8 +50,8 @@ const Header = () => {
   const currentLang = getCurrentLanguage();
 
   return (
-    <header className={`w-full px-6 flex items-center justify-between fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isAtTop ? 'py-6 bg-transparent' : 'py-4 bg-background/70 backdrop-blur-lg border-b border-border/10'
+    <header className={`w-full px-6 flex items-center justify-between fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
+      isAtTop ? 'py-6 bg-transparent border-b border-transparent' : 'py-4 bg-background/95 border-b border-border/10'
     }`}>
       {/* Logo Area - Clickable Home Button */}
       <div className="flex items-center">
