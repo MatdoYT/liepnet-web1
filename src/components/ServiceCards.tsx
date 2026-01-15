@@ -15,6 +15,7 @@ interface ServiceCard {
   link: string;
   backgroundImage: string;
   hoverVideo?: string;
+  external?: boolean;
 }
 
 const ServiceCards = () => {
@@ -25,9 +26,10 @@ const ServiceCards = () => {
   const services: ServiceCard[] = [
     {
       title: t('hosting'),
-      link: "/hosting",
+      link: "https://liepnet.cloud",
       backgroundImage: hostingImage,
-      hoverVideo: hostingVideo
+      hoverVideo: hostingVideo,
+      external: true
     },
     {
       title: t('wifiNetworking'),
@@ -73,14 +75,20 @@ const ServiceCards = () => {
         </div>
         
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-          {services.map((service, index) => (
-            <Link
-              key={index}
-              to={service.link}
-              className="relative aspect-[3/4] rounded-xl md:rounded-2xl overflow-hidden group cursor-pointer block transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
+          {services.map((service, index) => {
+            const CardWrapper = service.external ? 'a' : Link;
+            const linkProps = service.external 
+              ? { href: service.link, target: "_blank", rel: "noopener noreferrer" }
+              : { to: service.link };
+            
+            return (
+              <CardWrapper
+                key={index}
+                {...linkProps as any}
+                className="relative aspect-[3/4] rounded-xl md:rounded-2xl overflow-hidden group cursor-pointer block transition-all duration-300 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]"
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+              >
               {/* Background Image with lazy loading */}
               <img
                 src={service.backgroundImage}
@@ -117,8 +125,9 @@ const ServiceCards = () => {
                   {service.title}
                 </h3>
               </div>
-            </Link>
-          ))}
+            </CardWrapper>
+          );
+          })}
         </div>
 
         {/* Divider with WHAT IS LIEPNET label */}

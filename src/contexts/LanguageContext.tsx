@@ -130,12 +130,12 @@ const translations = {
     // Goals
     accomplishments: 'OUR GOALS',
     accomplishmentsDesc: 'These are the LIEPNET™ goals',
-    awardWinner: 'Meteorological network',
-    awardDesc: 'Our goal is to create the first crowdsourced meterological network in Latvia, with at least one station per KM². This density could function as a highly precise radar visually.',
-    globalReach: 'LIEPNET™ Hosting', 
-    globalDesc: 'Our goal with LIEPNET™ Hosting is to provide affordable hosting solutions for small tasks like Discord bot hosting and small Minecraft server hosting. We aim to create a network with a few nodes around the world that have the best connection between the LIEPNET™ CORE and rebroadcast services for optimal connectivity.',
-    industryLeader: 'LIEPNET™ Services',
-    industryDesc: 'Our goal is to make all of our services high-quality and inexpensive; however, we also want to make as many of our services free as possible because we feel that free makes things more accessible to a wider audience. We also intend to develop more services such as maps, radio, radio maps, forums, gaming, and so on. Our goals with these services are to make them simple to use and free; initially, we want to make them available to all users in Latvia, then gradually expand to the rest of Europe and eventually globally.',
+    awardWinner: 'LIEPNET™ WEATHER',
+    awardDesc: 'Our crowdsourced meteorological network in Latvia aims to provide high-quality weather data at no cost. Our goal is to deploy as many weather stations as possible so that data can be more precise and reveal microclimates, such as those found in cities or valleys.',
+    globalReach: 'LIEPNET™ CLOUD', 
+    globalDesc: 'We offer affordable, high-quality hosting services in Europe and North America, including game servers, niche services, website hosting, and more. Our goal is to eliminate the annoying setup process completely. We offer full end-to-end hosting for websites, eliminating the need for you to manage anything. We take care of everything.',
+    industryLeader: 'LIEPNET™ CDN',
+    industryDesc: 'LIEPNET™ CDN aims to offer cost-effective asset caching across Europe and North America without sacrificing performance or service quality. In the future, we intend to extend to Asia, Oceania, and South America to provide even more consumers with a smooth and responsive browsing experience.',
     achievementImage: 'Achievement Image',
     
     // Footer
@@ -317,12 +317,12 @@ const translations = {
     // Goals
     accomplishments: 'MŪSU MĒRĶI',
     accomplishmentsDesc: 'Šie ir LIEPNET™ mērķi',
-    awardWinner: 'Meteoroloģiskais tīkls',
-    awardDesc: 'Mūsu mērķis ir izveidot pirmo kolektīvo meteoroloģisko tīklu Latvijā, ar vismaz vienu staciju uz KM². Šis blīvums varētu darboties kā ļoti precīzs radars vizuāli.',
-    globalReach: 'LIEPNET™ Hostings',
-    globalDesc: 'Mūsu mērķis ar LIEPNET™ Hostingu ir nodrošināt pieejamus hostinga risinājumus maziem uzdevumiem, piemēram, Discord botu hostingam un mazu Minecraft serveru hostingam. Mēs cenšamies izveidot tīklu ar dažiem mezgliem visā pasaulē, kuriem ir vislabākais savienojums starp LIEPNET™ CORE un retranslācijas pakalpojumiem optimālai savienojamībai.',
-    industryLeader: 'LIEPNET™ Pakalpojumi',
-    industryDesc: 'Mūsu mērķis ir padarīt visus mūsu pakalpojumus augstas kvalitātes un lētus; tomēr mēs arī vēlamies padarīt pēc iespējas vairāk mūsu pakalpojumu bezmaksas, jo mēs uzskatām, ka bezmaksas padara lietas pieejamākas plašākai auditorijai. Mēs arī plānojam izstrādāt vairāk pakalpojumu, piemēram, kartes, radio, radio kartes, forumus, spēles un tā tālāk. Mūsu mērķi ar šiem pakalpojumiem ir padarīt tos vienkāršus lietošanā un bezmaksas; sākotnēji mēs vēlamies padarīt tos pieejamus visiem lietotājiem Latvijā, pēc tam pakāpeniski paplašināt uz pārējo Eiropu un galu galā globāli.',
+    awardWinner: 'LIEPNET™ LAIKS',
+    awardDesc: 'Mūsu kolektīvais meteoroloģiskais tīkls Latvijā cenšas nodrošināt augstas kvalitātes laika datus bez maksas. Mūsu mērķis ir izvietot pēc iespējas vairāk laika staciju, lai dati būtu precīzāki un atklātu mikroklimatus, piemēram, pilsētās vai ielejās.',
+    globalReach: 'LIEPNET™ CLOUD',
+    globalDesc: 'Mēs piedāvājam pieejamus, augstas kvalitātes hostinga pakalpojumus Eiropā un Ziemeļamerikā, tostarp spēļu serverus, nišas pakalpojumus, vietņu hostingu un daudz ko citu. Mūsu mērķis ir pilnībā novērst kaitinošo iestatīšanas procesu. Mēs piedāvājam pilnu vietu hostingu, novēršot nepieciešamību jums pārvaldīt jebko. Mēs rūpējamies par visu.',
+    industryLeader: 'LIEPNET™ CDN',
+    industryDesc: 'LIEPNET™ CDN mērķis ir piedāvāt rentablu aktīvu kešatmiņu visā Eiropā un Ziemeļamerikā, neupurējot veiktspēju vai pakalpojumu kvalitāti. Nākotnē mēs plānojam paplašināties uz Āziju, Okeāniju un Dienvidameriku, lai nodrošinātu vēl vairāk patērētāju ar gludu un atsaucīgu pārlūkošanas pieredzi.',
     achievementImage: 'Sasnieguma attēls',
     
     // Footer
@@ -462,12 +462,12 @@ const translations = {
     // Goals
     accomplishments: 'НАШИ ЦЕЛИ',
     accomplishmentsDesc: 'Это цели LIEPNET™',
-    awardWinner: 'Метеорологическая сеть',
-    awardDesc: 'Наша цель - создать первую краудсорсинговую метеорологическую сеть в Латвии, с минимум одной станцией на КМ². Такая плотность могла бы функционировать как высокоточный радар визуально.',
-    globalReach: 'LIEPNET™ Хостинг',
-    globalDesc: 'Наша цель с LIEPNET™ Хостинг - предоставить доступные решения хостинга для небольших задач, таких как хостинг Discord ботов и небольших серверов Minecraft. Мы стремимся создать сеть с несколькими узлами по всему миру, которые имеют лучшее соединение между LIEPNET™ CORE и службами ретрансляции для оптимальной связности.',
-    industryLeader: 'Сервисы LIEPNET™',
-    industryDesc: 'Наша цель - сделать все наши сервисы высококачественными и недорогими; однако мы также хотим сделать как можно больше наших сервисов бесплатными, потому что мы считаем, что бесплатность делает вещи более доступными для более широкой аудитории. Мы также намерены разрабатывать больше сервисов, таких как карты, радио, радиокарты, форумы, игры и так далее. Наши цели с этими сервисами - сделать их простыми в использовании и бесплатными; первоначально мы хотим сделать их доступными для всех пользователей в Латвии, затем постепенно расширяться на остальную Европу и в конечном итоге глобально.',
+    awardWinner: 'LIEPNET™ ПОГОДА',
+    awardDesc: 'Наша краудсорсинговая метеорологическая сеть в Латвии стремится предоставлять высококачественные данные о погоде бесплатно. Наша цель - развернуть как можно больше метеостанций, чтобы данные были более точными и выявляли микроклиматы, такие как городские или долинные.',
+    globalReach: 'LIEPNET™ CLOUD',
+    globalDesc: 'Мы предлагаем доступные и высококачественные услуги хостинга в Европе и Северной Америке, включая игровые серверы, нишевые услуги, хостинг веб-сайтов и многое другое. Наша цель - полностью устранить раздражающий процесс настройки. Мы предлагаем полный хостинг для веб-сайтов, избавляя вас от необходимости управлять чем-либо. Мы заботимся обо всем.',
+    industryLeader: 'LIEPNET™ CDN',
+    industryDesc: 'LIEPNET™ CDN стремится предлагать экономичное кэширование активов в Европе и Северной Америке без ущерба для производительности или качества обслуживания. В будущем мы намерены расшириться на Азию, Океанию и Южную Америку, чтобы предоставить ещё большему количеству потребителей плавный и отзывчивый опыт просмотра.',
     achievementImage: 'Изображение достижения',
     
     // About page
@@ -649,12 +649,12 @@ const translations = {
     // Goals
     accomplishments: 'NOS OBJECTIFS',
     accomplishmentsDesc: 'Voici les objectifs de LIEPNET™',
-    awardWinner: 'Réseau météorologique',
-    awardDesc: 'Notre objectif est de créer le premier réseau météorologique collaboratif en Lettonie, avec au moins une station par KM². Cette densité pourrait fonctionner comme un radar très précis visuellement.',
-    globalReach: 'LIEPNET™ Hébergement',
-    globalDesc: 'Notre objectif avec LIEPNET™ Hébergement est de fournir des solutions d\'hébergement abordables pour de petites tâches comme l\'hébergement de bots Discord et l\'hébergement de petits serveurs Minecraft. Nous visons à créer un réseau avec quelques nœuds dans le monde entier qui ont la meilleure connexion entre le LIEPNET™ CORE et les services de rediffusion pour une connectivité optimale.',
-    industryLeader: 'Services LIEPNET™',
-    industryDesc: 'Notre objectif est de rendre tous nos services de haute qualité et peu coûteux ; cependant, nous voulons aussi rendre autant de nos services gratuits que possible car nous pensons que la gratuité rend les choses plus accessibles à un public plus large. Nous avons également l\'intention de développer plus de services tels que les cartes, la radio, les cartes radio, les forums, les jeux, etc. Nos objectifs avec ces services sont de les rendre simples à utiliser et gratuits ; initialement, nous voulons les rendre disponibles à tous les utilisateurs en Lettonie, puis étendre progressivement au reste de l\'Europe et éventuellement globalement.',
+    awardWinner: 'LIEPNET™ MÉTÉO',
+    awardDesc: 'Notre réseau météorologique participatif en Lettonie vise à fournir des données météorologiques de haute qualité gratuitement. Notre objectif est de déployer autant de stations météorologiques que possible afin que les données soient plus précises et révèlent les microclimats, comme ceux que l\'on trouve dans les villes ou les vallées.',
+    globalReach: 'LIEPNET™ CLOUD',
+    globalDesc: 'Nous offrons des services d\'hébergement abordables et de haute qualité en Europe et en Amérique du Nord, y compris des serveurs de jeux, des services de niche, l\'hébergement de sites web et plus encore. Notre objectif est d\'éliminer complètement le processus de configuration ennuyeux. Nous offrons un hébergement complet de bout en bout pour les sites web, éliminant le besoin pour vous de gérer quoi que ce soit. Nous nous occupons de tout.',
+    industryLeader: 'LIEPNET™ CDN',
+    industryDesc: 'LIEPNET™ CDN vise à offrir une mise en cache d\'actifs rentable à travers l\'Europe et l\'Amérique du Nord sans sacrifier les performances ou la qualité du service. À l\'avenir, nous avons l\'intention de nous étendre à l\'Asie, l\'Océanie et l\'Amérique du Sud pour offrir à encore plus de consommateurs une expérience de navigation fluide et réactive.',
     achievementImage: 'Image de réalisation',
     
     // About page
@@ -836,12 +836,12 @@ const translations = {
     // Goals
     accomplishments: 'ΟΙΚΟΙ ΜΑΣ ΣΤΟΧΟΙ',
     accomplishmentsDesc: 'Αυτοί είναι οι στόχοι του LIEPNET™',
-    awardWinner: 'Μετεωρολογικό δίκτυο',
-    awardDesc: 'Ο στόχος μας είναι να δημιουργήσουμε το πρώτο συνεργατικό μετεωρολογικό δίκτυο στη Λετονία, με τουλάχιστον έναν σταθμό ανά ΧΜ². Αυτή η πυκνότητα θα μπορούσε να λειτουργήσει ως ένα εξαιρετικά ακριβές ραντάρ οπτικά.',
-    globalReach: 'LIEPNET™ Φιλοξενία',
-    globalDesc: 'Ο στόχος μας με το LIEPNET™ Φιλοξενία είναι να παρέχουμε προσιτές λύσεις φιλοξενίας για μικρές εργασίες όπως φιλοξενία Discord bot και φιλοξενία μικρών διακομιστών Minecraft. Στοχεύουμε να δημιουργήσουμε ένα δίκτυο με λίγους κόμβους σε όλο τον κόσμο που έχουν την καλύτερη σύνδεση μεταξύ του LIEPNET™ CORE και των υπηρεσιών αναμετάδοσης για βέλτιστη συνδεσιμότητα.',
-    industryLeader: 'Υπηρεσίες LIEPNET™',
-    industryDesc: 'Ο στόχος μας είναι να κάνουμε όλες τις υπηρεσίες μας υψηλής ποιότητας και οικονομικές· ωστόσο, θέλουμε επίσης να κάνουμε όσο το δυνατόν περισσότερες από τις υπηρεσίες μας δωρεάν γιατί πιστεύουμε ότι το δωρεάν κάνει τα πράγματα πιο προσβάσιμα σε ευρύτερο κοινό. Προτίθεμαι επίσης να αναπτύξουμε περισσότερες υπηρεσίες όπως χάρτες, ραδιόφωνο, ραδιοφωνικούς χάρτες, φόρουμ, παιχνίδια και ούτω καθεξής. Οι στόχοι μας με αυτές τις υπηρεσίες είναι να τις κάνουμε απλές στη χρήση και δωρεάν· αρχικά, θέλουμε να τις καταστήσουμε διαθέσιμες σε όλους τους χρήστες στη Λετονία, στη συνέχεια να επεκταθούμε σταδιακά στην υπόλοιπη Ευρώπη και τελικά παγκοσμίως.',
+    awardWinner: 'LIEPNET™ ΚΑΙΡΟΣ',
+    awardDesc: 'Το συνεργατικό μετεωρολογικό δίκτυό μας στη Λετονία στοχεύει να παρέχει υψηλής ποιότητας δεδομένα καιρού χωρίς κόστος. Ο στόχος μας είναι να αναπτύξουμε όσο το δυνατόν περισσότερους μετεωρολογικούς σταθμούς ώστε τα δεδομένα να είναι πιο ακριβή και να αποκαλύπτουν μικροκλίματα, όπως αυτά που βρίσκονται σε πόλεις ή κοιλάδες.',
+    globalReach: 'LIEPNET™ CLOUD',
+    globalDesc: 'Προσφέρουμε προσιτές, υψηλής ποιότητας υπηρεσίες φιλοξενίας στην Ευρώπη και τη Βόρεια Αμερική, συμπεριλαμβανομένων διακομιστών παιχνιδιών, εξειδικευμένων υπηρεσιών, φιλοξενίας ιστοσελίδων και άλλων. Ο στόχος μας είναι να εξαλείψουμε εντελώς την ενοχλητική διαδικασία εγκατάστασης. Προσφέρουμε πλήρη end-to-end φιλοξενία για ιστοσελίδες, εξαλείφοντας την ανάγκη να διαχειρίζεστε οτιδήποτε. Εμείς φροντίζουμε τα πάντα.',
+    industryLeader: 'LIEPNET™ CDN',
+    industryDesc: 'Το LIEPNET™ CDN στοχεύει να προσφέρει οικονομικά αποδοτική αποθήκευση πόρων σε όλη την Ευρώπη και τη Βόρεια Αμερική χωρίς να θυσιάζει την απόδοση ή την ποιότητα υπηρεσιών. Στο μέλλον, σκοπεύουμε να επεκταθούμε στην Ασία, την Ωκεανία και τη Νότια Αμερική για να προσφέρουμε σε ακόμη περισσότερους καταναλωτές μια ομαλή και ανταποκρινόμενη εμπειρία περιήγησης.',
     achievementImage: 'Εικόνα επιτεύγματος',
     
     // About page
@@ -1210,12 +1210,12 @@ const translations = {
     // Goals
     accomplishments: 'MŪSŲ TIKSLAI',
     accomplishmentsDesc: 'Tai yra LIEPNET™ tikslai',
-    awardWinner: 'Meteorologinis tinklas',
-    awardDesc: 'Mūsų tikslas yra sukurti pirmą kolektyvinio finansavimo meteorologinį tinklą Latvijoje, su bent viena stotimi vienam KM². Šis tankis galėtų veikti kaip labai tikslus radaras vizualiai.',
-    globalReach: 'LIEPNET™ Hostingas',
-    globalDesc: 'Mūsų tikslas su LIEPNET™ Hostingu yra teikti prieinamus hostingo sprendimus mažiems uždaviniams, tokiems kaip Discord botų hostingas ir mažų Minecraft serverių hostingas. Siekiame sukurti tinklą su keliais mazgais visame pasaulyje, kurie turi geriausią ryšį tarp LIEPNET™ CORE ir retransliacijų paslaugų optimaliam ryšiui.',
-    industryLeader: 'LIEPNET™ Paslaugos',
-    industryDesc: 'Mūsų tikslas yra padaryti visas mūsų paslaugas aukštos kokybės ir nebrangias; tačiau mes taip pat norime padaryti kuo daugiau mūsų paslaugų nemokamų, nes manome, kad nemokama padaro dalykus prieinamesnius platesnei auditorijai. Mes taip pat ketname plėtoti daugiau paslaugų, tokių kaip žemėlapiai, radijas, radijo žemėlapiai, forumai, žaidimai ir pan. Mūsų tikslai su šiomis paslaugomis yra padaryti jas lengvas naudoti ir nemokamas; iš pradžių mes norime padaryti jas prieinamas visiems vartotojams Latvijoje, tada palaipsniui plėsti į likusią Europą ir galiausiai globaliai.',
+    awardWinner: 'LIEPNET™ ORAI',
+    awardDesc: 'Mūsų kolektyvinio finansavimo meteorologinis tinklas Latvijoje siekia teikti aukštos kokybės orų duomenis nemokamai. Mūsų tikslas yra įdiegti kuo daugiau orų stočių, kad duomenys būtų tikslesni ir atskleistų mikroklimatą, pvz., miestų ar slėnių.',
+    globalReach: 'LIEPNET™ CLOUD',
+    globalDesc: 'Siūlome prieinamas, aukštos kokybės prieglobos paslaugas Europoje ir Šiaurės Amerikoje, įskaitant žaidimų serverius, nišines paslaugas, svetainių prieglobą ir kt. Mūsų tikslas yra visiškai pašalinti erzinantį sąrankos procesą. Siūlome pilną end-to-end prieglobą svetainėms, pašalindami poreikį jums ką nors valdyti. Mes rūpinamės viskuo.',
+    industryLeader: 'LIEPNET™ CDN',
+    industryDesc: 'LIEPNET™ CDN siekia siūlyti ekonomišką turto talpyklą visoje Europoje ir Šiaurės Amerikoje neprarandant našumo ar paslaugų kokybės. Ateityje ketname plėstis į Aziją, Okeaniją ir Pietų Ameriką, kad dar daugiau vartotojų galėtų mėgautis sklandžia ir greitai reaguojančia naršymo patirtimi.',
     achievementImage: 'Pasiekimo paveikslėlis',
     
     // About page
@@ -1584,12 +1584,12 @@ const translations = {
     // Goals
     accomplishments: 'VÅRA MÅL',
     accomplishmentsDesc: 'Detta är LIEPNET™ mål',
-    awardWinner: 'Meteorologiskt nätverk',
-    awardDesc: 'Vårt mål är att skapa det första crowdsourcade meteorologiska nätverket i Lettland, med minst en station per KM². Denna täthet skulle kunna fungera som en mycket exakt radar visuellt.',
-    globalReach: 'LIEPNET™ Hosting',
-    globalDesc: 'Vårt mål med LIEPNET™ Hosting är att tillhandahålla prisvärda hostinglösningar för små uppgifter som Discord bot hosting och små Minecraft server hosting. Vi strävar efter att skapa ett nätverk med några noder runt om i världen som har den bästa anslutningen mellan LIEPNET™ CORE och omsändningstjänster för optimal anslutning.',
-    industryLeader: 'LIEPNET™ Tjänster',
-    industryDesc: 'Vårt mål är att göra alla våra tjänster högkvalitativa och billiga; vi vill dock också göra så många av våra tjänster gratis som möjligt eftersom vi tror att gratis gör saker mer tillgängliga för en bredare publik. Vi avser också att utveckla fler tjänster som kartor, radio, radiokartor, forum, spel och så vidare. Våra mål med dessa tjänster är att göra dem enkla att använda och gratis; först vill vi göra dem tillgängliga för alla användare i Lettland, sedan gradvis expandera till resten av Europa och slutligen globalt.',
+    awardWinner: 'LIEPNET™ VÄDER',
+    awardDesc: 'Vårt crowdsourcade meteorologiska nätverk i Lettland syftar till att tillhandahålla högkvalitativa väderdata utan kostnad. Vårt mål är att installera så många väderstationer som möjligt så att data kan vara mer exakta och avslöja mikroklimat, som de som finns i städer eller dalar.',
+    globalReach: 'LIEPNET™ CLOUD',
+    globalDesc: 'Vi erbjuder prisvärda, högkvalitativa hostingtjänster i Europa och Nordamerika, inklusive spelservrar, nischtjänster, webbhotell och mer. Vårt mål är att helt eliminera den irriterande installationsprocessen. Vi erbjuder fullständig end-to-end hosting för webbplatser, vilket eliminerar behovet för dig att hantera någonting. Vi tar hand om allt.',
+    industryLeader: 'LIEPNET™ CDN',
+    industryDesc: 'LIEPNET™ CDN syftar till att erbjuda kostnadseffektiv tillgångscachning över Europa och Nordamerika utan att offra prestanda eller servicekvalitet. I framtiden avser vi att expandera till Asien, Oceanien och Sydamerika för att ge ännu fler konsumenter en smidig och responsiv surfupplevelse.',
     achievementImage: 'Prestationsbild',
     
     // About page

@@ -85,10 +85,10 @@ const ContentSection = () => {
             }].map((item, index) => (
               <div 
                 key={index} 
-                className="goal-card backdrop-blur-md border border-emerald-900/50 rounded-xl md:rounded-2xl p-4 md:p-6 animate-fade-in relative overflow-hidden group hover:scale-105 hover:shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all duration-300" 
+                className="goal-card backdrop-blur-md border border-emerald-500/40 rounded-xl md:rounded-2xl p-4 md:p-6 animate-fade-in relative overflow-hidden group hover:scale-105 hover:border-emerald-400/70 hover:shadow-[0_0_35px_rgba(16,185,129,0.5)] transition-all duration-300" 
                 style={{ 
                   animationDelay: `${(index + 4) * 0.1}s`,
-                  background: 'linear-gradient(45deg, rgba(16, 185, 129, 0.08), rgba(16, 185, 129, 0.02))'
+                  background: 'linear-gradient(45deg, rgba(16, 185, 129, 0.15), rgba(16, 185, 129, 0.05))'
                 }}
               >
                 <div className="relative z-10">
