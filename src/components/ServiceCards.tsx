@@ -105,6 +105,9 @@ const ServiceCards = () => {
                 />
               )}
               
+              {/* Inner black glow/vignette effect */}
+              <div className="absolute inset-0 shadow-[inset_0_0_60px_30px_rgba(0,0,0,0.7)] pointer-events-none" />
+              
               {/* Bottom Gradient - only 1/4 of card */}
               <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-black/70 to-transparent" />
               
