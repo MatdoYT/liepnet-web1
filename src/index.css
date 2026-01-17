@@ -60,6 +60,22 @@ All colors MUST be HSL.
     --blue-gradient: linear-gradient(135deg, 221 83% 15%, 221 73% 20%);
     --gray: 220 9% 46%;
     --gray-gradient: linear-gradient(135deg, 220 9% 15%, 220 9% 20%);
+
+    /* About page tokens */
+    --about-bg-white: 0 0% 100%;
+    --about-bg-black: 0 0% 0%;
+    --about-vision-a: 150 80% 10%;
+    --about-vision-b: 150 70% 16%;
+    --about-origins-red: 0 80% 18%;
+    --about-stroke: 0 0% 100%;
+
+    --about-vision-gradient: linear-gradient(45deg, hsl(var(--about-vision-a)) 0%, hsl(var(--about-vision-b)) 100%);
+    --about-origins-gradient: linear-gradient(
+      180deg,
+      hsl(var(--about-bg-black)) 0%,
+      hsl(var(--about-origins-red)) 50%,
+      hsl(var(--about-bg-black)) 100%
+    );
     
     --radius: 1rem;
 
@@ -205,6 +221,38 @@ All colors MUST be HSL.
 
   .gray-gradient {
     background: var(--gray-gradient);
+  }
+
+  /* About page utilities */
+  .about-bg-white {
+    background: hsl(var(--about-bg-white));
+  }
+
+  .about-bg-black {
+    background: hsl(var(--about-bg-black));
+  }
+
+  .about-bg-vision {
+    background: var(--about-vision-gradient);
+  }
+
+  .about-bg-origins {
+    background: var(--about-origins-gradient);
+  }
+
+  .about-origins-title {
+    color: transparent;
+    -webkit-text-stroke: 2px hsl(var(--about-stroke));
+    text-shadow:
+      0 0 30px hsl(var(--about-stroke) / 0.55),
+      0 0 60px hsl(var(--about-stroke) / 0.3);
+    filter: drop-shadow(0 0 20px hsl(var(--about-stroke) / 0.35));
+  }
+
+  .about-origins-body {
+    color: transparent;
+    -webkit-text-stroke: 1px hsl(var(--about-stroke) / 0.85);
+    text-shadow: 0 0 20px hsl(var(--about-stroke) / 0.35);
   }
   
   .banner-glow {
