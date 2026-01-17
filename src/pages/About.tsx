@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ehrLogo from "@/assets/ehr-logo.png";
+import liepnetLogoWhite from "@/assets/liepnet-logo-white.webp";
 
 const About = () => {
   const { t } = useLanguage();
@@ -36,16 +36,17 @@ const About = () => {
     return Math.max(0, Math.min(1, progress));
   };
 
-  // Section boundaries (in vh units, converted to pixels)
+  // Section boundaries - increased spacing
   const vh = windowHeight;
-  const section1End = vh * 1;
-  const section2Start = vh * 0.5;
-  const section2End = vh * 2.5;
-  const section3Start = vh * 2;
-  const section3End = vh * 4;
-  const section4Start = vh * 3.5;
-  const section4End = vh * 5.5;
-  const section5Start = vh * 5;
+  const section1End = vh * 1.5;
+  const section2Start = vh * 1;
+  const section2End = vh * 3.5;
+  const section3Start = vh * 3;
+  const section3End = vh * 5.5;
+  const section4Start = vh * 5;
+  const section4End = vh * 7.5;
+  const section5Start = vh * 7;
+  const section5End = vh * 9;
 
   // Background color transitions
   const getBackgroundColor = () => {
@@ -59,24 +60,20 @@ const About = () => {
     if (scrollY < section3Start) {
       return 'rgb(0, 0, 0)';
     }
-    // Section 3: Dark green to bright green gradient
+    // Section 3: 45 degree dark green to darker green gradient
     if (scrollY < section4Start) {
-      const progress = getSectionProgress(section3Start, section3End);
-      const greenIntensity = Math.floor(40 + progress * 60);
-      return `linear-gradient(180deg, rgb(0, ${greenIntensity}, ${Math.floor(greenIntensity * 0.3)}) 0%, rgb(0, ${Math.floor(greenIntensity * 1.5)}, ${Math.floor(greenIntensity * 0.5)}) 100%)`;
+      return 'linear-gradient(45deg, rgb(0, 40, 20) 0%, rgb(0, 80, 40) 100%)';
     }
-    // Section 4: Dark red-black
+    // Section 4: Dark red in middle horizontally, black on top and bottom
     if (scrollY < section5Start) {
-      const progress = getSectionProgress(section4Start, section4End);
-      const red = Math.floor(60 + progress * 40);
-      return `rgb(${red}, 0, 0)`;
+      return 'linear-gradient(180deg, rgb(0, 0, 0) 0%, rgb(80, 0, 0) 50%, rgb(0, 0, 0) 100%)';
     }
     // Section 5: Black
     return 'rgb(0, 0, 0)';
   };
 
   // Intro fade in
-  const introOpacity = scrollY < 100 ? 1 : Math.max(0, 1 - (scrollY - 100) / 300);
+  const introOpacity = scrollY < 100 ? 1 : Math.max(0, 1 - (scrollY - 100) / 400);
   
   // Section 2: Text from right, image fade left
   const section2Progress = getSectionProgress(section2Start, section2End);
@@ -90,7 +87,7 @@ const About = () => {
   const section4Progress = getSectionProgress(section4Start, section4End);
 
   // Section 5: Thank you visibility
-  const section5Progress = getSectionProgress(section5Start, section5Start + vh);
+  const section5Progress = getSectionProgress(section5Start, section5End);
 
   const bgStyle = getBackgroundColor();
   const isGradient = bgStyle.includes('gradient');
@@ -98,7 +95,7 @@ const About = () => {
   return (
     <div 
       ref={containerRef}
-      className="min-h-[700vh] overflow-x-hidden transition-colors duration-300"
+      className="min-h-[1000vh] overflow-x-hidden transition-colors duration-300"
       style={{ 
         background: isGradient ? bgStyle : undefined,
         backgroundColor: !isGradient ? bgStyle : undefined
@@ -113,16 +110,11 @@ const About = () => {
           style={{ opacity: introOpacity }}
         >
           <img 
-            src={ehrLogo} 
+            src={liepnetLogoWhite} 
             alt="LIEPNET Logo" 
-            className="w-40 h-40 md:w-56 md:h-56 object-contain animate-fade-in"
+            className="w-64 h-auto md:w-96 object-contain animate-fade-in"
+            style={{ filter: 'invert(1)' }}
           />
-          <h1 className="text-4xl md:text-6xl font-bold text-black animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            LIEPNET™
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 animate-fade-in" style={{ animationDelay: '0.5s' }}>
-            {t('aboutSubtitle')}
-          </p>
           <div className="animate-bounce mt-8">
             <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -149,13 +141,11 @@ const About = () => {
               transform: `translateX(${-50 + imageOpacity * 50}px)`
             }}
           >
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-3xl bg-gradient-to-br from-emerald-500/20 to-emerald-600/30 backdrop-blur-lg border border-emerald-500/30 flex items-center justify-center overflow-hidden">
-              <img 
-                src={ehrLogo} 
-                alt="LIEPNET" 
-                className="w-32 h-32 md:w-48 md:h-48 object-contain"
-              />
-            </div>
+            <img 
+              src={liepnetLogoWhite} 
+              alt="LIEPNET" 
+              className="w-48 h-auto md:w-72 object-contain"
+            />
           </div>
           
           {/* Text slides in from right */}
@@ -171,9 +161,6 @@ const About = () => {
             </h2>
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
               {t('whatIsContent')}
-            </p>
-            <p className="text-base text-gray-400 leading-relaxed">
-              {t('countryOrigin')}
             </p>
           </div>
         </div>
@@ -226,7 +213,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Section 4: Origins - Dark red background with glowing text */}
+      {/* Section 4: Origins - Dark red in middle, black top/bottom */}
       <section 
         className="h-screen flex items-center justify-center fixed top-0 left-0 right-0"
         style={{ 
@@ -311,10 +298,10 @@ const About = () => {
         </div>
       </section>
 
-      {/* Spacer for scroll */}
-      <div className="h-[600vh]" />
+      {/* Spacer for scroll - increased for more spacing */}
+      <div className="h-[900vh]" />
 
-      {/* Footer */}
+      {/* Footer - no fade, just appears */}
       <div className="relative z-10 bg-black">
         <Footer />
       </div>
