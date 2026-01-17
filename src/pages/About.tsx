@@ -2,497 +2,322 @@ import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { 
-  MapPin, Target, Trophy, Lightbulb, Shield, Rocket, 
-  Globe, Leaf, ArrowDown, Sparkles, Zap, Users 
-} from "lucide-react";
-import liepnetHero from "@/assets/liepnet-hero.png";
-
-// Hero section with parallax and scroll-scrubbed animation
-const ParallaxHero = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const heroRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!heroRef.current) return;
-      const rect = heroRef.current.getBoundingClientRect();
-      const progress = Math.max(0, Math.min(1, 1 - (rect.bottom / window.innerHeight)));
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <section 
-      ref={heroRef}
-      className="relative h-screen w-full overflow-hidden"
-      style={{ willChange: 'transform' }}
-    >
-      {/* Background layer - slowest parallax */}
-      <div 
-        className="absolute inset-0 bg-background"
-        style={{ 
-          transform: `translateY(${scrollProgress * 50}px) scale(${1 + scrollProgress * 0.1})`,
-          opacity: 1 - scrollProgress * 0.3
-        }}
-      />
-      
-      {/* Image layer - medium parallax */}
-      <div
-        className="absolute inset-0"
-        style={{ 
-          transform: `translateY(${scrollProgress * 100}px) scale(${1 + scrollProgress * 0.15})`,
-          opacity: 1 - scrollProgress * 0.5
-        }}
-      >
-        <img 
-          src={liepnetHero} 
-          alt="LIEPNET Hero" 
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      {/* Gradient overlay */}
-      <div 
-        className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background"
-        style={{ 
-          backgroundImage: `linear-gradient(to bottom, transparent 0%, transparent 66.67%, hsl(var(--background)) 100%)`,
-          opacity: 0.5 + scrollProgress * 0.5
-        }}
-      />
-
-      {/* Scroll progress indicator */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10">
-        <div 
-          className="h-full bg-primary transition-all"
-          style={{ 
-            width: `${scrollProgress * 100}%`,
-            transition: 'width 100ms linear'
-          }}
-        />
-      </div>
-    </section>
-  );
-};
-
-// Staggered card reveal with hover effects
-const AnimatedCard = ({ 
-  icon: Icon, 
-  title, 
-  content, 
-  color,
-  delay = 0,
-  index = 0
-}: {
-  icon: any;
-  title: string;
-  content: string;
-  color: string;
-  delay?: number;
-  index?: number;
-}) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    setTilt({ x: y * 10, y: -x * 10 });
-  };
-
-  const handleMouseLeave = () => {
-    setTilt({ x: 0, y: 0 });
-  };
-
-  return (
-    <div
-      ref={cardRef}
-      className="group relative"
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
-        transition: `all var(--motion-slow) var(--ease-out-quad) ${delay}ms`,
-        willChange: 'transform, opacity'
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div
-        className="relative bg-card/80 backdrop-blur-lg border border-border/50 rounded-3xl p-8 hover-lift overflow-hidden"
-        style={{
-          transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
-          transition: 'transform var(--motion-fast) var(--ease-spring)',
-          boxShadow: 'var(--shadow-md)'
-        }}
-      >
-
-        <div className="relative flex flex-col items-center text-center space-y-4">
-          <div className="p-4 rounded-2xl bg-muted group-hover:scale-110 transition-transform duration-300">
-            <Icon className={`w-8 h-8 text-foreground`} />
-          </div>
-          <h3 className="text-xl font-bold text-foreground group-hover:text-foreground transition-colors duration-300">
-            {title}
-          </h3>
-          <p className="text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">
-            {content}
-          </p>
-        </div>
-
-      </div>
-    </div>
-  );
-};
-
-// Sticky pinned section with scroll-driven animation
-const StickySection = () => {
-  const { t } = useLanguage();
-  const [progress, setProgress] = useState(0);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      const sectionHeight = rect.height;
-      const windowHeight = window.innerHeight;
-      
-      if (rect.top <= 0 && rect.bottom >= windowHeight) {
-        const scrolled = Math.abs(rect.top);
-        const total = sectionHeight - windowHeight;
-        setProgress(Math.min(1, scrolled / total));
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const steps = [
-    { icon: Globe, label: t('achievement1Title'), color: 'text-foreground' },
-    { icon: Shield, label: t('achievement2Title'), color: 'text-foreground' },
-    { icon: Sparkles, label: t('achievement3Title'), color: 'text-foreground' },
-    { icon: Zap, label: 'Innovation', color: 'text-foreground' }
-  ];
-
-  const currentStep = Math.floor(progress * steps.length);
-
-  return (
-    <section 
-      ref={sectionRef}
-      className="relative min-h-[300vh] bg-background"
-    >
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-4">
-              Our Journey
-            </h2>
-            <div className="w-full max-w-md mx-auto h-2 bg-border/30 rounded-full overflow-hidden">
-              <div 
-                className="h-full bg-foreground transition-all duration-300"
-                style={{ width: `${progress * 100}%` }}
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            {steps.map((step, index) => {
-              const isActive = index <= currentStep;
-              const isPast = index < currentStep;
-              
-              return (
-                <div
-                  key={index}
-                  className="flex flex-col items-center space-y-4"
-                  style={{
-                    opacity: isActive ? 1 : 0.3,
-                    transform: isActive ? 'scale(1)' : 'scale(0.9)',
-                    transition: 'all var(--motion-normal) var(--ease-spring)'
-                  }}
-                >
-                  <div 
-                    className={`p-6 rounded-2xl bg-card/80 backdrop-blur border ${
-                      isActive ? 'border-foreground/50' : 'border-border/30'
-                    } relative`}
-                    style={{
-                      boxShadow: isActive ? 'var(--shadow-lg)' : 'var(--shadow-sm)'
-                    }}
-                  >
-                    <step.icon className={`w-12 h-12 ${step.color}`} />
-                    {isPast && (
-                      <div className="absolute -top-2 -right-2 w-6 h-6 bg-foreground rounded-full flex items-center justify-center">
-                        <svg className="w-4 h-4 text-background" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                    )}
-                  </div>
-                  <p className={`text-sm font-medium ${isActive ? 'text-foreground' : 'text-muted-foreground'}`}>
-                    {step.label}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// Morphing button/card transition
-const MorphingCTA = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const { t } = useLanguage();
-
-  return (
-    <div className="flex justify-center items-center min-h-[60vh] py-20">
-      <div className="relative">
-        <div
-          className="relative cursor-pointer"
-          onClick={() => setIsExpanded(!isExpanded)}
-          style={{
-            width: isExpanded ? '600px' : '200px',
-            height: isExpanded ? '400px' : '60px',
-            transition: 'all var(--motion-slow) var(--ease-spring)',
-            maxWidth: '90vw'
-          }}
-        >
-          <div className="absolute inset-0 bg-foreground rounded-3xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
-            {!isExpanded ? (
-              <div className="flex items-center justify-center h-full">
-                <span className="text-background font-bold text-lg">Learn More</span>
-              </div>
-            ) : (
-              <div className="p-8 text-background space-y-4 opacity-0 animate-in fade-in duration-500" style={{ animationDelay: '200ms', opacity: 1 }}>
-                <h3 className="text-2xl font-bold">Why Choose LIEPNET?</h3>
-                <p className="text-background/90">
-                  {t('whyChooseTitle')}
-                </p>
-                <div className="flex gap-4 mt-6">
-                  <Users className="w-6 h-6" />
-                  <Target className="w-6 h-6" />
-                  <Rocket className="w-6 h-6" />
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+import ehrLogo from "@/assets/ehr-logo.png";
 
 const About = () => {
   const { t } = useLanguage();
+  const [scrollY, setScrollY] = useState(0);
+  const [windowHeight, setWindowHeight] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.title = 'LIEPNET™';
+    document.title = 'About - LIEPNET™';
+    setWindowHeight(window.innerHeight);
+
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    const handleResize = () => {
+      setWindowHeight(window.innerHeight);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
-  const achievements = [
-    {
-      icon: Globe,
-      title: t('achievement1Title'),
-      content: t('achievement1Content'),
-      color: 'text-foreground'
-    },
-    {
-      icon: Shield,
-      title: t('achievement2Title'),
-      content: t('achievement2Content'),
-      color: 'text-foreground'
-    },
-    {
-      icon: Lightbulb,
-      title: t('achievement3Title'),
-      content: t('achievement3Content'),
-      color: 'text-foreground'
-    }
-  ];
+  // Calculate section progress (0-1) based on scroll position
+  const getSectionProgress = (sectionStart: number, sectionEnd: number) => {
+    const progress = (scrollY - sectionStart) / (sectionEnd - sectionStart);
+    return Math.max(0, Math.min(1, progress));
+  };
 
-  const plans = [
-    {
-      icon: Target,
-      title: t('plan1Title'),
-      content: t('plan1Content'),
-      color: 'text-foreground'
-    },
-    {
-      icon: Leaf,
-      title: t('plan2Title'),
-      content: t('plan2Content'),
-      color: 'text-foreground'
-    },
-    {
-      icon: Rocket,
-      title: t('plan3Title'),
-      content: t('plan3Content'),
-      color: 'text-foreground'
-    }
-  ];
+  // Section boundaries (in vh units, converted to pixels)
+  const vh = windowHeight;
+  const section1End = vh * 1;
+  const section2Start = vh * 0.5;
+  const section2End = vh * 2.5;
+  const section3Start = vh * 2;
+  const section3End = vh * 4;
+  const section4Start = vh * 3.5;
+  const section4End = vh * 5.5;
+  const section5Start = vh * 5;
 
-  const reasons = [
-    {
-      icon: Shield,
-      title: t('reason1Title'),
-      content: t('reason1Content'),
-      color: 'text-foreground'
-    },
-    {
-      icon: Lightbulb,
-      title: t('reason2Title'),
-      content: t('reason2Content'),
-      color: 'text-foreground'
-    },
-    {
-      icon: MapPin,
-      title: t('reason3Title'),
-      content: t('reason3Content'),
-      color: 'text-foreground'
-    },
-    {
-      icon: Trophy,
-      title: t('reason4Title'),
-      content: t('reason4Content'),
-      color: 'text-foreground'
+  // Background color transitions
+  const getBackgroundColor = () => {
+    // Section 1: White
+    if (scrollY < section1End) {
+      const progress = getSectionProgress(0, section1End);
+      const white = 255 - Math.floor(progress * 255);
+      return `rgb(${white}, ${white}, ${white})`;
     }
-  ];
+    // Section 2: Black
+    if (scrollY < section3Start) {
+      return 'rgb(0, 0, 0)';
+    }
+    // Section 3: Dark green to bright green gradient
+    if (scrollY < section4Start) {
+      const progress = getSectionProgress(section3Start, section3End);
+      const greenIntensity = Math.floor(40 + progress * 60);
+      return `linear-gradient(180deg, rgb(0, ${greenIntensity}, ${Math.floor(greenIntensity * 0.3)}) 0%, rgb(0, ${Math.floor(greenIntensity * 1.5)}, ${Math.floor(greenIntensity * 0.5)}) 100%)`;
+    }
+    // Section 4: Dark red-black
+    if (scrollY < section5Start) {
+      const progress = getSectionProgress(section4Start, section4End);
+      const red = Math.floor(60 + progress * 40);
+      return `rgb(${red}, 0, 0)`;
+    }
+    // Section 5: Black
+    return 'rgb(0, 0, 0)';
+  };
+
+  // Intro fade in
+  const introOpacity = scrollY < 100 ? 1 : Math.max(0, 1 - (scrollY - 100) / 300);
+  
+  // Section 2: Text from right, image fade left
+  const section2Progress = getSectionProgress(section2Start, section2End);
+  const textFromRight = Math.max(0, 100 - section2Progress * 150);
+  const imageOpacity = Math.min(1, Math.max(0, (section2Progress - 0.3) * 2));
+
+  // Section 3: Services/plans visibility
+  const section3Progress = getSectionProgress(section3Start, section3End);
+  
+  // Section 4: Origins visibility
+  const section4Progress = getSectionProgress(section4Start, section4End);
+
+  // Section 5: Thank you visibility
+  const section5Progress = getSectionProgress(section5Start, section5Start + vh);
+
+  const bgStyle = getBackgroundColor();
+  const isGradient = bgStyle.includes('gradient');
 
   return (
-    <div className="bg-background text-foreground overflow-x-hidden pt-20">
+    <div 
+      ref={containerRef}
+      className="min-h-[700vh] overflow-x-hidden transition-colors duration-300"
+      style={{ 
+        background: isGradient ? bgStyle : undefined,
+        backgroundColor: !isGradient ? bgStyle : undefined
+      }}
+    >
       <Header />
       
-      {/* Hero with parallax */}
-      <ParallaxHero />
+      {/* Section 1: Logo on white background - fade in */}
+      <section className="h-screen flex items-center justify-center fixed top-0 left-0 right-0 pt-20">
+        <div 
+          className="flex flex-col items-center justify-center gap-8 transition-opacity duration-500"
+          style={{ opacity: introOpacity }}
+        >
+          <img 
+            src={ehrLogo} 
+            alt="LIEPNET Logo" 
+            className="w-40 h-40 md:w-56 md:h-56 object-contain animate-fade-in"
+          />
+          <h1 className="text-4xl md:text-6xl font-bold text-black animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            LIEPNET™
+          </h1>
+          <p className="text-lg md:text-xl text-gray-600 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+            {t('aboutSubtitle')}
+          </p>
+          <div className="animate-bounce mt-8">
+            <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+        </div>
+      </section>
 
-      {/* What is LIEPNET */}
-      <section className="min-h-screen flex items-center justify-center py-20 bg-background">
-        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8">
-            <h2 className="text-4xl md:text-6xl font-bold text-foreground">
+      {/* Section 2: Text from right, image from left */}
+      <section 
+        className="h-screen flex items-center justify-center fixed top-0 left-0 right-0"
+        style={{ 
+          opacity: scrollY > section2Start * 0.8 && scrollY < section3Start ? 1 : 0,
+          pointerEvents: scrollY > section2Start && scrollY < section3Start ? 'auto' : 'none',
+          transition: 'opacity 0.3s ease'
+        }}
+      >
+        <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+          {/* Image fades in from left */}
+          <div 
+            className="relative flex justify-center transition-all duration-700"
+            style={{ 
+              opacity: imageOpacity,
+              transform: `translateX(${-50 + imageOpacity * 50}px)`
+            }}
+          >
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-3xl bg-gradient-to-br from-emerald-500/20 to-emerald-600/30 backdrop-blur-lg border border-emerald-500/30 flex items-center justify-center overflow-hidden">
+              <img 
+                src={ehrLogo} 
+                alt="LIEPNET" 
+                className="w-32 h-32 md:w-48 md:h-48 object-contain"
+              />
+            </div>
+          </div>
+          
+          {/* Text slides in from right */}
+          <div 
+            className="space-y-6 transition-all duration-500"
+            style={{ 
+              transform: `translateX(${textFromRight}px)`,
+              opacity: Math.min(1, section2Progress * 2)
+            }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white">
               {t('whatIsTitle')}
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
               {t('whatIsContent')}
+            </p>
+            <p className="text-base text-gray-400 leading-relaxed">
+              {t('countryOrigin')}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Plans and Services - Green gradient background */}
+      <section 
+        className="h-screen flex items-center justify-center fixed top-0 left-0 right-0"
+        style={{ 
+          opacity: scrollY > section3Start * 0.9 && scrollY < section4Start ? 1 : 0,
+          pointerEvents: scrollY > section3Start && scrollY < section4Start ? 'auto' : 'none',
+          transition: 'opacity 0.5s ease'
+        }}
+      >
+        <div className="container mx-auto px-6">
+          <div 
+            className="text-center mb-12 transition-all duration-700"
+            style={{ 
+              opacity: Math.min(1, section3Progress * 3),
+              transform: `translateY(${30 - section3Progress * 30}px)`
+            }}
+          >
+            <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
+              {t('whatPlansTitle')}
+            </h2>
+            <p className="text-lg text-white/70">
+              What LIEPNET™ offers
             </p>
           </div>
           
-          <div className="relative flex justify-center">
-            <div className="w-80 h-80 rounded-full bg-card border border-border flex items-center justify-center animate-float">
-              <Globe className="w-32 h-32 text-foreground" />
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              { title: t('plan1Title'), content: t('plan1Content'), delay: 0 },
+              { title: t('plan2Title'), content: t('plan2Content'), delay: 0.1 },
+              { title: t('plan3Title'), content: t('plan3Content'), delay: 0.2 }
+            ].map((plan, index) => (
+              <div 
+                key={index}
+                className="bg-black/30 backdrop-blur-lg border border-white/20 rounded-2xl p-6 transition-all duration-500 hover:border-emerald-400/50 hover:bg-black/40"
+                style={{ 
+                  opacity: Math.min(1, (section3Progress - 0.2 - plan.delay) * 3),
+                  transform: `translateY(${Math.max(0, 50 - (section3Progress - plan.delay) * 100)}px)`
+                }}
+              >
+                <h3 className="text-xl font-bold text-white mb-3">{plan.title}</h3>
+                <p className="text-gray-300 text-sm leading-relaxed">{plan.content}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Origins - Dark red background with glowing text */}
+      <section 
+        className="h-screen flex items-center justify-center fixed top-0 left-0 right-0"
+        style={{ 
+          opacity: scrollY > section4Start * 0.9 && scrollY < section5Start ? 1 : 0,
+          pointerEvents: scrollY > section4Start && scrollY < section5Start ? 'auto' : 'none',
+          transition: 'opacity 0.5s ease'
+        }}
+      >
+        <div className="container mx-auto px-6 text-center">
+          <div 
+            className="max-w-3xl mx-auto space-y-8 transition-all duration-700"
+            style={{ 
+              opacity: Math.min(1, section4Progress * 2),
+              transform: `scale(${0.9 + section4Progress * 0.1})`
+            }}
+          >
+            <h2 
+              className="text-4xl md:text-6xl font-bold"
+              style={{
+                color: 'transparent',
+                WebkitTextStroke: '2px white',
+                textShadow: '0 0 30px rgba(255,255,255,0.5), 0 0 60px rgba(255,255,255,0.3)',
+                filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.4))'
+              }}
+            >
+              Our Origins
+            </h2>
+            <p 
+              className="text-lg md:text-xl leading-relaxed"
+              style={{
+                color: 'transparent',
+                WebkitTextStroke: '1px rgba(255,255,255,0.8)',
+                textShadow: '0 0 20px rgba(255,255,255,0.4)',
+              }}
+            >
+              LIEPNET™ was founded in Latvia with a vision to connect Europe and North America 
+              through cutting-edge technology. Our journey began with a simple idea: 
+              make quality hosting accessible to everyone.
+            </p>
+            <div 
+              className="text-base md:text-lg text-white/60 mt-8"
+              style={{
+                textShadow: '0 0 10px rgba(255,255,255,0.2)',
+              }}
+            >
+              Founded February 2025 • Liepāja, Latvia
             </div>
           </div>
         </div>
       </section>
 
-      {/* Sticky scroll section */}
-      <StickySection />
-
-      {/* Achievements with staggered reveal */}
-      <section className="min-h-screen flex items-center justify-center py-20 bg-muted/30">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-8">
-              {t('whatDoneTitle')}
+      {/* Section 5: Thank you - Black background */}
+      <section 
+        className="h-screen flex items-center justify-center fixed top-0 left-0 right-0"
+        style={{ 
+          opacity: scrollY > section5Start * 0.9 ? 1 : 0,
+          pointerEvents: scrollY > section5Start ? 'auto' : 'none',
+          transition: 'opacity 0.5s ease'
+        }}
+      >
+        <div className="container mx-auto px-6 text-center">
+          <div 
+            className="max-w-2xl mx-auto space-y-8 transition-all duration-1000"
+            style={{ 
+              opacity: Math.min(1, section5Progress * 2),
+              transform: `translateY(${30 - section5Progress * 30}px)`
+            }}
+          >
+            <h2 className="text-4xl md:text-6xl font-bold text-white">
+              Thank You
             </h2>
-          </div>
-          
-          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {achievements.map((achievement, index) => (
-              <AnimatedCard
-                key={index}
-                icon={achievement.icon}
-                title={achievement.title}
-                content={achievement.content}
-                color={achievement.color}
-                delay={index * 60}
-                index={index}
-              />
-            ))}
+            <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
+              Thank you for taking the time to learn about LIEPNET™. 
+              We're excited to have you as part of our journey.
+            </p>
+            <div className="pt-12 border-t border-white/10 mt-12">
+              <p className="text-lg text-gray-500 italic">
+                "{t('footerQuote')}"
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Morphing CTA */}
-      <section className="bg-background">
-        <MorphingCTA />
-      </section>
+      {/* Spacer for scroll */}
+      <div className="h-[600vh]" />
 
-      {/* Future Plans */}
-      <section className="min-h-screen flex items-center justify-center py-20 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-8">
-              {t('whatPlansTitle')}
-            </h2>
-          </div>
-          
-          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {plans.map((plan, index) => (
-              <AnimatedCard
-                key={index}
-                icon={plan.icon}
-                title={plan.title}
-                content={plan.content}
-                color={plan.color}
-                delay={index * 60}
-                index={index}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose LIEPNET */}
-      <section className="min-h-screen flex items-center justify-center py-20 bg-muted/30">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-8">
-              {t('whyChooseTitle')}
-            </h2>
-          </div>
-          
-          <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {reasons.map((reason, index) => (
-              <AnimatedCard
-                key={index}
-                icon={reason.icon}
-                title={reason.title}
-                content={reason.content}
-                color={reason.color}
-                delay={index * 50}
-                index={index}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <Footer />
+      {/* Footer */}
+      <div className="relative z-10 bg-black">
+        <Footer />
+      </div>
     </div>
   );
 };
