@@ -64,16 +64,22 @@ All colors MUST be HSL.
     /* About page tokens */
     --about-bg-white: 0 0% 100%;
     --about-bg-black: 0 0% 0%;
-    --about-vision-a: 150 80% 10%;
-    --about-vision-b: 150 70% 16%;
-    --about-origins-red: 0 80% 18%;
+
+    /* Vision: 45° dark green → darker green */
+    --about-vision-a: 145 45% 12%;
+    --about-vision-b: 155 40% 7%;
+
+    /* Origins: black top/bottom with a dark red horizontal band in the middle */
+    --about-origins-red: 0 70% 18%;
     --about-stroke: 0 0% 100%;
 
     --about-vision-gradient: linear-gradient(45deg, hsl(var(--about-vision-a)) 0%, hsl(var(--about-vision-b)) 100%);
     --about-origins-gradient: linear-gradient(
       180deg,
       hsl(var(--about-bg-black)) 0%,
+      hsl(var(--about-bg-black)) 18%,
       hsl(var(--about-origins-red)) 50%,
+      hsl(var(--about-bg-black)) 82%,
       hsl(var(--about-bg-black)) 100%
     );
     
