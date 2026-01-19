@@ -41,26 +41,34 @@ const About = () => {
     document.title = "About - LIEPNET™";
   }, []);
 
-  // Crossfade background ONLY when the active section changes (no "accidental" mid-scroll fades).
+  // Crossfade background smoothly when the active section changes.
   useEffect(() => {
     const from = lastIndexRef.current;
     if (activeIndex === from) return;
 
     lastIndexRef.current = activeIndex;
 
+    // Start crossfade: set "from" to current, "to" to next, opacity 0
     setBgFromIndex(from);
     setBgToIndex(activeIndex);
     setBgMix(0);
 
-    const raf = requestAnimationFrame(() => setBgMix(1));
+    // Use a small delay so the browser registers the opacity: 0 state before transitioning to 1
+    const rafId = requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setBgMix(1);
+      });
+    });
+
+    // After the transition completes, clean up by setting both layers to the new background
     const timer = window.setTimeout(() => {
       setBgFromIndex(activeIndex);
       setBgToIndex(activeIndex);
       setBgMix(1);
-    }, 320);
+    }, 620); // match the CSS transition duration
 
     return () => {
-      cancelAnimationFrame(raf);
+      cancelAnimationFrame(rafId);
       window.clearTimeout(timer);
     };
   }, [activeIndex]);
@@ -143,7 +151,13 @@ const About = () => {
       {/* Background layer (crossfades between section backgrounds) */}
       <div className="absolute inset-0 -z-10">
         <div className={`absolute inset-0 ${backgrounds[bgFromIndex]}`} />
-        <div className={`absolute inset-0 ${backgrounds[bgToIndex]} transition-opacity duration-300`} style={{ opacity: bgMix }} />
+        <div
+          className={`absolute inset-0 ${backgrounds[bgToIndex]}`}
+          style={{
+            opacity: bgMix,
+            transition: "opacity 600ms ease-in-out",
+          }}
+        />
       </div>
 
       <Header />
