@@ -33,7 +33,7 @@ const Meteo = () => {
               backgroundImage: "linear-gradient(25deg, hsl(0,0%,100%), hsl(0,0%,75%))",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              marginBottom: "-2rem",
+              marginBottom: "0",
             }}
           >
             LIEPNET WEATHER
@@ -42,7 +42,7 @@ const Meteo = () => {
           {/* Map container */}
           <div className="flex justify-center relative z-10">
             <div
-              className="relative w-full transition-transform duration-700 ease-out cursor-default"
+              className="relative max-w-3xl w-full transition-transform duration-700 ease-out cursor-default"
               onMouseEnter={() => setMapHovered(true)}
               onMouseLeave={() => setMapHovered(false)}
               style={{
@@ -52,14 +52,6 @@ const Meteo = () => {
                   : "none",
               }}
             >
-              {/* Shadow for depth against title */}
-              <div
-                className="absolute inset-x-0 -top-16 h-24 pointer-events-none"
-                style={{
-                  background: "linear-gradient(to bottom, rgba(0,0,0,0.7), transparent)",
-                  zIndex: -1,
-                }}
-              />
 
               <img
                 src={latviaMap}
