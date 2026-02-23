@@ -21,33 +21,47 @@ const Meteo = () => {
   const [mapHovered, setMapHovered] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-neutral-950 via-neutral-900 to-neutral-950">
+    <div className="min-h-screen bg-gradient-to-b from-neutral-950 via-neutral-900 to-neutral-950 overflow-hidden">
       <Header />
 
       <main className="pt-28 pb-20">
         <div className="container mx-auto px-6">
+          {/* Title - overlaps behind the map via negative margin + z-index */}
           <h1
-            className="text-5xl md:text-6xl font-bold text-center mb-16 tracking-tight"
+            className="text-[7rem] md:text-[10rem] lg:text-[13rem] font-bold text-center tracking-tight leading-none relative z-0"
             style={{
               backgroundImage: "linear-gradient(25deg, hsl(0,0%,100%), hsl(0,0%,75%))",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
+              marginBottom: "-4rem",
             }}
           >
             LIEPNET WEATHER
           </h1>
 
-          <div className="flex justify-center">
+          {/* Map container */}
+          <div className="flex justify-center relative z-10">
             <div
-              className="relative max-w-4xl w-full transition-all duration-500"
+              className="relative w-full transition-transform duration-700 ease-out cursor-default"
               onMouseEnter={() => setMapHovered(true)}
               onMouseLeave={() => setMapHovered(false)}
               style={{
+                transform: mapHovered ? "scale(1.06)" : "scale(1)",
                 filter: mapHovered
                   ? "drop-shadow(0 0 40px rgba(255,255,255,0.12)) drop-shadow(0 0 80px rgba(255,255,255,0.06))"
                   : "none",
               }}
             >
+              {/* Big shadow beneath map for depth against title */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  boxShadow: "0 -60px 120px 60px rgba(0,0,0,0.7), 0 40px 100px 40px rgba(0,0,0,0.5)",
+                  borderRadius: "50%",
+                  zIndex: -1,
+                }}
+              />
+
               <img
                 src={latviaMap}
                 alt="Latvia map"
@@ -68,10 +82,10 @@ const Meteo = () => {
                     }}
                   >
                     <div
-                      className="relative cursor-pointer transition-transform duration-300"
+                      className="relative cursor-pointer transition-all duration-300"
                       style={{
-                        width: isHovered ? 38 : 32,
-                        height: isHovered ? 38 : 32,
+                        width: isHovered ? 72 : 64,
+                        height: isHovered ? 72 : 64,
                       }}
                       onMouseEnter={() => setHoveredMarker(marker.id)}
                       onMouseLeave={() => setHoveredMarker(null)}
@@ -81,22 +95,20 @@ const Meteo = () => {
                         alt="marker"
                         className="w-full h-full object-contain"
                       />
-                      {/* Shadow below marker */}
                       <div
                         className="absolute left-1/2 -translate-x-1/2 rounded-full"
                         style={{
-                          bottom: -8,
-                          width: isHovered ? 20 : 16,
-                          height: 5,
-                          background: "radial-gradient(ellipse, rgba(0,0,0,0.45) 0%, transparent 70%)",
-                          filter: "blur(2px)",
+                          bottom: -10,
+                          width: isHovered ? 36 : 28,
+                          height: 8,
+                          background: "radial-gradient(ellipse, rgba(0,0,0,0.5) 0%, transparent 70%)",
+                          filter: "blur(3px)",
                         }}
                       />
                     </div>
 
-                    {/* Label */}
                     <div
-                      className="absolute left-full ml-1 whitespace-nowrap text-xs font-semibold text-white/90 transition-all duration-300 pointer-events-none"
+                      className="absolute left-full ml-2 whitespace-nowrap text-sm font-semibold text-white/90 transition-all duration-300 pointer-events-none"
                       style={{
                         bottom: "30%",
                         opacity: isHovered ? 1 : 0,
