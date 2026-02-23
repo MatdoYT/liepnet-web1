@@ -18,6 +18,7 @@ const Radio = lazy(() => import("./pages/Radio"));
 const RadioStation = lazy(() => import("./pages/RadioStation"));
 const Hosting = lazy(() => import("./pages/Hosting"));
 const HostingCalculator = lazy(() => import("./pages/HostingCalculator"));
+const Meteo = lazy(() => import("./pages/Meteo"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -50,7 +51,7 @@ const App = () => (
                 <Route path="/radio" element={<Radio />} />
                 <Route path="/radio/:stationId" element={<RadioStation />} />
                 <Route path="/services" element={<NotFound />} />
-                <Route path="/meteo" element={<NotFound />} />
+                <Route path="/meteo" element={<Meteo />} />
                 <Route path="/logos" element={<NotFound />} />
                 <Route path="/network-planning" element={<NotFound />} />
                 <Route path="/hosting" element={<Hosting />} />
