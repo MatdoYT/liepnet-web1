@@ -1,13 +1,14 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import latviaSvg from "@/assets/latvia-map.svg";
+import latviaMap from "@/assets/latvia-map.webp";
+import mapMarker from "@/assets/map-marker.webp";
 
 interface MapMarker {
   id: string;
   label: string;
-  x: number; // percentage
-  y: number; // percentage
+  x: number;
+  y: number;
 }
 
 const TEST_MARKERS: MapMarker[] = [
@@ -25,7 +26,6 @@ const Meteo = () => {
 
       <main className="pt-28 pb-20">
         <div className="container mx-auto px-6">
-          {/* Title */}
           <h1
             className="text-5xl md:text-6xl font-bold text-center mb-16 tracking-tight"
             style={{
@@ -37,7 +37,6 @@ const Meteo = () => {
             LIEPNET WEATHER
           </h1>
 
-          {/* Map container */}
           <div className="flex justify-center">
             <div
               className="relative max-w-4xl w-full transition-all duration-500"
@@ -45,72 +44,71 @@ const Meteo = () => {
               onMouseLeave={() => setMapHovered(false)}
               style={{
                 filter: mapHovered
-                  ? "drop-shadow(0 0 30px rgba(255,255,255,0.15)) drop-shadow(0 0 60px rgba(255,255,255,0.08))"
+                  ? "drop-shadow(0 0 40px rgba(255,255,255,0.12)) drop-shadow(0 0 80px rgba(255,255,255,0.06))"
                   : "none",
               }}
             >
-              {/* SVG map with green gradient overlay */}
-              <div className="relative">
-                {/* Base map - made white via filter */}
-                <img
-                  src={latviaSvg}
-                  alt="Latvia map"
-                  className="w-full h-auto"
-                  style={{
-                    filter: "brightness(0) invert(1)",
-                    opacity: 0.9,
-                  }}
-                />
-                {/* Green gradient overlay */}
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background: "linear-gradient(135deg, hsl(140,60%,55%), hsl(150,50%,25%))",
-                    mixBlendMode: "multiply",
-                  }}
-                />
-              </div>
+              <img
+                src={latviaMap}
+                alt="Latvia map"
+                className="w-full h-auto"
+              />
 
               {/* Markers */}
-              {TEST_MARKERS.map((marker) => (
-                <div
-                  key={marker.id}
-                  className="absolute flex items-center"
-                  style={{
-                    left: `${marker.x}%`,
-                    top: `${marker.y}%`,
-                    transform: "translate(-50%, -50%)",
-                  }}
-                >
-                  {/* Dot */}
+              {TEST_MARKERS.map((marker) => {
+                const isHovered = hoveredMarker === marker.id;
+                return (
                   <div
-                    className="relative z-10 rounded-full bg-white cursor-pointer transition-transform duration-300"
+                    key={marker.id}
+                    className="absolute flex items-end"
                     style={{
-                      width: hoveredMarker === marker.id ? 14 : 10,
-                      height: hoveredMarker === marker.id ? 14 : 10,
-                      boxShadow: "0 0 8px rgba(255,255,255,0.6)",
-                    }}
-                    onMouseEnter={() => setHoveredMarker(marker.id)}
-                    onMouseLeave={() => setHoveredMarker(null)}
-                  />
-
-                  {/* Label - slides out from the right */}
-                  <div
-                    className="absolute left-full ml-1 whitespace-nowrap text-xs font-semibold text-white/90 transition-all duration-300 pointer-events-none"
-                    style={{
-                      opacity: hoveredMarker === marker.id ? 1 : 0,
-                      transform: hoveredMarker === marker.id
-                        ? "translateX(0)"
-                        : "translateX(-8px)",
-                      clipPath: hoveredMarker === marker.id
-                        ? "inset(0 0 0 0)"
-                        : "inset(0 100% 0 0)",
+                      left: `${marker.x}%`,
+                      top: `${marker.y}%`,
+                      transform: "translate(-50%, -85%)",
                     }}
                   >
-                    {marker.label}
+                    <div
+                      className="relative cursor-pointer transition-transform duration-300"
+                      style={{
+                        width: isHovered ? 38 : 32,
+                        height: isHovered ? 38 : 32,
+                      }}
+                      onMouseEnter={() => setHoveredMarker(marker.id)}
+                      onMouseLeave={() => setHoveredMarker(null)}
+                    >
+                      <img
+                        src={mapMarker}
+                        alt="marker"
+                        className="w-full h-full object-contain"
+                      />
+                      {/* Shadow below marker */}
+                      <div
+                        className="absolute left-1/2 -translate-x-1/2 rounded-full"
+                        style={{
+                          bottom: -8,
+                          width: isHovered ? 20 : 16,
+                          height: 5,
+                          background: "radial-gradient(ellipse, rgba(0,0,0,0.45) 0%, transparent 70%)",
+                          filter: "blur(2px)",
+                        }}
+                      />
+                    </div>
+
+                    {/* Label */}
+                    <div
+                      className="absolute left-full ml-1 whitespace-nowrap text-xs font-semibold text-white/90 transition-all duration-300 pointer-events-none"
+                      style={{
+                        bottom: "30%",
+                        opacity: isHovered ? 1 : 0,
+                        transform: isHovered ? "translateX(0)" : "translateX(-8px)",
+                        clipPath: isHovered ? "inset(0 0 0 0)" : "inset(0 100% 0 0)",
+                      }}
+                    >
+                      {marker.label}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
