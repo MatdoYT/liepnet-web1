@@ -12,9 +12,9 @@ interface MapMarker {
 }
 
 const MARKERS: MapMarker[] = [
-  { id: "ogre", label: "Ogre", x: 55, y: 52 },
-  { id: "malpils", label: "Mālpils", x: 50, y: 38 },
-  { id: "aluksne", label: "Alūksne", x: 76, y: 28 },
+  { id: "ogre", label: "OGRE", x: 57, y: 52 },
+  { id: "malpils", label: "MĀLPILS", x: 48, y: 42 },
+  { id: "aluksne", label: "ALŪKSNE", x: 73, y: 28 },
 ];
 
 const Meteo = () => {
@@ -100,12 +100,16 @@ const Meteo = () => {
                     </div>
 
                     <div
-                      className="absolute left-full ml-1 whitespace-nowrap text-base font-bold transition-all duration-300 pointer-events-none"
+                      className="absolute left-full ml-1 whitespace-nowrap text-sm font-extrabold uppercase tracking-wider transition-all duration-300 pointer-events-none"
                       style={{
                         bottom: "30%",
-                        backgroundImage: "linear-gradient(180deg, hsl(0,0%,100%), hsl(0,0%,70%))",
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
+                        color: "white",
+                        WebkitTextFillColor: "unset",
+                        background: "linear-gradient(180deg, #2b4786, #172240)",
+                        padding: "4px 10px",
+                        borderRadius: "6px",
+                        border: "1px solid rgba(43,71,134,0.6)",
+                        boxShadow: "0 2px 8px rgba(0,0,0,0.4)",
                         opacity: isHovered ? 1 : 0,
                         transform: isHovered ? "translateX(0)" : "translateX(-8px)",
                         clipPath: isHovered ? "inset(0 0 0 0)" : "inset(0 100% 0 0)",
