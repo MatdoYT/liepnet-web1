@@ -12,9 +12,9 @@ interface MapMarker {
 }
 
 const MARKERS: MapMarker[] = [
-  { id: "ogre", label: "OGRE", x: 53, y: 52 },
-  { id: "malpils", label: "MĀLPILS", x: 52, y: 42 },
-  { id: "aluksne", label: "ALŪKSNE", x: 79, y: 28 },
+  { id: "ogre", label: "OGRE", x: 51, y: 52 },
+  { id: "malpils", label: "MĀLPILS", x: 54, y: 42 },
+  { id: "aluksne", label: "ALŪKSNE", x: 81, y: 28 },
 ];
 
 const Meteo = () => {
