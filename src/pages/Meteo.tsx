@@ -29,12 +29,14 @@ const Meteo = () => {
         <div className="container mx-auto px-6">
           {/* Title - overlaps behind the map via negative margin + z-index */}
           <h1
-            className="text-6xl md:text-7xl lg:text-8xl font-bold text-center tracking-tight leading-none relative z-0"
+            className="text-7xl md:text-8xl lg:text-9xl font-bold text-center tracking-tight leading-none relative z-0 transition-all duration-700"
             style={{
               backgroundImage: "linear-gradient(25deg, hsl(0,0%,100%), hsl(0,0%,75%))",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              marginBottom: "0",
+              marginBottom: "1rem",
+              filter: mapHovered ? "blur(4px)" : "none",
+              opacity: mapHovered ? 0.4 : 1,
             }}
           >
             LIEPNET WEATHER
