@@ -11,9 +11,10 @@ interface MapMarker {
   y: number;
 }
 
-const TEST_MARKERS: MapMarker[] = [
-  { id: "1", label: "TEST NODE", x: 45, y: 50 },
-  { id: "2", label: "TEST NODE", x: 72, y: 65 },
+const MARKERS: MapMarker[] = [
+  { id: "ogre", label: "Ogre", x: 55, y: 52 },
+  { id: "malpils", label: "Mālpils", x: 50, y: 38 },
+  { id: "aluksne", label: "Alūksne", x: 76, y: 28 },
 ];
 
 const Meteo = () => {
@@ -60,7 +61,7 @@ const Meteo = () => {
               />
 
               {/* Markers */}
-              {TEST_MARKERS.map((marker) => {
+              {MARKERS.map((marker) => {
                 const isHovered = hoveredMarker === marker.id;
                 return (
                   <div
