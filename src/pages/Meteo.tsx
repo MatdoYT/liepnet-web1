@@ -99,9 +99,12 @@ const Meteo = () => {
                     </div>
 
                     <div
-                      className="absolute left-full ml-2 whitespace-nowrap text-sm font-semibold text-white/90 transition-all duration-300 pointer-events-none"
+                      className="absolute left-full ml-1 whitespace-nowrap text-base font-bold transition-all duration-300 pointer-events-none"
                       style={{
                         bottom: "30%",
+                        backgroundImage: "linear-gradient(180deg, hsl(0,0%,100%), hsl(0,0%,70%))",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
                         opacity: isHovered ? 1 : 0,
                         transform: isHovered ? "translateX(0)" : "translateX(-8px)",
                         clipPath: isHovered ? "inset(0 0 0 0)" : "inset(0 100% 0 0)",
