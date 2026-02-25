@@ -235,6 +235,18 @@ const Meteo = () => {
               ))}
             </div>
           </div>
+
+          {/* Coming Soon */}
+          <h2
+            className="text-5xl md:text-6xl lg:text-7xl font-bold text-center tracking-tight leading-none mt-24 mb-10"
+            style={{
+              backgroundImage: "radial-gradient(ellipse 80% 70% at 50% 0%, hsl(0,0%,100%) 0%, hsl(0,0%,60%) 50%, hsl(0,0%,30%) 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            COMING SOON...
+          </h2>
         </div>
       </main>
 
