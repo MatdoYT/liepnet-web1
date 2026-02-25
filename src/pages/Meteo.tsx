@@ -75,7 +75,7 @@ const Meteo = () => {
           <h1
             className="text-7xl md:text-8xl lg:text-9xl font-bold text-center tracking-tight leading-none relative z-0 transition-all duration-700"
             style={{
-              backgroundImage: "linear-gradient(25deg, hsl(0,0%,100%), hsl(0,0%,75%))",
+              backgroundImage: "radial-gradient(ellipse 80% 70% at 50% 100%, hsl(0,0%,100%) 0%, hsl(0,0%,60%) 50%, hsl(0,0%,30%) 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               marginBottom: "1rem",
