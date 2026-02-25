@@ -191,7 +191,7 @@ const Meteo = () => {
               {STATIONS.map((station) => (
                 <div
                   key={station.title}
-                  className="rounded-xl p-5 flex flex-col"
+                  className="rounded-xl p-5 flex flex-col transition-transform duration-500 ease-out hover:scale-[1.04]"
                   style={{
                     background: "linear-gradient(160deg, rgba(255,255,255,0.14) 0%, rgba(0,0,0,0.7) 100%)",
                     border: "1px solid rgba(255,255,255,0.13)",
