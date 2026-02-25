@@ -195,6 +195,20 @@ const translations = {
     unsavedChangesDesc: 'Changes are not saved. Are you sure you want to go back?',
     cancel: 'Cancel',
     goBack: 'Go Back',
+    
+    // Meteo page
+    meteoStations: 'STATIONS',
+    meteoMalpilsDesc: 'The LIEPNET™ WEATHER network\'s first station, located on top of the Mālpils secondary school, provides real-time weather data.',
+    meteoOgreDesc: 'This LIEPNET™ WEATHER station, despite its small size, provides extensive data. It is also one of the network\'s first stations.',
+    meteoAluksneDesc: 'This LIEPNET™ WEATHER station, despite its small size, provides extensive data. It is also one of the network\'s first stations.',
+    meteoTempHumidity: 'Temperature & humidity',
+    meteoWindSpeed: 'Wind speed & direction',
+    meteoRainGauge: 'Rain gauge',
+    meteoUvIndex: 'UV index',
+    meteoBarometric: 'Barometric pressure',
+    meteoLiveCamera: 'Live-feed camera',
+    meteoStationNotActive: 'This station is not yet active.',
+    meteoComingSoon: 'COMING SOON...',
   },
   lv: {
     // Navigation
@@ -382,6 +396,20 @@ const translations = {
     unsavedChangesDesc: 'Izmaiņas nav saglabātas. Vai tiešām vēlaties atgriezties?',
     cancel: 'Atcelt',
     goBack: 'Atgriezties',
+    
+    // Meteo page
+    meteoStations: 'STACIJAS',
+    meteoMalpilsDesc: 'LIEPNET™ WEATHER tīkla pirmā stacija, kas atrodas Mālpils vidusskolas augšpusē, nodrošina reāllaika laika datus.',
+    meteoOgreDesc: 'Šī LIEPNET™ WEATHER stacija, neskatoties uz tās mazo izmēru, nodrošina plašus datus. Tā ir arī viena no tīkla pirmajām stacijām.',
+    meteoAluksneDesc: 'Šī LIEPNET™ WEATHER stacija, neskatoties uz tās mazo izmēru, nodrošina plašus datus. Tā ir arī viena no tīkla pirmajām stacijām.',
+    meteoTempHumidity: 'Temperatūra un mitrums',
+    meteoWindSpeed: 'Vēja ātrums un virziens',
+    meteoRainGauge: 'Lietus mērītājs',
+    meteoUvIndex: 'UV indekss',
+    meteoBarometric: 'Barometriskais spiediens',
+    meteoLiveCamera: 'Tiešraides kamera',
+    meteoStationNotActive: 'Šī stacija vēl nav aktīva.',
+    meteoComingSoon: 'DRĪZUMĀ...',
   },
   ru: {
     // Navigation
@@ -560,6 +588,20 @@ const translations = {
     unsavedChangesDesc: 'Вы уверены, что хотите вернуться? Все ваши изменения будут потеряны.',
     cancel: 'Отмена',
     goBack: 'Вернуться',
+    
+    // Meteo page
+    meteoStations: 'СТАНЦИИ',
+    meteoMalpilsDesc: 'Первая станция сети LIEPNET™ WEATHER, расположенная на крыше средней школы Малпилс, предоставляет данные о погоде в реальном времени.',
+    meteoOgreDesc: 'Эта станция LIEPNET™ WEATHER, несмотря на небольшие размеры, предоставляет обширные данные. Она также является одной из первых станций сети.',
+    meteoAluksneDesc: 'Эта станция LIEPNET™ WEATHER, несмотря на небольшие размеры, предоставляет обширные данные. Она также является одной из первых станций сети.',
+    meteoTempHumidity: 'Температура и влажность',
+    meteoWindSpeed: 'Скорость и направление ветра',
+    meteoRainGauge: 'Датчик дождя',
+    meteoUvIndex: 'УФ-индекс',
+    meteoBarometric: 'Барометрическое давление',
+    meteoLiveCamera: 'Камера прямой трансляции',
+    meteoStationNotActive: 'Эта станция ещё не активна.',
+    meteoComingSoon: 'СКОРО...',
 
     // Footer
     footerFoundedText: 'Основана в феврале 2025 года, Латвия.',
@@ -747,6 +789,20 @@ const translations = {
     unsavedChangesDesc: 'Êtes-vous sûr de vouloir revenir en arrière ? Tous vos changements seront perdus.',
     cancel: 'Annuler',
     goBack: 'Retour',
+    
+    // Meteo page
+    meteoStations: 'STATIONS',
+    meteoMalpilsDesc: 'La première station du réseau LIEPNET™ WEATHER, située au sommet de l\'école secondaire de Mālpils, fournit des données météorologiques en temps réel.',
+    meteoOgreDesc: 'Cette station LIEPNET™ WEATHER, malgré sa petite taille, fournit des données approfondies. C\'est également l\'une des premières stations du réseau.',
+    meteoAluksneDesc: 'Cette station LIEPNET™ WEATHER, malgré sa petite taille, fournit des données approfondies. C\'est également l\'une des premières stations du réseau.',
+    meteoTempHumidity: 'Température et humidité',
+    meteoWindSpeed: 'Vitesse et direction du vent',
+    meteoRainGauge: 'Pluviomètre',
+    meteoUvIndex: 'Indice UV',
+    meteoBarometric: 'Pression barométrique',
+    meteoLiveCamera: 'Caméra en direct',
+    meteoStationNotActive: 'Cette station n\'est pas encore active.',
+    meteoComingSoon: 'BIENTÔT...',
 
     // Footer
     footerFoundedText: 'Fondée en février 2025, Lettonie.',
@@ -934,6 +990,20 @@ const translations = {
     unsavedChangesDesc: 'Είστε σίγουροι ότι θέλετε να επιστρέψετε; Όλες οι αλλαγές σας θα χαθούν.',
     cancel: 'Ακύρωση',
     goBack: 'Επιστροφή',
+    
+    // Meteo page
+    meteoStations: 'ΣΤΑΘΜΟΙ',
+    meteoMalpilsDesc: 'Ο πρώτος σταθμός του δικτύου LIEPNET™ WEATHER, που βρίσκεται στην κορυφή του γυμνασίου Mālpils, παρέχει δεδομένα καιρού σε πραγματικό χρόνο.',
+    meteoOgreDesc: 'Αυτός ο σταθμός LIEPNET™ WEATHER, παρά το μικρό του μέγεθος, παρέχει εκτεταμένα δεδομένα. Είναι επίσης ένας από τους πρώτους σταθμούς του δικτύου.',
+    meteoAluksneDesc: 'Αυτός ο σταθμός LIEPNET™ WEATHER, παρά το μικρό του μέγεθος, παρέχει εκτεταμένα δεδομένα. Είναι επίσης ένας από τους πρώτους σταθμούς του δικτύου.',
+    meteoTempHumidity: 'Θερμοκρασία & υγρασία',
+    meteoWindSpeed: 'Ταχύτητα & κατεύθυνση ανέμου',
+    meteoRainGauge: 'Βροχόμετρο',
+    meteoUvIndex: 'Δείκτης UV',
+    meteoBarometric: 'Βαρομετρική πίεση',
+    meteoLiveCamera: 'Κάμερα ζωντανής μετάδοσης',
+    meteoStationNotActive: 'Αυτός ο σταθμός δεν είναι ακόμη ενεργός.',
+    meteoComingSoon: 'ΕΡΧΕΤΑΙ ΣΥΝΤΟΜΑ...',
 
     // Footer
     footerFoundedText: 'Ιδρύθηκε τον Φεβρουάριο του 2025, Λετονία.',
@@ -1121,6 +1191,20 @@ const translations = {
     unsavedChangesDesc: 'Sind Sie sicher, dass Sie zurückgehen möchten? Alle Ihre Änderungen gehen verloren.',
     cancel: 'Abbrechen',
     goBack: 'Zurück',
+    
+    // Meteo page
+    meteoStations: 'STATIONEN',
+    meteoMalpilsDesc: 'Die erste Station des LIEPNET™ WEATHER-Netzwerks, auf der Sekundarschule von Mālpils gelegen, liefert Echtzeit-Wetterdaten.',
+    meteoOgreDesc: 'Diese LIEPNET™ WEATHER-Station liefert trotz ihrer geringen Größe umfangreiche Daten. Sie ist auch eine der ersten Stationen des Netzwerks.',
+    meteoAluksneDesc: 'Diese LIEPNET™ WEATHER-Station liefert trotz ihrer geringen Größe umfangreiche Daten. Sie ist auch eine der ersten Stationen des Netzwerks.',
+    meteoTempHumidity: 'Temperatur & Luftfeuchtigkeit',
+    meteoWindSpeed: 'Windgeschwindigkeit & Richtung',
+    meteoRainGauge: 'Regenmesser',
+    meteoUvIndex: 'UV-Index',
+    meteoBarometric: 'Barometrischer Druck',
+    meteoLiveCamera: 'Live-Kamera',
+    meteoStationNotActive: 'Diese Station ist noch nicht aktiv.',
+    meteoComingSoon: 'DEMNÄCHST...',
 
     // Footer
     footerFoundedText: 'Gegründet im Februar 2025, Lettland.',
@@ -1308,6 +1392,20 @@ const translations = {
     unsavedChangesDesc: 'Ar tikrai norite grįžti? Visi jūsų pakeitimai bus prarasti.',
     cancel: 'Atšaukti',
     goBack: 'Grįžti',
+    
+    // Meteo page
+    meteoStations: 'STOTYS',
+    meteoMalpilsDesc: 'Pirmoji LIEPNET™ WEATHER tinklo stotis, esanti ant Mālpils vidurinės mokyklos stogo, teikia realaus laiko orų duomenis.',
+    meteoOgreDesc: 'Ši LIEPNET™ WEATHER stotis, nepaisant mažo dydžio, teikia išsamius duomenis. Tai taip pat viena iš pirmųjų tinklo stočių.',
+    meteoAluksneDesc: 'Ši LIEPNET™ WEATHER stotis, nepaisant mažo dydžio, teikia išsamius duomenis. Tai taip pat viena iš pirmųjų tinklo stočių.',
+    meteoTempHumidity: 'Temperatūra ir drėgmė',
+    meteoWindSpeed: 'Vėjo greitis ir kryptis',
+    meteoRainGauge: 'Lietaus matuoklis',
+    meteoUvIndex: 'UV indeksas',
+    meteoBarometric: 'Barometrinis slėgis',
+    meteoLiveCamera: 'Tiesioginė kamera',
+    meteoStationNotActive: 'Ši stotis dar neveikia.',
+    meteoComingSoon: 'GREITAI...',
 
     // Footer
     footerFoundedText: 'Įkurta 2025 m. vasarį, Latvijoje.',
@@ -1495,6 +1593,20 @@ const translations = {
     unsavedChangesDesc: 'Kas olete kindel, et soovite tagasi minna? Kõik teie muudatused lähevad kaotsi.',
     cancel: 'Tühista',
     goBack: 'Mine tagasi',
+    
+    // Meteo page
+    meteoStations: 'JAAMAD',
+    meteoMalpilsDesc: 'LIEPNET™ WEATHER võrgustiku esimene jaam, mis asub Mālpilsi keskkooli katusel, pakub reaalajas ilmastikuandmeid.',
+    meteoOgreDesc: 'See LIEPNET™ WEATHER jaam, vaatamata väikesele suurusele, pakub ulatuslikke andmeid. See on ka üks võrgustiku esimesi jaamu.',
+    meteoAluksneDesc: 'See LIEPNET™ WEATHER jaam, vaatamata väikesele suurusele, pakub ulatuslikke andmeid. See on ka üks võrgustiku esimesi jaamu.',
+    meteoTempHumidity: 'Temperatuur ja niiskus',
+    meteoWindSpeed: 'Tuule kiirus ja suund',
+    meteoRainGauge: 'Vihmamõõtja',
+    meteoUvIndex: 'UV-indeks',
+    meteoBarometric: 'Baromeeriline rõhk',
+    meteoLiveCamera: 'Otsekaamera',
+    meteoStationNotActive: 'See jaam ei ole veel aktiivne.',
+    meteoComingSoon: 'VARSTI...',
 
     // Footer
     footerFoundedText: 'Asutatud 2025. aasta veebruaris, Lätis.',
@@ -1682,6 +1794,20 @@ const translations = {
     unsavedChangesDesc: 'Är du säker på att du vill gå tillbaka? Alla dina ändringar kommer att förloras.',
     cancel: 'Avbryt',
     goBack: 'Gå tillbaka',
+    
+    // Meteo page
+    meteoStations: 'STATIONER',
+    meteoMalpilsDesc: 'LIEPNET™ WEATHER-nätverkets första station, belägen ovanpå Mālpils gymnasieskola, tillhandahåller väderdata i realtid.',
+    meteoOgreDesc: 'Denna LIEPNET™ WEATHER-station, trots sin ringa storlek, tillhandahåller omfattande data. Den är också en av nätverkets första stationer.',
+    meteoAluksneDesc: 'Denna LIEPNET™ WEATHER-station, trots sin ringa storlek, tillhandahåller omfattande data. Den är också en av nätverkets första stationer.',
+    meteoTempHumidity: 'Temperatur & fuktighet',
+    meteoWindSpeed: 'Vindhastighet & riktning',
+    meteoRainGauge: 'Regnmätare',
+    meteoUvIndex: 'UV-index',
+    meteoBarometric: 'Barometriskt tryck',
+    meteoLiveCamera: 'Live-kamera',
+    meteoStationNotActive: 'Denna station är ännu inte aktiv.',
+    meteoComingSoon: 'KOMMER SNART...',
 
     // Footer
     footerFoundedText: 'Grundat i februari 2025, Lettland.',

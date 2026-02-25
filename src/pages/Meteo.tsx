@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 import latviaMap from "@/assets/latvia-map.webp";
 import mapMarker from "@/assets/map-marker.webp";
 import { Thermometer, Wind, CloudRain, Sun, Gauge, Camera, AlertTriangle } from "lucide-react";
@@ -12,58 +13,53 @@ interface MapMarker {
   y: number;
 }
 
-interface StationInfo {
-  title: string;
-  description: string;
-  measurements: { icon: React.ReactNode; label: string }[];
-}
-
 const MARKERS: MapMarker[] = [
   { id: "ogre", label: "OGRE", x: 51, y: 52 },
   { id: "malpils", label: "MĀLPILS", x: 54, y: 42 },
   { id: "aluksne", label: "ALŪKSNE", x: 81, y: 28 },
 ];
 
-const STATIONS: StationInfo[] = [
-  {
-    title: "MĀLPILS",
-    description: "The LIEPNET™ WEATHER network's first station, located on top of the Mālpils secondary school, provides real-time weather data.",
-    measurements: [
-      { icon: <Thermometer size={16} />, label: "Temperature & humidity" },
-      { icon: <Wind size={16} />, label: "Wind speed & direction" },
-      { icon: <CloudRain size={16} />, label: "Rain gauge" },
-      { icon: <Sun size={16} />, label: "UV index" },
-      { icon: <Gauge size={16} />, label: "Barometric pressure" },
-      { icon: <Camera size={16} />, label: "Live-feed camera" },
-    ],
-  },
-  {
-    title: "OGRE",
-    description: "This LIEPNET™ WEATHER station, despite its small size, provides extensive data. It is also one of the network's first stations.",
-    measurements: [
-      { icon: <Thermometer size={16} />, label: "Temperature & humidity" },
-      { icon: <Wind size={16} />, label: "Wind speed & direction" },
-      { icon: <CloudRain size={16} />, label: "Rain gauge" },
-      { icon: <Sun size={16} />, label: "UV index" },
-      { icon: <Gauge size={16} />, label: "Barometric pressure" },
-    ],
-  },
-  {
-    title: "ALŪKSNE",
-    description: "This LIEPNET™ WEATHER station, despite its small size, provides extensive data. It is also one of the network's first stations.",
-    measurements: [
-      { icon: <Thermometer size={16} />, label: "Temperature & humidity" },
-      { icon: <Wind size={16} />, label: "Wind speed & direction" },
-      { icon: <CloudRain size={16} />, label: "Rain gauge" },
-      { icon: <Sun size={16} />, label: "UV index" },
-      { icon: <Gauge size={16} />, label: "Barometric pressure" },
-    ],
-  },
-];
-
 const Meteo = () => {
+  const { t } = useLanguage();
   const [hoveredMarker, setHoveredMarker] = useState<string | null>(null);
   const [mapHovered, setMapHovered] = useState(false);
+
+  const STATIONS = [
+    {
+      title: "MĀLPILS",
+      descKey: 'meteoMalpilsDesc',
+      measurements: [
+        { icon: <Thermometer size={16} />, labelKey: "meteoTempHumidity" },
+        { icon: <Wind size={16} />, labelKey: "meteoWindSpeed" },
+        { icon: <CloudRain size={16} />, labelKey: "meteoRainGauge" },
+        { icon: <Sun size={16} />, labelKey: "meteoUvIndex" },
+        { icon: <Gauge size={16} />, labelKey: "meteoBarometric" },
+        { icon: <Camera size={16} />, labelKey: "meteoLiveCamera" },
+      ],
+    },
+    {
+      title: "OGRE",
+      descKey: 'meteoOgreDesc',
+      measurements: [
+        { icon: <Thermometer size={16} />, labelKey: "meteoTempHumidity" },
+        { icon: <Wind size={16} />, labelKey: "meteoWindSpeed" },
+        { icon: <CloudRain size={16} />, labelKey: "meteoRainGauge" },
+        { icon: <Sun size={16} />, labelKey: "meteoUvIndex" },
+        { icon: <Gauge size={16} />, labelKey: "meteoBarometric" },
+      ],
+    },
+    {
+      title: "ALŪKSNE",
+      descKey: 'meteoAluksneDesc',
+      measurements: [
+        { icon: <Thermometer size={16} />, labelKey: "meteoTempHumidity" },
+        { icon: <Wind size={16} />, labelKey: "meteoWindSpeed" },
+        { icon: <CloudRain size={16} />, labelKey: "meteoRainGauge" },
+        { icon: <Sun size={16} />, labelKey: "meteoUvIndex" },
+        { icon: <Gauge size={16} />, labelKey: "meteoBarometric" },
+      ],
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-black overflow-hidden">
@@ -178,7 +174,7 @@ const Meteo = () => {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              STATIONS
+              {t('meteoStations')}
             </h2>
             <div
               className="mt-3 h-px w-full"
@@ -208,14 +204,14 @@ const Meteo = () => {
                     {station.title}
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.55)" }}>
-                    {station.description}
+                    {t(station.descKey)}
                   </p>
 
                   <div className="mt-4 flex flex-col gap-2">
                     {station.measurements.map((m) => (
-                      <div key={m.label} className="flex items-center gap-2 text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>
+                      <div key={m.labelKey} className="flex items-center gap-2 text-sm" style={{ color: "rgba(255,255,255,0.7)" }}>
                         <span style={{ color: "rgba(255,255,255,0.5)" }}>{m.icon}</span>
-                        {m.label}
+                        {t(m.labelKey)}
                       </div>
                     ))}
                   </div>
@@ -229,7 +225,7 @@ const Meteo = () => {
                     }}
                   >
                     <AlertTriangle size={16} />
-                    This station is not yet active.
+                    {t('meteoStationNotActive')}
                   </div>
                 </div>
               ))}
@@ -245,7 +241,7 @@ const Meteo = () => {
               WebkitTextFillColor: "transparent",
             }}
           >
-            COMING SOON...
+            {t('meteoComingSoon')}
           </h2>
         </div>
       </main>
