@@ -193,8 +193,8 @@ const Meteo = () => {
                   key={station.title}
                   className="rounded-xl p-5 flex flex-col"
                   style={{
-                    background: "linear-gradient(160deg, rgba(255,255,255,0.07) 0%, rgba(0,0,0,0.4) 100%)",
-                    border: "1px solid rgba(255,255,255,0.1)",
+                    background: "linear-gradient(160deg, rgba(255,255,255,0.14) 0%, rgba(0,0,0,0.7) 100%)",
+                    border: "1px solid rgba(255,255,255,0.13)",
                   }}
                 >
                   <h3
