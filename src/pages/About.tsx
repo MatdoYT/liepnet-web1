@@ -51,7 +51,7 @@ const About = () => {
             className="text-7xl md:text-8xl lg:text-9xl font-bold text-center tracking-tight leading-none mb-16"
             style={{
               backgroundImage:
-                "radial-gradient(ellipse 80% 70% at 50% 100%, hsl(0,0%,100%) 0%, hsl(0,0%,60%) 50%, hsl(0,0%,30%) 100%)",
+                "radial-gradient(ellipse 80% 70% at 50% 0%, hsl(0,0%,100%) 0%, hsl(0,0%,60%) 50%, hsl(0,0%,30%) 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
