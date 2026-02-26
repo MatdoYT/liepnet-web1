@@ -63,7 +63,7 @@ const About = () => {
           <div className="flex justify-center mb-24">
             <div
               ref={logoContainerRef}
-              className="relative w-full max-w-2xl aspect-square cursor-none select-none"
+              className="relative w-full max-w-6xl aspect-[2/1] cursor-none select-none"
               onMouseMove={handleMouseMove}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
@@ -73,11 +73,11 @@ const About = () => {
                 className="absolute inset-0 flex items-center justify-center transition-opacity duration-300"
                 style={{
                   maskImage: isHovering
-                    ? `radial-gradient(circle 180px at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0) 100%)`
-                    : "radial-gradient(circle 180px at 50% 50%, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 100%)",
+                    ? `radial-gradient(circle 320px at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.08) 100%)`
+                    : "radial-gradient(circle 320px at 50% 50%, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.08) 100%)",
                   WebkitMaskImage: isHovering
-                    ? `radial-gradient(circle 180px at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0) 100%)`
-                    : "radial-gradient(circle 180px at 50% 50%, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 100%)",
+                    ? `radial-gradient(circle 320px at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.08) 100%)`
+                    : "radial-gradient(circle 320px at 50% 50%, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.08) 100%)",
                 }}
               >
                 <img
@@ -94,8 +94,8 @@ const About = () => {
                 <div
                   className="absolute pointer-events-none rounded-full"
                   style={{
-                    width: 360,
-                    height: 360,
+                    width: 640,
+                    height: 640,
                     left: `${mousePos.x * 100}%`,
                     top: `${mousePos.y * 100}%`,
                     transform: "translate(-50%, -50%)",
@@ -136,7 +136,7 @@ const About = () => {
                   className="rounded-xl p-6 flex flex-col transition-transform duration-500 ease-out hover:scale-[1.04]"
                   style={{
                     background:
-                      "linear-gradient(160deg, hsl(140,30%,8%) 0%, hsl(150,40%,4%) 100%)",
+                      "linear-gradient(160deg, hsl(150,25%,16%) 0%, hsl(155,40%,3%) 100%)",
                     border: "1px solid rgba(255,255,255,0.25)",
                   }}
                 >
