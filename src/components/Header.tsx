@@ -91,7 +91,7 @@ const Header = () => {
                     : 'text-foreground/60 text-sm hover:text-foreground'
                 }`}
               >
-                {link.label}
+                <span className="uppercase">{link.label}</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ) : (
@@ -106,7 +106,7 @@ const Header = () => {
                     : 'text-foreground/60 text-sm hover:text-foreground'
                 }`}
               >
-                {link.label}
+                <span className="uppercase">{link.label}</span>
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full"></span>
               </a>
             )
@@ -198,7 +198,7 @@ const Header = () => {
               <Link
                 key={link.key}
                 to={link.href}
-                className="block py-3 px-4 text-foreground hover:bg-white/5 rounded-lg transition-colors text-base font-medium"
+                className="block py-3 px-4 text-foreground hover:bg-white/5 rounded-lg transition-colors text-base font-medium uppercase"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}
@@ -209,7 +209,7 @@ const Header = () => {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block py-3 px-4 text-foreground hover:bg-white/5 rounded-lg transition-colors text-base font-medium"
+                className="block py-3 px-4 text-foreground hover:bg-white/5 rounded-lg transition-colors text-base font-medium uppercase"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}
