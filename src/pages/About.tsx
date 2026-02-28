@@ -161,6 +161,84 @@ const About = () => {
               ))}
             </div>
           </div>
+
+          {/* OUR HISTORY section */}
+          <div className="max-w-5xl mx-auto mt-24">
+            <h2
+              className="text-3xl md:text-4xl font-bold tracking-tight uppercase"
+              style={{
+                backgroundImage:
+                  "linear-gradient(25deg, hsl(0,0%,100%), hsl(0,0%,70%))",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              OUR HISTORY
+            </h2>
+            <div
+              className="mt-3 h-px w-full"
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(255,255,255,0.4), rgba(255,255,255,0.05))",
+              }}
+            />
+
+            <p
+              className="mt-8 text-lg md:text-xl font-bold tracking-wide uppercase"
+              style={{
+                backgroundImage:
+                  "linear-gradient(25deg, hsl(0,0%,100%), hsl(0,0%,75%))",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              FOUNDED IN FEBRUARY OF 2025
+            </p>
+
+            {/* Timeline */}
+            <div className="mt-10 relative pl-8 border-l border-white/20">
+              {[
+                { date: "February 2025", text: "LIEPNET™ was founded" },
+                { date: "February 21st, 2025", text: "First LIEPNET™ official server was made" },
+                { date: "April 13th, 2025", text: "The LIEPNET.ID.LV website was created" },
+                { date: "June 9th, 2025", text: "The LIEPNET™ Weather project was created" },
+                { date: "August 8th, 2025", text: "The LIEPNET™ SERVER 1 was installed" },
+                { date: "August 19th, 2025", text: "The LIEPNET.EU website was created" },
+                { date: "September 25th, 2025", text: "AUDIOBOOKSHELF.LIEPNET.ID.LV was published" },
+                { date: "October 13th, 2025", text: "AZURACAST.LIEPNET.ID.LV was published" },
+                { date: "November 2nd, 2025", text: "The LIEPNET™ SERVER 1 was upgraded from 16 GB RAM to 96 GB RAM capacity" },
+                { date: "December 16th, 2025", text: "Major LIEPNET™ system downtime" },
+                { date: "January 8th, 2026", text: "LIEPNET™ acquired LIEPNET.CLOUD" },
+              ].map((item, i, arr) => (
+                <div key={i} className="relative mb-10 last:mb-0">
+                  {/* Dot */}
+                  <div
+                    className="absolute -left-[calc(1rem+4.5px)] top-1 w-[9px] h-[9px] rounded-full"
+                    style={{
+                      background: i === 0 || i === arr.length - 1
+                        ? "hsl(150, 60%, 50%)"
+                        : "hsl(0, 0%, 50%)",
+                      boxShadow: i === 0 || i === arr.length - 1
+                        ? "0 0 8px hsl(150, 60%, 50%)"
+                        : "none",
+                    }}
+                  />
+                  <p
+                    className="text-xs font-semibold tracking-wider uppercase"
+                    style={{ color: "rgba(255,255,255,0.45)" }}
+                  >
+                    {item.date}
+                  </p>
+                  <p
+                    className="mt-1 text-sm md:text-base font-medium"
+                    style={{ color: "rgba(255,255,255,0.8)" }}
+                  >
+                    {item.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </main>
 
