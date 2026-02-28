@@ -28,7 +28,7 @@ const Footer = () => {
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
         </svg>
   }];
-  return <footer className="bg-black text-white">
+  return <footer className="bg-black text-white uppercase">
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo and Company */}
