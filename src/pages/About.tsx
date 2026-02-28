@@ -183,20 +183,30 @@ const About = () => {
               }}
             />
 
-            <p
-              className="mt-8 text-lg md:text-xl font-bold tracking-wide uppercase"
+            {/* Founded title - radial gradient style like main title */}
+            <h3
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-center tracking-tight leading-none mt-20 mb-20"
               style={{
                 backgroundImage:
-                  "linear-gradient(25deg, hsl(0,0%,100%), hsl(0,0%,75%))",
+                  "radial-gradient(ellipse 80% 70% at 50% 0%, hsl(0,0%,100%) 0%, hsl(0,0%,60%) 50%, hsl(0,0%,30%) 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
             >
               FOUNDED IN FEBRUARY OF 2025
-            </p>
+            </h3>
 
-            {/* Timeline */}
-            <div className="mt-10 relative pl-8 border-l border-white/20">
+            {/* Center-line alternating timeline */}
+            <div className="relative">
+              {/* Center vertical line */}
+              <div
+                className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2"
+                style={{
+                  background:
+                    "linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.3) 5%, rgba(255,255,255,0.3) 95%, transparent 100%)",
+                }}
+              />
+
               {[
                 { date: "February 2025", text: "LIEPNET™ was founded" },
                 { date: "February 21st, 2025", text: "First LIEPNET™ official server was made" },
@@ -209,36 +219,103 @@ const About = () => {
                 { date: "November 2nd, 2025", text: "The LIEPNET™ SERVER 1 was upgraded from 16 GB RAM to 96 GB RAM capacity" },
                 { date: "December 16th, 2025", text: "Major LIEPNET™ system downtime" },
                 { date: "January 8th, 2026", text: "LIEPNET™ acquired LIEPNET.CLOUD" },
-              ].map((item, i, arr) => (
-                <div key={i} className="relative mb-10 last:mb-0">
-                  {/* Dot */}
+              ].map((item, i, arr) => {
+                const isRight = i % 2 === 0;
+                const isLast = i === arr.length - 1;
+
+                return (
                   <div
-                    className="absolute -left-[calc(1rem+4.5px)] top-1 w-[9px] h-[9px] rounded-full"
-                    style={{
-                      background: i === 0 || i === arr.length - 1
-                        ? "hsl(150, 60%, 50%)"
-                        : "hsl(0, 0%, 50%)",
-                      boxShadow: i === 0 || i === arr.length - 1
-                        ? "0 0 8px hsl(150, 60%, 50%)"
-                        : "none",
-                    }}
-                  />
-                  <p
-                    className="text-xs font-semibold tracking-wider uppercase"
-                    style={{ color: "rgba(255,255,255,0.45)" }}
+                    key={i}
+                    className="relative flex items-start mb-12 last:mb-0"
+                    style={{ minHeight: 60 }}
                   >
-                    {item.date}
-                  </p>
-                  <p
-                    className="mt-1 text-sm md:text-base font-medium"
-                    style={{ color: "rgba(255,255,255,0.8)" }}
-                  >
-                    {item.text}
-                  </p>
-                </div>
-              ))}
+                    {/* Left content */}
+                    <div className={`w-1/2 pr-8 ${!isRight ? "flex flex-col items-end text-right" : ""}`}>
+                      {!isRight && (
+                        <>
+                          <p
+                            className="text-xs font-semibold tracking-wider uppercase"
+                            style={{ color: "rgba(255,255,255,0.45)" }}
+                          >
+                            {item.date}
+                          </p>
+                          <p
+                            className="mt-1 text-sm md:text-base font-medium"
+                            style={{ color: "rgba(255,255,255,0.8)" }}
+                          >
+                            {item.text}
+                          </p>
+                        </>
+                      )}
+                    </div>
+
+                    {/* Center dot */}
+                    <div className="absolute left-1/2 -translate-x-1/2 top-1 z-10">
+                      <div
+                        className="w-[11px] h-[11px] rounded-full relative"
+                        style={{
+                          background: isLast ? "white" : "hsl(0, 0%, 50%)",
+                          boxShadow: isLast ? "0 0 8px rgba(255,255,255,0.6)" : "none",
+                        }}
+                      />
+                      {isLast && (
+                        <>
+                          <div
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[11px] h-[11px] rounded-full"
+                            style={{
+                              border: "1.5px solid rgba(255,255,255,0.6)",
+                              animation: "timeline-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite",
+                            }}
+                          />
+                          <div
+                            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[11px] h-[11px] rounded-full"
+                            style={{
+                              border: "1.5px solid rgba(255,255,255,0.6)",
+                              animation: "timeline-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite 1s",
+                            }}
+                          />
+                        </>
+                      )}
+                    </div>
+
+                    {/* Right content */}
+                    <div className={`w-1/2 pl-8 ${isRight ? "" : ""}`}>
+                      {isRight && (
+                        <>
+                          <p
+                            className="text-xs font-semibold tracking-wider uppercase"
+                            style={{ color: "rgba(255,255,255,0.45)" }}
+                          >
+                            {item.date}
+                          </p>
+                          <p
+                            className="mt-1 text-sm md:text-base font-medium"
+                            style={{ color: "rgba(255,255,255,0.8)" }}
+                          >
+                            {item.text}
+                          </p>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
+
+          {/* Timeline ping keyframes */}
+          <style>{`
+            @keyframes timeline-ping {
+              0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.8;
+              }
+              100% {
+                transform: translate(-50%, -50%) scale(4);
+                opacity: 0;
+              }
+            }
+          `}</style>
         </div>
       </main>
 
