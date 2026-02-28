@@ -73,16 +73,7 @@ const Footer = () => {
             <h3 className="text-base md:text-lg font-semibold text-white">{t('followUs')}</h3>
             <div className="flex flex-wrap gap-3 md:gap-4">
               {socialLinks.map(social => <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors group">
-                  <div className="p-1.5 md:p-2 rounded-lg bg-gray-800 group-hover:bg-gray-700 transition-colors [&_svg]:fill-[url(#icon-gradient)]">
-                    <svg width="0" height="0" className="absolute">
-                      <defs>
-                        <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" stopColor="#34d399" />
-                          <stop offset="50%" stopColor="#06b6d4" />
-                          <stop offset="100%" stopColor="#8b5cf6" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
+                  <div className="p-1.5 md:p-2 rounded-lg transition-colors" style={{ background: 'linear-gradient(135deg, #4b5563 0%, #1f2937 100%)' }}>
                     {social.icon}
                   </div>
                   <span className="text-xs md:text-sm font-medium hidden sm:inline">{social.name}</span>
