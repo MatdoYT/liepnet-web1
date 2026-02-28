@@ -1822,8 +1822,19 @@ const translations = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+const supportedLanguages: Language[] = ['en', 'lv', 'ru', 'fr', 'el', 'de', 'lt', 'et', 'sv'];
+
+const detectBrowserLanguage = (): Language => {
+  const browserLangs = navigator.languages || [navigator.language];
+  for (const lang of browserLangs) {
+    const code = lang.split('-')[0].toLowerCase() as Language;
+    if (supportedLanguages.includes(code)) return code;
+  }
+  return 'en';
+};
+
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [currentLanguage, setCurrentLanguage] = useState<Language>('en');
+  const [currentLanguage, setCurrentLanguage] = useState<Language>(detectBrowserLanguage);
 
   const setLanguage = (lang: Language) => {
     setCurrentLanguage(lang);
