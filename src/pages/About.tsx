@@ -4,24 +4,6 @@ import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import aboutLogoSrc from "@/assets/liepnet-logo-about.webp";
 
-const MISSION_BOXES = [
-  {
-    title: "LATVIA'S FIRST NON-PROFIT CROWDSOURCED METEOROLOGICAL NETWORK",
-    description:
-      "Our objective is to establish the first non-profit crowdsourced meteorological network in Latvia, which will offer real-time data at no cost and supplementary data for a nominal fee.",
-  },
-  {
-    title: "AFFORDABLE HOSTING SOLUTIONS",
-    description:
-      "Our goal is to provide affordable hosting services for businesses and individuals, regardless of whether they require website hosting, radio station software hosting, or Discord bot hosting.",
-  },
-  {
-    title: "ASSISTING BUSINESSES WITH TECHNICAL ISSUES",
-    description:
-      "We aim to assist Latvian companies in dealing with technological challenges and developing far better solutions; we can assist businesses with WI-FI and network planning.",
-  },
-];
-
 const About = () => {
   const { t } = useLanguage();
   const logoContainerRef = useRef<HTMLDivElement>(null);
@@ -40,13 +22,33 @@ const About = () => {
     });
   }, []);
 
+  const missionBoxes = [
+    { title: t('aboutMission1Title'), description: t('aboutMission1Desc') },
+    { title: t('aboutMission2Title'), description: t('aboutMission2Desc') },
+    { title: t('aboutMission3Title'), description: t('aboutMission3Desc') },
+  ];
+
+  const historyItems = [
+    { date: t('aboutHistoryDate1'), text: t('aboutHistoryText1') },
+    { date: t('aboutHistoryDate2'), text: t('aboutHistoryText2') },
+    { date: t('aboutHistoryDate3'), text: t('aboutHistoryText3') },
+    { date: t('aboutHistoryDate4'), text: t('aboutHistoryText4') },
+    { date: t('aboutHistoryDate5'), text: t('aboutHistoryText5') },
+    { date: t('aboutHistoryDate6'), text: t('aboutHistoryText6') },
+    { date: t('aboutHistoryDate7'), text: t('aboutHistoryText7') },
+    { date: t('aboutHistoryDate8'), text: t('aboutHistoryText8') },
+    { date: t('aboutHistoryDate9'), text: t('aboutHistoryText9') },
+    { date: t('aboutHistoryDate10'), text: t('aboutHistoryText10') },
+    { date: t('aboutHistoryDate11'), text: t('aboutHistoryText11') },
+  ];
+
   return (
     <div className="min-h-screen bg-black overflow-hidden">
       <Header />
 
       <main className="pt-28 pb-20">
         <div className="container mx-auto px-6">
-          {/* Big title - same style as Meteo page */}
+          {/* Big title */}
           <h1
             className="text-7xl md:text-8xl lg:text-9xl font-bold text-center tracking-tight leading-none mb-16"
             style={{
@@ -56,7 +58,7 @@ const About = () => {
               WebkitTextFillColor: "transparent",
             }}
           >
-            WHAT'S LIEPNET™?
+            {t('aboutWhatsLiepnet')}
           </h1>
 
           {/* Flashlight logo area */}
@@ -68,7 +70,6 @@ const About = () => {
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              {/* The logo, masked by a radial gradient that follows the mouse */}
               <div
                 className="absolute inset-0 flex items-center justify-center transition-opacity duration-300"
                 style={{
@@ -89,7 +90,6 @@ const About = () => {
                 />
               </div>
 
-              {/* Subtle ambient glow at mouse position */}
               {isHovering && (
                 <div
                   className="absolute pointer-events-none rounded-full"
@@ -107,7 +107,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* OUR MISSION section - matching Meteo station title style */}
+          {/* OUR MISSION section */}
           <div className="max-w-5xl mx-auto">
             <h2
               className="text-3xl md:text-4xl font-bold tracking-tight uppercase"
@@ -118,7 +118,7 @@ const About = () => {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              OUR MISSION
+              {t('aboutOurMission')}
             </h2>
             <div
               className="mt-3 h-px w-full"
@@ -128,9 +128,8 @@ const About = () => {
               }}
             />
 
-            {/* Mission boxes */}
             <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
-              {MISSION_BOXES.map((box) => (
+              {missionBoxes.map((box) => (
                 <div
                   key={box.title}
                   className="rounded-xl p-6 flex flex-col transition-transform duration-500 ease-out hover:scale-[1.04]"
@@ -173,7 +172,7 @@ const About = () => {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              OUR HISTORY
+              {t('aboutOurHistory')}
             </h2>
             <div
               className="mt-3 h-px w-full"
@@ -183,7 +182,6 @@ const About = () => {
               }}
             />
 
-            {/* Founded title - radial gradient style like main title */}
             <h3
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-center tracking-tight leading-none mt-20 mb-20"
               style={{
@@ -193,12 +191,11 @@ const About = () => {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              FOUNDED IN FEBRUARY OF 2025
+              {t('aboutFoundedIn')}
             </h3>
 
             {/* Center-line alternating timeline */}
             <div className="relative">
-              {/* Center vertical line */}
               <div
                 className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2"
                 style={{
@@ -207,19 +204,7 @@ const About = () => {
                 }}
               />
 
-              {[
-                { date: "February 2025", text: "LIEPNET™ was founded" },
-                { date: "February 21st, 2025", text: "First LIEPNET™ official server was made" },
-                { date: "April 13th, 2025", text: "The LIEPNET.ID.LV website was created" },
-                { date: "June 9th, 2025", text: "The LIEPNET™ Weather project was created" },
-                { date: "August 8th, 2025", text: "The LIEPNET™ SERVER 1 was installed" },
-                { date: "August 19th, 2025", text: "The LIEPNET.EU website was created" },
-                { date: "September 25th, 2025", text: "AUDIOBOOKSHELF.LIEPNET.ID.LV was published" },
-                { date: "October 13th, 2025", text: "AZURACAST.LIEPNET.ID.LV was published" },
-                { date: "November 2nd, 2025", text: "The LIEPNET™ SERVER 1 was upgraded from 16 GB RAM to 96 GB RAM capacity" },
-                { date: "December 16th, 2025", text: "Major LIEPNET™ system downtime" },
-                { date: "January 8th, 2026", text: "LIEPNET™ acquired LIEPNET.CLOUD" },
-              ].map((item, i, arr) => {
+              {historyItems.map((item, i, arr) => {
                 const isRight = i % 2 === 0;
                 const isLast = i === arr.length - 1;
 
@@ -229,7 +214,6 @@ const About = () => {
                     className="relative flex items-start mb-12 last:mb-0"
                     style={{ minHeight: 60 }}
                   >
-                    {/* Left content */}
                     <div className={`w-1/2 pr-8 ${!isRight ? "flex flex-col items-end text-right" : ""}`}>
                       {!isRight && (
                         <>
@@ -249,7 +233,6 @@ const About = () => {
                       )}
                     </div>
 
-                    {/* Center dot */}
                     <div className="absolute left-1/2 -translate-x-1/2 top-1 z-10">
                       <div
                         className="w-[11px] h-[11px] rounded-full relative"
@@ -278,8 +261,7 @@ const About = () => {
                       )}
                     </div>
 
-                    {/* Right content */}
-                    <div className={`w-1/2 pl-8 ${isRight ? "" : ""}`}>
+                    <div className={`w-1/2 pl-8`}>
                       {isRight && (
                         <>
                           <p
