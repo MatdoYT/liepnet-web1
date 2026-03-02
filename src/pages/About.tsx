@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useIsMobile } from "@/hooks/use-mobile";
 import aboutLogoSrc from "@/assets/liepnet-logo-about.webp";
 
 const About = () => {
@@ -9,6 +10,7 @@ const About = () => {
   const logoContainerRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
   const [isHovering, setIsHovering] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     document.title = "About - LIEPNET™";
@@ -73,12 +75,16 @@ const About = () => {
               <div
                 className="absolute inset-0 flex items-center justify-center transition-opacity duration-300"
                 style={{
-                  maskImage: isHovering
-                    ? `radial-gradient(circle 320px at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.08) 100%)`
-                    : "radial-gradient(circle 320px at 50% 50%, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.08) 100%)",
-                  WebkitMaskImage: isHovering
-                    ? `radial-gradient(circle 320px at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.08) 100%)`
-                    : "radial-gradient(circle 320px at 50% 50%, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.08) 100%)",
+                  maskImage: isMobile
+                    ? "linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%)"
+                    : isHovering
+                      ? `radial-gradient(circle 320px at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.08) 100%)`
+                      : "radial-gradient(circle 320px at 50% 50%, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.08) 100%)",
+                  WebkitMaskImage: isMobile
+                    ? "linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 100%)"
+                    : isHovering
+                      ? `radial-gradient(circle 320px at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.08) 100%)`
+                      : "radial-gradient(circle 320px at 50% 50%, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.08) 100%)",
                 }}
               >
                 <img
@@ -197,7 +203,7 @@ const About = () => {
             {/* Center-line alternating timeline */}
             <div className="relative">
               <div
-                className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2"
+                className={`absolute ${isMobile ? 'left-[5px]' : 'left-1/2 -translate-x-1/2'} top-0 bottom-0 w-px`}
                 style={{
                   background:
                     "linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.3) 5%, rgba(255,255,255,0.3) 95%, transparent 100%)",
@@ -205,16 +211,16 @@ const About = () => {
               />
 
               {historyItems.map((item, i, arr) => {
-                const isRight = i % 2 === 0;
+                const isRight = isMobile ? true : i % 2 === 0;
                 const isLast = i === arr.length - 1;
 
                 return (
                   <div
                     key={i}
-                    className="relative flex items-start mb-12 last:mb-0"
+                    className={`relative flex items-start mb-12 last:mb-0 ${isMobile ? '' : ''}`}
                     style={{ minHeight: 60 }}
                   >
-                    <div className={`w-1/2 pr-8 ${!isRight ? "flex flex-col items-end text-right" : ""}`}>
+                    <div className={`${isMobile ? 'hidden' : 'w-1/2'} pr-8 ${!isRight ? "flex flex-col items-end text-right" : ""}`}>
                       {!isRight && (
                         <>
                           <p
@@ -233,7 +239,7 @@ const About = () => {
                       )}
                     </div>
 
-                    <div className="absolute left-1/2 -translate-x-1/2 top-1 z-10">
+                    <div className={`absolute ${isMobile ? 'left-0' : 'left-1/2 -translate-x-1/2'} top-1 z-10`}>
                       <div
                         className="w-[11px] h-[11px] rounded-full relative"
                         style={{
@@ -261,7 +267,7 @@ const About = () => {
                       )}
                     </div>
 
-                    <div className={`w-1/2 pl-8`}>
+                    <div className={`${isMobile ? 'pl-7' : 'w-1/2 pl-8'}`}>
                       {isRight && (
                         <>
                           <p
